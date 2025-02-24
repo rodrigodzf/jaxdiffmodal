@@ -60,28 +60,3 @@ n)</strong></td>
 </tr>
 </tbody>
 </table>
-
-------------------------------------------------------------------------
-
-### eigenMAC
-
->      eigenMAC (ref_eigenvectors, ref_nx, ref_ny, eigenvectors, eigenvalues,
->                nx, ny, n_modes, Lx, Ly)
-
-\*Computes the Modal Assurance Criterion (MAC) between reference
-eigenvectors and given eigenvectors.
-
-Parameters: ref_eigenvectors : ndarray Reference eigenvectors (reshaped
-for interpolation). ref_nx : int Number of reference grid points along
-the x-axis. ref_ny : int Number of reference grid points along the
-y-axis. eigenvectors : ndarray Eigenvectors to compare against the
-reference. eigenvalues : ndarray Corresponding eigenvalues of the
-eigenvectors. nx : int Number of grid points along the x-axis for
-interpolation. ny : int Number of grid points along the y-axis for
-interpolation. n_modes : int Number of modes to compare. Lx : float
-Length of the domain along the x-axis. Ly : float Length of the domain
-along the y-axis.
-
-Returns: eigenvectors_swapped : ndarray Reordered eigenvectors after MAC
-computation. eigenvalues_swapped : ndarray Reordered eigenvalues after
-MAC computation.\*

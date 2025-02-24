@@ -15,26 +15,59 @@
 
 >      second_derivative (Nx, Ny, h, direction='x')
 
-\*Construct a higher-order second derivative operator matching the
-MATLAB implementation of vkplate.
+*Construct a higher-order second derivative operator matching the MATLAB
+implementation of vkplate.*
 
-Parameters: Nx (int): Number of intervals in the x-direction. Ny (int):
-Number of intervals in the y-direction. h (float): Grid spacing.
-
-Returns: scipy.sparse.spmatrix: The (Nx+1)*(Ny+1) x (Nx+1)*(Ny+1) second
-derivative operator.\*
-
-------------------------------------------------------------------------
-
-### pad_lower
-
->      pad_lower (vec, pad)
-
-------------------------------------------------------------------------
-
-### pad_upper
-
->      pad_upper (vec, pad)
+<table>
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 25%" />
+<col style="width: 34%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nx</td>
+<td>int</td>
+<td></td>
+<td>Number of intervals in the x-direction.</td>
+</tr>
+<tr class="even">
+<td>Ny</td>
+<td>int</td>
+<td></td>
+<td>Number of intervals in the y-direction.</td>
+</tr>
+<tr class="odd">
+<td>h</td>
+<td>float</td>
+<td></td>
+<td>Grid spacing.</td>
+</tr>
+<tr class="even">
+<td>direction</td>
+<td>str</td>
+<td>x</td>
+<td>Direction of the second derivative operator. Can be ‘x’ or ‘y’.</td>
+</tr>
+<tr class="odd">
+<td><strong>Returns</strong></td>
+<td><strong>scipy.sparse.spmatrix</strong></td>
+<td></td>
+<td><strong>The <span
+class="math inline">(<em>N</em><em>x</em>+1)(<em>N</em><em>y</em>+1) × (<em>N</em><em>x</em>+1)(<em>N</em><em>y</em>+1)</span>
+second derivative operator.</strong></td>
+</tr>
+</tbody>
+</table>
 
 The bilinear von Kármán operator is defined as
 
@@ -109,26 +142,28 @@ operator<br>applied to phi1 and phi2.</strong></td>
 
 >      double_trapezoid (f, dx, dy=None)
 
+------------------------------------------------------------------------
+
+### compute_coupling_matrix_numerical
+
+>      compute_coupling_matrix_numerical (psi:numpy.ndarray, phi:numpy.ndarray,
+>                                         h:float, nx:int, ny:int)
+
+\*Compute the coupling matrix for the given in-plane and out-of-plane
+modes.
+
 The modal coupling matrix is computed as
 
 $$
-H\_{p, q}^k=\frac{\int_S \Psi_k L\left(\Phi_p, \Phi_q\right) \mathrm{d} S}{\left\\\Psi_k\right\\\left\\\Phi_p\right\\\left\\\Phi_q\right\\}
+H\_{p, q}^k =
+\frac{\int_S \Psi_k L\left(\Phi_p, \Phi_q\right) \mathrm{d} S}{\left\\\Psi_k\right\\\left\\\Phi_p\right\\\left\\\Phi_q\right\\}
 $$
 
 Here however we compute
 
 *H*<sub>*p*, *q*</sub><sup>*k*</sup> = ∫<sub>*S*</sub>*Ψ*<sub>*k*</sub>*L*(*Φ*<sub>*p*</sub>,*Φ*<sub>*q*</sub>)d*S*
 
-since the *Ψ* and *Φ* functions are normalised elsewhere.
-
-------------------------------------------------------------------------
-
-### compute_coupling_matrix_numerical
-
->      compute_coupling_matrix_numerical (psi, phi, h, nx, ny)
-
-*Compute the coupling matrix for the given in-plane and out-of-plane
-modes.*
+since the *Ψ* and *Φ* functions are normalised elsewhere.\*
 
 <table>
 <colgroup>
@@ -146,14 +181,14 @@ modes.*
 <tbody>
 <tr class="odd">
 <td>psi</td>
-<td>np.ndarray</td>
+<td>ndarray</td>
 <td>The <strong>normalised</strong> in-plane modes with shape (ny+1 *
 nx+1, n_modes.<br>These are stored in a flattened array
 column-wise.</td>
 </tr>
 <tr class="even">
 <td>phi</td>
-<td>np.ndarray</td>
+<td>ndarray</td>
 <td>The <strong>normalised</strong> out-of-plane modes with shape (ny+1
 * nx+1, n_modes).<br>These are stored in a flattened array
 column-wise.</td>
@@ -165,13 +200,19 @@ column-wise.</td>
 </tr>
 <tr class="even">
 <td>nx</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The number of intervals in the x-direction.</td>
 </tr>
 <tr class="odd">
 <td>ny</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The number of intervals in the y-direction.</td>
+</tr>
+<tr class="even">
+<td><strong>Returns</strong></td>
+<td><strong>np.ndarray</strong></td>
+<td><strong>The coupling matrix with shape (n_modes, n_modes,
+n_modes).</strong></td>
 </tr>
 </tbody>
 </table>
@@ -184,6 +225,16 @@ column-wise.</td>
 
 >      polarisation (interpolated_eigenvectors, eigenvectors, h)
 
+------------------------------------------------------------------------
+
+### eigenMAC
+
+>      eigenMAC (ref_eigenvectors, ref_nx, ref_ny, eigenvectors, eigenvalues,
+>                nx, ny, n_modes, Lx, Ly, h)
+
+\*Computes the Modal Assurance Criterion (MAC) between reference
+eigenvectors and given eigenvectors.
+
 The Modal Assurance Criterion (MAC) between two eigenvectors (mode
 shapes) *Φ*<sub>*i*</sub> and *Φ*<sub>*j*</sub> is:
 
@@ -195,17 +246,7 @@ $$
 
 MAC measures the degree of similarity (or consistency) between the two
 mode shapes. A value of 1 indicates identical shapes (up to a scalar),
-while a value near 0 indicates they are nearly orthogonal.
-
-------------------------------------------------------------------------
-
-### eigenMAC
-
->      eigenMAC (ref_eigenvectors, ref_nx, ref_ny, eigenvectors, eigenvalues,
->                nx, ny, n_modes, Lx, Ly, h)
-
-*Computes the Modal Assurance Criterion (MAC) between reference
-eigenvectors and given eigenvectors.*
+while a value near 0 indicates they are nearly orthogonal.\*
 
 <table>
 <colgroup>
@@ -383,18 +424,81 @@ eigenvectors.</strong></td>
 
 ### multiresolution_eigendecomposition
 
->      multiresolution_eigendecomposition (params, n_modes, bcs, h, nx:int,
->                                          ny:int, levels:int=2)
+>      multiresolution_eigendecomposition
+>                                          (params:vkplatejax.ftm.PlateParameter
+>                                          s, n_modes:int, bcs:numpy.ndarray,
+>                                          h:float, nx:int, ny:int,
+>                                          levels:int=2)
 
-\*Runs the biharmonic eigendecomposition and eigenvector alignment on
-multiple grid resolutions.
+*Runs the biharmonic eigendecomposition and eigenvector alignment on
+multiple grid resolutions.*
 
-Parameters params: Parameters object containing domain lengths
-(e.g. params.lx and params.ly). n_modes: Number of eigenmodes to
-compute. bcs: Boundary conditions. h: Initial grid spacing. nx, ny:
-Initial grid dimensions. levels: Total number of resolutions to run
-(default 2). The first level is the coarse grid, and each subsequent
-level uses h/2 and double the grid points to cover the same domain.
-
-Returns swapped_eigenvectors, swapped_eigenvalues from the last
-refinement.\*
+<table>
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 25%" />
+<col style="width: 34%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>params</td>
+<td>PlateParameters</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>n_modes</td>
+<td>int</td>
+<td></td>
+<td>Number of eigenmodes to compute.</td>
+</tr>
+<tr class="odd">
+<td>bcs</td>
+<td>ndarray</td>
+<td></td>
+<td>Boundary conditions.</td>
+</tr>
+<tr class="even">
+<td>h</td>
+<td>float</td>
+<td></td>
+<td>Initial grid spacing.</td>
+</tr>
+<tr class="odd">
+<td>nx</td>
+<td>int</td>
+<td></td>
+<td>Number of grid points in the x-direction.</td>
+</tr>
+<tr class="even">
+<td>ny</td>
+<td>int</td>
+<td></td>
+<td>Number of grid points in the y-direction.</td>
+</tr>
+<tr class="odd">
+<td>levels</td>
+<td>int</td>
+<td>2</td>
+<td>Total number of resolutions to run (default 2).<br>The first level
+is the coarse grid, and each subsequent level<br>uses h/2 and double the
+grid points to cover the same domain.</td>
+</tr>
+<tr class="even">
+<td><strong>Returns</strong></td>
+<td><strong>swapped_eigenvectors, swapped_eigenvalues from the last
+refinement.</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>

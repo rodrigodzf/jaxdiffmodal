@@ -117,9 +117,21 @@ window.Quarto = {
     <span class="navbar-title">vkplatejax</span>
     </a>
   </div>
-        <div class="quarto-navbar-tools tools-end">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/rodrigodzf/vkplatejax"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
 </div>
-          <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
@@ -199,8 +211,6 @@ window.Quarto = {
   <ul>
   <li><a href="#second_derivative_mixed" id="toc-second_derivative_mixed" class="nav-link active" data-scroll-target="#second_derivative_mixed">second_derivative_mixed</a></li>
   <li><a href="#second_derivative" id="toc-second_derivative" class="nav-link" data-scroll-target="#second_derivative">second_derivative</a></li>
-  <li><a href="#pad_lower" id="toc-pad_lower" class="nav-link" data-scroll-target="#pad_lower">pad_lower</a></li>
-  <li><a href="#pad_upper" id="toc-pad_upper" class="nav-link" data-scroll-target="#pad_upper">pad_upper</a></li>
   <li><a href="#vkoperator" id="toc-vkoperator" class="nav-link" data-scroll-target="#vkoperator">vkoperator</a></li>
   <li><a href="#double_trapezoid_flat" id="toc-double_trapezoid_flat" class="nav-link" data-scroll-target="#double_trapezoid_flat">double_trapezoid_flat</a></li>
   <li><a href="#double_trapezoid" id="toc-double_trapezoid" class="nav-link" data-scroll-target="#double_trapezoid">double_trapezoid</a></li>
@@ -254,23 +264,55 @@ window.Quarto = {
 <blockquote class="blockquote">
 <pre><code> second_derivative (Nx, Ny, h, direction='x')</code></pre>
 </blockquote>
-<p>*Construct a higher-order second derivative operator matching the MATLAB implementation of vkplate.</p>
-<p>Parameters: Nx (int): Number of intervals in the x-direction. Ny (int): Number of intervals in the y-direction. h (float): Grid spacing.</p>
-<p>Returns: scipy.sparse.spmatrix: The (Nx+1)<em>(Ny+1) x (Nx+1)</em>(Ny+1) second derivative operator.*</p>
-<hr>
-</section>
-<section id="pad_lower" class="level3">
-<h3 class="anchored" data-anchor-id="pad_lower">pad_lower</h3>
-<blockquote class="blockquote">
-<pre><code> pad_lower (vec, pad)</code></pre>
-</blockquote>
-<hr>
-</section>
-<section id="pad_upper" class="level3">
-<h3 class="anchored" data-anchor-id="pad_upper">pad_upper</h3>
-<blockquote class="blockquote">
-<pre><code> pad_upper (vec, pad)</code></pre>
-</blockquote>
+<p><em>Construct a higher-order second derivative operator matching the MATLAB implementation of vkplate.</em></p>
+<table class="table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 25%">
+<col style="width: 34%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nx</td>
+<td>int</td>
+<td></td>
+<td>Number of intervals in the x-direction.</td>
+</tr>
+<tr class="even">
+<td>Ny</td>
+<td>int</td>
+<td></td>
+<td>Number of intervals in the y-direction.</td>
+</tr>
+<tr class="odd">
+<td>h</td>
+<td>float</td>
+<td></td>
+<td>Grid spacing.</td>
+</tr>
+<tr class="even">
+<td>direction</td>
+<td>str</td>
+<td>x</td>
+<td>Direction of the second derivative operator. Can be ‘x’ or ‘y’.</td>
+</tr>
+<tr class="odd">
+<td><strong>Returns</strong></td>
+<td><strong>scipy.sparse.spmatrix</strong></td>
+<td></td>
+<td><strong>The <span class="math inline">\((Nx+1)(Ny+1) \times (Nx+1)(Ny+1)\)</span> second derivative operator.</strong></td>
+</tr>
+</tbody>
+</table>
 <p>The bilinear von Kármán operator is defined as</p>
 <p><span class="math display">\[
 L(f, g)=f_{, x x} g_{, y y}+f_{, y y} g_{, x x}-2 f_{, x y} g_{, x y}
@@ -343,23 +385,25 @@ L(f, g)=f_{, x x} g_{, y y}+f_{, y y} g_{, x x}-2 f_{, x y} g_{, x y}
 <blockquote class="blockquote">
 <pre><code> double_trapezoid (f, dx, dy=None)</code></pre>
 </blockquote>
-<p>The modal coupling matrix is computed as</p>
-<p><span class="math display">\[
-H_{p, q}^k=\frac{\int_S \Psi_k L\left(\Phi_p, \Phi_q\right) \mathrm{d} S}{\left\|\Psi_k\right\|\left\|\Phi_p\right\|\left\|\Phi_q\right\|}
-\]</span></p>
-<p>Here however we compute</p>
-<p><span class="math display">\[
-H_{p, q}^k= \int_S \Psi_k L\left(\Phi_p, \Phi_q\right) \mathrm{d} S
-\]</span></p>
-<p>since the <span class="math inline">\(\Psi\)</span> and <span class="math inline">\(\Phi\)</span> functions are normalised elsewhere.</p>
 <hr>
 </section>
 <section id="compute_coupling_matrix_numerical" class="level3">
 <h3 class="anchored" data-anchor-id="compute_coupling_matrix_numerical">compute_coupling_matrix_numerical</h3>
 <blockquote class="blockquote">
-<pre><code> compute_coupling_matrix_numerical (psi, phi, h, nx, ny)</code></pre>
+<pre><code> compute_coupling_matrix_numerical (psi:numpy.ndarray, phi:numpy.ndarray,
+                                    h:float, nx:int, ny:int)</code></pre>
 </blockquote>
-<p><em>Compute the coupling matrix for the given in-plane and out-of-plane modes.</em></p>
+<p>*Compute the coupling matrix for the given in-plane and out-of-plane modes.</p>
+<p>The modal coupling matrix is computed as</p>
+<p><span class="math display">\[
+H_{p, q}^k =
+\frac{\int_S \Psi_k L\left(\Phi_p, \Phi_q\right) \mathrm{d} S}{\left\|\Psi_k\right\|\left\|\Phi_p\right\|\left\|\Phi_q\right\|}
+\]</span></p>
+<p>Here however we compute</p>
+<p><span class="math display">\[
+H_{p, q}^k= \int_S \Psi_k L\left(\Phi_p, \Phi_q\right) \mathrm{d} S
+\]</span></p>
+<p>since the <span class="math inline">\(\Psi\)</span> and <span class="math inline">\(\Phi\)</span> functions are normalised elsewhere.*</p>
 <table class="table">
 <colgroup>
 <col style="width: 9%">
@@ -376,12 +420,12 @@ H_{p, q}^k= \int_S \Psi_k L\left(\Phi_p, \Phi_q\right) \mathrm{d} S
 <tbody>
 <tr class="odd">
 <td>psi</td>
-<td>np.ndarray</td>
+<td>ndarray</td>
 <td>The <strong>normalised</strong> in-plane modes with shape (ny+1 * nx+1, n_modes.<br>These are stored in a flattened array column-wise.</td>
 </tr>
 <tr class="even">
 <td>phi</td>
-<td>np.ndarray</td>
+<td>ndarray</td>
 <td>The <strong>normalised</strong> out-of-plane modes with shape (ny+1 * nx+1, n_modes).<br>These are stored in a flattened array column-wise.</td>
 </tr>
 <tr class="odd">
@@ -391,13 +435,18 @@ H_{p, q}^k= \int_S \Psi_k L\left(\Phi_p, \Phi_q\right) \mathrm{d} S
 </tr>
 <tr class="even">
 <td>nx</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The number of intervals in the x-direction.</td>
 </tr>
 <tr class="odd">
 <td>ny</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The number of intervals in the y-direction.</td>
+</tr>
+<tr class="even">
+<td><strong>Returns</strong></td>
+<td><strong>np.ndarray</strong></td>
+<td><strong>The coupling matrix with shape (n_modes, n_modes, n_modes).</strong></td>
 </tr>
 </tbody>
 </table>
@@ -410,13 +459,6 @@ H_{p, q}^k= \int_S \Psi_k L\left(\Phi_p, \Phi_q\right) \mathrm{d} S
 <blockquote class="blockquote">
 <pre><code> polarisation (interpolated_eigenvectors, eigenvectors, h)</code></pre>
 </blockquote>
-<p>The Modal Assurance Criterion (MAC) between two eigenvectors (mode shapes) <span class="math inline">\(\Phi_i\)</span> and <span class="math inline">\(\Phi_j\)</span> is:</p>
-<p><span class="math display">\[
-\mathrm{MAC}(\Phi_i,\Phi_j) =
-\frac{|\Phi_i^{T}\,\Phi_j|^{2}}
-    {\left(\Phi_i^{T}\,\Phi_i\right)\,\left(\Phi_j^{T}\,\Phi_j\right)}.
-\]</span></p>
-<p>MAC measures the degree of similarity (or consistency) between the two mode shapes. A value of 1 indicates identical shapes (up to a scalar), while a value near 0 indicates they are nearly orthogonal.</p>
 <hr>
 </section>
 <section id="eigenmac" class="level3">
@@ -425,7 +467,14 @@ H_{p, q}^k= \int_S \Psi_k L\left(\Phi_p, \Phi_q\right) \mathrm{d} S
 <pre><code> eigenMAC (ref_eigenvectors, ref_nx, ref_ny, eigenvectors, eigenvalues,
            nx, ny, n_modes, Lx, Ly, h)</code></pre>
 </blockquote>
-<p><em>Computes the Modal Assurance Criterion (MAC) between reference eigenvectors and given eigenvectors.</em></p>
+<p>*Computes the Modal Assurance Criterion (MAC) between reference eigenvectors and given eigenvectors.</p>
+<p>The Modal Assurance Criterion (MAC) between two eigenvectors (mode shapes) <span class="math inline">\(\Phi_i\)</span> and <span class="math inline">\(\Phi_j\)</span> is:</p>
+<p><span class="math display">\[
+\mathrm{MAC}(\Phi_i,\Phi_j) =
+\frac{|\Phi_i^{T}\,\Phi_j|^{2}}
+    {\left(\Phi_i^{T}\,\Phi_i\right)\,\left(\Phi_j^{T}\,\Phi_j\right)}.
+\]</span></p>
+<p>MAC measures the degree of similarity (or consistency) between the two mode shapes. A value of 1 indicates identical shapes (up to a scalar), while a value near 0 indicates they are nearly orthogonal.*</p>
 <table class="table">
 <colgroup>
 <col style="width: 9%">
@@ -593,12 +642,79 @@ H_{p, q}^k= \int_S \Psi_k L\left(\Phi_p, \Phi_q\right) \mathrm{d} S
 <section id="multiresolution_eigendecomposition" class="level3">
 <h3 class="anchored" data-anchor-id="multiresolution_eigendecomposition">multiresolution_eigendecomposition</h3>
 <blockquote class="blockquote">
-<pre><code> multiresolution_eigendecomposition (params, n_modes, bcs, h, nx:int,
-                                     ny:int, levels:int=2)</code></pre>
+<pre><code> multiresolution_eigendecomposition
+                                     (params:vkplatejax.ftm.PlateParameter
+                                     s, n_modes:int, bcs:numpy.ndarray,
+                                     h:float, nx:int, ny:int,
+                                     levels:int=2)</code></pre>
 </blockquote>
-<p>*Runs the biharmonic eigendecomposition and eigenvector alignment on multiple grid resolutions.</p>
-<p>Parameters params: Parameters object containing domain lengths (e.g.&nbsp;params.lx and params.ly). n_modes: Number of eigenmodes to compute. bcs: Boundary conditions. h: Initial grid spacing. nx, ny: Initial grid dimensions. levels: Total number of resolutions to run (default 2). The first level is the coarse grid, and each subsequent level uses h/2 and double the grid points to cover the same domain.</p>
-<p>Returns swapped_eigenvectors, swapped_eigenvalues from the last refinement.*</p>
+<p><em>Runs the biharmonic eigendecomposition and eigenvector alignment on multiple grid resolutions.</em></p>
+<table class="table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 25%">
+<col style="width: 34%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>params</td>
+<td>PlateParameters</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>n_modes</td>
+<td>int</td>
+<td></td>
+<td>Number of eigenmodes to compute.</td>
+</tr>
+<tr class="odd">
+<td>bcs</td>
+<td>ndarray</td>
+<td></td>
+<td>Boundary conditions.</td>
+</tr>
+<tr class="even">
+<td>h</td>
+<td>float</td>
+<td></td>
+<td>Initial grid spacing.</td>
+</tr>
+<tr class="odd">
+<td>nx</td>
+<td>int</td>
+<td></td>
+<td>Number of grid points in the x-direction.</td>
+</tr>
+<tr class="even">
+<td>ny</td>
+<td>int</td>
+<td></td>
+<td>Number of grid points in the y-direction.</td>
+</tr>
+<tr class="odd">
+<td>levels</td>
+<td>int</td>
+<td>2</td>
+<td>Total number of resolutions to run (default 2).<br>The first level is the coarse grid, and each subsequent level<br>uses h/2 and double the grid points to cover the same domain.</td>
+</tr>
+<tr class="even">
+<td><strong>Returns</strong></td>
+<td><strong>swapped_eigenvectors, swapped_eigenvalues from the last refinement.</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 
 </section>

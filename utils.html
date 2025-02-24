@@ -88,9 +88,21 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">vkplatejax</span>
     </a>
   </div>
-        <div class="quarto-navbar-tools tools-end">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/rodrigodzf/vkplatejax"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
 </div>
-          <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
@@ -170,7 +182,6 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#to_db" id="toc-to_db" class="nav-link active" data-scroll-target="#to_db">to_db</a></li>
   <li><a href="#impulse_response" id="toc-impulse_response" class="nav-link" data-scroll-target="#impulse_response">impulse_response</a></li>
-  <li><a href="#eigenmac" id="toc-eigenmac" class="nav-link" data-scroll-target="#eigenmac">eigenMAC</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/rodrigodzf/vkplatejax/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="utils.html.md"><i class="bi bi-file-code"></i>CommonMark</a></li></ul></div></nav>
     </div>
@@ -253,17 +264,6 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<hr>
-</section>
-<section id="eigenmac" class="level3">
-<h3 class="anchored" data-anchor-id="eigenmac">eigenMAC</h3>
-<blockquote class="blockquote">
-<pre><code> eigenMAC (ref_eigenvectors, ref_nx, ref_ny, eigenvectors, eigenvalues,
-           nx, ny, n_modes, Lx, Ly)</code></pre>
-</blockquote>
-<p>*Computes the Modal Assurance Criterion (MAC) between reference eigenvectors and given eigenvectors.</p>
-<p>Parameters: ref_eigenvectors : ndarray Reference eigenvectors (reshaped for interpolation). ref_nx : int Number of reference grid points along the x-axis. ref_ny : int Number of reference grid points along the y-axis. eigenvectors : ndarray Eigenvectors to compare against the reference. eigenvalues : ndarray Corresponding eigenvalues of the eigenvectors. nx : int Number of grid points along the x-axis for interpolation. ny : int Number of grid points along the y-axis for interpolation. n_modes : int Number of modes to compare. Lx : float Length of the domain along the x-axis. Ly : float Length of the domain along the y-axis.</p>
-<p>Returns: eigenvectors_swapped : ndarray Reordered eigenvectors after MAC computation. eigenvalues_swapped : ndarray Reordered eigenvalues after MAC computation.*</p>
 
 
 </section>
