@@ -1,0 +1,3 @@
+[submodule "third_party/VKPlate"]
+	path = third_party/VKPlate
+	url = https://github.com/Nemus-Project/VKPlate

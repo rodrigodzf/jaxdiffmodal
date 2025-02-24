@@ -1,0 +1,149 @@
+[project]
+name = "vkplatejax"
+version = "0.1.0"
+description = "A collection vibration models (e.g. von Kármán plates, tension-modulated and stiff strings) implemented in JAX for fast, differentiable simulations"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "cuquantum-python-cu12>=24.11.0; sys_platform == 'linux'",
+    "jax[cuda12]>=0.5.0; sys_platform == 'linux'",
+    "jax>=0.5.0; sys_platform == 'darwin'",
+    "einops>=0.8.0",
+    "flax>=0.10.2",
+    "ipywidgets>=8.1.5",
+    "matplotlib>=3.10.0",
+    "nemus-magpie",
+    "numpy>=2.2.2",
+    "pandas>=2.2.3",
+    "scipy>=1.15.1",
+    "soundfile>=0.13.1",
+    "sympy>=1.13.3",
+    "tabulate>=0.9.0",
+    "tensorly>=0.9.0",
+    "tqdm>=4.67.1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "vkplatejax/__init__.py"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[dependency-groups]
+dev = [
+    "ipykernel>=6.29.5",
+    "nbdev>=2.3.34",
+    "poethepoet>=0.32.1",
+    "ruff>=0.9.2",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+output-format = "concise"  # Works better for CI
+# extend-exclude = ["examples"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "PD", "PERF", "UP", "C4"]
+
+[tool.poe]
+verbosity = 0
+
+[tool.poe.tasks]
+# Hidden subtasks for Poe. Tasks starting with "_" cannot be executed directly, just used as part of other tasks
+# nbdev related tasks
+_nb_check_format = "uv run ruff format nbs --check"
+_nb_clean = "uv run nbdev_clean"
+_nb_format = "uv run ruff format nbs"
+_nb_export = "uv run nbdev_export"
+_nb_update = "uv run nbdev_update"
+_nb_test = { cmd = "uv run nbdev_test", env = { JAX_PLATFORMS = "cpu" } }
+_nb_readme = { cmd = "uv run nbdev_readme", env = { JAX_PLATFORMS = "cpu" } }
+# Pytest
+_pytest = "uv run pytest"
+# Linting
+_ruff = "uv run ruff check --output-format=concise"
+_check_format = "uv run ruff format --diff"
+_mypy = "uv run mypy ."
+# Formatting
+_format = "uv run ruff format"
+# UV tasks
+_sync = "uv sync --all-extras"
+
+[tool.poe.tasks.clean]
+  help = "Remove temporary files generated during build process"
+  cmd  = """
+    # multiline commands including comments work too!
+    rm -rf .coverage
+           .mypy_cache
+           .pytest_cache
+           ./**/__pycache__
+           _proc
+           .ruff_cache
+  """
+
+[tool.poe.tasks.format]
+    help = "Reformat all notebooks and python files"
+    sequence = [
+        "_nb_format",
+        "_format"
+    ]
+
+[tool.poe.tasks.sync]
+    help = "Full package synchronisation: runs notebook cleaning and formatting, exports library and readme files, regenerates lockfile and update virtual environment"
+    sequence = [
+        "_nb_clean",
+        "_nb_format",
+        "_nb_export",
+        "_format",
+        "_sync",
+        "clean"
+    ]
+
+[tool.poe.tasks.fullsync]
+    help = "Full package synchronisation: runs notebook cleaning and formatting, exports library and readme files, regenerates lockfile and update virtual environment"
+    sequence = [
+        "_nb_clean",
+        "_nb_format",
+        "_nb_export",
+        "_nb_readme",
+        "_format",
+        "_sync",
+        "clean"
+    ]
+
+[tool.poe.tasks.update]
+    help = "Update the nbs based on the library"
+    sequence = [
+        "_nb_clean",
+        "_nb_format",
+        "_nb_update",
+        "_format",
+        "_sync",
+        "clean"
+    ]
+
+[tool.poe.tasks.test]
+    help = "Run testsuite, including both notebook tests and pytest"
+    sequence = [
+        "_nb_test", 
+    ]
+
+[tool.poe.tasks.preview]
+    help = "Run the preview with quarto"
+    cmd = "quarto preview"
+    env = { JAX_PLATFORMS = "cpu" }
+    cwd = "nbs"
+
+[tool.poe.tasks.publish]
+    help = "Publish the documentation with quarto"
+    cmd = "quarto publish gh-pages"
+    env = { JAX_PLATFORMS = "cpu" }
+    cwd = "nbs"
+
+[tool.uv.sources]
+nemus-magpie = { git = "https://github.com/Nemus-Project/magpie-python" }
