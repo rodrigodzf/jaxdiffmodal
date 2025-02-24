@@ -1,0 +1,43 @@
+# vkplatejax
+
+
+> Fast and differentiable simulation of the Von Karman plate model using
+> JAX.
+
+This code is based on the matlab implementation of the Von Karman plate
+model found [here](https://github.com/Nemus-Project/VKPlate).
+
+To run the time integration of the Von Karman plate model using JAX, the
+coupling coefficients and the eigenmodes of the plate are precomputed
+using the matlab implementation.
+
+Example matrices can be downloaded with the following command:
+
+``` bash
+wget https://github.com/Nemus-Project/VKPlate/releases/download/0.2.0/param.zip -P matlab
+unzip matlab/param.zip -d matlab
+```
+
+## Installation for Development
+
+It is strongly recommended to use the [`uv` package
+manager](https://github.com/astral-sh/uv) to install the environment and
+dependencies.
+
+``` bash
+uv sync --all-extras
+```
+
+otherwise you can create a virtual environment and install the
+dependencies manually:
+
+``` bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -e .
+```
+
+## How to use
+
+Once everything is installed, you can run the `vkplate_opt.ipynb`
+notebook.

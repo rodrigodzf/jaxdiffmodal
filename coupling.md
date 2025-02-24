@@ -1,0 +1,921 @@
+# Coupling functions
+
+
+::: {.cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’ 6=‘i’}
+
+``` python
+import numpy as np
+from scipy.linalg import eig, eigh  # or eigh if K,M guaranteed symmetric
+from scipy.sparse.linalg import eigs
+from matplotlib import pyplot as plt
+from scipy import sparse
+from scipy.io import loadmat
+import math
+```
+
+:::
+
+## Integrals for building the mass and stifness matrices
+
+::: {.cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’}
+
+``` python
+def int4(m, p, L):
+    """
+    Integral of Xd(m,x)*Xd(p,x) from 0 to L,
+    where X is the clamped-plate function and d denotes derivative in x.
+    Piecewise definition follows the original Matlab code exactly.
+    """
+    if m == 0 and p == 0:
+        y = 120.0 / (7.0 * L)
+    elif (m == p) and (m != 0):
+        # (768*pi^2*m^2 - 47040*(-1)^m + 35*pi^4*m^4 + 432*(-1)^m*pi^2*m^2 - 53760) / (70*L*pi^2*m^2)
+        y = (
+            768.0 * math.pi**2 * m * m
+            - 47040.0 * ((-1) ** m)
+            + 35.0 * math.pi**4 * m**4
+            + 432.0 * ((-1) ** m) * math.pi**2 * m * m
+            - 53760.0
+        ) / (70.0 * L * math.pi**2 * m * m)
+    elif m == 0:
+        # (60*((-1)^p + 1)*(pi^2*p^2 - 42)) / (7*L*pi^2*p^2)
+        num = 60.0 * (((-1) ** p + 1.0) * (math.pi**2 * p**2 - 42.0))
+        den = 7.0 * L * math.pi**2 * p**2
+        y = num / den
+    elif p == 0:
+        # (60*((-1)^m + 1)*(pi^2*m^2 - 42)) / (7*L*pi^2*m^2)
+        num = 60.0 * (((-1) ** m + 1.0) * (math.pi**2 * m**2 - 42.0))
+        den = 7.0 * L * math.pi**2 * m**2
+        y = num / den
+    else:
+        # 192/35/L*(1 + (-1)^m*(-1)^p)
+        # - 192/(m^2*p^2*L*pi^2)*((p^2+m^2)*(1 + (-1)^m*(-1)^p))
+        # - 168/(m^2*p^2*L*pi^2)*((p^2+m^2)*((-1)^m + (-1)^p))
+        # + 108/35/L*((-1)^m + (-1)^p)
+        term1 = 192.0 / 35.0 / L * (1.0 + (-1) ** m * (-1) ** p)
+        term2 = (
+            -192.0
+            / (m * m * p * p * L * math.pi**2)
+            * ((p * p + m * m) * (1.0 + (-1) ** m * (-1) ** p))
+        )
+        term3 = (
+            -168.0
+            / (m * m * p * p * L * math.pi**2)
+            * ((p * p + m * m) * (((-1) ** m) + ((-1) ** p)))
+        )
+        term4 = 108.0 / 35.0 / L * (((-1) ** m) + ((-1) ** p))
+        y = term1 + term2 + term3 + term4
+    return y
+
+
+def int1(m, p, L):
+    """
+    Function int1(m,p,L). Piecewise definition from the Matlab code.
+    """
+    if m == 0 and p == 0:
+        # y = 720 / L^3
+        y = 720.0 / (L**3)
+    elif m == p:
+        # (pi^4*m^4 - 672*(-1)^m - 768)/(2*L^3)
+        y = ((math.pi**4) * (m**4) - 672.0 * ((-1) ** m) - 768.0) / (2.0 * (L**3))
+    elif m == 0 or p == 0:
+        # y=0
+        y = 0.0
+    else:
+        # -(24*(7*(-1)^m + 7*(-1)^p + 8*(-1)^m*(-1)^p + 8))/L^3
+        val = (
+            7.0 * ((-1) ** m)
+            + 7.0 * ((-1) ** p)
+            + 8.0 * ((-1) ** m) * ((-1) ** p)
+            + 8.0
+        )
+        y = -24.0 * val / (L**3)
+    return y
+
+
+def int2(m, p, L):
+    """
+    Function int2(m,p,L). Piecewise definition from the Matlab code.
+    """
+    if m == 0 and p == 0:
+        y = (10.0 * L) / 7.0
+    elif m == p:
+        # (67*L)/70 - ((-1)^m*L)/35 - (768*L)/(pi^4*m^4) - (672*(-1)^m*L)/(pi^4*m^4)
+        y = (
+            (67.0 * L) / 70.0
+            - ((-1) ** m * L) / 35.0
+            - (768.0 * L) / (math.pi**4 * m**4)
+            - (672.0 * ((-1) ** m) * L) / (math.pi**4 * m**4)
+        )
+    elif m == 0:
+        # (3*L*((-1)^p + 1)*(pi^4*p^4 - 1680)) / (14*pi^4*p^4)
+        num = 3.0 * L * (((-1) ** p + 1.0) * ((math.pi**4) * (p**4) - 1680.0))
+        den = 14.0 * math.pi**4 * (p**4)
+        y = num / den
+    elif p == 0:
+        # (3*L*((-1)^m + 1)*(pi^4*m^4 - 1680)) / (14*pi^4*m^4)
+        num = 3.0 * L * (((-1) ** m + 1.0) * ((math.pi**4) * (m**4) - 1680.0))
+        den = 14.0 * math.pi**4 * (m**4)
+        y = num / den
+    else:
+        # Big piecewise "else" expression from the Matlab code
+        # -(L*(11760*(-1)^m + 11760*(-1)^p - 16*pi^4*m^4 + ...)) / (70*pi^4*m^4)
+        #  - (L*(13440*m^4 + 11760*(-1)^m*m^4 + 11760*(-1)^p*m^4 + ... )) / (70*pi^4*m^4*p^4)
+        part1 = (
+            11760.0 * ((-1) ** m)
+            + 11760.0 * ((-1) ** p)
+            - 16.0 * (math.pi**4) * m**4
+            + 13440.0 * ((-1) ** m) * ((-1) ** p)
+            + ((-1) ** m) * (math.pi**4) * (m**4)
+            + ((-1) ** p) * (math.pi**4) * (m**4)
+            - 16.0 * ((-1) ** m) * ((-1) ** p) * (math.pi**4) * (m**4)
+            + 13440.0
+        )
+        part2 = (
+            13440.0 * m**4
+            + 11760.0 * ((-1) ** m) * m**4
+            + 11760.0 * ((-1) ** p) * m**4
+            + 13440.0 * ((-1) ** m) * ((-1) ** p) * m**4
+        )
+        y = -(L * part1) / (70.0 * (math.pi**4) * (m**4)) - (L * part2) / (
+            70.0 * (math.pi**4) * (m**4) * (p**4)
+        )
+    return y
+
+
+def int2_mat(N, L):
+    """
+    Builds the N x N matrix whose (m,p) entry is int2(m,p,L).
+    Mirrors the logic of the original Matlab int2_mat function exactly,
+    but we can do it more simply by calling int2 in a loop.
+    """
+    y = np.zeros((N, N), dtype=float)
+    for m in range(N):
+        for p in range(N):
+            y[m, p] = int2(m, p, L)
+    return y
+
+
+def build_I1(N, L):
+    """Returns the N x N matrix whose (m,p) entry = int1(m,p,L)."""
+    I = np.zeros((N, N), dtype=float)
+    for m in range(N):
+        for p in range(N):
+            I[m, p] = int1(m, p, L)
+    return I
+
+
+def build_I2(N, L):
+    """Returns the N x N matrix whose (m,p) entry = int2(m,p,L)."""
+    I = np.zeros((N, N), dtype=float)
+    for m in range(N):
+        for p in range(N):
+            I[m, p] = int2(m, p, L)
+    return I
+
+
+def build_I4(N, L):
+    """Returns the N x N matrix whose (m,p) entry = int4(m,p,L)."""
+    I = np.zeros((N, N), dtype=float)
+    for m in range(N):
+        for p in range(N):
+            I[m, p] = int4(m, p, L)
+    return I
+
+
+def assemble_K_and_M(Npsi, Lx, Ly):
+    # 1) Precompute integrals in the x-direction:
+    I1x = build_I1(Npsi, Lx)
+    I2x = build_I2(Npsi, Lx)
+    I4x = build_I4(Npsi, Lx)
+
+    # 2) Precompute integrals in the y-direction:
+    I1y = build_I1(Npsi, Ly)
+    I2y = build_I2(Npsi, Ly)
+    I4y = build_I4(Npsi, Ly)
+
+    # 3) Build the K, M matrices via Kronecker products:
+    K = np.kron(I1x, I2y) + np.kron(I2x, I1y) + 2.0 * np.kron(I4x, I4y)
+    M = np.kron(I2x, I2y)
+
+    return K, M
+```
+
+:::
+
+::: {.cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’}
+
+``` python
+def airy_stress_coefficients(
+    n_psi,
+    vals,
+    vecs,
+):
+    """
+    Compute the Airy stress function coefficients from the eigenvalues and eigenvectors
+    """
+
+    # Remove negative or imaginary eigenvalues:
+    #    (1) negative real part
+    #    (2) any non-zero imaginary part
+    real_vals = vals.real
+    imag_vals = vals.imag
+
+    # Indices of negative or significantly imaginary eigenvalues
+    eps_imag = 1e-12  # small threshold
+    bad_neg = np.where(real_vals < 0.0)[0]
+    bad_imag = np.where(abs(imag_vals) > eps_imag)[0]
+    bad_indices = np.unique(np.concatenate((bad_neg, bad_imag)))
+
+    # Filter out the unwanted eigenvalues and eigenvectors
+    good_mask = np.ones(vals.shape, dtype=bool)
+    good_mask[bad_indices] = False
+    good_vals = vals[good_mask]
+    good_vecs = vecs[:, good_mask]
+
+    # Sort them
+    idx_sort = np.argsort(good_vals.real)  # sort by real part
+    auto = good_vals.real[idx_sort]
+    coeff = good_vecs[:, idx_sort]
+
+    # Build the factor arrays (coeff0, coeff1, coeff2)
+    dim = n_psi**2
+    coeff0 = np.zeros((dim, coeff.shape[0]), dtype=float)
+    coeff1 = np.zeros((dim, coeff.shape[0]), dtype=float)
+    coeff2 = np.zeros((dim, coeff.shape[0]), dtype=float)
+
+    NN = int2_mat(n_psi, 0.2)  # NxN
+    MM = int2_mat(n_psi, 0.3)  # NxN
+
+    NN = np.tile(NN.reshape(-1, 1), dim)
+    MM = np.tile(MM.reshape(1, -1), (dim, 1))
+
+    nmatr = NN * MM
+    nmatr = np.reshape(nmatr, (n_psi, n_psi, n_psi, n_psi))
+
+    # 3) Permute from [0,1,2,3] -> [3,0,2,1]
+    #    i.e. "permute(nmatr,[4 1 3 2])" in Matlab => zero-based is (3,0,2,1)
+    nmatr = np.transpose(nmatr, (3, 0, 2, 1))
+    nmatr = np.reshape(nmatr, (1, n_psi**4))
+
+    nmatr = sparse.csr_matrix(nmatr)  # Or "sparse.csc_matrix(nmatr)" or whichever
+
+    S = auto.shape[0]
+
+    for d in range(S):
+        temp = coeff[:, d]  # shape (DIM,)
+
+        # "temp = reshape(temp, [Npsi^2,1]);"
+        temp = temp.reshape(n_psi**2, 1)  # shape (DIM,1)
+
+        # "temp = repmat(temp,[1 Npsi^2]);" => now shape (DIM, DIM)
+        # In Python: replicate horizontally Npsi^2 times
+        temp_big = np.tile(temp, (1, n_psi**2))  # shape (DIM, DIM)
+
+        # "temp2 = permute(temp,[2,1]);" => shape (DIM, DIM) transposed
+        temp2 = temp_big.T  # shape (DIM, DIM)
+
+        # "temp3 = temp.*temp2;" => shape (DIM, DIM), elementwise multiply
+        temp3 = temp_big * temp2  # shape (DIM, DIM)
+
+        # "temp3 = reshape(temp3,[Npsi^4,1]);"
+        temp3 = temp3.reshape(n_psi**4, 1)  # shape (Npsi^4, 1)
+
+        # "norms = (nmatr*temp3);" => shape (1,1)
+        # with nmatr shape (1, Npsi^4), temp3 shape (Npsi^4,1)
+        norms = nmatr.dot(temp3)  # shape (1,1) as a sparse result
+
+        # Convert to scalar:
+        # norms_val = norms[0,0]
+
+        # Then do the same normalizations:
+        coeff0[:, d] = coeff[:, d] / np.sqrt(norms)
+        coeff1[:, d] = coeff[:, d] / np.sqrt(norms) / np.sqrt(auto[d])
+        coeff2[:, d] = coeff[:, d] / np.sqrt(norms) / auto[d]
+
+    # "S = floor(S/2);"
+    S2 = S // 2
+
+    coeff0 = coeff0[:S2, :S2]
+    coeff1 = coeff1[:S2, :S2]
+    coeff2 = coeff2[:S2, :S2]
+
+    return coeff0, coeff1, coeff2
+```
+
+:::
+
+## Basis used to build the mass and stiffness matrices
+
+::: {.cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’}
+
+``` python
+def _basis(m, x, Lx):
+    """
+    Evaluate the 1D basis function in the x or y direction
+    for integer index m at location x, with length Lx.
+    """
+    # Python integer exponent (-1)**m is fine for integer m
+    return (
+        np.cos(m * np.pi * x / Lx)
+        + (15 * (1 + (-1) ** m) / Lx**4) * x**4
+        - (4 * (8 + 7 * (-1) ** m) / Lx**3) * x**3
+        + (6 * (3 + 2 * (-1) ** m) / Lx**2) * x**2
+        - 1.0
+    )
+
+
+def basis(m, n, x, y, Lx, Ly):
+    """
+    Evaluate the full 2D basis function for indices (m, n)
+    at point (x, y). This is simply X_m(x)*Y_n(y).
+    """
+    return _basis(m, x, Lx) * _basis(n, y, Ly)
+```
+
+:::
+
+## Partial integrals to calculate the coupling matrix
+
+::: {.cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’}
+
+``` python
+def i1_mat(Npsi, Nphi, L):
+    # Initialize a 3D array of zeros.
+    s = np.zeros((Npsi, Nphi, Nphi))
+
+    # Loop over indices.
+    # In MATLAB: m = 1:Npsi, here m = 0,...,Npsi-1, and m1 = m (since MATLAB m1 = m-1)
+    for m in range(1, Npsi + 1):
+        m1 = m - 1
+        for n in range(1, Nphi + 1):
+            for p in range(1, Nphi + 1):
+                if m1 == 0 and n == p:
+                    s[m - 1, n - 1, p - 1] = L / 2.0
+                elif m1 == (p - n) or m1 == (n - p):
+                    s[m - 1, n - 1, p - 1] = L / 4.0
+                elif m1 == (-n - p) or m1 == (n + p):
+                    s[m - 1, n - 1, p - 1] = -L / 4.0
+    return s
+
+
+def i2_mat(Npsi, Nphi, L):
+    """ """
+    s = np.zeros((Npsi, Nphi, Nphi))
+
+    # Loop over m, n, and p (using 1-indexing, then subtract 1 for Python indexing)
+    for m in range(1, Npsi + 1):
+        m1 = m - 1
+        for n in range(1, Nphi + 1):
+            for p in range(1, Nphi + 1):
+                # The condition "if n==0 || p==0" is omitted since n,p >= 1.
+                if n == p:
+                    # s(m,n,p) = (15/L^4*((-1)^(m1) + 1))*(L^5*(4*pi^5*p^5 - 20*pi^3*p^3 + 30*pi*p))/(40*pi^5*p^5);
+                    numerator = L**5 * (
+                        4 * np.pi**5 * p**5 - 20 * np.pi**3 * p**3 + 30 * np.pi * p
+                    )
+                    s[m - 1, n - 1, p - 1] = (15 / L**4 * (((-1) ** m1) + 1)) * (
+                        numerator / (40 * np.pi**5 * p**5)
+                    )
+                else:
+                    # Else branch: a long expression.
+                    # First compute the common terms:
+                    np_sum = n + p
+                    np_diff = (
+                        n - p
+                    )  # note: may be negative, but the formula handles it.
+
+                    term1 = (
+                        np.sin(np.pi * np_sum)
+                        * (
+                            (1713638851887625 * L**4 * np_sum**4) / 17592186044416
+                            - (8334140006820045 * L**4 * np_sum**2) / 70368744177664
+                            + 24 * L**4
+                        )
+                    ) + 4 * np.pi * L**2 * np.cos(np.pi * np_sum) * np_sum * (
+                        ((2778046668940015 * L**2 * np_sum**2) / 281474976710656)
+                        - 6 * L**2
+                    )
+                    term1 /= np_sum**5
+
+                    term2 = (
+                        np.sin(np.pi * np_diff)
+                        * (
+                            (1713638851887625 * L**4 * np_diff**4) / 17592186044416
+                            - (8334140006820045 * L**4 * np_diff**2) / 70368744177664
+                            + 24 * L**4
+                        )
+                    ) + 4 * np.pi * L**2 * np.cos(np.pi * np_diff) * np_diff * (
+                        ((2778046668940015 * L**2 * np_diff**2) / 281474976710656)
+                        - 6 * L**2
+                    )
+                    term2 /= np_diff**5
+
+                    big_term = 8796093022208 * L * (term1 - term2)
+                    s[m - 1, n - 1, p - 1] = (
+                        -(15 / L**4 * (((-1) ** m1) + 1)) * big_term / 5383555227996211
+                    )
+    return s
+
+
+def i3_mat(Npsi, Nphi, L):
+    """
+    Auxiliary integral for the computation of the coupling coefficient H.
+    """
+    s = np.zeros((Npsi, Nphi, Nphi))
+
+    for m in range(1, Npsi + 1):
+        m1 = m - 1
+        for n in range(1, Nphi + 1):
+            for p in range(1, Nphi + 1):
+                # The first condition "if n==0 && p==0" never occurs because n, p start at 1.
+                if n == p:
+                    # Compute:
+                    # s(m,n,p) = -(-4/L^3*(7*(-1)^(m1)+8))*(L^4*(6*pi^2*p^2 - 2*pi^4*p^4))/(16*pi^4*p^4)
+                    # The double negative simplifies to a positive.
+                    s[m - 1, n - 1, p - 1] = (
+                        (4 / L**3 * (7 * (-1) ** m1 + 8))
+                        * (L**4 * (6 * np.pi**2 * p**2 - 2 * np.pi**4 * p**4))
+                        / (16 * np.pi**4 * p**4)
+                    )
+                else:
+                    # Else branch: compute two terms and add them.
+                    term1 = (
+                        (-4 / L**3 * (7 * (-1) ** m1 + 8))
+                        * (L * ((6 * L**3) / (n - p) ** 4 - (6 * L**3) / (n + p) ** 4))
+                        / (2 * np.pi**4)
+                    )
+
+                    term2 = (
+                        (-4 / L**3 * (7 * (-1) ** m1 + 8))
+                        * (
+                            L
+                            * (
+                                (
+                                    3
+                                    * L
+                                    * np.cos(np.pi * (n + p))
+                                    * (2 * L**2 - L**2 * np.pi**2 * (n + p) ** 2)
+                                )
+                                / (n + p) ** 4
+                                - (
+                                    3
+                                    * L
+                                    * np.cos(np.pi * (n - p))
+                                    * (2 * L**2 - L**2 * np.pi**2 * (n - p) ** 2)
+                                )
+                                / (n - p) ** 4
+                            )
+                        )
+                        / (2 * np.pi**4)
+                    )
+
+                    s[m - 1, n - 1, p - 1] = term1 + term2
+    return s
+
+
+def i4_mat(Npsi, Nphi, L):
+    """
+    Auxiliary integral for the computation of the coupling coefficient H.
+    """
+    s = np.zeros((Npsi, Nphi, Nphi))
+    for m in range(1, Npsi + 1):
+        m1 = m - 1
+        for n in range(1, Nphi + 1):
+            for p in range(1, Nphi + 1):
+                if n == p:
+                    s[m - 1, n - 1, p - 1] = (
+                        -(6 / L**2 * (2 * (-1) ** m1 + 3))
+                        * (L**3 * (6 * np.pi * p - 4 * np.pi**3 * p**3))
+                        / (24 * np.pi**3 * p**3)
+                    )
+                else:
+                    term1 = (
+                        (6 / L**2 * (2 * (-1) ** m1 + 3))
+                        * (L**3 * np.cos(np.pi * (n - p)))
+                        / (np.pi**2 * (n - p) ** 2)
+                    )
+                    term2 = (
+                        (6 / L**2 * (2 * (-1) ** m1 + 3))
+                        * (L**3 * np.cos(np.pi * (n + p)))
+                        / (np.pi**2 * (n + p) ** 2)
+                    )
+                    s[m - 1, n - 1, p - 1] = term1 - term2
+    return s
+
+
+def i5_mat(Npsi, Nphi, L):
+    s = np.zeros((Npsi, Nphi, Nphi))
+    for m in range(1, Npsi + 1):
+        for n in range(1, Nphi + 1):
+            for p in range(1, Nphi + 1):
+                if n == p:
+                    s[m - 1, n - 1, p - 1] = L / 2.0
+    return -s
+
+
+def i9_mat(Npsi, Nphi, L):
+    # Initialize a 3D array of zeros.
+    s = np.zeros((Npsi, Nphi, Nphi))
+
+    # Loop over indices.
+    # In MATLAB: m = 1:Npsi, here m = 0,...,Npsi-1, and m1 = m (since MATLAB m1 = m-1)
+    for m in range(1, Npsi + 1):
+        m1 = m - 1
+        for n in range(1, Nphi + 1):
+            for p in range(1, Nphi + 1):
+                if m1 == 0 and n == p:
+                    s[m - 1, n - 1, p - 1] = L / 2.0
+                elif m1 == (p - n) or m1 == (n - p):
+                    s[m - 1, n - 1, p - 1] = L / 4.0
+                elif m1 == (-n - p) or m1 == (n + p):
+                    s[m - 1, n - 1, p - 1] = L / 4.0
+    return s
+
+
+def i10_mat(Npsi, Nphi, L):
+    s = np.zeros((Npsi, Nphi, Nphi))
+    for m in range(1, Npsi + 1):
+        m1 = m - 1
+        for n in range(1, Nphi + 1):
+            for p in range(1, Nphi + 1):
+                if n == p and p != 0:
+                    s[m - 1, n - 1, p - 1] = (
+                        (15 / L**4 * (((-1) ** m1) + 1))
+                        * (
+                            L**5
+                            * (
+                                4 * np.pi**5 * n**5
+                                + 20 * np.pi**3 * n**3
+                                - 30 * np.pi * n
+                            )
+                        )
+                        / (40 * np.pi**5 * n**5)
+                    )
+                else:
+                    term1 = (
+                        4
+                        * np.pi
+                        * L**2
+                        * np.cos(np.pi * (n + p))
+                        * (6 * L**2 - L**2 * np.pi**2 * (n + p) ** 2)
+                    ) / (n + p) ** 4
+                    term2 = (
+                        4
+                        * np.pi
+                        * L**2
+                        * np.cos(np.pi * (n - p))
+                        * (6 * L**2 - L**2 * np.pi**2 * (n - p) ** 2)
+                    ) / (n - p) ** 4
+                    s[m - 1, n - 1, p - 1] = (
+                        -(15 / L**4 * (((-1) ** m1) + 1))
+                        * (L * (term1 + term2))
+                        / (2 * np.pi**5)
+                    )
+    return s
+
+
+def i11_mat(Npsi, Nphi, L):
+    s = np.zeros((Npsi, Nphi, Nphi))
+    for m in range(1, Npsi + 1):
+        m1 = m - 1
+        for n in range(1, Nphi + 1):
+            for p in range(1, Nphi + 1):
+                if n == p and p != 0:
+                    s[m - 1, n - 1, p - 1] = (
+                        (-4 / L**3 * (7 * ((-1) ** m1) + 8)) * L**4
+                    ) / 8 + ((-4 / L**3 * (7 * ((-1) ** m1) + 8)) * (3 * L**4)) / (
+                        8 * np.pi**2 * p**2
+                    )
+                else:
+                    term1 = (
+                        (-4 / L**3 * (7 * ((-1) ** m1) + 8))
+                        * (L * ((6 * L**3) / (n - p) ** 4 + (6 * L**3) / (n + p) ** 4))
+                        / (2 * np.pi**4)
+                    )
+                    term2 = (
+                        (-4 / L**3 * (7 * ((-1) ** m1) + 8))
+                        * (
+                            L
+                            * (
+                                (
+                                    3
+                                    * L
+                                    * np.cos(np.pi * (n + p))
+                                    * (2 * L**2 - L**2 * np.pi**2 * (n + p) ** 2)
+                                )
+                                / (n + p) ** 4
+                                + (
+                                    3
+                                    * L
+                                    * np.cos(np.pi * (n - p))
+                                    * (2 * L**2 - L**2 * np.pi**2 * (n - p) ** 2)
+                                )
+                                / (n - p) ** 4
+                            )
+                        )
+                        / (2 * np.pi**4)
+                    )
+                    s[m - 1, n - 1, p - 1] = term1 - term2
+    return s
+
+
+def i12_mat(Npsi, Nphi, L):
+    s = np.zeros((Npsi, Nphi, Nphi))
+    for m in range(1, Npsi + 1):
+        m1 = m - 1
+        for n in range(1, Nphi + 1):
+            for p in range(1, Nphi + 1):
+                if n == p and p != 0:
+                    s[m - 1, n - 1, p - 1] = (
+                        6 / L**2 * (2 * ((-1) ** m1) + 3)
+                    ) * L**3 / 6 + (6 / L**2 * (2 * ((-1) ** m1) + 3)) * L**3 / (
+                        4 * np.pi**2 * p**2
+                    )
+                else:
+                    s[m - 1, n - 1, p - 1] = (
+                        6 / L**2 * (2 * ((-1) ** m1) + 3)
+                    ) * L**3 * np.cos(np.pi * (n - p)) / (np.pi**2 * (n - p) ** 2) + (
+                        6 / L**2 * (2 * ((-1) ** m1) + 3)
+                    ) * L**3 * np.cos(np.pi * (n + p)) / (np.pi**2 * (n + p) ** 2)
+    return s
+
+
+def i13_mat(Npsi, Nphi, L):
+    s = np.zeros((Npsi, Nphi, Nphi))
+    for m in range(1, Npsi + 1):
+        for n in range(1, Nphi + 1):
+            for p in range(1, Nphi + 1):
+                if n == p:
+                    s[m - 1, n - 1, p - 1] = L / 2.0
+    return -s
+```
+
+:::
+
+## functions to put together the coupling matrix
+
+::: {.cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’}
+
+``` python
+def compute_partial_integrals(
+    Npsi,
+    Nphi,
+    Lx,
+    Ly,
+):
+    """
+    Precompute and store all partial-integral matrices needed.
+    Returns them in a dictionary or a custom object.
+    """
+    partials = {}
+    partials["i1_Lx"] = i1_mat(Npsi, Nphi, Lx)
+    partials["i2_Lx"] = i2_mat(Npsi, Nphi, Lx)
+    partials["i3_Lx"] = i3_mat(Npsi, Nphi, Lx)
+    partials["i4_Lx"] = i4_mat(Npsi, Nphi, Lx)
+    partials["i5_Lx"] = i5_mat(Npsi, Nphi, Lx)
+
+    partials["i9_Lx"] = i9_mat(Npsi, Nphi, Lx)
+    partials["i10_Lx"] = i10_mat(Npsi, Nphi, Lx)
+    partials["i11_Lx"] = i11_mat(Npsi, Nphi, Lx)
+    partials["i12_Lx"] = i12_mat(Npsi, Nphi, Lx)
+    partials["i13_Lx"] = i13_mat(Npsi, Nphi, Lx)
+
+    # For Ly-based:
+    partials["i1_Ly"] = i1_mat(Npsi, Nphi, Ly)
+    partials["i2_Ly"] = i2_mat(Npsi, Nphi, Ly)
+    partials["i3_Ly"] = i3_mat(Npsi, Nphi, Ly)
+    partials["i4_Ly"] = i4_mat(Npsi, Nphi, Ly)
+    partials["i5_Ly"] = i5_mat(Npsi, Nphi, Ly)
+
+    partials["i9_Ly"] = i9_mat(Npsi, Nphi, Ly)
+    partials["i10_Ly"] = i10_mat(Npsi, Nphi, Ly)
+    partials["i11_Ly"] = i11_mat(Npsi, Nphi, Ly)
+    partials["i12_Ly"] = i12_mat(Npsi, Nphi, Ly)
+    partials["i13_Ly"] = i13_mat(Npsi, Nphi, Ly)
+
+    return partials
+
+
+def build_s_matrix(Npsi, Nphi, partials, idx_array, factor_mode):
+    """
+    Summation of partial integrals in a 3D array with a factor.
+
+    Returns
+    -------
+    s : np.ndarray of shape (Npsi, Nphi, Nphi)
+        The 3D tensor after summation and factor application.
+    """
+    s = np.zeros((Npsi, Nphi, Nphi), dtype=float)
+
+    for m in range(Npsi):
+        for n in range(Nphi):
+            n_idx = idx_array[n]
+            for p in range(Nphi):
+                p_idx = idx_array[p]
+
+                val = 0.0
+                for mat in partials:
+                    val += mat[m, n_idx - 1, p_idx - 1]
+
+                # Apply factor
+                if factor_mode == "n":
+                    val *= n_idx**2
+                elif factor_mode == "p":
+                    val *= p_idx**2
+                elif factor_mode == "np":
+                    val *= n_idx * p_idx
+
+                s[m, n, p] = val
+
+    return s
+
+
+def g1(Npsi, Nphi, S, kx, cache):
+    partials = [
+        cache["i1_Lx"],
+        cache["i2_Lx"],
+        cache["i3_Lx"],
+        cache["i4_Lx"],
+        cache["i5_Lx"],
+    ]
+    s = build_s_matrix(Npsi, Nphi, partials, idx_array=kx, factor_mode="n")
+    s_reshaped = s.reshape((Npsi, Nphi**2), order="F")
+    m_mat = np.repeat(s_reshaped, Npsi, axis=0)
+    return m_mat[:S, :]
+
+
+def g2(Npsi, Nphi, S, kx, cache):
+    partials = [
+        cache["i1_Lx"],
+        cache["i2_Lx"],
+        cache["i3_Lx"],
+        cache["i4_Lx"],
+        cache["i5_Lx"],
+    ]
+    s = build_s_matrix(Npsi, Nphi, partials, idx_array=kx, factor_mode="p")
+    s_reshaped = s.reshape((Npsi, Nphi**2), order="F")
+    m_mat = np.repeat(s_reshaped, Npsi, axis=0)
+    return m_mat[:S, :]
+
+
+def g3(Npsi, Nphi, S, ky, cache):
+    partials = [
+        cache["i1_Ly"],
+        cache["i2_Ly"],
+        cache["i3_Ly"],
+        cache["i4_Ly"],
+        cache["i5_Ly"],
+    ]
+    s = build_s_matrix(Npsi, Nphi, partials, idx_array=ky, factor_mode="n")
+    s_reshaped = s.reshape((Npsi, Nphi**2), order="F")
+    m_mat = np.tile(s_reshaped, (Npsi, 1))
+    return m_mat[:S, :]
+
+
+def g4(Npsi, Nphi, S, ky, cache):
+    partials = [
+        cache["i1_Ly"],
+        cache["i2_Ly"],
+        cache["i3_Ly"],
+        cache["i4_Ly"],
+        cache["i5_Ly"],
+    ]
+    s = build_s_matrix(Npsi, Nphi, partials, idx_array=ky, factor_mode="p")
+    s_reshaped = s.reshape((Npsi, Nphi**2), order="F")
+    m_mat = np.tile(s_reshaped, (Npsi, 1))
+    return m_mat[:S, :]
+
+
+def g5(Npsi, Nphi, S, kx, cache):
+    partials = [
+        cache["i9_Lx"],
+        cache["i10_Lx"],
+        cache["i11_Lx"],
+        cache["i12_Lx"],
+        cache["i13_Lx"],
+    ]
+    s = build_s_matrix(Npsi, Nphi, partials, idx_array=kx, factor_mode="np")
+    s_reshaped = s.reshape((Npsi, Nphi**2), order="F")
+    m_mat = np.repeat(s_reshaped, Npsi, axis=0)
+    return m_mat[:S, :]
+
+
+def g6(Npsi, Nphi, S, ky, cache):
+    partials = [
+        cache["i9_Ly"],
+        cache["i10_Ly"],
+        cache["i11_Ly"],
+        cache["i12_Ly"],
+        cache["i13_Ly"],
+    ]
+    s = build_s_matrix(Npsi, Nphi, partials, idx_array=ky, factor_mode="np")
+    s_reshaped = s.reshape((Npsi, Nphi**2), order="F")
+    m_mat = np.tile(s_reshaped, (Npsi, 1))
+    return m_mat[:S, :]
+```
+
+:::
+
+::: {.cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’}
+
+``` python
+def H_tensor_rectangular(
+    coeff0,
+    coeff1,
+    coeff2,
+    Nphi,
+    Npsi,
+    Lx,
+    Ly,
+    kx,
+    ky,
+):
+    """
+    Compute the H tensor for rectangular plates.
+    """
+    S = coeff1.shape[1]  # Number of modes
+
+    # Initialize H tensors
+    H0 = np.zeros((S, Nphi * Nphi))
+    H1 = np.zeros((S, Nphi * Nphi))
+    H2 = np.zeros((S, Nphi * Nphi))
+
+    partials = compute_partial_integrals(Npsi, Nphi, Lx, Ly)
+
+    # Compute integral components
+    m1 = g1(Npsi, Nphi, S, kx, partials)
+    m2 = g2(Npsi, Nphi, S, kx, partials)
+
+    m3 = g3(Npsi, Nphi, S, ky, partials)
+    m4 = g4(Npsi, Nphi, S, ky, partials)
+
+    m5 = g5(Npsi, Nphi, S, kx, partials)
+    m6 = g6(Npsi, Nphi, S, ky, partials)
+
+    # Compute H tensor
+    for n in range(S):
+        f0 = coeff0[:, n].T @ (m1 * m4 + m2 * m3 - 2 * m5 * m6)
+        f1 = coeff1[:, n].T @ (m1 * m4 + m2 * m3 - 2 * m5 * m6)
+        f2 = coeff2[:, n].T @ (m1 * m4 + m2 * m3 - 2 * m5 * m6)
+
+        H0[n, :] = f0
+        H1[n, :] = f1
+        H2[n, :] = f2
+
+    # Normalize with constants
+    const_factor = 4 * np.pi**4 / (Lx**3 * Ly**3)
+    H0 *= const_factor
+    H1 *= const_factor
+    H2 *= const_factor
+
+    # Zero small values
+    threshold = 1e-8
+    H0[np.abs(H0 / np.max(np.abs(H0))) < threshold] = 0
+    H1[np.abs(H1 / np.max(np.abs(H1))) < threshold] = 0
+    H2[np.abs(H2 / np.max(np.abs(H2))) < threshold] = 0
+    return H0, H1, H2
+```
+
+:::
+
+::: {.cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’}
+
+``` python
+def compute_coupling_matrix(
+    n_psi,
+    n_phi,
+    lx,
+    ly,
+    kx_indices,
+    ky_indices,
+):
+    K, M = assemble_K_and_M(n_psi, lx, ly)
+
+    # this will give different results than in MATLAB
+    vals, vecs = eig(K, M)
+
+    coeff0, coeff1, coeff2 = airy_stress_coefficients(n_psi, vals, vecs)
+    H0, H1, H2 = H_tensor_rectangular(
+        coeff0=coeff0,
+        coeff1=coeff1,
+        coeff2=coeff2,
+        Npsi=n_psi,
+        Nphi=n_phi,
+        Lx=lx,
+        Ly=ly,
+        kx=kx_indices,
+        ky=ky_indices,
+    )
+
+    H0 = H0[:n_psi, : n_phi * n_phi]
+    H1 = H1[:n_psi, : n_phi * n_phi]
+    H2 = H2[:n_psi, : n_phi * n_phi]
+
+    H0 = H0.reshape((n_psi, n_phi, n_phi))
+    H1 = H1.reshape((n_psi, n_phi, n_phi))
+    H2 = H2.reshape((n_psi, n_phi, n_phi))
+    return H0, H1, H2
+```
+
+:::
