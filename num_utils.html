@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -133,10 +99,10 @@ window.Quarto = {
 
 <link rel="stylesheet" href="styles.css">
 <meta property="og:title" content="vkplatejax - Numerical utilities">
-<meta property="og:description" content="A collection of structural and string vibration models (e.g.&nbsp;von Kármán plates, tension-modulated and stiff strings) implemented in JAX for fast, differentiable simulations">
+<meta property="og:description" content="A collection vibration models (e.g.&nbsp;von Kármán plates, tension-modulated and stiff strings) implemented in JAX for fast, differentiable simulations">
 <meta property="og:site_name" content="vkplatejax">
 <meta name="twitter:title" content="vkplatejax - Numerical utilities">
-<meta name="twitter:description" content="A collection of structural and string vibration models (e.g.&nbsp;von Kármán plates, tension-modulated and stiff strings) implemented in JAX for fast, differentiable simulations">
+<meta name="twitter:description" content="A collection vibration models (e.g.&nbsp;von Kármán plates, tension-modulated and stiff strings) implemented in JAX for fast, differentiable simulations">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -221,6 +187,116 @@ window.Quarto = {
  <span class="menu-text">Utils</span></a>
   </div>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">excitations_files</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+ <span class="menu-text">figure-html</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">losses_files</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">figure-html</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text">site_libs</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+ <span class="menu-text">bootstrap</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
+ <span class="menu-text">clipboard</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">
+ <span class="menu-text">quarto-html</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false">
+ <span class="menu-text">quarto-nav</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false">
+ <span class="menu-text">quarto-search</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+      </ul>
+  </li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -231,10 +307,26 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#modal-pruning" id="toc-modal-pruning" class="nav-link active" data-scroll-target="#modal-pruning">Modal pruning</a></li>
-  <li><a href="#biharmonic-decomposition" id="toc-biharmonic-decomposition" class="nav-link" data-scroll-target="#biharmonic-decomposition">Biharmonic decomposition</a></li>
+  <li><a href="#second_derivative_mixed" id="toc-second_derivative_mixed" class="nav-link active" data-scroll-target="#second_derivative_mixed">second_derivative_mixed</a></li>
+  <li><a href="#second_derivative" id="toc-second_derivative" class="nav-link" data-scroll-target="#second_derivative">second_derivative</a></li>
+  <li><a href="#pad_lower" id="toc-pad_lower" class="nav-link" data-scroll-target="#pad_lower">pad_lower</a></li>
+  <li><a href="#pad_upper" id="toc-pad_upper" class="nav-link" data-scroll-target="#pad_upper">pad_upper</a></li>
+  <li><a href="#vkoperator" id="toc-vkoperator" class="nav-link" data-scroll-target="#vkoperator">vkoperator</a></li>
+  <li><a href="#double_trapezoid_flat" id="toc-double_trapezoid_flat" class="nav-link" data-scroll-target="#double_trapezoid_flat">double_trapezoid_flat</a></li>
+  <li><a href="#double_trapezoid" id="toc-double_trapezoid" class="nav-link" data-scroll-target="#double_trapezoid">double_trapezoid</a></li>
+  <li><a href="#compute_coupling_matrix_numerical" id="toc-compute_coupling_matrix_numerical" class="nav-link" data-scroll-target="#compute_coupling_matrix_numerical">compute_coupling_matrix_numerical</a></li>
+  <li><a href="#modal-pruning" id="toc-modal-pruning" class="nav-link" data-scroll-target="#modal-pruning">Modal pruning</a>
+  <ul class="collapse">
+  <li><a href="#polarisation" id="toc-polarisation" class="nav-link" data-scroll-target="#polarisation">polarisation</a></li>
+  <li><a href="#eigenmac" id="toc-eigenmac" class="nav-link" data-scroll-target="#eigenmac">eigenMAC</a></li>
+  </ul></li>
+  <li><a href="#biharmonic-decomposition" id="toc-biharmonic-decomposition" class="nav-link" data-scroll-target="#biharmonic-decomposition">Biharmonic decomposition</a>
+  <ul class="collapse">
+  <li><a href="#biharmonic_eigendecomposition" id="toc-biharmonic_eigendecomposition" class="nav-link" data-scroll-target="#biharmonic_eigendecomposition">biharmonic_eigendecomposition</a></li>
+  <li><a href="#multiresolution_eigendecomposition" id="toc-multiresolution_eigendecomposition" class="nav-link" data-scroll-target="#multiresolution_eigendecomposition">multiresolution_eigendecomposition</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/rodrigodzf/vkplatejax/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="num_utils.md"><i class="bi bi-file-code"></i>CommonMark</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/rodrigodzf/vkplatejax/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="num_utils.html.md"><i class="bi bi-file-code"></i>CommonMark</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -258,312 +350,109 @@ window.Quarto = {
 </header>
 
 
-<p>::: {#cell-3 .cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’ 6=‘i’}</p>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.sparse <span class="im">as</span> sp</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> magpie <span class="im">import</span> bhmat</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.integrate <span class="im">import</span> trapezoid</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.interpolate <span class="im">import</span> RectBivariateSpline</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.sparse.linalg <span class="im">import</span> eigs</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> vkplatejax.ftm <span class="im">import</span> PlateParameters</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
-<p>::: {#cell-4 .cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’}</p>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> pad_upper(vec, pad):</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.pad(vec[::<span class="op">-</span><span class="dv">1</span>], (<span class="dv">0</span>, pad))</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> pad_lower(vec, pad):</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.pad(vec, (pad, <span class="dv">0</span>))</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> second_derivative(Nx, Ny, h, direction<span class="op">=</span><span class="st">"x"</span>):</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">    Construct a higher-order second derivative operator matching the MATLAB implementation of vkplate.</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters:</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">        Nx (int): Number of intervals in the x-direction.</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">        Ny (int): Number of intervals in the y-direction.</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">        h (float): Grid spacing.</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">        scipy.sparse.spmatrix: The (Nx+1)*(Ny+1) x (Nx+1)*(Ny+1) second derivative operator.</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Total number of grid points</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    N <span class="op">=</span> (Nx <span class="op">+</span> <span class="dv">1</span>) <span class="op">*</span> (Ny <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Main diagonal d0: initially -2 everywhere, then modify boundaries.</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    d0 <span class="op">=</span> <span class="op">-</span><span class="dv">2</span> <span class="op">*</span> np.ones(N)</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> direction <span class="op">==</span> <span class="st">"x"</span>:</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>        d0[: Ny <span class="op">+</span> <span class="dv">1</span>] <span class="op">=</span> <span class="dv">2</span>  <span class="co"># First Ny+1 entries (top boundary in MATLAB indexing)</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>        d0[<span class="op">-</span>(Ny <span class="op">+</span> <span class="dv">1</span>) :] <span class="op">=</span> <span class="dv">2</span>  <span class="co"># Last Ny+1 entries (bottom boundary)</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> direction <span class="op">==</span> <span class="st">"y"</span>:</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        d0[<span class="dv">0</span> :: (Ny <span class="op">+</span> <span class="dv">1</span>)] <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        d0[Ny :: (Ny <span class="op">+</span> <span class="dv">1</span>)] <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> direction <span class="op">==</span> <span class="st">"xy"</span>:</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        d0 <span class="op">=</span> np.zeros(N)</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>        d0[<span class="dv">0</span>] <span class="op">=</span> <span class="fl">2.25</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>        d0[<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="fl">2.25</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>        d0[Ny] <span class="op">=</span> <span class="op">-</span><span class="fl">2.25</span></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>        d0[N <span class="op">-</span> Ny <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> <span class="op">-</span><span class="fl">2.25</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="co"># First off-diagonal</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> direction <span class="op">==</span> <span class="st">"x"</span>:</span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>        d1 <span class="op">=</span> np.ones(Nx <span class="op">*</span> (Ny <span class="op">+</span> <span class="dv">1</span>))</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>        d1[: Ny <span class="op">+</span> <span class="dv">1</span>] <span class="op">=</span> <span class="op">-</span><span class="dv">5</span>  <span class="co"># Set the first Ny+1 entries to -5</span></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> direction <span class="op">==</span> <span class="st">"y"</span>:</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>        d1 <span class="op">=</span> np.ones(Ny <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>        d1[<span class="dv">0</span>] <span class="op">=</span> <span class="op">-</span><span class="dv">5</span></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>        d1[<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>        d1 <span class="op">=</span> np.tile(d1, Nx <span class="op">+</span> <span class="dv">1</span>)  <span class="co"># length becomes (Nx+1)*(Ny+1)</span></span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>        d1 <span class="op">=</span> d1[:<span class="op">-</span><span class="dv">1</span>]  <span class="co"># final length: N - 1</span></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> direction <span class="op">==</span> <span class="st">"xy"</span>:</span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>        d1 <span class="op">=</span> np.zeros(N <span class="op">-</span> <span class="dv">1</span>)</span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>        d1[<span class="dv">1</span>:Ny] <span class="op">=</span> <span class="op">-</span><span class="fl">0.75</span></span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>        d1[N <span class="op">-</span> Ny :] <span class="op">=</span> <span class="fl">0.75</span></span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>        d1[<span class="dv">0</span>] <span class="op">=</span> <span class="op">-</span><span class="fl">3.0</span></span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>        d1[N <span class="op">-</span> Ny <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> <span class="fl">3.0</span></span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Second off-diagonal</span></span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> direction <span class="op">==</span> <span class="st">"x"</span>:</span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>        d2 <span class="op">=</span> np.zeros((Nx <span class="op">-</span> <span class="dv">1</span>) <span class="op">*</span> (Ny <span class="op">+</span> <span class="dv">1</span>))</span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>        d2[: Ny <span class="op">+</span> <span class="dv">1</span>] <span class="op">=</span> <span class="dv">4</span>  <span class="co"># First Ny+1 entries set to 4</span></span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> direction <span class="op">==</span> <span class="st">"y"</span>:</span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>        <span class="co"># d2: vector of zeros of length N - 2; set every (Ny+1)th entry to 4.</span></span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>        d2 <span class="op">=</span> np.zeros(N <span class="op">-</span> <span class="dv">2</span>)</span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>        d2[<span class="dv">0</span> :: (Ny <span class="op">+</span> <span class="dv">1</span>)] <span class="op">=</span> <span class="dv">4</span></span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> direction <span class="op">==</span> <span class="st">"xy"</span>:</span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>        d2 <span class="op">=</span> np.zeros(N <span class="op">-</span> <span class="dv">2</span>)</span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>        d2[<span class="dv">0</span>] <span class="op">=</span> <span class="fl">0.75</span>  <span class="co"># d2(1)</span></span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>        d2[N <span class="op">-</span> Ny <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> <span class="op">-</span><span class="fl">0.75</span>  <span class="co"># d2(end-Ny+2)</span></span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Third off-diagonal</span></span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> direction <span class="op">==</span> <span class="st">"x"</span>:</span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>        d3 <span class="op">=</span> np.zeros((Nx <span class="op">-</span> <span class="dv">2</span>) <span class="op">*</span> (Ny <span class="op">+</span> <span class="dv">1</span>))</span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>        d3[: Ny <span class="op">+</span> <span class="dv">1</span>] <span class="op">=</span> <span class="op">-</span><span class="dv">1</span>  <span class="co"># First Ny+1 entries set to -1</span></span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> direction <span class="op">==</span> <span class="st">"y"</span>:</span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>        d3 <span class="op">=</span> np.zeros(N <span class="op">-</span> <span class="dv">3</span>)</span>
-<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>        d3[<span class="dv">0</span> :: (Ny <span class="op">+</span> <span class="dv">1</span>)] <span class="op">=</span> <span class="op">-</span><span class="dv">1</span></span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> direction <span class="op">==</span> <span class="st">"x"</span>:</span>
-<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>        col1 <span class="op">=</span> pad_upper(d3, <span class="dv">3</span> <span class="op">*</span> (Ny <span class="op">+</span> <span class="dv">1</span>))</span>
-<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>        col2 <span class="op">=</span> pad_upper(d2, <span class="dv">2</span> <span class="op">*</span> (Ny <span class="op">+</span> <span class="dv">1</span>))</span>
-<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>        col3 <span class="op">=</span> pad_upper(d1, Ny <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>        col4 <span class="op">=</span> d0  <span class="co"># Already full length (N,)</span></span>
-<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>        col5 <span class="op">=</span> pad_lower(d1, Ny <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>        col6 <span class="op">=</span> pad_lower(d2, <span class="dv">2</span> <span class="op">*</span> (Ny <span class="op">+</span> <span class="dv">1</span>))</span>
-<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>        col7 <span class="op">=</span> pad_lower(d3, <span class="dv">3</span> <span class="op">*</span> (Ny <span class="op">+</span> <span class="dv">1</span>))</span>
-<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> direction <span class="op">==</span> <span class="st">"y"</span>:</span>
-<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>        col1 <span class="op">=</span> pad_upper(d3, <span class="dv">3</span>)</span>
-<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>        col2 <span class="op">=</span> pad_upper(d2, <span class="dv">2</span>)</span>
-<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>        col3 <span class="op">=</span> pad_upper(d1, <span class="dv">1</span>)</span>
-<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>        col4 <span class="op">=</span> d0</span>
-<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>        col5 <span class="op">=</span> pad_lower(d1, <span class="dv">1</span>)</span>
-<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>        col6 <span class="op">=</span> pad_lower(d2, <span class="dv">2</span>)</span>
-<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>        col7 <span class="op">=</span> pad_lower(d3, <span class="dv">3</span>)</span>
-<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>    d <span class="op">=</span> np.vstack([col1, col2, col3, col4, col5, col6, col7])</span>
-<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> direction <span class="op">==</span> <span class="st">"x"</span>:</span>
-<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>        dN <span class="op">=</span> (Ny <span class="op">+</span> <span class="dv">1</span>) <span class="op">*</span> np.arange(<span class="op">-</span><span class="dv">3</span>, <span class="dv">4</span>)</span>
-<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> direction <span class="op">==</span> <span class="st">"y"</span>:</span>
-<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>        dN <span class="op">=</span> np.arange(<span class="op">-</span><span class="dv">3</span>, <span class="dv">4</span>)</span>
-<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>    Dxx <span class="op">=</span> (<span class="dv">1</span> <span class="op">/</span> h<span class="op">**</span><span class="dv">2</span>) <span class="op">*</span> sp.spdiags(d, dN, N, N)</span>
-<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Dxx</span>
-<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> second_derivative_mixed(Nx, Ny, h):</span>
-<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>    N <span class="op">=</span> (Nx <span class="op">+</span> <span class="dv">1</span>) <span class="op">*</span> (Ny <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>    <span class="co"># d0: central diagonal (length N)</span></span>
-<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>    d0 <span class="op">=</span> np.zeros(N)</span>
-<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>    d0[<span class="dv">0</span>], d0[<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="fl">2.25</span>, <span class="fl">2.25</span></span>
-<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>    d0[Ny] <span class="op">=</span> <span class="op">-</span><span class="fl">2.25</span></span>
-<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>    d0[N <span class="op">-</span> Ny <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> <span class="op">-</span><span class="fl">2.25</span></span>
-<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a>    <span class="co"># d1: length N-1</span></span>
-<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>    d1 <span class="op">=</span> np.zeros(N <span class="op">-</span> <span class="dv">1</span>)</span>
-<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a>    d1[<span class="dv">0</span>] <span class="op">=</span> <span class="op">-</span><span class="fl">3.0</span></span>
-<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>    d1[N <span class="op">-</span> Ny] <span class="op">=</span> <span class="fl">3.0</span></span>
-<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>    d1[<span class="dv">1</span>:Ny] <span class="op">=</span> <span class="op">-</span><span class="fl">0.75</span></span>
-<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>    d1[<span class="op">-</span>(Ny <span class="op">-</span> <span class="dv">1</span>) :] <span class="op">=</span> <span class="fl">0.75</span></span>
-<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a>    <span class="co"># d2: length N-2</span></span>
-<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a>    d2 <span class="op">=</span> np.zeros(N <span class="op">-</span> <span class="dv">2</span>)</span>
-<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a>    d2[<span class="dv">0</span>] <span class="op">=</span> <span class="fl">0.75</span></span>
-<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a>    d2[N <span class="op">-</span> Ny <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> <span class="op">-</span><span class="fl">0.75</span></span>
-<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>    <span class="co"># dNym1: length N-(Ny-1)</span></span>
-<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a>    dNym1 <span class="op">=</span> np.zeros(N <span class="op">-</span> (Ny <span class="op">-</span> <span class="dv">1</span>))</span>
-<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a>    dNym1[Ny] <span class="op">=</span> <span class="fl">1.0</span></span>
-<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a>    dNym1[<span class="dv">2</span> <span class="op">*</span> Ny <span class="op">+</span> <span class="dv">1</span> :: (Ny <span class="op">+</span> <span class="dv">1</span>)] <span class="op">=</span> <span class="fl">0.25</span></span>
-<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a>    <span class="co"># dNy: length N-Ny</span></span>
-<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a>    mot <span class="op">=</span> np.concatenate(([<span class="fl">0.0</span>], <span class="op">-</span><span class="fl">0.25</span> <span class="op">*</span> np.ones(Ny <span class="op">-</span> <span class="dv">1</span>), [<span class="op">-</span><span class="fl">1.0</span>]))</span>
-<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a>    dNy <span class="op">=</span> np.concatenate((np.tile(mot, Nx), [<span class="fl">0.0</span>]))</span>
-<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a>    dNy[<span class="dv">1</span>:Ny] <span class="op">=</span> <span class="op">-</span><span class="fl">1.0</span></span>
-<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a>    dNy[Ny] <span class="op">=</span> <span class="op">-</span><span class="fl">4.0</span></span>
-<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a>    <span class="co"># dNyp1: length N-(Ny+1)</span></span>
-<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a>    dNyp1 <span class="op">=</span> np.zeros(N <span class="op">-</span> (Ny <span class="op">+</span> <span class="dv">1</span>))</span>
-<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a>    dNyp1[<span class="dv">0</span>] <span class="op">=</span> <span class="op">-</span><span class="fl">3.0</span></span>
-<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a>    dNyp1[Ny] <span class="op">=</span> <span class="fl">3.0</span></span>
-<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a>    dNyp1[<span class="dv">2</span> <span class="op">*</span> Ny <span class="op">+</span> <span class="dv">1</span> :: (Ny <span class="op">+</span> <span class="dv">1</span>)] <span class="op">=</span> <span class="fl">0.75</span></span>
-<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a>    dNyp1[Ny <span class="op">+</span> <span class="dv">1</span> :: (Ny <span class="op">+</span> <span class="dv">1</span>)] <span class="op">=</span> <span class="op">-</span><span class="fl">0.75</span></span>
-<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a>    <span class="co"># dNyp2: length N-(Ny+2)</span></span>
-<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a>    mot <span class="op">=</span> np.concatenate(([<span class="fl">1.0</span>], <span class="fl">0.25</span> <span class="op">*</span> np.ones(Ny <span class="op">-</span> <span class="dv">1</span>), [<span class="fl">0.0</span>]))</span>
-<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a>    dNyp2 <span class="op">=</span> np.tile(mot, Nx)[:<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a>    dNyp2[<span class="dv">1</span>:Ny] <span class="op">=</span> <span class="fl">1.0</span></span>
-<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a>    dNyp2[<span class="dv">0</span>] <span class="op">=</span> <span class="fl">4.0</span></span>
-<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a>    <span class="co"># dNyp3: length N-(Ny+3)</span></span>
-<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a>    dNyp3 <span class="op">=</span> np.zeros(N <span class="op">-</span> (Ny <span class="op">+</span> <span class="dv">3</span>))</span>
-<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a>    dNyp3[<span class="dv">0</span>] <span class="op">=</span> <span class="op">-</span><span class="fl">1.0</span></span>
-<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a>    dNyp3[Ny <span class="op">+</span> <span class="dv">1</span> :: (Ny <span class="op">+</span> <span class="dv">1</span>)] <span class="op">=</span> <span class="op">-</span><span class="fl">0.25</span></span>
-<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a>    <span class="co"># d2Ny: length N-2*Ny</span></span>
-<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a>    d2Ny <span class="op">=</span> np.zeros(N <span class="op">-</span> <span class="dv">2</span> <span class="op">*</span> Ny)</span>
-<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a>    d2Ny[Ny] <span class="op">=</span> <span class="op">-</span><span class="fl">0.25</span></span>
-<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a>    <span class="co"># d2Nyp1: length N-(2*Ny+1)</span></span>
-<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a>    d2Nyp1 <span class="op">=</span> np.zeros(N <span class="op">-</span> (<span class="dv">2</span> <span class="op">*</span> Ny <span class="op">+</span> <span class="dv">1</span>))</span>
-<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a>    d2Nyp1[<span class="dv">1</span>:Ny] <span class="op">=</span> <span class="fl">0.25</span></span>
-<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a>    d2Nyp1[Ny] <span class="op">=</span> <span class="fl">1.0</span></span>
-<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a>    <span class="co"># d2Nyp2: length N-(2*Ny+2)</span></span>
-<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a>    d2Nyp2 <span class="op">=</span> np.zeros(N <span class="op">-</span> (<span class="dv">2</span> <span class="op">*</span> Ny <span class="op">+</span> <span class="dv">2</span>))</span>
-<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a>    d2Nyp2[<span class="dv">0</span>] <span class="op">=</span> <span class="fl">0.75</span></span>
-<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a>    d2Nyp2[Ny] <span class="op">=</span> <span class="op">-</span><span class="fl">0.75</span></span>
-<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a>    <span class="co"># d2Nyp3: length N-(2*Ny+3)</span></span>
-<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a>    d2Nyp3 <span class="op">=</span> np.zeros(N <span class="op">-</span> (<span class="dv">2</span> <span class="op">*</span> Ny <span class="op">+</span> <span class="dv">3</span>))</span>
-<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a>    d2Nyp3[<span class="dv">0</span>] <span class="op">=</span> <span class="op">-</span><span class="fl">1.0</span></span>
-<span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a>    d2Nyp3[<span class="dv">1</span>:Ny] <span class="op">=</span> <span class="op">-</span><span class="fl">0.25</span></span>
-<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-174"><a href="#cb2-174" aria-hidden="true" tabindex="-1"></a>    <span class="co"># d2Nyp4: length N-(2*Ny+4)</span></span>
-<span id="cb2-175"><a href="#cb2-175" aria-hidden="true" tabindex="-1"></a>    d2Nyp4 <span class="op">=</span> np.zeros(N <span class="op">-</span> (<span class="dv">2</span> <span class="op">*</span> Ny <span class="op">+</span> <span class="dv">4</span>))</span>
-<span id="cb2-176"><a href="#cb2-176" aria-hidden="true" tabindex="-1"></a>    d2Nyp4[<span class="dv">0</span>] <span class="op">=</span> <span class="fl">0.25</span></span>
-<span id="cb2-177"><a href="#cb2-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-178"><a href="#cb2-178" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Assemble the 25 diagonals with appropriate padding.</span></span>
-<span id="cb2-179"><a href="#cb2-179" aria-hidden="true" tabindex="-1"></a>    diags <span class="op">=</span> np.vstack(</span>
-<span id="cb2-180"><a href="#cb2-180" aria-hidden="true" tabindex="-1"></a>        [</span>
-<span id="cb2-181"><a href="#cb2-181" aria-hidden="true" tabindex="-1"></a>            pad_upper(d2Nyp4, <span class="dv">2</span> <span class="op">*</span> Ny <span class="op">+</span> <span class="dv">4</span>),</span>
-<span id="cb2-182"><a href="#cb2-182" aria-hidden="true" tabindex="-1"></a>            pad_upper(d2Nyp3, <span class="dv">2</span> <span class="op">*</span> Ny <span class="op">+</span> <span class="dv">3</span>),</span>
-<span id="cb2-183"><a href="#cb2-183" aria-hidden="true" tabindex="-1"></a>            pad_upper(d2Nyp2, <span class="dv">2</span> <span class="op">*</span> Ny <span class="op">+</span> <span class="dv">2</span>),</span>
-<span id="cb2-184"><a href="#cb2-184" aria-hidden="true" tabindex="-1"></a>            pad_upper(d2Nyp1, <span class="dv">2</span> <span class="op">*</span> Ny <span class="op">+</span> <span class="dv">1</span>),</span>
-<span id="cb2-185"><a href="#cb2-185" aria-hidden="true" tabindex="-1"></a>            pad_upper(d2Ny, <span class="dv">2</span> <span class="op">*</span> Ny),</span>
-<span id="cb2-186"><a href="#cb2-186" aria-hidden="true" tabindex="-1"></a>            pad_upper(dNyp3, Ny <span class="op">+</span> <span class="dv">3</span>),</span>
-<span id="cb2-187"><a href="#cb2-187" aria-hidden="true" tabindex="-1"></a>            pad_upper(dNyp2, Ny <span class="op">+</span> <span class="dv">2</span>),</span>
-<span id="cb2-188"><a href="#cb2-188" aria-hidden="true" tabindex="-1"></a>            pad_upper(dNyp1, Ny <span class="op">+</span> <span class="dv">1</span>),</span>
-<span id="cb2-189"><a href="#cb2-189" aria-hidden="true" tabindex="-1"></a>            pad_upper(dNy, Ny),</span>
-<span id="cb2-190"><a href="#cb2-190" aria-hidden="true" tabindex="-1"></a>            pad_upper(dNym1, (Ny <span class="op">-</span> <span class="dv">1</span>)),</span>
-<span id="cb2-191"><a href="#cb2-191" aria-hidden="true" tabindex="-1"></a>            pad_upper(d2, <span class="dv">2</span>),</span>
-<span id="cb2-192"><a href="#cb2-192" aria-hidden="true" tabindex="-1"></a>            pad_upper(d1, <span class="dv">1</span>),</span>
-<span id="cb2-193"><a href="#cb2-193" aria-hidden="true" tabindex="-1"></a>            d0,</span>
-<span id="cb2-194"><a href="#cb2-194" aria-hidden="true" tabindex="-1"></a>            pad_lower(d1, <span class="dv">1</span>),</span>
-<span id="cb2-195"><a href="#cb2-195" aria-hidden="true" tabindex="-1"></a>            pad_lower(d2, <span class="dv">2</span>),</span>
-<span id="cb2-196"><a href="#cb2-196" aria-hidden="true" tabindex="-1"></a>            pad_lower(dNym1, Ny <span class="op">-</span> <span class="dv">1</span>),</span>
-<span id="cb2-197"><a href="#cb2-197" aria-hidden="true" tabindex="-1"></a>            pad_lower(dNy, Ny),</span>
-<span id="cb2-198"><a href="#cb2-198" aria-hidden="true" tabindex="-1"></a>            pad_lower(dNyp1, Ny <span class="op">+</span> <span class="dv">1</span>),</span>
-<span id="cb2-199"><a href="#cb2-199" aria-hidden="true" tabindex="-1"></a>            pad_lower(dNyp2, Ny <span class="op">+</span> <span class="dv">2</span>),</span>
-<span id="cb2-200"><a href="#cb2-200" aria-hidden="true" tabindex="-1"></a>            pad_lower(dNyp3, Ny <span class="op">+</span> <span class="dv">3</span>),</span>
-<span id="cb2-201"><a href="#cb2-201" aria-hidden="true" tabindex="-1"></a>            pad_lower(d2Ny, <span class="dv">2</span> <span class="op">*</span> Ny),</span>
-<span id="cb2-202"><a href="#cb2-202" aria-hidden="true" tabindex="-1"></a>            pad_lower(d2Nyp1, <span class="dv">2</span> <span class="op">*</span> Ny <span class="op">+</span> <span class="dv">1</span>),</span>
-<span id="cb2-203"><a href="#cb2-203" aria-hidden="true" tabindex="-1"></a>            pad_lower(d2Nyp2, <span class="dv">2</span> <span class="op">*</span> Ny <span class="op">+</span> <span class="dv">2</span>),</span>
-<span id="cb2-204"><a href="#cb2-204" aria-hidden="true" tabindex="-1"></a>            pad_lower(d2Nyp3, <span class="dv">2</span> <span class="op">*</span> Ny <span class="op">+</span> <span class="dv">3</span>),</span>
-<span id="cb2-205"><a href="#cb2-205" aria-hidden="true" tabindex="-1"></a>            pad_lower(d2Nyp4, <span class="dv">2</span> <span class="op">*</span> Ny <span class="op">+</span> <span class="dv">4</span>),</span>
-<span id="cb2-206"><a href="#cb2-206" aria-hidden="true" tabindex="-1"></a>        ]</span>
-<span id="cb2-207"><a href="#cb2-207" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb2-208"><a href="#cb2-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-209"><a href="#cb2-209" aria-hidden="true" tabindex="-1"></a>    dN <span class="op">=</span> np.array(</span>
-<span id="cb2-210"><a href="#cb2-210" aria-hidden="true" tabindex="-1"></a>        [</span>
-<span id="cb2-211"><a href="#cb2-211" aria-hidden="true" tabindex="-1"></a>            <span class="op">-</span>(<span class="dv">2</span> <span class="op">*</span> Ny <span class="op">+</span> <span class="dv">4</span>),</span>
-<span id="cb2-212"><a href="#cb2-212" aria-hidden="true" tabindex="-1"></a>            <span class="op">-</span>(<span class="dv">2</span> <span class="op">*</span> Ny <span class="op">+</span> <span class="dv">3</span>),</span>
-<span id="cb2-213"><a href="#cb2-213" aria-hidden="true" tabindex="-1"></a>            <span class="op">-</span>(<span class="dv">2</span> <span class="op">*</span> Ny <span class="op">+</span> <span class="dv">2</span>),</span>
-<span id="cb2-214"><a href="#cb2-214" aria-hidden="true" tabindex="-1"></a>            <span class="op">-</span>(<span class="dv">2</span> <span class="op">*</span> Ny <span class="op">+</span> <span class="dv">1</span>),</span>
-<span id="cb2-215"><a href="#cb2-215" aria-hidden="true" tabindex="-1"></a>            <span class="op">-</span>(<span class="dv">2</span> <span class="op">*</span> Ny),</span>
-<span id="cb2-216"><a href="#cb2-216" aria-hidden="true" tabindex="-1"></a>            <span class="op">-</span>(Ny <span class="op">+</span> <span class="dv">3</span>),</span>
-<span id="cb2-217"><a href="#cb2-217" aria-hidden="true" tabindex="-1"></a>            <span class="op">-</span>(Ny <span class="op">+</span> <span class="dv">2</span>),</span>
-<span id="cb2-218"><a href="#cb2-218" aria-hidden="true" tabindex="-1"></a>            <span class="op">-</span>(Ny <span class="op">+</span> <span class="dv">1</span>),</span>
-<span id="cb2-219"><a href="#cb2-219" aria-hidden="true" tabindex="-1"></a>            <span class="op">-</span>Ny,</span>
-<span id="cb2-220"><a href="#cb2-220" aria-hidden="true" tabindex="-1"></a>            <span class="op">-</span>(Ny <span class="op">-</span> <span class="dv">1</span>),</span>
-<span id="cb2-221"><a href="#cb2-221" aria-hidden="true" tabindex="-1"></a>            <span class="op">-</span><span class="dv">2</span>,</span>
-<span id="cb2-222"><a href="#cb2-222" aria-hidden="true" tabindex="-1"></a>            <span class="op">-</span><span class="dv">1</span>,</span>
-<span id="cb2-223"><a href="#cb2-223" aria-hidden="true" tabindex="-1"></a>            <span class="dv">0</span>,</span>
-<span id="cb2-224"><a href="#cb2-224" aria-hidden="true" tabindex="-1"></a>            <span class="dv">1</span>,</span>
-<span id="cb2-225"><a href="#cb2-225" aria-hidden="true" tabindex="-1"></a>            <span class="dv">2</span>,</span>
-<span id="cb2-226"><a href="#cb2-226" aria-hidden="true" tabindex="-1"></a>            (Ny <span class="op">-</span> <span class="dv">1</span>),</span>
-<span id="cb2-227"><a href="#cb2-227" aria-hidden="true" tabindex="-1"></a>            Ny,</span>
-<span id="cb2-228"><a href="#cb2-228" aria-hidden="true" tabindex="-1"></a>            (Ny <span class="op">+</span> <span class="dv">1</span>),</span>
-<span id="cb2-229"><a href="#cb2-229" aria-hidden="true" tabindex="-1"></a>            (Ny <span class="op">+</span> <span class="dv">2</span>),</span>
-<span id="cb2-230"><a href="#cb2-230" aria-hidden="true" tabindex="-1"></a>            (Ny <span class="op">+</span> <span class="dv">3</span>),</span>
-<span id="cb2-231"><a href="#cb2-231" aria-hidden="true" tabindex="-1"></a>            <span class="dv">2</span> <span class="op">*</span> Ny,</span>
-<span id="cb2-232"><a href="#cb2-232" aria-hidden="true" tabindex="-1"></a>            <span class="dv">2</span> <span class="op">*</span> Ny <span class="op">+</span> <span class="dv">1</span>,</span>
-<span id="cb2-233"><a href="#cb2-233" aria-hidden="true" tabindex="-1"></a>            <span class="dv">2</span> <span class="op">*</span> Ny <span class="op">+</span> <span class="dv">2</span>,</span>
-<span id="cb2-234"><a href="#cb2-234" aria-hidden="true" tabindex="-1"></a>            <span class="dv">2</span> <span class="op">*</span> Ny <span class="op">+</span> <span class="dv">3</span>,</span>
-<span id="cb2-235"><a href="#cb2-235" aria-hidden="true" tabindex="-1"></a>            <span class="dv">2</span> <span class="op">*</span> Ny <span class="op">+</span> <span class="dv">4</span>,</span>
-<span id="cb2-236"><a href="#cb2-236" aria-hidden="true" tabindex="-1"></a>        ]</span>
-<span id="cb2-237"><a href="#cb2-237" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb2-238"><a href="#cb2-238" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-239"><a href="#cb2-239" aria-hidden="true" tabindex="-1"></a>    Dxy <span class="op">=</span> sp.spdiags(diags, dN, N, N)</span>
-<span id="cb2-240"><a href="#cb2-240" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (<span class="dv">1</span> <span class="op">/</span> h<span class="op">**</span><span class="dv">2</span>) <span class="op">*</span> Dxy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
+<!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
+<hr>
+<section id="second_derivative_mixed" class="level3">
+<h3 class="anchored" data-anchor-id="second_derivative_mixed">second_derivative_mixed</h3>
+<blockquote class="blockquote">
+<pre><code> second_derivative_mixed (Nx, Ny, h)</code></pre>
+</blockquote>
+<hr>
+</section>
+<section id="second_derivative" class="level3">
+<h3 class="anchored" data-anchor-id="second_derivative">second_derivative</h3>
+<blockquote class="blockquote">
+<pre><code> second_derivative (Nx, Ny, h, direction='x')</code></pre>
+</blockquote>
+<p>*Construct a higher-order second derivative operator matching the MATLAB implementation of vkplate.</p>
+<p>Parameters: Nx (int): Number of intervals in the x-direction. Ny (int): Number of intervals in the y-direction. h (float): Grid spacing.</p>
+<p>Returns: scipy.sparse.spmatrix: The (Nx+1)<em>(Ny+1) x (Nx+1)</em>(Ny+1) second derivative operator.*</p>
+<hr>
+</section>
+<section id="pad_lower" class="level3">
+<h3 class="anchored" data-anchor-id="pad_lower">pad_lower</h3>
+<blockquote class="blockquote">
+<pre><code> pad_lower (vec, pad)</code></pre>
+</blockquote>
+<hr>
+</section>
+<section id="pad_upper" class="level3">
+<h3 class="anchored" data-anchor-id="pad_upper">pad_upper</h3>
+<blockquote class="blockquote">
+<pre><code> pad_upper (vec, pad)</code></pre>
+</blockquote>
 <p>The bilinear von Kármán operator is defined as</p>
 <p><span class="math display">\[
 L(f, g)=f_{, x x} g_{, y y}+f_{, y y} g_{, x x}-2 f_{, x y} g_{, x y}
 \]</span></p>
-<p>::: {#cell-6 .cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’}</p>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> vkoperator(phi1, phi2, Dxx, Dyy, Dxy):</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Compute the numerical approximation of the von Kármán operator</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    for two functions phi1 and phi2.</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">    ----------</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">    phi1 : numpy.ndarray</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">        The first discretized function.</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">    phi2 : numpy.ndarray</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">        The second discretized function.</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">    Dxx : scipy.sparse.spmatrix</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">        The second derivative operator in the x-direction.</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">    Dyy : scipy.sparse.spmatrix</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">        The second derivative operator in the y-direction.</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co">    Dxy : scipy.sparse.spmatrix</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co">        The mixed derivative operator.</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns</span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co">    -------</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="co">    numpy.ndarray</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="co">        The numerical approximation of the von Kármán operator</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="co">        applied to phi1 and phi2.</span></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    phi1x <span class="op">=</span> Dxx <span class="op">@</span> phi1</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    phi1y <span class="op">=</span> Dyy <span class="op">@</span> phi1</span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    phi2x <span class="op">=</span> Dxx <span class="op">@</span> phi2</span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>    phi2y <span class="op">=</span> Dyy <span class="op">@</span> phi2</span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    phi1xy <span class="op">=</span> Dxy <span class="op">@</span> phi1</span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>    phi2xy <span class="op">=</span> Dxy <span class="op">@</span> phi2</span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> phi1x <span class="op">*</span> phi2y <span class="op">+</span> phi1y <span class="op">*</span> phi2x <span class="op">-</span> <span class="dv">2</span> <span class="op">*</span> phi1xy <span class="op">*</span> phi2xy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
-<p>::: {#cell-7 .cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’}</p>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> double_trapezoid(f, dx, dy<span class="op">=</span><span class="va">None</span>):</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> trapezoid(trapezoid(f, dx<span class="op">=</span>dx <span class="cf">if</span> dy <span class="kw">is</span> <span class="va">None</span> <span class="cf">else</span> dy), dx<span class="op">=</span>dx)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> double_trapezoid_flat(f, dx, dy, Ny, Nx):</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    F <span class="op">=</span> f.reshape((Ny, Nx), order<span class="op">=</span><span class="st">"F"</span>)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> double_trapezoid(F, dx, dy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
+<hr>
+</section>
+<section id="vkoperator" class="level3">
+<h3 class="anchored" data-anchor-id="vkoperator">vkoperator</h3>
+<blockquote class="blockquote">
+<pre><code> vkoperator (phi1, phi2, Dxx, Dyy, Dxy)</code></pre>
+</blockquote>
+<p><em>Compute the numerical approximation of the von Kármán operator for two functions phi1 and phi2.</em></p>
+<table class="table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 38%">
+<col style="width: 52%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>phi1</td>
+<td>numpy.ndarray</td>
+<td>The first discretized function.</td>
+</tr>
+<tr class="even">
+<td>phi2</td>
+<td>numpy.ndarray</td>
+<td>The second discretized function.</td>
+</tr>
+<tr class="odd">
+<td>Dxx</td>
+<td>scipy.sparse.spmatrix</td>
+<td>The second derivative operator in the x-direction.</td>
+</tr>
+<tr class="even">
+<td>Dyy</td>
+<td>scipy.sparse.spmatrix</td>
+<td>The second derivative operator in the y-direction.</td>
+</tr>
+<tr class="odd">
+<td>Dxy</td>
+<td>scipy.sparse.spmatrix</td>
+<td>The mixed derivative operator.</td>
+</tr>
+<tr class="even">
+<td><strong>Returns</strong></td>
+<td><strong>numpy.ndarray</strong></td>
+<td><strong>The numerical approximation of the von Kármán operator<br>applied to phi1 and phi2.</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="double_trapezoid_flat" class="level3">
+<h3 class="anchored" data-anchor-id="double_trapezoid_flat">double_trapezoid_flat</h3>
+<blockquote class="blockquote">
+<pre><code> double_trapezoid_flat (f, dx, dy, Ny, Nx)</code></pre>
+</blockquote>
+<hr>
+</section>
+<section id="double_trapezoid" class="level3">
+<h3 class="anchored" data-anchor-id="double_trapezoid">double_trapezoid</h3>
+<blockquote class="blockquote">
+<pre><code> double_trapezoid (f, dx, dy=None)</code></pre>
+</blockquote>
 <p>The modal coupling matrix is computed as</p>
 <p><span class="math display">\[
 H_{p, q}^k=\frac{\int_S \Psi_k L\left(\Phi_p, \Phi_q\right) \mathrm{d} S}{\left\|\Psi_k\right\|\left\|\Phi_p\right\|\left\|\Phi_q\right\|}
@@ -573,112 +462,64 @@ H_{p, q}^k=\frac{\int_S \Psi_k L\left(\Phi_p, \Phi_q\right) \mathrm{d} S}{\left\
 H_{p, q}^k= \int_S \Psi_k L\left(\Phi_p, \Phi_q\right) \mathrm{d} S
 \]</span></p>
 <p>since the <span class="math inline">\(\Psi\)</span> and <span class="math inline">\(\Phi\)</span> functions are normalised elsewhere.</p>
-<p>::: {#cell-9 .cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’}</p>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> compute_coupling_matrix_numerical(</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    psi,</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    phi,</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    h,</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    nx,</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    ny,</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># psi_norms,</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># phi_norms,</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>):</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">    Compute the coupling matrix for the given in-plane and out-of-plane modes.</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">    ----------</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">    psi : np.ndarray</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">        The **normalised** in-plane modes with shape (ny+1 * nx+1, n_modes.</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co">        These are stored in a flattened array column-wise.</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co">    phi : np.ndarray</span></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co">        The **normalised** out-of-plane modes with shape (ny+1 * nx+1, n_modes).</span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co">        These are stored in a flattened array column-wise.</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co">    h : float</span></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co">        The grid spacing.</span></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    Dxx <span class="op">=</span> second_derivative(</span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>        nx,</span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>        ny,</span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>        h,</span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>        direction<span class="op">=</span><span class="st">"x"</span>,</span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>    Dyy <span class="op">=</span> second_derivative(</span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>        nx,</span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>        ny,</span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>        h,</span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>        direction<span class="op">=</span><span class="st">"y"</span>,</span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>    Dxy <span class="op">=</span> second_derivative_mixed(</span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>        nx,</span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>        ny,</span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>        h,</span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>    n_modes <span class="op">=</span> psi.shape[<span class="dv">1</span>]</span>
-<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Compute the norms of the in-plane modes</span></span>
-<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>    <span class="co"># psi_norms = np.array(</span></span>
-<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>    <span class="co">#     [</span></span>
-<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>    <span class="co">#         double_trapezoid_flat(</span></span>
-<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>    <span class="co">#             psi[:, k] * psi[:, k],</span></span>
-<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>    <span class="co">#             h,</span></span>
-<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>    <span class="co">#             h,</span></span>
-<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>    <span class="co">#             Ny=ny + 1,</span></span>
-<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>    <span class="co">#             Nx=nx + 1,</span></span>
-<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>    <span class="co">#         )</span></span>
-<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>    <span class="co">#         for k in range(n_modes)</span></span>
-<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>    <span class="co">#     ]</span></span>
-<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>    <span class="co"># )</span></span>
-<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Compute the coupling matrix</span></span>
-<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>    H <span class="op">=</span> np.zeros((n_modes, n_modes, n_modes))</span>
-<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(n_modes):</span>
-<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>        psik <span class="op">=</span> psi[:, k]</span>
-<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>        <span class="co"># norm_k = psi_norms[k]</span></span>
-<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> p <span class="kw">in</span> <span class="bu">range</span>(n_modes):</span>
-<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a>            phip <span class="op">=</span> phi[:, p]</span>
-<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a>            <span class="co"># phi_norm_p = phi_norms[p]</span></span>
-<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> q <span class="kw">in</span> <span class="bu">range</span>(p, n_modes):</span>
-<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>                phiq <span class="op">=</span> phi[:, q]</span>
-<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>                <span class="co"># phi_norm_q = phi_norms[q]</span></span>
-<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a>                vkop <span class="op">=</span> vkoperator(phip, phiq, Dxx, Dyy, Dxy)</span>
-<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a>                coupling <span class="op">=</span> double_trapezoid_flat(</span>
-<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a>                    psik <span class="op">*</span> vkop,</span>
-<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a>                    h,</span>
-<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a>                    h,</span>
-<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>                    Ny<span class="op">=</span>ny <span class="op">+</span> <span class="dv">1</span>,</span>
-<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>                    Nx<span class="op">=</span>nx <span class="op">+</span> <span class="dv">1</span>,</span>
-<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>                )  <span class="co"># / (np.sqrt(norm_k) * np.sqrt(phi_norm_p) * np.sqrt(phi_norm_q))</span></span>
-<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>                <span class="co"># ensure symmetry in the last two indices</span></span>
-<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>                H[k, q, p] <span class="op">=</span> coupling</span>
-<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a>                H[k, p, q] <span class="op">=</span> coupling</span>
-<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Zero small values</span></span>
-<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>    threshold <span class="op">=</span> <span class="fl">1e-8</span></span>
-<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>    H[np.<span class="bu">abs</span>(H <span class="op">/</span> np.<span class="bu">max</span>(np.<span class="bu">abs</span>(H))) <span class="op">&lt;</span> threshold] <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> H</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
+<hr>
+</section>
+<section id="compute_coupling_matrix_numerical" class="level3">
+<h3 class="anchored" data-anchor-id="compute_coupling_matrix_numerical">compute_coupling_matrix_numerical</h3>
+<blockquote class="blockquote">
+<pre><code> compute_coupling_matrix_numerical (psi, phi, h, nx, ny)</code></pre>
+</blockquote>
+<p><em>Compute the coupling matrix for the given in-plane and out-of-plane modes.</em></p>
+<table class="table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 38%">
+<col style="width: 52%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>psi</td>
+<td>np.ndarray</td>
+<td>The <strong>normalised</strong> in-plane modes with shape (ny+1 * nx+1, n_modes.<br>These are stored in a flattened array column-wise.</td>
+</tr>
+<tr class="even">
+<td>phi</td>
+<td>np.ndarray</td>
+<td>The <strong>normalised</strong> out-of-plane modes with shape (ny+1 * nx+1, n_modes).<br>These are stored in a flattened array column-wise.</td>
+</tr>
+<tr class="odd">
+<td>h</td>
+<td>float</td>
+<td>The grid spacing.</td>
+</tr>
+<tr class="even">
+<td>nx</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>ny</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="modal-pruning" class="level2">
 <h2 class="anchored" data-anchor-id="modal-pruning">Modal pruning</h2>
-<p>::: {#cell-11 .cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’}</p>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> polarisation(</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    interpolated_eigenvectors,</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    eigenvectors,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    h,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>):</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    negative <span class="op">=</span> interpolated_eigenvectors <span class="op">-</span> eigenvectors</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    positive <span class="op">=</span> interpolated_eigenvectors <span class="op">+</span> eigenvectors</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    sgn <span class="op">=</span> np.sign(</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        <span class="op">-</span>np.<span class="bu">abs</span>(double_trapezoid(negative <span class="op">*</span> negative, dx<span class="op">=</span>h))</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        <span class="op">+</span> np.<span class="bu">abs</span>(double_trapezoid(positive <span class="op">*</span> positive, dx<span class="op">=</span>h))</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> sgn <span class="op">*</span> eigenvectors</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
+<hr>
+<section id="polarisation" class="level3">
+<h3 class="anchored" data-anchor-id="polarisation">polarisation</h3>
+<blockquote class="blockquote">
+<pre><code> polarisation (interpolated_eigenvectors, eigenvectors, h)</code></pre>
+</blockquote>
 <p>The Modal Assurance Criterion (MAC) between two eigenvectors (mode shapes) <span class="math inline">\(\Phi_i\)</span> and <span class="math inline">\(\Phi_j\)</span> is:</p>
 <p><span class="math display">\[
 \mathrm{MAC}(\Phi_i,\Phi_j) =
@@ -686,114 +527,92 @@ H_{p, q}^k= \int_S \Psi_k L\left(\Phi_p, \Phi_q\right) \mathrm{d} S
     {\left(\Phi_i^{T}\,\Phi_i\right)\,\left(\Phi_j^{T}\,\Phi_j\right)}.
 \]</span></p>
 <p>MAC measures the degree of similarity (or consistency) between the two mode shapes. A value of 1 indicates identical shapes (up to a scalar), while a value near 0 indicates they are nearly orthogonal.</p>
-<p>::: {#cell-13 .cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’}</p>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> eigenMAC(</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    ref_eigenvectors,</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    ref_nx,</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    ref_ny,</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    eigenvectors,</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    eigenvalues,</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    nx,</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    ny,</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    n_modes,</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    Lx,</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    Ly,</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    h,</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>):</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co">    Computes the Modal Assurance Criterion (MAC) between reference eigenvectors and given eigenvectors.</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="co">    ----------</span></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="co">    ref_eigenvectors : ndarray</span></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="co">        Reference eigenvectors (reshaped for interpolation).</span></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="co">    ref_nx : int</span></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="co">        Number of reference grid points along the x-axis.</span></span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="co">    ref_ny : int</span></span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="co">        Number of reference grid points along the y-axis.</span></span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="co">    eigenvectors : ndarray</span></span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="co">        Eigenvectors to compare against the reference.</span></span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="co">    eigenvalues : ndarray</span></span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a><span class="co">        Corresponding eigenvalues of the eigenvectors.</span></span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a><span class="co">    nx : int</span></span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a><span class="co">        Number of grid points along the x-axis for interpolation.</span></span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a><span class="co">    ny : int</span></span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a><span class="co">        Number of grid points along the y-axis for interpolation.</span></span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a><span class="co">    n_modes : int</span></span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a><span class="co">        Number of modes to compare.</span></span>
-<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a><span class="co">    Lx : float</span></span>
-<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a><span class="co">        Length of the domain along the x-axis.</span></span>
-<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a><span class="co">    Ly : float</span></span>
-<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a><span class="co">        Length of the domain along the y-axis.</span></span>
-<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns</span></span>
-<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a><span class="co">    -------</span></span>
-<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a><span class="co">    eigenvectors_swapped : ndarray</span></span>
-<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a><span class="co">        Reordered eigenvectors after MAC computation.</span></span>
-<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a><span class="co">    eigenvalues_swapped : ndarray</span></span>
-<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a><span class="co">        Reordered eigenvalues after MAC computation.</span></span>
-<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define reference and target grids</span></span>
-<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>    xref <span class="op">=</span> np.linspace(<span class="dv">0</span>, Lx, ref_nx <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>    yref <span class="op">=</span> np.linspace(<span class="dv">0</span>, Ly, ref_ny <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.linspace(<span class="dv">0</span>, Lx, nx <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> np.linspace(<span class="dv">0</span>, Ly, ny <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Interpolate eigenvectors</span></span>
-<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>    interpolated_eigenvectors <span class="op">=</span> np.zeros(((nx <span class="op">+</span> <span class="dv">1</span>) <span class="op">*</span> (ny <span class="op">+</span> <span class="dv">1</span>), n_modes))</span>
-<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> mode <span class="kw">in</span> <span class="bu">range</span>(n_modes):</span>
-<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>        Z <span class="op">=</span> ref_eigenvectors[:, mode].reshape(ref_nx <span class="op">+</span> <span class="dv">1</span>, ref_ny <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a>        interpolator <span class="op">=</span> RectBivariateSpline(</span>
-<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a>            xref,</span>
-<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a>            yref,</span>
-<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a>            Z,</span>
-<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a>            kx<span class="op">=</span><span class="dv">1</span>,</span>
-<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a>            ky<span class="op">=</span><span class="dv">1</span>,</span>
-<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a>        interpolated_eigenvectors[:, mode] <span class="op">=</span> interpolator(x, y).ravel()</span>
-<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Compute MAC matrix</span></span>
-<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a>    norm_eigenvectors <span class="op">=</span> np.<span class="bu">sum</span>(eigenvectors<span class="op">**</span><span class="dv">2</span>, axis<span class="op">=</span><span class="dv">0</span>, keepdims<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a>    norm_interpolated <span class="op">=</span> np.<span class="bu">sum</span>(interpolated_eigenvectors<span class="op">**</span><span class="dv">2</span>, axis<span class="op">=</span><span class="dv">0</span>, keepdims<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a>    num <span class="op">=</span> np.<span class="bu">abs</span>(interpolated_eigenvectors.T <span class="op">@</span> eigenvectors) <span class="op">**</span> <span class="dv">2</span></span>
-<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a>    den <span class="op">=</span> norm_interpolated.T <span class="op">@</span> norm_eigenvectors  <span class="co"># Shape (n_modes, n_modes)</span></span>
-<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a>    MAC_matrix <span class="op">=</span> num <span class="op">/</span> den</span>
-<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a>    MAC_matrix[MAC_matrix <span class="op">&lt;</span> <span class="fl">0.1</span>] <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a>    np.fill_diagonal(MAC_matrix, <span class="dv">0</span>)</span>
-<span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Find matching indices</span></span>
-<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a>    rows, cols <span class="op">=</span> np.where(MAC_matrix <span class="op">&gt;</span> <span class="dv">0</span>)</span>
-<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a>    lmc <span class="op">=</span> <span class="bu">len</span>(cols)</span>
-<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> lmc <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a>        swap_indices <span class="op">=</span> np.arange(n_modes)</span>
-<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a>        check <span class="op">=</span> rows[<span class="dv">0</span>]</span>
-<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(lmc <span class="op">-</span> <span class="dv">1</span>):</span>
-<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> check <span class="op">!=</span> cols[i]:</span>
-<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a>                swap_indices[cols[i]], swap_indices[rows[i]] <span class="op">=</span> (</span>
-<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a>                    swap_indices[rows[i]],</span>
-<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a>                    swap_indices[cols[i]],</span>
-<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a>                )</span>
-<span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a>                check <span class="op">=</span> rows[i]</span>
-<span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a>        eigenvectors <span class="op">=</span> polarisation(interpolated_eigenvectors, eigenvectors, h)</span>
-<span id="cb7-98"><a href="#cb7-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Reorder eigenvectors and eigenvalues</span></span>
-<span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a>        eigenvectors_swapped <span class="op">=</span> eigenvectors[:, swap_indices]</span>
-<span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a>        eigenvalues_swapped <span class="op">=</span> eigenvalues[swap_indices]</span>
-<span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb7-104"><a href="#cb7-104" aria-hidden="true" tabindex="-1"></a>        eigenvectors_swapped <span class="op">=</span> eigenvectors</span>
-<span id="cb7-105"><a href="#cb7-105" aria-hidden="true" tabindex="-1"></a>        eigenvalues_swapped <span class="op">=</span> eigenvalues</span>
-<span id="cb7-106"><a href="#cb7-106" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> eigenvectors_swapped, eigenvalues_swapped</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
+<hr>
+</section>
+<section id="eigenmac" class="level3">
+<h3 class="anchored" data-anchor-id="eigenmac">eigenMAC</h3>
+<blockquote class="blockquote">
+<pre><code> eigenMAC (ref_eigenvectors, ref_nx, ref_ny, eigenvectors, eigenvalues,
+           nx, ny, n_modes, Lx, Ly, h)</code></pre>
+</blockquote>
+<p><em>Computes the Modal Assurance Criterion (MAC) between reference eigenvectors and given eigenvectors.</em></p>
+<table class="table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 38%">
+<col style="width: 52%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ref_eigenvectors</td>
+<td>ndarray</td>
+<td>Reference eigenvectors (reshaped for interpolation).</td>
+</tr>
+<tr class="even">
+<td>ref_nx</td>
+<td>int</td>
+<td>Number of reference grid points along the x-axis.</td>
+</tr>
+<tr class="odd">
+<td>ref_ny</td>
+<td>int</td>
+<td>Number of reference grid points along the y-axis.</td>
+</tr>
+<tr class="even">
+<td>eigenvectors</td>
+<td>ndarray</td>
+<td>Eigenvectors to compare against the reference.</td>
+</tr>
+<tr class="odd">
+<td>eigenvalues</td>
+<td>ndarray</td>
+<td>Corresponding eigenvalues of the eigenvectors.</td>
+</tr>
+<tr class="even">
+<td>nx</td>
+<td>int</td>
+<td>Number of grid points along the x-axis for interpolation.</td>
+</tr>
+<tr class="odd">
+<td>ny</td>
+<td>int</td>
+<td>Number of grid points along the y-axis for interpolation.</td>
+</tr>
+<tr class="even">
+<td>n_modes</td>
+<td>int</td>
+<td>Number of modes to compare.</td>
+</tr>
+<tr class="odd">
+<td>Lx</td>
+<td>float</td>
+<td>Length of the domain along the x-axis.</td>
+</tr>
+<tr class="even">
+<td>Ly</td>
+<td>float</td>
+<td>Length of the domain along the y-axis.</td>
+</tr>
+<tr class="odd">
+<td>h</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Returns</strong></td>
+<td><strong>ndarray</strong></td>
+<td><strong>Reordered eigenvectors after MAC computation.</strong></td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 <section id="biharmonic-decomposition" class="level2">
 <h2 class="anchored" data-anchor-id="biharmonic-decomposition">Biharmonic decomposition</h2>
@@ -802,150 +621,97 @@ H_{p, q}^k= \int_S \Psi_k L\left(\Phi_p, \Phi_q\right) \mathrm{d} S
 \Delta \Delta \Phi_p(x, y)=\frac{\rho h}{D} \lambda_p^2 \Phi_p(x, y) .
 \]</span></p>
 <p><span class="math inline">\(\rho\)</span>, <span class="math inline">\(h\)</span> and <span class="math inline">\(D\)</span> are density, tickness and bending stiffness of the plate, respectively.</p>
-<p>::: {#cell-16 .cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’}</p>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> biharmonic_eigendecomposition(</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    params: PlateParameters,</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    n_modes: <span class="bu">int</span>,</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    bcs: np.ndarray,</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    nx: <span class="bu">int</span>,</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    ny: <span class="bu">int</span>,</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    h: <span class="bu">float</span>,</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    normalise_eigenvectors<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>):</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co">    Computes the eigenvalue decomposition of the biharmonic operator for a</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co">    plate with the given parameters and boundary conditions.</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co">    Additionally it sorts the eigenvalues and eigenvectors in ascending order,</span></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co">    and normalises the eigenvectors if requested.</span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters</span></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co">    ----------</span></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co">    params : PlateParameters</span></span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="co">        The parameters of the plate.</span></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co">    n_modes : int</span></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co">        The number of modes to compute.</span></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co">    bcs : np.ndarray</span></span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="co">        The boundary conditions of the plate.</span></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co">    nx : int</span></span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="co">        The number of points in the x direction.</span></span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="co">    ny : int</span></span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="co">        The number of points in the y direction.</span></span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="co">    h : float</span></span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="co">        The spacing between points.</span></span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="co">    normalise_eigenvectors : bool</span></span>
-<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="co">        Whether to normalise the eigenvectors.</span></span>
-<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns</span></span>
-<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="co">    -------</span></span>
-<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="co">    Tuple[np.ndarray, np.ndarray, np.ndarray]</span></span>
-<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a><span class="co">        The eigenvalues, eigenvectors and norms of the eigenvectors.</span></span>
-<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>    biharm <span class="op">=</span> bhmat(bcs, [nx <span class="op">+</span> <span class="dv">1</span>, ny <span class="op">+</span> <span class="dv">1</span>], h, params.h, params.E, params.nu)</span>
-<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>    [eigenvalues, eigenvectors] <span class="op">=</span> eigs(biharm, k<span class="op">=</span>n_modes, sigma<span class="op">=</span><span class="dv">0</span>, which<span class="op">=</span><span class="st">"LR"</span>)</span>
-<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>    indSort <span class="op">=</span> np.argsort(eigenvalues)</span>
-<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>    eigenvalues <span class="op">=</span> eigenvalues[indSort]</span>
-<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>    eigenvectors <span class="op">=</span> eigenvectors[:, indSort]</span>
-<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>    <span class="co"># sometimes these might be complex due to numerical errors in bhmat?</span></span>
-<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: check if the biharmonic matrix is symmetric always</span></span>
-<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>    <span class="co"># if so we take the real part</span></span>
-<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>    eigenvectors <span class="op">=</span> np.real(eigenvectors)</span>
-<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a>    eigenvalues <span class="op">=</span> np.real(eigenvalues)</span>
-<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>    norms <span class="op">=</span> np.zeros(n_modes)</span>
-<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n_modes):</span>
-<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>        norm <span class="op">=</span> double_trapezoid_flat(</span>
-<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>            eigenvectors[:, i] <span class="op">**</span> <span class="dv">2</span>,</span>
-<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>            h,</span>
-<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>            h,</span>
-<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a>            ny <span class="op">+</span> <span class="dv">1</span>,</span>
-<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a>            nx <span class="op">+</span> <span class="dv">1</span>,</span>
-<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>        norms[i] <span class="op">=</span> norm</span>
-<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> normalise_eigenvectors:</span>
-<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a>            eigenvectors[:, i] <span class="op">/=</span> np.sqrt(norm)</span>
-<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> eigenvalues, eigenvectors, norms</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
-<p>::: {#cell-17 .cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’}</p>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> multiresolution_eigendecomposition(</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    params,</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    n_modes,</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    bcs,</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    h,</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    nx: <span class="bu">int</span>,</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    ny: <span class="bu">int</span>,</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    levels: <span class="bu">int</span> <span class="op">=</span> <span class="dv">2</span>,</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>):</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">    Runs the biharmonic eigendecomposition and eigenvector alignment on multiple grid resolutions.</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co">      params:       Parameters object containing domain lengths (e.g. params.lx and params.ly).</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co">      n_modes:      Number of eigenmodes to compute.</span></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="co">      bcs:          Boundary conditions.</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co">      h:            Initial grid spacing.</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co">      nx, ny:       Initial grid dimensions.</span></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="co">      levels:       Total number of resolutions to run (default 2).</span></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="co">                    The first level is the coarse grid, and each subsequent level</span></span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="co">                    uses h/2 and double the grid points to cover the same domain.</span></span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns</span></span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="co">      swapped_eigenvectors, swapped_eigenvalues from the last refinement.</span></span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Store the coarse grid values to use as a reference for eigenMAC.</span></span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>    ref_h, ref_nx, ref_ny <span class="op">=</span> h, nx, ny</span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Run the coarse-grid eigen-decomposition.</span></span>
-<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>    _, ref_eigenvectors, norms <span class="op">=</span> biharmonic_eigendecomposition(</span>
-<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>        params,</span>
-<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>        n_modes,</span>
-<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>        bcs,</span>
-<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>        nx,</span>
-<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>        ny,</span>
-<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>        h,</span>
-<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>    <span class="co"># For each subsequent refinement level, halve h and double the grid points.</span></span>
-<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, levels):</span>
-<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Refining grid to h = </span><span class="sc">{</span>h <span class="op">/</span> <span class="dv">2</span><span class="sc">}</span><span class="ss">, nx = </span><span class="sc">{</span>nx <span class="op">*</span> <span class="dv">2</span><span class="sc">}</span><span class="ss">, ny = </span><span class="sc">{</span>ny <span class="op">*</span> <span class="dv">2</span><span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>        h <span class="op">=</span> h <span class="op">/</span> <span class="dv">2</span></span>
-<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>        nx <span class="op">=</span> <span class="bu">int</span>(nx <span class="op">*</span> <span class="dv">2</span>)</span>
-<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>        ny <span class="op">=</span> <span class="bu">int</span>(ny <span class="op">*</span> <span class="dv">2</span>)</span>
-<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>        omega_mu, eigenvectors, norms <span class="op">=</span> biharmonic_eigendecomposition(</span>
-<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>            params,</span>
-<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>            n_modes,</span>
-<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>            bcs,</span>
-<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>            nx,</span>
-<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>            ny,</span>
-<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>            h,</span>
-<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>        swapped_eigenvectors, swapped_eigenvalues <span class="op">=</span> eigenMAC(</span>
-<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a>            ref_eigenvectors<span class="op">=</span>ref_eigenvectors,</span>
-<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a>            ref_nx<span class="op">=</span>ref_nx,</span>
-<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a>            ref_ny<span class="op">=</span>ref_ny,</span>
-<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>            eigenvectors<span class="op">=</span>eigenvectors,</span>
-<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a>            eigenvalues<span class="op">=</span>omega_mu,</span>
-<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a>            nx<span class="op">=</span>nx,</span>
-<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a>            ny<span class="op">=</span>ny,</span>
-<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a>            n_modes<span class="op">=</span>n_modes,</span>
-<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a>            Lx<span class="op">=</span>params.l1,</span>
-<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a>            Ly<span class="op">=</span>params.l2,</span>
-<span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a>            h<span class="op">=</span>h,</span>
-<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Optionally, update the reference eigenvectors for the next level.</span></span>
-<span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a>        ref_eigenvectors <span class="op">=</span> swapped_eigenvectors</span>
-<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> swapped_eigenvectors, swapped_eigenvalues, nx, ny, h, norms</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
+<hr>
+<section id="biharmonic_eigendecomposition" class="level3">
+<h3 class="anchored" data-anchor-id="biharmonic_eigendecomposition">biharmonic_eigendecomposition</h3>
+<blockquote class="blockquote">
+<pre><code> biharmonic_eigendecomposition (params:vkplatejax.ftm.PlateParameters,
+                                n_modes:int, bcs:numpy.ndarray, nx:int,
+                                ny:int, h:float,
+                                normalise_eigenvectors=True)</code></pre>
+</blockquote>
+<p>*Computes the eigenvalue decomposition of the biharmonic operator for a plate with the given parameters and boundary conditions.</p>
+<p>Additionally it sorts the eigenvalues and eigenvectors in ascending order, and normalises the eigenvectors if requested.*</p>
+<table class="table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 25%">
+<col style="width: 34%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>params</td>
+<td>PlateParameters</td>
+<td></td>
+<td>The parameters of the plate.</td>
+</tr>
+<tr class="even">
+<td>n_modes</td>
+<td>int</td>
+<td></td>
+<td>The number of modes to compute.</td>
+</tr>
+<tr class="odd">
+<td>bcs</td>
+<td>ndarray</td>
+<td></td>
+<td>The boundary conditions of the plate.</td>
+</tr>
+<tr class="even">
+<td>nx</td>
+<td>int</td>
+<td></td>
+<td>The number of points in the x direction.</td>
+</tr>
+<tr class="odd">
+<td>ny</td>
+<td>int</td>
+<td></td>
+<td>The number of points in the y direction.</td>
+</tr>
+<tr class="even">
+<td>h</td>
+<td>float</td>
+<td></td>
+<td>The spacing between points.</td>
+</tr>
+<tr class="odd">
+<td>normalise_eigenvectors</td>
+<td>bool</td>
+<td>True</td>
+<td>Whether to normalise the eigenvectors.</td>
+</tr>
+<tr class="even">
+<td><strong>Returns</strong></td>
+<td><strong>Tuple[np.ndarray, np.ndarray, np.ndarray]</strong></td>
+<td></td>
+<td><strong>The eigenvalues, eigenvectors and norms of the eigenvectors.</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="multiresolution_eigendecomposition" class="level3">
+<h3 class="anchored" data-anchor-id="multiresolution_eigendecomposition">multiresolution_eigendecomposition</h3>
+<blockquote class="blockquote">
+<pre><code> multiresolution_eigendecomposition (params, n_modes, bcs, h, nx:int,
+                                     ny:int, levels:int=2)</code></pre>
+</blockquote>
+<p>*Runs the biharmonic eigendecomposition and eigenvector alignment on multiple grid resolutions.</p>
+<p>Parameters params: Parameters object containing domain lengths (e.g.&nbsp;params.lx and params.ly). n_modes: Number of eigenmodes to compute. bcs: Boundary conditions. h: Initial grid spacing. nx, ny: Initial grid dimensions. levels: Total number of resolutions to run (default 2). The first level is the coarse grid, and each subsequent level uses h/2 and double the grid points to cover the same domain.</p>
+<p>Returns swapped_eigenvectors, swapped_eigenvalues from the last refinement.*</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

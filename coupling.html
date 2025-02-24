@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -104,10 +70,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <link rel="stylesheet" href="styles.css">
 <meta property="og:title" content="vkplatejax - Coupling functions">
-<meta property="og:description" content="A collection of structural and string vibration models (e.g.&nbsp;von Kármán plates, tension-modulated and stiff strings) implemented in JAX for fast, differentiable simulations">
 <meta property="og:site_name" content="vkplatejax">
 <meta name="twitter:title" content="vkplatejax - Coupling functions">
-<meta name="twitter:description" content="A collection of structural and string vibration models (e.g.&nbsp;von Kármán plates, tension-modulated and stiff strings) implemented in JAX for fast, differentiable simulations">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -192,6 +156,116 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Utils</span></a>
   </div>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">excitations_files</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+ <span class="menu-text">figure-html</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">losses_files</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">figure-html</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text">site_libs</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+ <span class="menu-text">bootstrap</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
+ <span class="menu-text">clipboard</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">
+ <span class="menu-text">quarto-html</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false">
+ <span class="menu-text">quarto-nav</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false">
+ <span class="menu-text">quarto-search</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+      </ul>
+  </li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -202,12 +276,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#integrals-for-building-the-mass-and-stifness-matrices" id="toc-integrals-for-building-the-mass-and-stifness-matrices" class="nav-link active" data-scroll-target="#integrals-for-building-the-mass-and-stifness-matrices">Integrals for building the mass and stifness matrices</a></li>
-  <li><a href="#basis-used-to-build-the-mass-and-stiffness-matrices" id="toc-basis-used-to-build-the-mass-and-stiffness-matrices" class="nav-link" data-scroll-target="#basis-used-to-build-the-mass-and-stiffness-matrices">Basis used to build the mass and stiffness matrices</a></li>
-  <li><a href="#partial-integrals-to-calculate-the-coupling-matrix" id="toc-partial-integrals-to-calculate-the-coupling-matrix" class="nav-link" data-scroll-target="#partial-integrals-to-calculate-the-coupling-matrix">Partial integrals to calculate the coupling matrix</a></li>
-  <li><a href="#functions-to-put-together-the-coupling-matrix" id="toc-functions-to-put-together-the-coupling-matrix" class="nav-link" data-scroll-target="#functions-to-put-together-the-coupling-matrix">functions to put together the coupling matrix</a></li>
+  <li><a href="#integrals-for-building-the-mass-and-stifness-matrices" id="toc-integrals-for-building-the-mass-and-stifness-matrices" class="nav-link active" data-scroll-target="#integrals-for-building-the-mass-and-stifness-matrices">Integrals for building the mass and stifness matrices</a>
+  <ul class="collapse">
+  <li><a href="#assemble_k_and_m" id="toc-assemble_k_and_m" class="nav-link" data-scroll-target="#assemble_k_and_m">assemble_K_and_M</a></li>
+  <li><a href="#build_i4" id="toc-build_i4" class="nav-link" data-scroll-target="#build_i4">build_I4</a></li>
+  <li><a href="#build_i2" id="toc-build_i2" class="nav-link" data-scroll-target="#build_i2">build_I2</a></li>
+  <li><a href="#build_i1" id="toc-build_i1" class="nav-link" data-scroll-target="#build_i1">build_I1</a></li>
+  <li><a href="#int2_mat" id="toc-int2_mat" class="nav-link" data-scroll-target="#int2_mat">int2_mat</a></li>
+  <li><a href="#int2" id="toc-int2" class="nav-link" data-scroll-target="#int2">int2</a></li>
+  <li><a href="#int1" id="toc-int1" class="nav-link" data-scroll-target="#int1">int1</a></li>
+  <li><a href="#int4" id="toc-int4" class="nav-link" data-scroll-target="#int4">int4</a></li>
+  <li><a href="#airy_stress_coefficients" id="toc-airy_stress_coefficients" class="nav-link" data-scroll-target="#airy_stress_coefficients">airy_stress_coefficients</a></li>
+  </ul></li>
+  <li><a href="#basis-used-to-build-the-mass-and-stiffness-matrices" id="toc-basis-used-to-build-the-mass-and-stiffness-matrices" class="nav-link" data-scroll-target="#basis-used-to-build-the-mass-and-stiffness-matrices">Basis used to build the mass and stiffness matrices</a>
+  <ul class="collapse">
+  <li><a href="#basis" id="toc-basis" class="nav-link" data-scroll-target="#basis">basis</a></li>
+  </ul></li>
+  <li><a href="#partial-integrals-to-calculate-the-coupling-matrix" id="toc-partial-integrals-to-calculate-the-coupling-matrix" class="nav-link" data-scroll-target="#partial-integrals-to-calculate-the-coupling-matrix">Partial integrals to calculate the coupling matrix</a>
+  <ul class="collapse">
+  <li><a href="#i13_mat" id="toc-i13_mat" class="nav-link" data-scroll-target="#i13_mat">i13_mat</a></li>
+  <li><a href="#i12_mat" id="toc-i12_mat" class="nav-link" data-scroll-target="#i12_mat">i12_mat</a></li>
+  <li><a href="#i11_mat" id="toc-i11_mat" class="nav-link" data-scroll-target="#i11_mat">i11_mat</a></li>
+  <li><a href="#i10_mat" id="toc-i10_mat" class="nav-link" data-scroll-target="#i10_mat">i10_mat</a></li>
+  <li><a href="#i9_mat" id="toc-i9_mat" class="nav-link" data-scroll-target="#i9_mat">i9_mat</a></li>
+  <li><a href="#i5_mat" id="toc-i5_mat" class="nav-link" data-scroll-target="#i5_mat">i5_mat</a></li>
+  <li><a href="#i4_mat" id="toc-i4_mat" class="nav-link" data-scroll-target="#i4_mat">i4_mat</a></li>
+  <li><a href="#i3_mat" id="toc-i3_mat" class="nav-link" data-scroll-target="#i3_mat">i3_mat</a></li>
+  <li><a href="#i2_mat" id="toc-i2_mat" class="nav-link" data-scroll-target="#i2_mat">i2_mat</a></li>
+  <li><a href="#i1_mat" id="toc-i1_mat" class="nav-link" data-scroll-target="#i1_mat">i1_mat</a></li>
+  </ul></li>
+  <li><a href="#functions-to-put-together-the-coupling-matrix" id="toc-functions-to-put-together-the-coupling-matrix" class="nav-link" data-scroll-target="#functions-to-put-together-the-coupling-matrix">functions to put together the coupling matrix</a>
+  <ul class="collapse">
+  <li><a href="#g6" id="toc-g6" class="nav-link" data-scroll-target="#g6">g6</a></li>
+  <li><a href="#g5" id="toc-g5" class="nav-link" data-scroll-target="#g5">g5</a></li>
+  <li><a href="#g4" id="toc-g4" class="nav-link" data-scroll-target="#g4">g4</a></li>
+  <li><a href="#g3" id="toc-g3" class="nav-link" data-scroll-target="#g3">g3</a></li>
+  <li><a href="#g2" id="toc-g2" class="nav-link" data-scroll-target="#g2">g2</a></li>
+  <li><a href="#g1" id="toc-g1" class="nav-link" data-scroll-target="#g1">g1</a></li>
+  <li><a href="#build_s_matrix" id="toc-build_s_matrix" class="nav-link" data-scroll-target="#build_s_matrix">build_s_matrix</a></li>
+  <li><a href="#compute_partial_integrals" id="toc-compute_partial_integrals" class="nav-link" data-scroll-target="#compute_partial_integrals">compute_partial_integrals</a></li>
+  <li><a href="#h_tensor_rectangular" id="toc-h_tensor_rectangular" class="nav-link" data-scroll-target="#h_tensor_rectangular">H_tensor_rectangular</a></li>
+  <li><a href="#compute_coupling_matrix" id="toc-compute_coupling_matrix" class="nav-link" data-scroll-target="#compute_coupling_matrix">compute_coupling_matrix</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/rodrigodzf/vkplatejax/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="coupling.md"><i class="bi bi-file-code"></i>CommonMark</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/rodrigodzf/vkplatejax/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="coupling.html.md"><i class="bi bi-file-code"></i>CommonMark</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -231,890 +343,290 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>::: {#cell-3 .cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’ 6=‘i’}</p>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.linalg <span class="im">import</span> eig, eigh  <span class="co"># or eigh if K,M guaranteed symmetric</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.sparse.linalg <span class="im">import</span> eigs</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> sparse</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.io <span class="im">import</span> loadmat</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
+<!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
 <section id="integrals-for-building-the-mass-and-stifness-matrices" class="level2">
 <h2 class="anchored" data-anchor-id="integrals-for-building-the-mass-and-stifness-matrices">Integrals for building the mass and stifness matrices</h2>
-<p>::: {#cell-5 .cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’}</p>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> int4(m, p, L):</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Integral of Xd(m,x)*Xd(p,x) from 0 to L,</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    where X is the clamped-plate function and d denotes derivative in x.</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Piecewise definition follows the original Matlab code exactly.</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> m <span class="op">==</span> <span class="dv">0</span> <span class="kw">and</span> p <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> <span class="fl">120.0</span> <span class="op">/</span> (<span class="fl">7.0</span> <span class="op">*</span> L)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> (m <span class="op">==</span> p) <span class="kw">and</span> (m <span class="op">!=</span> <span class="dv">0</span>):</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="co"># (768*pi^2*m^2 - 47040*(-1)^m + 35*pi^4*m^4 + 432*(-1)^m*pi^2*m^2 - 53760) / (70*L*pi^2*m^2)</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> (</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>            <span class="fl">768.0</span> <span class="op">*</span> math.pi<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> m <span class="op">*</span> m</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>            <span class="op">-</span> <span class="fl">47040.0</span> <span class="op">*</span> ((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m)</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>            <span class="op">+</span> <span class="fl">35.0</span> <span class="op">*</span> math.pi<span class="op">**</span><span class="dv">4</span> <span class="op">*</span> m<span class="op">**</span><span class="dv">4</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>            <span class="op">+</span> <span class="fl">432.0</span> <span class="op">*</span> ((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m) <span class="op">*</span> math.pi<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> m <span class="op">*</span> m</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>            <span class="op">-</span> <span class="fl">53760.0</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        ) <span class="op">/</span> (<span class="fl">70.0</span> <span class="op">*</span> L <span class="op">*</span> math.pi<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> m <span class="op">*</span> m)</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> m <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        <span class="co"># (60*((-1)^p + 1)*(pi^2*p^2 - 42)) / (7*L*pi^2*p^2)</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        num <span class="op">=</span> <span class="fl">60.0</span> <span class="op">*</span> (((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> p <span class="op">+</span> <span class="fl">1.0</span>) <span class="op">*</span> (math.pi<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> p<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="fl">42.0</span>))</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        den <span class="op">=</span> <span class="fl">7.0</span> <span class="op">*</span> L <span class="op">*</span> math.pi<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> p<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> num <span class="op">/</span> den</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> p <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        <span class="co"># (60*((-1)^m + 1)*(pi^2*m^2 - 42)) / (7*L*pi^2*m^2)</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        num <span class="op">=</span> <span class="fl">60.0</span> <span class="op">*</span> (((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m <span class="op">+</span> <span class="fl">1.0</span>) <span class="op">*</span> (math.pi<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> m<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="fl">42.0</span>))</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        den <span class="op">=</span> <span class="fl">7.0</span> <span class="op">*</span> L <span class="op">*</span> math.pi<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> m<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> num <span class="op">/</span> den</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 192/35/L*(1 + (-1)^m*(-1)^p)</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        <span class="co"># - 192/(m^2*p^2*L*pi^2)*((p^2+m^2)*(1 + (-1)^m*(-1)^p))</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        <span class="co"># - 168/(m^2*p^2*L*pi^2)*((p^2+m^2)*((-1)^m + (-1)^p))</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>        <span class="co"># + 108/35/L*((-1)^m + (-1)^p)</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        term1 <span class="op">=</span> <span class="fl">192.0</span> <span class="op">/</span> <span class="fl">35.0</span> <span class="op">/</span> L <span class="op">*</span> (<span class="fl">1.0</span> <span class="op">+</span> (<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m <span class="op">*</span> (<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> p)</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>        term2 <span class="op">=</span> (</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>            <span class="op">-</span><span class="fl">192.0</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>            <span class="op">/</span> (m <span class="op">*</span> m <span class="op">*</span> p <span class="op">*</span> p <span class="op">*</span> L <span class="op">*</span> math.pi<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>            <span class="op">*</span> ((p <span class="op">*</span> p <span class="op">+</span> m <span class="op">*</span> m) <span class="op">*</span> (<span class="fl">1.0</span> <span class="op">+</span> (<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m <span class="op">*</span> (<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> p))</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>        term3 <span class="op">=</span> (</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>            <span class="op">-</span><span class="fl">168.0</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>            <span class="op">/</span> (m <span class="op">*</span> m <span class="op">*</span> p <span class="op">*</span> p <span class="op">*</span> L <span class="op">*</span> math.pi<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>            <span class="op">*</span> ((p <span class="op">*</span> p <span class="op">+</span> m <span class="op">*</span> m) <span class="op">*</span> (((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m) <span class="op">+</span> ((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> p)))</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>        term4 <span class="op">=</span> <span class="fl">108.0</span> <span class="op">/</span> <span class="fl">35.0</span> <span class="op">/</span> L <span class="op">*</span> (((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m) <span class="op">+</span> ((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> p))</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> term1 <span class="op">+</span> term2 <span class="op">+</span> term3 <span class="op">+</span> term4</span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> y</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> int1(m, p, L):</span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="co">    Function int1(m,p,L). Piecewise definition from the Matlab code.</span></span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> m <span class="op">==</span> <span class="dv">0</span> <span class="kw">and</span> p <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>        <span class="co"># y = 720 / L^3</span></span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> <span class="fl">720.0</span> <span class="op">/</span> (L<span class="op">**</span><span class="dv">3</span>)</span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> m <span class="op">==</span> p:</span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>        <span class="co"># (pi^4*m^4 - 672*(-1)^m - 768)/(2*L^3)</span></span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> ((math.pi<span class="op">**</span><span class="dv">4</span>) <span class="op">*</span> (m<span class="op">**</span><span class="dv">4</span>) <span class="op">-</span> <span class="fl">672.0</span> <span class="op">*</span> ((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m) <span class="op">-</span> <span class="fl">768.0</span>) <span class="op">/</span> (<span class="fl">2.0</span> <span class="op">*</span> (L<span class="op">**</span><span class="dv">3</span>))</span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> m <span class="op">==</span> <span class="dv">0</span> <span class="kw">or</span> p <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>        <span class="co"># y=0</span></span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> <span class="fl">0.0</span></span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>        <span class="co"># -(24*(7*(-1)^m + 7*(-1)^p + 8*(-1)^m*(-1)^p + 8))/L^3</span></span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>        val <span class="op">=</span> (</span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>            <span class="fl">7.0</span> <span class="op">*</span> ((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m)</span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>            <span class="op">+</span> <span class="fl">7.0</span> <span class="op">*</span> ((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> p)</span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>            <span class="op">+</span> <span class="fl">8.0</span> <span class="op">*</span> ((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m) <span class="op">*</span> ((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> p)</span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>            <span class="op">+</span> <span class="fl">8.0</span></span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> <span class="op">-</span><span class="fl">24.0</span> <span class="op">*</span> val <span class="op">/</span> (L<span class="op">**</span><span class="dv">3</span>)</span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> y</span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> int2(m, p, L):</span>
-<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a><span class="co">    Function int2(m,p,L). Piecewise definition from the Matlab code.</span></span>
-<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> m <span class="op">==</span> <span class="dv">0</span> <span class="kw">and</span> p <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> (<span class="fl">10.0</span> <span class="op">*</span> L) <span class="op">/</span> <span class="fl">7.0</span></span>
-<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> m <span class="op">==</span> p:</span>
-<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>        <span class="co"># (67*L)/70 - ((-1)^m*L)/35 - (768*L)/(pi^4*m^4) - (672*(-1)^m*L)/(pi^4*m^4)</span></span>
-<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> (</span>
-<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>            (<span class="fl">67.0</span> <span class="op">*</span> L) <span class="op">/</span> <span class="fl">70.0</span></span>
-<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>            <span class="op">-</span> ((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m <span class="op">*</span> L) <span class="op">/</span> <span class="fl">35.0</span></span>
-<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>            <span class="op">-</span> (<span class="fl">768.0</span> <span class="op">*</span> L) <span class="op">/</span> (math.pi<span class="op">**</span><span class="dv">4</span> <span class="op">*</span> m<span class="op">**</span><span class="dv">4</span>)</span>
-<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>            <span class="op">-</span> (<span class="fl">672.0</span> <span class="op">*</span> ((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m) <span class="op">*</span> L) <span class="op">/</span> (math.pi<span class="op">**</span><span class="dv">4</span> <span class="op">*</span> m<span class="op">**</span><span class="dv">4</span>)</span>
-<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> m <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>        <span class="co"># (3*L*((-1)^p + 1)*(pi^4*p^4 - 1680)) / (14*pi^4*p^4)</span></span>
-<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>        num <span class="op">=</span> <span class="fl">3.0</span> <span class="op">*</span> L <span class="op">*</span> (((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> p <span class="op">+</span> <span class="fl">1.0</span>) <span class="op">*</span> ((math.pi<span class="op">**</span><span class="dv">4</span>) <span class="op">*</span> (p<span class="op">**</span><span class="dv">4</span>) <span class="op">-</span> <span class="fl">1680.0</span>))</span>
-<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>        den <span class="op">=</span> <span class="fl">14.0</span> <span class="op">*</span> math.pi<span class="op">**</span><span class="dv">4</span> <span class="op">*</span> (p<span class="op">**</span><span class="dv">4</span>)</span>
-<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> num <span class="op">/</span> den</span>
-<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> p <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>        <span class="co"># (3*L*((-1)^m + 1)*(pi^4*m^4 - 1680)) / (14*pi^4*m^4)</span></span>
-<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>        num <span class="op">=</span> <span class="fl">3.0</span> <span class="op">*</span> L <span class="op">*</span> (((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m <span class="op">+</span> <span class="fl">1.0</span>) <span class="op">*</span> ((math.pi<span class="op">**</span><span class="dv">4</span>) <span class="op">*</span> (m<span class="op">**</span><span class="dv">4</span>) <span class="op">-</span> <span class="fl">1680.0</span>))</span>
-<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>        den <span class="op">=</span> <span class="fl">14.0</span> <span class="op">*</span> math.pi<span class="op">**</span><span class="dv">4</span> <span class="op">*</span> (m<span class="op">**</span><span class="dv">4</span>)</span>
-<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> num <span class="op">/</span> den</span>
-<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Big piecewise "else" expression from the Matlab code</span></span>
-<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>        <span class="co"># -(L*(11760*(-1)^m + 11760*(-1)^p - 16*pi^4*m^4 + ...)) / (70*pi^4*m^4)</span></span>
-<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>        <span class="co">#  - (L*(13440*m^4 + 11760*(-1)^m*m^4 + 11760*(-1)^p*m^4 + ... )) / (70*pi^4*m^4*p^4)</span></span>
-<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>        part1 <span class="op">=</span> (</span>
-<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>            <span class="fl">11760.0</span> <span class="op">*</span> ((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m)</span>
-<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>            <span class="op">+</span> <span class="fl">11760.0</span> <span class="op">*</span> ((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> p)</span>
-<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>            <span class="op">-</span> <span class="fl">16.0</span> <span class="op">*</span> (math.pi<span class="op">**</span><span class="dv">4</span>) <span class="op">*</span> m<span class="op">**</span><span class="dv">4</span></span>
-<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>            <span class="op">+</span> <span class="fl">13440.0</span> <span class="op">*</span> ((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m) <span class="op">*</span> ((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> p)</span>
-<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>            <span class="op">+</span> ((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m) <span class="op">*</span> (math.pi<span class="op">**</span><span class="dv">4</span>) <span class="op">*</span> (m<span class="op">**</span><span class="dv">4</span>)</span>
-<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>            <span class="op">+</span> ((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> p) <span class="op">*</span> (math.pi<span class="op">**</span><span class="dv">4</span>) <span class="op">*</span> (m<span class="op">**</span><span class="dv">4</span>)</span>
-<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>            <span class="op">-</span> <span class="fl">16.0</span> <span class="op">*</span> ((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m) <span class="op">*</span> ((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> p) <span class="op">*</span> (math.pi<span class="op">**</span><span class="dv">4</span>) <span class="op">*</span> (m<span class="op">**</span><span class="dv">4</span>)</span>
-<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>            <span class="op">+</span> <span class="fl">13440.0</span></span>
-<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>        part2 <span class="op">=</span> (</span>
-<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a>            <span class="fl">13440.0</span> <span class="op">*</span> m<span class="op">**</span><span class="dv">4</span></span>
-<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a>            <span class="op">+</span> <span class="fl">11760.0</span> <span class="op">*</span> ((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m) <span class="op">*</span> m<span class="op">**</span><span class="dv">4</span></span>
-<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>            <span class="op">+</span> <span class="fl">11760.0</span> <span class="op">*</span> ((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> p) <span class="op">*</span> m<span class="op">**</span><span class="dv">4</span></span>
-<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a>            <span class="op">+</span> <span class="fl">13440.0</span> <span class="op">*</span> ((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m) <span class="op">*</span> ((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> p) <span class="op">*</span> m<span class="op">**</span><span class="dv">4</span></span>
-<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> <span class="op">-</span>(L <span class="op">*</span> part1) <span class="op">/</span> (<span class="fl">70.0</span> <span class="op">*</span> (math.pi<span class="op">**</span><span class="dv">4</span>) <span class="op">*</span> (m<span class="op">**</span><span class="dv">4</span>)) <span class="op">-</span> (L <span class="op">*</span> part2) <span class="op">/</span> (</span>
-<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>            <span class="fl">70.0</span> <span class="op">*</span> (math.pi<span class="op">**</span><span class="dv">4</span>) <span class="op">*</span> (m<span class="op">**</span><span class="dv">4</span>) <span class="op">*</span> (p<span class="op">**</span><span class="dv">4</span>)</span>
-<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> y</span>
-<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> int2_mat(N, L):</span>
-<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a><span class="co">    Builds the N x N matrix whose (m,p) entry is int2(m,p,L).</span></span>
-<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a><span class="co">    Mirrors the logic of the original Matlab int2_mat function exactly,</span></span>
-<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a><span class="co">    but we can do it more simply by calling int2 in a loop.</span></span>
-<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> np.zeros((N, N), dtype<span class="op">=</span><span class="bu">float</span>)</span>
-<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> m <span class="kw">in</span> <span class="bu">range</span>(N):</span>
-<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> p <span class="kw">in</span> <span class="bu">range</span>(N):</span>
-<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a>            y[m, p] <span class="op">=</span> int2(m, p, L)</span>
-<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> y</span>
-<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> build_I1(N, L):</span>
-<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Returns the N x N matrix whose (m,p) entry = int1(m,p,L)."""</span></span>
-<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a>    I <span class="op">=</span> np.zeros((N, N), dtype<span class="op">=</span><span class="bu">float</span>)</span>
-<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> m <span class="kw">in</span> <span class="bu">range</span>(N):</span>
-<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> p <span class="kw">in</span> <span class="bu">range</span>(N):</span>
-<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a>            I[m, p] <span class="op">=</span> int1(m, p, L)</span>
-<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> I</span>
-<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> build_I2(N, L):</span>
-<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Returns the N x N matrix whose (m,p) entry = int2(m,p,L)."""</span></span>
-<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a>    I <span class="op">=</span> np.zeros((N, N), dtype<span class="op">=</span><span class="bu">float</span>)</span>
-<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> m <span class="kw">in</span> <span class="bu">range</span>(N):</span>
-<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> p <span class="kw">in</span> <span class="bu">range</span>(N):</span>
-<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a>            I[m, p] <span class="op">=</span> int2(m, p, L)</span>
-<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> I</span>
-<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> build_I4(N, L):</span>
-<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Returns the N x N matrix whose (m,p) entry = int4(m,p,L)."""</span></span>
-<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a>    I <span class="op">=</span> np.zeros((N, N), dtype<span class="op">=</span><span class="bu">float</span>)</span>
-<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> m <span class="kw">in</span> <span class="bu">range</span>(N):</span>
-<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> p <span class="kw">in</span> <span class="bu">range</span>(N):</span>
-<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a>            I[m, p] <span class="op">=</span> int4(m, p, L)</span>
-<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> I</span>
-<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> assemble_K_and_M(Npsi, Lx, Ly):</span>
-<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 1) Precompute integrals in the x-direction:</span></span>
-<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a>    I1x <span class="op">=</span> build_I1(Npsi, Lx)</span>
-<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a>    I2x <span class="op">=</span> build_I2(Npsi, Lx)</span>
-<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a>    I4x <span class="op">=</span> build_I4(Npsi, Lx)</span>
-<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 2) Precompute integrals in the y-direction:</span></span>
-<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a>    I1y <span class="op">=</span> build_I1(Npsi, Ly)</span>
-<span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a>    I2y <span class="op">=</span> build_I2(Npsi, Ly)</span>
-<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a>    I4y <span class="op">=</span> build_I4(Npsi, Ly)</span>
-<span id="cb2-174"><a href="#cb2-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-175"><a href="#cb2-175" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 3) Build the K, M matrices via Kronecker products:</span></span>
-<span id="cb2-176"><a href="#cb2-176" aria-hidden="true" tabindex="-1"></a>    K <span class="op">=</span> np.kron(I1x, I2y) <span class="op">+</span> np.kron(I2x, I1y) <span class="op">+</span> <span class="fl">2.0</span> <span class="op">*</span> np.kron(I4x, I4y)</span>
-<span id="cb2-177"><a href="#cb2-177" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span> np.kron(I2x, I2y)</span>
-<span id="cb2-178"><a href="#cb2-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-179"><a href="#cb2-179" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> K, M</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
-<p>::: {#cell-6 .cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’}</p>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> airy_stress_coefficients(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    n_psi,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    vals,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    vecs,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>):</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">    Compute the Airy stress function coefficients from the eigenvalues and eigenvectors</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Remove negative or imaginary eigenvalues:</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">#    (1) negative real part</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">#    (2) any non-zero imaginary part</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    real_vals <span class="op">=</span> vals.real</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    imag_vals <span class="op">=</span> vals.imag</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Indices of negative or significantly imaginary eigenvalues</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    eps_imag <span class="op">=</span> <span class="fl">1e-12</span>  <span class="co"># small threshold</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    bad_neg <span class="op">=</span> np.where(real_vals <span class="op">&lt;</span> <span class="fl">0.0</span>)[<span class="dv">0</span>]</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    bad_imag <span class="op">=</span> np.where(<span class="bu">abs</span>(imag_vals) <span class="op">&gt;</span> eps_imag)[<span class="dv">0</span>]</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    bad_indices <span class="op">=</span> np.unique(np.concatenate((bad_neg, bad_imag)))</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Filter out the unwanted eigenvalues and eigenvectors</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    good_mask <span class="op">=</span> np.ones(vals.shape, dtype<span class="op">=</span><span class="bu">bool</span>)</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    good_mask[bad_indices] <span class="op">=</span> <span class="va">False</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    good_vals <span class="op">=</span> vals[good_mask]</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    good_vecs <span class="op">=</span> vecs[:, good_mask]</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Sort them</span></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    idx_sort <span class="op">=</span> np.argsort(good_vals.real)  <span class="co"># sort by real part</span></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    auto <span class="op">=</span> good_vals.real[idx_sort]</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    coeff <span class="op">=</span> good_vecs[:, idx_sort]</span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Build the factor arrays (coeff0, coeff1, coeff2)</span></span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>    dim <span class="op">=</span> n_psi<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>    coeff0 <span class="op">=</span> np.zeros((dim, coeff.shape[<span class="dv">0</span>]), dtype<span class="op">=</span><span class="bu">float</span>)</span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    coeff1 <span class="op">=</span> np.zeros((dim, coeff.shape[<span class="dv">0</span>]), dtype<span class="op">=</span><span class="bu">float</span>)</span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>    coeff2 <span class="op">=</span> np.zeros((dim, coeff.shape[<span class="dv">0</span>]), dtype<span class="op">=</span><span class="bu">float</span>)</span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>    NN <span class="op">=</span> int2_mat(n_psi, <span class="fl">0.2</span>)  <span class="co"># NxN</span></span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>    MM <span class="op">=</span> int2_mat(n_psi, <span class="fl">0.3</span>)  <span class="co"># NxN</span></span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>    NN <span class="op">=</span> np.tile(NN.reshape(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>), dim)</span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>    MM <span class="op">=</span> np.tile(MM.reshape(<span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>), (dim, <span class="dv">1</span>))</span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>    nmatr <span class="op">=</span> NN <span class="op">*</span> MM</span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>    nmatr <span class="op">=</span> np.reshape(nmatr, (n_psi, n_psi, n_psi, n_psi))</span>
-<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 3) Permute from [0,1,2,3] -&gt; [3,0,2,1]</span></span>
-<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>    <span class="co">#    i.e. "permute(nmatr,[4 1 3 2])" in Matlab =&gt; zero-based is (3,0,2,1)</span></span>
-<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>    nmatr <span class="op">=</span> np.transpose(nmatr, (<span class="dv">3</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>))</span>
-<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>    nmatr <span class="op">=</span> np.reshape(nmatr, (<span class="dv">1</span>, n_psi<span class="op">**</span><span class="dv">4</span>))</span>
-<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>    nmatr <span class="op">=</span> sparse.csr_matrix(nmatr)  <span class="co"># Or "sparse.csc_matrix(nmatr)" or whichever</span></span>
-<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>    S <span class="op">=</span> auto.shape[<span class="dv">0</span>]</span>
-<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> d <span class="kw">in</span> <span class="bu">range</span>(S):</span>
-<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>        temp <span class="op">=</span> coeff[:, d]  <span class="co"># shape (DIM,)</span></span>
-<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>        <span class="co"># "temp = reshape(temp, [Npsi^2,1]);"</span></span>
-<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>        temp <span class="op">=</span> temp.reshape(n_psi<span class="op">**</span><span class="dv">2</span>, <span class="dv">1</span>)  <span class="co"># shape (DIM,1)</span></span>
-<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>        <span class="co"># "temp = repmat(temp,[1 Npsi^2]);" =&gt; now shape (DIM, DIM)</span></span>
-<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>        <span class="co"># In Python: replicate horizontally Npsi^2 times</span></span>
-<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>        temp_big <span class="op">=</span> np.tile(temp, (<span class="dv">1</span>, n_psi<span class="op">**</span><span class="dv">2</span>))  <span class="co"># shape (DIM, DIM)</span></span>
-<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>        <span class="co"># "temp2 = permute(temp,[2,1]);" =&gt; shape (DIM, DIM) transposed</span></span>
-<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>        temp2 <span class="op">=</span> temp_big.T  <span class="co"># shape (DIM, DIM)</span></span>
-<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>        <span class="co"># "temp3 = temp.*temp2;" =&gt; shape (DIM, DIM), elementwise multiply</span></span>
-<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>        temp3 <span class="op">=</span> temp_big <span class="op">*</span> temp2  <span class="co"># shape (DIM, DIM)</span></span>
-<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>        <span class="co"># "temp3 = reshape(temp3,[Npsi^4,1]);"</span></span>
-<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>        temp3 <span class="op">=</span> temp3.reshape(n_psi<span class="op">**</span><span class="dv">4</span>, <span class="dv">1</span>)  <span class="co"># shape (Npsi^4, 1)</span></span>
-<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>        <span class="co"># "norms = (nmatr*temp3);" =&gt; shape (1,1)</span></span>
-<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>        <span class="co"># with nmatr shape (1, Npsi^4), temp3 shape (Npsi^4,1)</span></span>
-<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>        norms <span class="op">=</span> nmatr.dot(temp3)  <span class="co"># shape (1,1) as a sparse result</span></span>
-<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Convert to scalar:</span></span>
-<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>        <span class="co"># norms_val = norms[0,0]</span></span>
-<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Then do the same normalizations:</span></span>
-<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a>        coeff0[:, d] <span class="op">=</span> coeff[:, d] <span class="op">/</span> np.sqrt(norms)</span>
-<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a>        coeff1[:, d] <span class="op">=</span> coeff[:, d] <span class="op">/</span> np.sqrt(norms) <span class="op">/</span> np.sqrt(auto[d])</span>
-<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a>        coeff2[:, d] <span class="op">=</span> coeff[:, d] <span class="op">/</span> np.sqrt(norms) <span class="op">/</span> auto[d]</span>
-<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a>    <span class="co"># "S = floor(S/2);"</span></span>
-<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a>    S2 <span class="op">=</span> S <span class="op">//</span> <span class="dv">2</span></span>
-<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a>    coeff0 <span class="op">=</span> coeff0[:S2, :S2]</span>
-<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a>    coeff1 <span class="op">=</span> coeff1[:S2, :S2]</span>
-<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a>    coeff2 <span class="op">=</span> coeff2[:S2, :S2]</span>
-<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> coeff0, coeff1, coeff2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
+<hr>
+<section id="assemble_k_and_m" class="level3">
+<h3 class="anchored" data-anchor-id="assemble_k_and_m">assemble_K_and_M</h3>
+<blockquote class="blockquote">
+<pre><code> assemble_K_and_M (Npsi, Lx, Ly)</code></pre>
+</blockquote>
+<hr>
+</section>
+<section id="build_i4" class="level3">
+<h3 class="anchored" data-anchor-id="build_i4">build_I4</h3>
+<blockquote class="blockquote">
+<pre><code> build_I4 (N, L)</code></pre>
+</blockquote>
+<p><em>Returns the N x N matrix whose (m,p) entry = int4(m,p,L).</em></p>
+<hr>
+</section>
+<section id="build_i2" class="level3">
+<h3 class="anchored" data-anchor-id="build_i2">build_I2</h3>
+<blockquote class="blockquote">
+<pre><code> build_I2 (N, L)</code></pre>
+</blockquote>
+<p><em>Returns the N x N matrix whose (m,p) entry = int2(m,p,L).</em></p>
+<hr>
+</section>
+<section id="build_i1" class="level3">
+<h3 class="anchored" data-anchor-id="build_i1">build_I1</h3>
+<blockquote class="blockquote">
+<pre><code> build_I1 (N, L)</code></pre>
+</blockquote>
+<p><em>Returns the N x N matrix whose (m,p) entry = int1(m,p,L).</em></p>
+<hr>
+</section>
+<section id="int2_mat" class="level3">
+<h3 class="anchored" data-anchor-id="int2_mat">int2_mat</h3>
+<blockquote class="blockquote">
+<pre><code> int2_mat (N, L)</code></pre>
+</blockquote>
+<p><em>Builds the N x N matrix whose (m,p) entry is int2(m,p,L). Mirrors the logic of the original Matlab int2_mat function exactly, but we can do it more simply by calling int2 in a loop.</em></p>
+<hr>
+</section>
+<section id="int2" class="level3">
+<h3 class="anchored" data-anchor-id="int2">int2</h3>
+<blockquote class="blockquote">
+<pre><code> int2 (m, p, L)</code></pre>
+</blockquote>
+<p><em>Function int2(m,p,L). Piecewise definition from the Matlab code.</em></p>
+<hr>
+</section>
+<section id="int1" class="level3">
+<h3 class="anchored" data-anchor-id="int1">int1</h3>
+<blockquote class="blockquote">
+<pre><code> int1 (m, p, L)</code></pre>
+</blockquote>
+<p><em>Function int1(m,p,L). Piecewise definition from the Matlab code.</em></p>
+<hr>
+</section>
+<section id="int4" class="level3">
+<h3 class="anchored" data-anchor-id="int4">int4</h3>
+<blockquote class="blockquote">
+<pre><code> int4 (m, p, L)</code></pre>
+</blockquote>
+<p><em>Integral of Xd(m,x)</em>Xd(p,x) from 0 to L, where X is the clamped-plate function and d denotes derivative in x. Piecewise definition follows the original Matlab code exactly.*</p>
+<hr>
+</section>
+<section id="airy_stress_coefficients" class="level3">
+<h3 class="anchored" data-anchor-id="airy_stress_coefficients">airy_stress_coefficients</h3>
+<blockquote class="blockquote">
+<pre><code> airy_stress_coefficients (n_psi, vals, vecs)</code></pre>
+</blockquote>
+<p><em>Compute the Airy stress function coefficients from the eigenvalues and eigenvectors</em></p>
+</section>
 </section>
 <section id="basis-used-to-build-the-mass-and-stiffness-matrices" class="level2">
 <h2 class="anchored" data-anchor-id="basis-used-to-build-the-mass-and-stiffness-matrices">Basis used to build the mass and stiffness matrices</h2>
-<p>::: {#cell-8 .cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’}</p>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> _basis(m, x, Lx):</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Evaluate the 1D basis function in the x or y direction</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">    for integer index m at location x, with length Lx.</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Python integer exponent (-1)**m is fine for integer m</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        np.cos(m <span class="op">*</span> np.pi <span class="op">*</span> x <span class="op">/</span> Lx)</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="op">+</span> (<span class="dv">15</span> <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> (<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m) <span class="op">/</span> Lx<span class="op">**</span><span class="dv">4</span>) <span class="op">*</span> x<span class="op">**</span><span class="dv">4</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="op">-</span> (<span class="dv">4</span> <span class="op">*</span> (<span class="dv">8</span> <span class="op">+</span> <span class="dv">7</span> <span class="op">*</span> (<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m) <span class="op">/</span> Lx<span class="op">**</span><span class="dv">3</span>) <span class="op">*</span> x<span class="op">**</span><span class="dv">3</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        <span class="op">+</span> (<span class="dv">6</span> <span class="op">*</span> (<span class="dv">3</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> (<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m) <span class="op">/</span> Lx<span class="op">**</span><span class="dv">2</span>) <span class="op">*</span> x<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="op">-</span> <span class="fl">1.0</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> basis(m, n, x, y, Lx, Ly):</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co">    Evaluate the full 2D basis function for indices (m, n)</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co">    at point (x, y). This is simply X_m(x)*Y_n(y).</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> _basis(m, x, Lx) <span class="op">*</span> _basis(n, y, Ly)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
+<hr>
+<section id="basis" class="level3">
+<h3 class="anchored" data-anchor-id="basis">basis</h3>
+<blockquote class="blockquote">
+<pre><code> basis (m, n, x, y, Lx, Ly)</code></pre>
+</blockquote>
+<p><em>Evaluate the full 2D basis function for indices (m, n) at point (x, y). This is simply X_m(x)</em>Y_n(y).*</p>
+</section>
 </section>
 <section id="partial-integrals-to-calculate-the-coupling-matrix" class="level2">
 <h2 class="anchored" data-anchor-id="partial-integrals-to-calculate-the-coupling-matrix">Partial integrals to calculate the coupling matrix</h2>
-<p>::: {#cell-10 .cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’}</p>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> i1_mat(Npsi, Nphi, L):</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Initialize a 3D array of zeros.</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> np.zeros((Npsi, Nphi, Nphi))</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loop over indices.</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># In MATLAB: m = 1:Npsi, here m = 0,...,Npsi-1, and m1 = m (since MATLAB m1 = m-1)</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> m <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, Npsi <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        m1 <span class="op">=</span> m <span class="op">-</span> <span class="dv">1</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, Nphi <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> p <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, Nphi <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> m1 <span class="op">==</span> <span class="dv">0</span> <span class="kw">and</span> n <span class="op">==</span> p:</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>                    s[m <span class="op">-</span> <span class="dv">1</span>, n <span class="op">-</span> <span class="dv">1</span>, p <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> L <span class="op">/</span> <span class="fl">2.0</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>                <span class="cf">elif</span> m1 <span class="op">==</span> (p <span class="op">-</span> n) <span class="kw">or</span> m1 <span class="op">==</span> (n <span class="op">-</span> p):</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>                    s[m <span class="op">-</span> <span class="dv">1</span>, n <span class="op">-</span> <span class="dv">1</span>, p <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> L <span class="op">/</span> <span class="fl">4.0</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>                <span class="cf">elif</span> m1 <span class="op">==</span> (<span class="op">-</span>n <span class="op">-</span> p) <span class="kw">or</span> m1 <span class="op">==</span> (n <span class="op">+</span> p):</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>                    s[m <span class="op">-</span> <span class="dv">1</span>, n <span class="op">-</span> <span class="dv">1</span>, p <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> <span class="op">-</span>L <span class="op">/</span> <span class="fl">4.0</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> s</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> i2_mat(Npsi, Nphi, L):</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="co">""" """</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> np.zeros((Npsi, Nphi, Nphi))</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loop over m, n, and p (using 1-indexing, then subtract 1 for Python indexing)</span></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> m <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, Npsi <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>        m1 <span class="op">=</span> m <span class="op">-</span> <span class="dv">1</span></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, Nphi <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> p <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, Nphi <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>                <span class="co"># The condition "if n==0 || p==0" is omitted since n,p &gt;= 1.</span></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> n <span class="op">==</span> p:</span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>                    <span class="co"># s(m,n,p) = (15/L^4*((-1)^(m1) + 1))*(L^5*(4*pi^5*p^5 - 20*pi^3*p^3 + 30*pi*p))/(40*pi^5*p^5);</span></span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>                    numerator <span class="op">=</span> L<span class="op">**</span><span class="dv">5</span> <span class="op">*</span> (</span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>                        <span class="dv">4</span> <span class="op">*</span> np.pi<span class="op">**</span><span class="dv">5</span> <span class="op">*</span> p<span class="op">**</span><span class="dv">5</span> <span class="op">-</span> <span class="dv">20</span> <span class="op">*</span> np.pi<span class="op">**</span><span class="dv">3</span> <span class="op">*</span> p<span class="op">**</span><span class="dv">3</span> <span class="op">+</span> <span class="dv">30</span> <span class="op">*</span> np.pi <span class="op">*</span> p</span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>                    )</span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>                    s[m <span class="op">-</span> <span class="dv">1</span>, n <span class="op">-</span> <span class="dv">1</span>, p <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> (<span class="dv">15</span> <span class="op">/</span> L<span class="op">**</span><span class="dv">4</span> <span class="op">*</span> (((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m1) <span class="op">+</span> <span class="dv">1</span>)) <span class="op">*</span> (</span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>                        numerator <span class="op">/</span> (<span class="dv">40</span> <span class="op">*</span> np.pi<span class="op">**</span><span class="dv">5</span> <span class="op">*</span> p<span class="op">**</span><span class="dv">5</span>)</span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>                    )</span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>:</span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>                    <span class="co"># Else branch: a long expression.</span></span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>                    <span class="co"># First compute the common terms:</span></span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>                    np_sum <span class="op">=</span> n <span class="op">+</span> p</span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>                    np_diff <span class="op">=</span> (</span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>                        n <span class="op">-</span> p</span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>                    )  <span class="co"># note: may be negative, but the formula handles it.</span></span>
-<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>                    term1 <span class="op">=</span> (</span>
-<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>                        np.sin(np.pi <span class="op">*</span> np_sum)</span>
-<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>                        <span class="op">*</span> (</span>
-<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>                            (<span class="dv">1713638851887625</span> <span class="op">*</span> L<span class="op">**</span><span class="dv">4</span> <span class="op">*</span> np_sum<span class="op">**</span><span class="dv">4</span>) <span class="op">/</span> <span class="dv">17592186044416</span></span>
-<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>                            <span class="op">-</span> (<span class="dv">8334140006820045</span> <span class="op">*</span> L<span class="op">**</span><span class="dv">4</span> <span class="op">*</span> np_sum<span class="op">**</span><span class="dv">2</span>) <span class="op">/</span> <span class="dv">70368744177664</span></span>
-<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>                            <span class="op">+</span> <span class="dv">24</span> <span class="op">*</span> L<span class="op">**</span><span class="dv">4</span></span>
-<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>                        )</span>
-<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>                    ) <span class="op">+</span> <span class="dv">4</span> <span class="op">*</span> np.pi <span class="op">*</span> L<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> np.cos(np.pi <span class="op">*</span> np_sum) <span class="op">*</span> np_sum <span class="op">*</span> (</span>
-<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>                        ((<span class="dv">2778046668940015</span> <span class="op">*</span> L<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> np_sum<span class="op">**</span><span class="dv">2</span>) <span class="op">/</span> <span class="dv">281474976710656</span>)</span>
-<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>                        <span class="op">-</span> <span class="dv">6</span> <span class="op">*</span> L<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>                    )</span>
-<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>                    term1 <span class="op">/=</span> np_sum<span class="op">**</span><span class="dv">5</span></span>
-<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>                    term2 <span class="op">=</span> (</span>
-<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>                        np.sin(np.pi <span class="op">*</span> np_diff)</span>
-<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>                        <span class="op">*</span> (</span>
-<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>                            (<span class="dv">1713638851887625</span> <span class="op">*</span> L<span class="op">**</span><span class="dv">4</span> <span class="op">*</span> np_diff<span class="op">**</span><span class="dv">4</span>) <span class="op">/</span> <span class="dv">17592186044416</span></span>
-<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>                            <span class="op">-</span> (<span class="dv">8334140006820045</span> <span class="op">*</span> L<span class="op">**</span><span class="dv">4</span> <span class="op">*</span> np_diff<span class="op">**</span><span class="dv">2</span>) <span class="op">/</span> <span class="dv">70368744177664</span></span>
-<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>                            <span class="op">+</span> <span class="dv">24</span> <span class="op">*</span> L<span class="op">**</span><span class="dv">4</span></span>
-<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>                        )</span>
-<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a>                    ) <span class="op">+</span> <span class="dv">4</span> <span class="op">*</span> np.pi <span class="op">*</span> L<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> np.cos(np.pi <span class="op">*</span> np_diff) <span class="op">*</span> np_diff <span class="op">*</span> (</span>
-<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a>                        ((<span class="dv">2778046668940015</span> <span class="op">*</span> L<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> np_diff<span class="op">**</span><span class="dv">2</span>) <span class="op">/</span> <span class="dv">281474976710656</span>)</span>
-<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>                        <span class="op">-</span> <span class="dv">6</span> <span class="op">*</span> L<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>                    )</span>
-<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>                    term2 <span class="op">/=</span> np_diff<span class="op">**</span><span class="dv">5</span></span>
-<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a>                    big_term <span class="op">=</span> <span class="dv">8796093022208</span> <span class="op">*</span> L <span class="op">*</span> (term1 <span class="op">-</span> term2)</span>
-<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a>                    s[m <span class="op">-</span> <span class="dv">1</span>, n <span class="op">-</span> <span class="dv">1</span>, p <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> (</span>
-<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a>                        <span class="op">-</span>(<span class="dv">15</span> <span class="op">/</span> L<span class="op">**</span><span class="dv">4</span> <span class="op">*</span> (((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m1) <span class="op">+</span> <span class="dv">1</span>)) <span class="op">*</span> big_term <span class="op">/</span> <span class="dv">5383555227996211</span></span>
-<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a>                    )</span>
-<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> s</span>
-<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> i3_mat(Npsi, Nphi, L):</span>
-<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a><span class="co">    Auxiliary integral for the computation of the coupling coefficient H.</span></span>
-<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> np.zeros((Npsi, Nphi, Nphi))</span>
-<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> m <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, Npsi <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>        m1 <span class="op">=</span> m <span class="op">-</span> <span class="dv">1</span></span>
-<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, Nphi <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> p <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, Nphi <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a>                <span class="co"># The first condition "if n==0 &amp;&amp; p==0" never occurs because n, p start at 1.</span></span>
-<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> n <span class="op">==</span> p:</span>
-<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a>                    <span class="co"># Compute:</span></span>
-<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a>                    <span class="co"># s(m,n,p) = -(-4/L^3*(7*(-1)^(m1)+8))*(L^4*(6*pi^2*p^2 - 2*pi^4*p^4))/(16*pi^4*p^4)</span></span>
-<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a>                    <span class="co"># The double negative simplifies to a positive.</span></span>
-<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a>                    s[m <span class="op">-</span> <span class="dv">1</span>, n <span class="op">-</span> <span class="dv">1</span>, p <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> (</span>
-<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a>                        (<span class="dv">4</span> <span class="op">/</span> L<span class="op">**</span><span class="dv">3</span> <span class="op">*</span> (<span class="dv">7</span> <span class="op">*</span> (<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m1 <span class="op">+</span> <span class="dv">8</span>))</span>
-<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a>                        <span class="op">*</span> (L<span class="op">**</span><span class="dv">4</span> <span class="op">*</span> (<span class="dv">6</span> <span class="op">*</span> np.pi<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> p<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">2</span> <span class="op">*</span> np.pi<span class="op">**</span><span class="dv">4</span> <span class="op">*</span> p<span class="op">**</span><span class="dv">4</span>))</span>
-<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a>                        <span class="op">/</span> (<span class="dv">16</span> <span class="op">*</span> np.pi<span class="op">**</span><span class="dv">4</span> <span class="op">*</span> p<span class="op">**</span><span class="dv">4</span>)</span>
-<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a>                    )</span>
-<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>:</span>
-<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a>                    <span class="co"># Else branch: compute two terms and add them.</span></span>
-<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a>                    term1 <span class="op">=</span> (</span>
-<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a>                        (<span class="op">-</span><span class="dv">4</span> <span class="op">/</span> L<span class="op">**</span><span class="dv">3</span> <span class="op">*</span> (<span class="dv">7</span> <span class="op">*</span> (<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m1 <span class="op">+</span> <span class="dv">8</span>))</span>
-<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a>                        <span class="op">*</span> (L <span class="op">*</span> ((<span class="dv">6</span> <span class="op">*</span> L<span class="op">**</span><span class="dv">3</span>) <span class="op">/</span> (n <span class="op">-</span> p) <span class="op">**</span> <span class="dv">4</span> <span class="op">-</span> (<span class="dv">6</span> <span class="op">*</span> L<span class="op">**</span><span class="dv">3</span>) <span class="op">/</span> (n <span class="op">+</span> p) <span class="op">**</span> <span class="dv">4</span>))</span>
-<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a>                        <span class="op">/</span> (<span class="dv">2</span> <span class="op">*</span> np.pi<span class="op">**</span><span class="dv">4</span>)</span>
-<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a>                    )</span>
-<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a>                    term2 <span class="op">=</span> (</span>
-<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a>                        (<span class="op">-</span><span class="dv">4</span> <span class="op">/</span> L<span class="op">**</span><span class="dv">3</span> <span class="op">*</span> (<span class="dv">7</span> <span class="op">*</span> (<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m1 <span class="op">+</span> <span class="dv">8</span>))</span>
-<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a>                        <span class="op">*</span> (</span>
-<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a>                            L</span>
-<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a>                            <span class="op">*</span> (</span>
-<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a>                                (</span>
-<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a>                                    <span class="dv">3</span></span>
-<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a>                                    <span class="op">*</span> L</span>
-<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a>                                    <span class="op">*</span> np.cos(np.pi <span class="op">*</span> (n <span class="op">+</span> p))</span>
-<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a>                                    <span class="op">*</span> (<span class="dv">2</span> <span class="op">*</span> L<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> L<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> np.pi<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> (n <span class="op">+</span> p) <span class="op">**</span> <span class="dv">2</span>)</span>
-<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a>                                )</span>
-<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a>                                <span class="op">/</span> (n <span class="op">+</span> p) <span class="op">**</span> <span class="dv">4</span></span>
-<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a>                                <span class="op">-</span> (</span>
-<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a>                                    <span class="dv">3</span></span>
-<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a>                                    <span class="op">*</span> L</span>
-<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a>                                    <span class="op">*</span> np.cos(np.pi <span class="op">*</span> (n <span class="op">-</span> p))</span>
-<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a>                                    <span class="op">*</span> (<span class="dv">2</span> <span class="op">*</span> L<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> L<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> np.pi<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> (n <span class="op">-</span> p) <span class="op">**</span> <span class="dv">2</span>)</span>
-<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a>                                )</span>
-<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a>                                <span class="op">/</span> (n <span class="op">-</span> p) <span class="op">**</span> <span class="dv">4</span></span>
-<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a>                            )</span>
-<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a>                        )</span>
-<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a>                        <span class="op">/</span> (<span class="dv">2</span> <span class="op">*</span> np.pi<span class="op">**</span><span class="dv">4</span>)</span>
-<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a>                    )</span>
-<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a>                    s[m <span class="op">-</span> <span class="dv">1</span>, n <span class="op">-</span> <span class="dv">1</span>, p <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> term1 <span class="op">+</span> term2</span>
-<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> s</span>
-<span id="cb5-133"><a href="#cb5-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-134"><a href="#cb5-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> i4_mat(Npsi, Nphi, L):</span>
-<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb5-137"><a href="#cb5-137" aria-hidden="true" tabindex="-1"></a><span class="co">    Auxiliary integral for the computation of the coupling coefficient H.</span></span>
-<span id="cb5-138"><a href="#cb5-138" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb5-139"><a href="#cb5-139" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> np.zeros((Npsi, Nphi, Nphi))</span>
-<span id="cb5-140"><a href="#cb5-140" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> m <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, Npsi <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb5-141"><a href="#cb5-141" aria-hidden="true" tabindex="-1"></a>        m1 <span class="op">=</span> m <span class="op">-</span> <span class="dv">1</span></span>
-<span id="cb5-142"><a href="#cb5-142" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, Nphi <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> p <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, Nphi <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> n <span class="op">==</span> p:</span>
-<span id="cb5-145"><a href="#cb5-145" aria-hidden="true" tabindex="-1"></a>                    s[m <span class="op">-</span> <span class="dv">1</span>, n <span class="op">-</span> <span class="dv">1</span>, p <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> (</span>
-<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a>                        <span class="op">-</span>(<span class="dv">6</span> <span class="op">/</span> L<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> (<span class="dv">2</span> <span class="op">*</span> (<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m1 <span class="op">+</span> <span class="dv">3</span>))</span>
-<span id="cb5-147"><a href="#cb5-147" aria-hidden="true" tabindex="-1"></a>                        <span class="op">*</span> (L<span class="op">**</span><span class="dv">3</span> <span class="op">*</span> (<span class="dv">6</span> <span class="op">*</span> np.pi <span class="op">*</span> p <span class="op">-</span> <span class="dv">4</span> <span class="op">*</span> np.pi<span class="op">**</span><span class="dv">3</span> <span class="op">*</span> p<span class="op">**</span><span class="dv">3</span>))</span>
-<span id="cb5-148"><a href="#cb5-148" aria-hidden="true" tabindex="-1"></a>                        <span class="op">/</span> (<span class="dv">24</span> <span class="op">*</span> np.pi<span class="op">**</span><span class="dv">3</span> <span class="op">*</span> p<span class="op">**</span><span class="dv">3</span>)</span>
-<span id="cb5-149"><a href="#cb5-149" aria-hidden="true" tabindex="-1"></a>                    )</span>
-<span id="cb5-150"><a href="#cb5-150" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>:</span>
-<span id="cb5-151"><a href="#cb5-151" aria-hidden="true" tabindex="-1"></a>                    term1 <span class="op">=</span> (</span>
-<span id="cb5-152"><a href="#cb5-152" aria-hidden="true" tabindex="-1"></a>                        (<span class="dv">6</span> <span class="op">/</span> L<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> (<span class="dv">2</span> <span class="op">*</span> (<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m1 <span class="op">+</span> <span class="dv">3</span>))</span>
-<span id="cb5-153"><a href="#cb5-153" aria-hidden="true" tabindex="-1"></a>                        <span class="op">*</span> (L<span class="op">**</span><span class="dv">3</span> <span class="op">*</span> np.cos(np.pi <span class="op">*</span> (n <span class="op">-</span> p)))</span>
-<span id="cb5-154"><a href="#cb5-154" aria-hidden="true" tabindex="-1"></a>                        <span class="op">/</span> (np.pi<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> (n <span class="op">-</span> p) <span class="op">**</span> <span class="dv">2</span>)</span>
-<span id="cb5-155"><a href="#cb5-155" aria-hidden="true" tabindex="-1"></a>                    )</span>
-<span id="cb5-156"><a href="#cb5-156" aria-hidden="true" tabindex="-1"></a>                    term2 <span class="op">=</span> (</span>
-<span id="cb5-157"><a href="#cb5-157" aria-hidden="true" tabindex="-1"></a>                        (<span class="dv">6</span> <span class="op">/</span> L<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> (<span class="dv">2</span> <span class="op">*</span> (<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m1 <span class="op">+</span> <span class="dv">3</span>))</span>
-<span id="cb5-158"><a href="#cb5-158" aria-hidden="true" tabindex="-1"></a>                        <span class="op">*</span> (L<span class="op">**</span><span class="dv">3</span> <span class="op">*</span> np.cos(np.pi <span class="op">*</span> (n <span class="op">+</span> p)))</span>
-<span id="cb5-159"><a href="#cb5-159" aria-hidden="true" tabindex="-1"></a>                        <span class="op">/</span> (np.pi<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> (n <span class="op">+</span> p) <span class="op">**</span> <span class="dv">2</span>)</span>
-<span id="cb5-160"><a href="#cb5-160" aria-hidden="true" tabindex="-1"></a>                    )</span>
-<span id="cb5-161"><a href="#cb5-161" aria-hidden="true" tabindex="-1"></a>                    s[m <span class="op">-</span> <span class="dv">1</span>, n <span class="op">-</span> <span class="dv">1</span>, p <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> term1 <span class="op">-</span> term2</span>
-<span id="cb5-162"><a href="#cb5-162" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> s</span>
-<span id="cb5-163"><a href="#cb5-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-164"><a href="#cb5-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-165"><a href="#cb5-165" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> i5_mat(Npsi, Nphi, L):</span>
-<span id="cb5-166"><a href="#cb5-166" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> np.zeros((Npsi, Nphi, Nphi))</span>
-<span id="cb5-167"><a href="#cb5-167" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> m <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, Npsi <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb5-168"><a href="#cb5-168" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, Nphi <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb5-169"><a href="#cb5-169" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> p <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, Nphi <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb5-170"><a href="#cb5-170" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> n <span class="op">==</span> p:</span>
-<span id="cb5-171"><a href="#cb5-171" aria-hidden="true" tabindex="-1"></a>                    s[m <span class="op">-</span> <span class="dv">1</span>, n <span class="op">-</span> <span class="dv">1</span>, p <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> L <span class="op">/</span> <span class="fl">2.0</span></span>
-<span id="cb5-172"><a href="#cb5-172" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">-</span>s</span>
-<span id="cb5-173"><a href="#cb5-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-174"><a href="#cb5-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-175"><a href="#cb5-175" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> i9_mat(Npsi, Nphi, L):</span>
-<span id="cb5-176"><a href="#cb5-176" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Initialize a 3D array of zeros.</span></span>
-<span id="cb5-177"><a href="#cb5-177" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> np.zeros((Npsi, Nphi, Nphi))</span>
-<span id="cb5-178"><a href="#cb5-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-179"><a href="#cb5-179" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loop over indices.</span></span>
-<span id="cb5-180"><a href="#cb5-180" aria-hidden="true" tabindex="-1"></a>    <span class="co"># In MATLAB: m = 1:Npsi, here m = 0,...,Npsi-1, and m1 = m (since MATLAB m1 = m-1)</span></span>
-<span id="cb5-181"><a href="#cb5-181" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> m <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, Npsi <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb5-182"><a href="#cb5-182" aria-hidden="true" tabindex="-1"></a>        m1 <span class="op">=</span> m <span class="op">-</span> <span class="dv">1</span></span>
-<span id="cb5-183"><a href="#cb5-183" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, Nphi <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb5-184"><a href="#cb5-184" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> p <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, Nphi <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb5-185"><a href="#cb5-185" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> m1 <span class="op">==</span> <span class="dv">0</span> <span class="kw">and</span> n <span class="op">==</span> p:</span>
-<span id="cb5-186"><a href="#cb5-186" aria-hidden="true" tabindex="-1"></a>                    s[m <span class="op">-</span> <span class="dv">1</span>, n <span class="op">-</span> <span class="dv">1</span>, p <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> L <span class="op">/</span> <span class="fl">2.0</span></span>
-<span id="cb5-187"><a href="#cb5-187" aria-hidden="true" tabindex="-1"></a>                <span class="cf">elif</span> m1 <span class="op">==</span> (p <span class="op">-</span> n) <span class="kw">or</span> m1 <span class="op">==</span> (n <span class="op">-</span> p):</span>
-<span id="cb5-188"><a href="#cb5-188" aria-hidden="true" tabindex="-1"></a>                    s[m <span class="op">-</span> <span class="dv">1</span>, n <span class="op">-</span> <span class="dv">1</span>, p <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> L <span class="op">/</span> <span class="fl">4.0</span></span>
-<span id="cb5-189"><a href="#cb5-189" aria-hidden="true" tabindex="-1"></a>                <span class="cf">elif</span> m1 <span class="op">==</span> (<span class="op">-</span>n <span class="op">-</span> p) <span class="kw">or</span> m1 <span class="op">==</span> (n <span class="op">+</span> p):</span>
-<span id="cb5-190"><a href="#cb5-190" aria-hidden="true" tabindex="-1"></a>                    s[m <span class="op">-</span> <span class="dv">1</span>, n <span class="op">-</span> <span class="dv">1</span>, p <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> L <span class="op">/</span> <span class="fl">4.0</span></span>
-<span id="cb5-191"><a href="#cb5-191" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> s</span>
-<span id="cb5-192"><a href="#cb5-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-193"><a href="#cb5-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-194"><a href="#cb5-194" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> i10_mat(Npsi, Nphi, L):</span>
-<span id="cb5-195"><a href="#cb5-195" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> np.zeros((Npsi, Nphi, Nphi))</span>
-<span id="cb5-196"><a href="#cb5-196" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> m <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, Npsi <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb5-197"><a href="#cb5-197" aria-hidden="true" tabindex="-1"></a>        m1 <span class="op">=</span> m <span class="op">-</span> <span class="dv">1</span></span>
-<span id="cb5-198"><a href="#cb5-198" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, Nphi <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb5-199"><a href="#cb5-199" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> p <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, Nphi <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb5-200"><a href="#cb5-200" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> n <span class="op">==</span> p <span class="kw">and</span> p <span class="op">!=</span> <span class="dv">0</span>:</span>
-<span id="cb5-201"><a href="#cb5-201" aria-hidden="true" tabindex="-1"></a>                    s[m <span class="op">-</span> <span class="dv">1</span>, n <span class="op">-</span> <span class="dv">1</span>, p <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> (</span>
-<span id="cb5-202"><a href="#cb5-202" aria-hidden="true" tabindex="-1"></a>                        (<span class="dv">15</span> <span class="op">/</span> L<span class="op">**</span><span class="dv">4</span> <span class="op">*</span> (((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m1) <span class="op">+</span> <span class="dv">1</span>))</span>
-<span id="cb5-203"><a href="#cb5-203" aria-hidden="true" tabindex="-1"></a>                        <span class="op">*</span> (</span>
-<span id="cb5-204"><a href="#cb5-204" aria-hidden="true" tabindex="-1"></a>                            L<span class="op">**</span><span class="dv">5</span></span>
-<span id="cb5-205"><a href="#cb5-205" aria-hidden="true" tabindex="-1"></a>                            <span class="op">*</span> (</span>
-<span id="cb5-206"><a href="#cb5-206" aria-hidden="true" tabindex="-1"></a>                                <span class="dv">4</span> <span class="op">*</span> np.pi<span class="op">**</span><span class="dv">5</span> <span class="op">*</span> n<span class="op">**</span><span class="dv">5</span></span>
-<span id="cb5-207"><a href="#cb5-207" aria-hidden="true" tabindex="-1"></a>                                <span class="op">+</span> <span class="dv">20</span> <span class="op">*</span> np.pi<span class="op">**</span><span class="dv">3</span> <span class="op">*</span> n<span class="op">**</span><span class="dv">3</span></span>
-<span id="cb5-208"><a href="#cb5-208" aria-hidden="true" tabindex="-1"></a>                                <span class="op">-</span> <span class="dv">30</span> <span class="op">*</span> np.pi <span class="op">*</span> n</span>
-<span id="cb5-209"><a href="#cb5-209" aria-hidden="true" tabindex="-1"></a>                            )</span>
-<span id="cb5-210"><a href="#cb5-210" aria-hidden="true" tabindex="-1"></a>                        )</span>
-<span id="cb5-211"><a href="#cb5-211" aria-hidden="true" tabindex="-1"></a>                        <span class="op">/</span> (<span class="dv">40</span> <span class="op">*</span> np.pi<span class="op">**</span><span class="dv">5</span> <span class="op">*</span> n<span class="op">**</span><span class="dv">5</span>)</span>
-<span id="cb5-212"><a href="#cb5-212" aria-hidden="true" tabindex="-1"></a>                    )</span>
-<span id="cb5-213"><a href="#cb5-213" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>:</span>
-<span id="cb5-214"><a href="#cb5-214" aria-hidden="true" tabindex="-1"></a>                    term1 <span class="op">=</span> (</span>
-<span id="cb5-215"><a href="#cb5-215" aria-hidden="true" tabindex="-1"></a>                        <span class="dv">4</span></span>
-<span id="cb5-216"><a href="#cb5-216" aria-hidden="true" tabindex="-1"></a>                        <span class="op">*</span> np.pi</span>
-<span id="cb5-217"><a href="#cb5-217" aria-hidden="true" tabindex="-1"></a>                        <span class="op">*</span> L<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb5-218"><a href="#cb5-218" aria-hidden="true" tabindex="-1"></a>                        <span class="op">*</span> np.cos(np.pi <span class="op">*</span> (n <span class="op">+</span> p))</span>
-<span id="cb5-219"><a href="#cb5-219" aria-hidden="true" tabindex="-1"></a>                        <span class="op">*</span> (<span class="dv">6</span> <span class="op">*</span> L<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> L<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> np.pi<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> (n <span class="op">+</span> p) <span class="op">**</span> <span class="dv">2</span>)</span>
-<span id="cb5-220"><a href="#cb5-220" aria-hidden="true" tabindex="-1"></a>                    ) <span class="op">/</span> (n <span class="op">+</span> p) <span class="op">**</span> <span class="dv">4</span></span>
-<span id="cb5-221"><a href="#cb5-221" aria-hidden="true" tabindex="-1"></a>                    term2 <span class="op">=</span> (</span>
-<span id="cb5-222"><a href="#cb5-222" aria-hidden="true" tabindex="-1"></a>                        <span class="dv">4</span></span>
-<span id="cb5-223"><a href="#cb5-223" aria-hidden="true" tabindex="-1"></a>                        <span class="op">*</span> np.pi</span>
-<span id="cb5-224"><a href="#cb5-224" aria-hidden="true" tabindex="-1"></a>                        <span class="op">*</span> L<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb5-225"><a href="#cb5-225" aria-hidden="true" tabindex="-1"></a>                        <span class="op">*</span> np.cos(np.pi <span class="op">*</span> (n <span class="op">-</span> p))</span>
-<span id="cb5-226"><a href="#cb5-226" aria-hidden="true" tabindex="-1"></a>                        <span class="op">*</span> (<span class="dv">6</span> <span class="op">*</span> L<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> L<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> np.pi<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> (n <span class="op">-</span> p) <span class="op">**</span> <span class="dv">2</span>)</span>
-<span id="cb5-227"><a href="#cb5-227" aria-hidden="true" tabindex="-1"></a>                    ) <span class="op">/</span> (n <span class="op">-</span> p) <span class="op">**</span> <span class="dv">4</span></span>
-<span id="cb5-228"><a href="#cb5-228" aria-hidden="true" tabindex="-1"></a>                    s[m <span class="op">-</span> <span class="dv">1</span>, n <span class="op">-</span> <span class="dv">1</span>, p <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> (</span>
-<span id="cb5-229"><a href="#cb5-229" aria-hidden="true" tabindex="-1"></a>                        <span class="op">-</span>(<span class="dv">15</span> <span class="op">/</span> L<span class="op">**</span><span class="dv">4</span> <span class="op">*</span> (((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m1) <span class="op">+</span> <span class="dv">1</span>))</span>
-<span id="cb5-230"><a href="#cb5-230" aria-hidden="true" tabindex="-1"></a>                        <span class="op">*</span> (L <span class="op">*</span> (term1 <span class="op">+</span> term2))</span>
-<span id="cb5-231"><a href="#cb5-231" aria-hidden="true" tabindex="-1"></a>                        <span class="op">/</span> (<span class="dv">2</span> <span class="op">*</span> np.pi<span class="op">**</span><span class="dv">5</span>)</span>
-<span id="cb5-232"><a href="#cb5-232" aria-hidden="true" tabindex="-1"></a>                    )</span>
-<span id="cb5-233"><a href="#cb5-233" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> s</span>
-<span id="cb5-234"><a href="#cb5-234" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-235"><a href="#cb5-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-236"><a href="#cb5-236" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> i11_mat(Npsi, Nphi, L):</span>
-<span id="cb5-237"><a href="#cb5-237" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> np.zeros((Npsi, Nphi, Nphi))</span>
-<span id="cb5-238"><a href="#cb5-238" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> m <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, Npsi <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb5-239"><a href="#cb5-239" aria-hidden="true" tabindex="-1"></a>        m1 <span class="op">=</span> m <span class="op">-</span> <span class="dv">1</span></span>
-<span id="cb5-240"><a href="#cb5-240" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, Nphi <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb5-241"><a href="#cb5-241" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> p <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, Nphi <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb5-242"><a href="#cb5-242" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> n <span class="op">==</span> p <span class="kw">and</span> p <span class="op">!=</span> <span class="dv">0</span>:</span>
-<span id="cb5-243"><a href="#cb5-243" aria-hidden="true" tabindex="-1"></a>                    s[m <span class="op">-</span> <span class="dv">1</span>, n <span class="op">-</span> <span class="dv">1</span>, p <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> (</span>
-<span id="cb5-244"><a href="#cb5-244" aria-hidden="true" tabindex="-1"></a>                        (<span class="op">-</span><span class="dv">4</span> <span class="op">/</span> L<span class="op">**</span><span class="dv">3</span> <span class="op">*</span> (<span class="dv">7</span> <span class="op">*</span> ((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m1) <span class="op">+</span> <span class="dv">8</span>)) <span class="op">*</span> L<span class="op">**</span><span class="dv">4</span></span>
-<span id="cb5-245"><a href="#cb5-245" aria-hidden="true" tabindex="-1"></a>                    ) <span class="op">/</span> <span class="dv">8</span> <span class="op">+</span> ((<span class="op">-</span><span class="dv">4</span> <span class="op">/</span> L<span class="op">**</span><span class="dv">3</span> <span class="op">*</span> (<span class="dv">7</span> <span class="op">*</span> ((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m1) <span class="op">+</span> <span class="dv">8</span>)) <span class="op">*</span> (<span class="dv">3</span> <span class="op">*</span> L<span class="op">**</span><span class="dv">4</span>)) <span class="op">/</span> (</span>
-<span id="cb5-246"><a href="#cb5-246" aria-hidden="true" tabindex="-1"></a>                        <span class="dv">8</span> <span class="op">*</span> np.pi<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> p<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb5-247"><a href="#cb5-247" aria-hidden="true" tabindex="-1"></a>                    )</span>
-<span id="cb5-248"><a href="#cb5-248" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>:</span>
-<span id="cb5-249"><a href="#cb5-249" aria-hidden="true" tabindex="-1"></a>                    term1 <span class="op">=</span> (</span>
-<span id="cb5-250"><a href="#cb5-250" aria-hidden="true" tabindex="-1"></a>                        (<span class="op">-</span><span class="dv">4</span> <span class="op">/</span> L<span class="op">**</span><span class="dv">3</span> <span class="op">*</span> (<span class="dv">7</span> <span class="op">*</span> ((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m1) <span class="op">+</span> <span class="dv">8</span>))</span>
-<span id="cb5-251"><a href="#cb5-251" aria-hidden="true" tabindex="-1"></a>                        <span class="op">*</span> (L <span class="op">*</span> ((<span class="dv">6</span> <span class="op">*</span> L<span class="op">**</span><span class="dv">3</span>) <span class="op">/</span> (n <span class="op">-</span> p) <span class="op">**</span> <span class="dv">4</span> <span class="op">+</span> (<span class="dv">6</span> <span class="op">*</span> L<span class="op">**</span><span class="dv">3</span>) <span class="op">/</span> (n <span class="op">+</span> p) <span class="op">**</span> <span class="dv">4</span>))</span>
-<span id="cb5-252"><a href="#cb5-252" aria-hidden="true" tabindex="-1"></a>                        <span class="op">/</span> (<span class="dv">2</span> <span class="op">*</span> np.pi<span class="op">**</span><span class="dv">4</span>)</span>
-<span id="cb5-253"><a href="#cb5-253" aria-hidden="true" tabindex="-1"></a>                    )</span>
-<span id="cb5-254"><a href="#cb5-254" aria-hidden="true" tabindex="-1"></a>                    term2 <span class="op">=</span> (</span>
-<span id="cb5-255"><a href="#cb5-255" aria-hidden="true" tabindex="-1"></a>                        (<span class="op">-</span><span class="dv">4</span> <span class="op">/</span> L<span class="op">**</span><span class="dv">3</span> <span class="op">*</span> (<span class="dv">7</span> <span class="op">*</span> ((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m1) <span class="op">+</span> <span class="dv">8</span>))</span>
-<span id="cb5-256"><a href="#cb5-256" aria-hidden="true" tabindex="-1"></a>                        <span class="op">*</span> (</span>
-<span id="cb5-257"><a href="#cb5-257" aria-hidden="true" tabindex="-1"></a>                            L</span>
-<span id="cb5-258"><a href="#cb5-258" aria-hidden="true" tabindex="-1"></a>                            <span class="op">*</span> (</span>
-<span id="cb5-259"><a href="#cb5-259" aria-hidden="true" tabindex="-1"></a>                                (</span>
-<span id="cb5-260"><a href="#cb5-260" aria-hidden="true" tabindex="-1"></a>                                    <span class="dv">3</span></span>
-<span id="cb5-261"><a href="#cb5-261" aria-hidden="true" tabindex="-1"></a>                                    <span class="op">*</span> L</span>
-<span id="cb5-262"><a href="#cb5-262" aria-hidden="true" tabindex="-1"></a>                                    <span class="op">*</span> np.cos(np.pi <span class="op">*</span> (n <span class="op">+</span> p))</span>
-<span id="cb5-263"><a href="#cb5-263" aria-hidden="true" tabindex="-1"></a>                                    <span class="op">*</span> (<span class="dv">2</span> <span class="op">*</span> L<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> L<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> np.pi<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> (n <span class="op">+</span> p) <span class="op">**</span> <span class="dv">2</span>)</span>
-<span id="cb5-264"><a href="#cb5-264" aria-hidden="true" tabindex="-1"></a>                                )</span>
-<span id="cb5-265"><a href="#cb5-265" aria-hidden="true" tabindex="-1"></a>                                <span class="op">/</span> (n <span class="op">+</span> p) <span class="op">**</span> <span class="dv">4</span></span>
-<span id="cb5-266"><a href="#cb5-266" aria-hidden="true" tabindex="-1"></a>                                <span class="op">+</span> (</span>
-<span id="cb5-267"><a href="#cb5-267" aria-hidden="true" tabindex="-1"></a>                                    <span class="dv">3</span></span>
-<span id="cb5-268"><a href="#cb5-268" aria-hidden="true" tabindex="-1"></a>                                    <span class="op">*</span> L</span>
-<span id="cb5-269"><a href="#cb5-269" aria-hidden="true" tabindex="-1"></a>                                    <span class="op">*</span> np.cos(np.pi <span class="op">*</span> (n <span class="op">-</span> p))</span>
-<span id="cb5-270"><a href="#cb5-270" aria-hidden="true" tabindex="-1"></a>                                    <span class="op">*</span> (<span class="dv">2</span> <span class="op">*</span> L<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> L<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> np.pi<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> (n <span class="op">-</span> p) <span class="op">**</span> <span class="dv">2</span>)</span>
-<span id="cb5-271"><a href="#cb5-271" aria-hidden="true" tabindex="-1"></a>                                )</span>
-<span id="cb5-272"><a href="#cb5-272" aria-hidden="true" tabindex="-1"></a>                                <span class="op">/</span> (n <span class="op">-</span> p) <span class="op">**</span> <span class="dv">4</span></span>
-<span id="cb5-273"><a href="#cb5-273" aria-hidden="true" tabindex="-1"></a>                            )</span>
-<span id="cb5-274"><a href="#cb5-274" aria-hidden="true" tabindex="-1"></a>                        )</span>
-<span id="cb5-275"><a href="#cb5-275" aria-hidden="true" tabindex="-1"></a>                        <span class="op">/</span> (<span class="dv">2</span> <span class="op">*</span> np.pi<span class="op">**</span><span class="dv">4</span>)</span>
-<span id="cb5-276"><a href="#cb5-276" aria-hidden="true" tabindex="-1"></a>                    )</span>
-<span id="cb5-277"><a href="#cb5-277" aria-hidden="true" tabindex="-1"></a>                    s[m <span class="op">-</span> <span class="dv">1</span>, n <span class="op">-</span> <span class="dv">1</span>, p <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> term1 <span class="op">-</span> term2</span>
-<span id="cb5-278"><a href="#cb5-278" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> s</span>
-<span id="cb5-279"><a href="#cb5-279" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-280"><a href="#cb5-280" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-281"><a href="#cb5-281" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> i12_mat(Npsi, Nphi, L):</span>
-<span id="cb5-282"><a href="#cb5-282" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> np.zeros((Npsi, Nphi, Nphi))</span>
-<span id="cb5-283"><a href="#cb5-283" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> m <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, Npsi <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb5-284"><a href="#cb5-284" aria-hidden="true" tabindex="-1"></a>        m1 <span class="op">=</span> m <span class="op">-</span> <span class="dv">1</span></span>
-<span id="cb5-285"><a href="#cb5-285" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, Nphi <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb5-286"><a href="#cb5-286" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> p <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, Nphi <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb5-287"><a href="#cb5-287" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> n <span class="op">==</span> p <span class="kw">and</span> p <span class="op">!=</span> <span class="dv">0</span>:</span>
-<span id="cb5-288"><a href="#cb5-288" aria-hidden="true" tabindex="-1"></a>                    s[m <span class="op">-</span> <span class="dv">1</span>, n <span class="op">-</span> <span class="dv">1</span>, p <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> (</span>
-<span id="cb5-289"><a href="#cb5-289" aria-hidden="true" tabindex="-1"></a>                        <span class="dv">6</span> <span class="op">/</span> L<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> (<span class="dv">2</span> <span class="op">*</span> ((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m1) <span class="op">+</span> <span class="dv">3</span>)</span>
-<span id="cb5-290"><a href="#cb5-290" aria-hidden="true" tabindex="-1"></a>                    ) <span class="op">*</span> L<span class="op">**</span><span class="dv">3</span> <span class="op">/</span> <span class="dv">6</span> <span class="op">+</span> (<span class="dv">6</span> <span class="op">/</span> L<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> (<span class="dv">2</span> <span class="op">*</span> ((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m1) <span class="op">+</span> <span class="dv">3</span>)) <span class="op">*</span> L<span class="op">**</span><span class="dv">3</span> <span class="op">/</span> (</span>
-<span id="cb5-291"><a href="#cb5-291" aria-hidden="true" tabindex="-1"></a>                        <span class="dv">4</span> <span class="op">*</span> np.pi<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> p<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb5-292"><a href="#cb5-292" aria-hidden="true" tabindex="-1"></a>                    )</span>
-<span id="cb5-293"><a href="#cb5-293" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>:</span>
-<span id="cb5-294"><a href="#cb5-294" aria-hidden="true" tabindex="-1"></a>                    s[m <span class="op">-</span> <span class="dv">1</span>, n <span class="op">-</span> <span class="dv">1</span>, p <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> (</span>
-<span id="cb5-295"><a href="#cb5-295" aria-hidden="true" tabindex="-1"></a>                        <span class="dv">6</span> <span class="op">/</span> L<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> (<span class="dv">2</span> <span class="op">*</span> ((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m1) <span class="op">+</span> <span class="dv">3</span>)</span>
-<span id="cb5-296"><a href="#cb5-296" aria-hidden="true" tabindex="-1"></a>                    ) <span class="op">*</span> L<span class="op">**</span><span class="dv">3</span> <span class="op">*</span> np.cos(np.pi <span class="op">*</span> (n <span class="op">-</span> p)) <span class="op">/</span> (np.pi<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> (n <span class="op">-</span> p) <span class="op">**</span> <span class="dv">2</span>) <span class="op">+</span> (</span>
-<span id="cb5-297"><a href="#cb5-297" aria-hidden="true" tabindex="-1"></a>                        <span class="dv">6</span> <span class="op">/</span> L<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> (<span class="dv">2</span> <span class="op">*</span> ((<span class="op">-</span><span class="dv">1</span>) <span class="op">**</span> m1) <span class="op">+</span> <span class="dv">3</span>)</span>
-<span id="cb5-298"><a href="#cb5-298" aria-hidden="true" tabindex="-1"></a>                    ) <span class="op">*</span> L<span class="op">**</span><span class="dv">3</span> <span class="op">*</span> np.cos(np.pi <span class="op">*</span> (n <span class="op">+</span> p)) <span class="op">/</span> (np.pi<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> (n <span class="op">+</span> p) <span class="op">**</span> <span class="dv">2</span>)</span>
-<span id="cb5-299"><a href="#cb5-299" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> s</span>
-<span id="cb5-300"><a href="#cb5-300" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-301"><a href="#cb5-301" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-302"><a href="#cb5-302" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> i13_mat(Npsi, Nphi, L):</span>
-<span id="cb5-303"><a href="#cb5-303" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> np.zeros((Npsi, Nphi, Nphi))</span>
-<span id="cb5-304"><a href="#cb5-304" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> m <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, Npsi <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb5-305"><a href="#cb5-305" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, Nphi <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb5-306"><a href="#cb5-306" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> p <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, Nphi <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb5-307"><a href="#cb5-307" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> n <span class="op">==</span> p:</span>
-<span id="cb5-308"><a href="#cb5-308" aria-hidden="true" tabindex="-1"></a>                    s[m <span class="op">-</span> <span class="dv">1</span>, n <span class="op">-</span> <span class="dv">1</span>, p <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> L <span class="op">/</span> <span class="fl">2.0</span></span>
-<span id="cb5-309"><a href="#cb5-309" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">-</span>s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
+<hr>
+<section id="i13_mat" class="level3">
+<h3 class="anchored" data-anchor-id="i13_mat">i13_mat</h3>
+<blockquote class="blockquote">
+<pre><code> i13_mat (Npsi, Nphi, L)</code></pre>
+</blockquote>
+<hr>
+</section>
+<section id="i12_mat" class="level3">
+<h3 class="anchored" data-anchor-id="i12_mat">i12_mat</h3>
+<blockquote class="blockquote">
+<pre><code> i12_mat (Npsi, Nphi, L)</code></pre>
+</blockquote>
+<hr>
+</section>
+<section id="i11_mat" class="level3">
+<h3 class="anchored" data-anchor-id="i11_mat">i11_mat</h3>
+<blockquote class="blockquote">
+<pre><code> i11_mat (Npsi, Nphi, L)</code></pre>
+</blockquote>
+<hr>
+</section>
+<section id="i10_mat" class="level3">
+<h3 class="anchored" data-anchor-id="i10_mat">i10_mat</h3>
+<blockquote class="blockquote">
+<pre><code> i10_mat (Npsi, Nphi, L)</code></pre>
+</blockquote>
+<hr>
+</section>
+<section id="i9_mat" class="level3">
+<h3 class="anchored" data-anchor-id="i9_mat">i9_mat</h3>
+<blockquote class="blockquote">
+<pre><code> i9_mat (Npsi, Nphi, L)</code></pre>
+</blockquote>
+<hr>
+</section>
+<section id="i5_mat" class="level3">
+<h3 class="anchored" data-anchor-id="i5_mat">i5_mat</h3>
+<blockquote class="blockquote">
+<pre><code> i5_mat (Npsi, Nphi, L)</code></pre>
+</blockquote>
+<hr>
+</section>
+<section id="i4_mat" class="level3">
+<h3 class="anchored" data-anchor-id="i4_mat">i4_mat</h3>
+<blockquote class="blockquote">
+<pre><code> i4_mat (Npsi, Nphi, L)</code></pre>
+</blockquote>
+<p><em>Auxiliary integral for the computation of the coupling coefficient H.</em></p>
+<hr>
+</section>
+<section id="i3_mat" class="level3">
+<h3 class="anchored" data-anchor-id="i3_mat">i3_mat</h3>
+<blockquote class="blockquote">
+<pre><code> i3_mat (Npsi, Nphi, L)</code></pre>
+</blockquote>
+<p><em>Auxiliary integral for the computation of the coupling coefficient H.</em></p>
+<hr>
+</section>
+<section id="i2_mat" class="level3">
+<h3 class="anchored" data-anchor-id="i2_mat">i2_mat</h3>
+<blockquote class="blockquote">
+<pre><code> i2_mat (Npsi, Nphi, L)</code></pre>
+</blockquote>
+<hr>
+</section>
+<section id="i1_mat" class="level3">
+<h3 class="anchored" data-anchor-id="i1_mat">i1_mat</h3>
+<blockquote class="blockquote">
+<pre><code> i1_mat (Npsi, Nphi, L)</code></pre>
+</blockquote>
+</section>
 </section>
 <section id="functions-to-put-together-the-coupling-matrix" class="level2">
 <h2 class="anchored" data-anchor-id="functions-to-put-together-the-coupling-matrix">functions to put together the coupling matrix</h2>
-<p>::: {#cell-12 .cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’}</p>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> compute_partial_integrals(</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    Npsi,</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    Nphi,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    Lx,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    Ly,</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>):</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">    Precompute and store all partial-integral matrices needed.</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns them in a dictionary or a custom object.</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    partials <span class="op">=</span> {}</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    partials[<span class="st">"i1_Lx"</span>] <span class="op">=</span> i1_mat(Npsi, Nphi, Lx)</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    partials[<span class="st">"i2_Lx"</span>] <span class="op">=</span> i2_mat(Npsi, Nphi, Lx)</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    partials[<span class="st">"i3_Lx"</span>] <span class="op">=</span> i3_mat(Npsi, Nphi, Lx)</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    partials[<span class="st">"i4_Lx"</span>] <span class="op">=</span> i4_mat(Npsi, Nphi, Lx)</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    partials[<span class="st">"i5_Lx"</span>] <span class="op">=</span> i5_mat(Npsi, Nphi, Lx)</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    partials[<span class="st">"i9_Lx"</span>] <span class="op">=</span> i9_mat(Npsi, Nphi, Lx)</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    partials[<span class="st">"i10_Lx"</span>] <span class="op">=</span> i10_mat(Npsi, Nphi, Lx)</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    partials[<span class="st">"i11_Lx"</span>] <span class="op">=</span> i11_mat(Npsi, Nphi, Lx)</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    partials[<span class="st">"i12_Lx"</span>] <span class="op">=</span> i12_mat(Npsi, Nphi, Lx)</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    partials[<span class="st">"i13_Lx"</span>] <span class="op">=</span> i13_mat(Npsi, Nphi, Lx)</span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># For Ly-based:</span></span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    partials[<span class="st">"i1_Ly"</span>] <span class="op">=</span> i1_mat(Npsi, Nphi, Ly)</span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    partials[<span class="st">"i2_Ly"</span>] <span class="op">=</span> i2_mat(Npsi, Nphi, Ly)</span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    partials[<span class="st">"i3_Ly"</span>] <span class="op">=</span> i3_mat(Npsi, Nphi, Ly)</span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    partials[<span class="st">"i4_Ly"</span>] <span class="op">=</span> i4_mat(Npsi, Nphi, Ly)</span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>    partials[<span class="st">"i5_Ly"</span>] <span class="op">=</span> i5_mat(Npsi, Nphi, Ly)</span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>    partials[<span class="st">"i9_Ly"</span>] <span class="op">=</span> i9_mat(Npsi, Nphi, Ly)</span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>    partials[<span class="st">"i10_Ly"</span>] <span class="op">=</span> i10_mat(Npsi, Nphi, Ly)</span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>    partials[<span class="st">"i11_Ly"</span>] <span class="op">=</span> i11_mat(Npsi, Nphi, Ly)</span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>    partials[<span class="st">"i12_Ly"</span>] <span class="op">=</span> i12_mat(Npsi, Nphi, Ly)</span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>    partials[<span class="st">"i13_Ly"</span>] <span class="op">=</span> i13_mat(Npsi, Nphi, Ly)</span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> partials</span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> build_s_matrix(Npsi, Nphi, partials, idx_array, factor_mode):</span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a><span class="co">    Summation of partial integrals in a 3D array with a factor.</span></span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns</span></span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a><span class="co">    -------</span></span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a><span class="co">    s : np.ndarray of shape (Npsi, Nphi, Nphi)</span></span>
-<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a><span class="co">        The 3D tensor after summation and factor application.</span></span>
-<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> np.zeros((Npsi, Nphi, Nphi), dtype<span class="op">=</span><span class="bu">float</span>)</span>
-<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> m <span class="kw">in</span> <span class="bu">range</span>(Npsi):</span>
-<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(Nphi):</span>
-<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>            n_idx <span class="op">=</span> idx_array[n]</span>
-<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> p <span class="kw">in</span> <span class="bu">range</span>(Nphi):</span>
-<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>                p_idx <span class="op">=</span> idx_array[p]</span>
-<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>                val <span class="op">=</span> <span class="fl">0.0</span></span>
-<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> mat <span class="kw">in</span> partials:</span>
-<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>                    val <span class="op">+=</span> mat[m, n_idx <span class="op">-</span> <span class="dv">1</span>, p_idx <span class="op">-</span> <span class="dv">1</span>]</span>
-<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Apply factor</span></span>
-<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> factor_mode <span class="op">==</span> <span class="st">"n"</span>:</span>
-<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a>                    val <span class="op">*=</span> n_idx<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>                <span class="cf">elif</span> factor_mode <span class="op">==</span> <span class="st">"p"</span>:</span>
-<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a>                    val <span class="op">*=</span> p_idx<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a>                <span class="cf">elif</span> factor_mode <span class="op">==</span> <span class="st">"np"</span>:</span>
-<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a>                    val <span class="op">*=</span> n_idx <span class="op">*</span> p_idx</span>
-<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a>                s[m, n, p] <span class="op">=</span> val</span>
-<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> s</span>
-<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> g1(Npsi, Nphi, S, kx, cache):</span>
-<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a>    partials <span class="op">=</span> [</span>
-<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a>        cache[<span class="st">"i1_Lx"</span>],</span>
-<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a>        cache[<span class="st">"i2_Lx"</span>],</span>
-<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a>        cache[<span class="st">"i3_Lx"</span>],</span>
-<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a>        cache[<span class="st">"i4_Lx"</span>],</span>
-<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a>        cache[<span class="st">"i5_Lx"</span>],</span>
-<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> build_s_matrix(Npsi, Nphi, partials, idx_array<span class="op">=</span>kx, factor_mode<span class="op">=</span><span class="st">"n"</span>)</span>
-<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a>    s_reshaped <span class="op">=</span> s.reshape((Npsi, Nphi<span class="op">**</span><span class="dv">2</span>), order<span class="op">=</span><span class="st">"F"</span>)</span>
-<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a>    m_mat <span class="op">=</span> np.repeat(s_reshaped, Npsi, axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> m_mat[:S, :]</span>
-<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> g2(Npsi, Nphi, S, kx, cache):</span>
-<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a>    partials <span class="op">=</span> [</span>
-<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a>        cache[<span class="st">"i1_Lx"</span>],</span>
-<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a>        cache[<span class="st">"i2_Lx"</span>],</span>
-<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a>        cache[<span class="st">"i3_Lx"</span>],</span>
-<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a>        cache[<span class="st">"i4_Lx"</span>],</span>
-<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a>        cache[<span class="st">"i5_Lx"</span>],</span>
-<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> build_s_matrix(Npsi, Nphi, partials, idx_array<span class="op">=</span>kx, factor_mode<span class="op">=</span><span class="st">"p"</span>)</span>
-<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a>    s_reshaped <span class="op">=</span> s.reshape((Npsi, Nphi<span class="op">**</span><span class="dv">2</span>), order<span class="op">=</span><span class="st">"F"</span>)</span>
-<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a>    m_mat <span class="op">=</span> np.repeat(s_reshaped, Npsi, axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> m_mat[:S, :]</span>
-<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> g3(Npsi, Nphi, S, ky, cache):</span>
-<span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a>    partials <span class="op">=</span> [</span>
-<span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a>        cache[<span class="st">"i1_Ly"</span>],</span>
-<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a>        cache[<span class="st">"i2_Ly"</span>],</span>
-<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a>        cache[<span class="st">"i3_Ly"</span>],</span>
-<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a>        cache[<span class="st">"i4_Ly"</span>],</span>
-<span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a>        cache[<span class="st">"i5_Ly"</span>],</span>
-<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> build_s_matrix(Npsi, Nphi, partials, idx_array<span class="op">=</span>ky, factor_mode<span class="op">=</span><span class="st">"n"</span>)</span>
-<span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a>    s_reshaped <span class="op">=</span> s.reshape((Npsi, Nphi<span class="op">**</span><span class="dv">2</span>), order<span class="op">=</span><span class="st">"F"</span>)</span>
-<span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a>    m_mat <span class="op">=</span> np.tile(s_reshaped, (Npsi, <span class="dv">1</span>))</span>
-<span id="cb6-113"><a href="#cb6-113" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> m_mat[:S, :]</span>
-<span id="cb6-114"><a href="#cb6-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-115"><a href="#cb6-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> g4(Npsi, Nphi, S, ky, cache):</span>
-<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a>    partials <span class="op">=</span> [</span>
-<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a>        cache[<span class="st">"i1_Ly"</span>],</span>
-<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a>        cache[<span class="st">"i2_Ly"</span>],</span>
-<span id="cb6-120"><a href="#cb6-120" aria-hidden="true" tabindex="-1"></a>        cache[<span class="st">"i3_Ly"</span>],</span>
-<span id="cb6-121"><a href="#cb6-121" aria-hidden="true" tabindex="-1"></a>        cache[<span class="st">"i4_Ly"</span>],</span>
-<span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a>        cache[<span class="st">"i5_Ly"</span>],</span>
-<span id="cb6-123"><a href="#cb6-123" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb6-124"><a href="#cb6-124" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> build_s_matrix(Npsi, Nphi, partials, idx_array<span class="op">=</span>ky, factor_mode<span class="op">=</span><span class="st">"p"</span>)</span>
-<span id="cb6-125"><a href="#cb6-125" aria-hidden="true" tabindex="-1"></a>    s_reshaped <span class="op">=</span> s.reshape((Npsi, Nphi<span class="op">**</span><span class="dv">2</span>), order<span class="op">=</span><span class="st">"F"</span>)</span>
-<span id="cb6-126"><a href="#cb6-126" aria-hidden="true" tabindex="-1"></a>    m_mat <span class="op">=</span> np.tile(s_reshaped, (Npsi, <span class="dv">1</span>))</span>
-<span id="cb6-127"><a href="#cb6-127" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> m_mat[:S, :]</span>
-<span id="cb6-128"><a href="#cb6-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-129"><a href="#cb6-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-130"><a href="#cb6-130" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> g5(Npsi, Nphi, S, kx, cache):</span>
-<span id="cb6-131"><a href="#cb6-131" aria-hidden="true" tabindex="-1"></a>    partials <span class="op">=</span> [</span>
-<span id="cb6-132"><a href="#cb6-132" aria-hidden="true" tabindex="-1"></a>        cache[<span class="st">"i9_Lx"</span>],</span>
-<span id="cb6-133"><a href="#cb6-133" aria-hidden="true" tabindex="-1"></a>        cache[<span class="st">"i10_Lx"</span>],</span>
-<span id="cb6-134"><a href="#cb6-134" aria-hidden="true" tabindex="-1"></a>        cache[<span class="st">"i11_Lx"</span>],</span>
-<span id="cb6-135"><a href="#cb6-135" aria-hidden="true" tabindex="-1"></a>        cache[<span class="st">"i12_Lx"</span>],</span>
-<span id="cb6-136"><a href="#cb6-136" aria-hidden="true" tabindex="-1"></a>        cache[<span class="st">"i13_Lx"</span>],</span>
-<span id="cb6-137"><a href="#cb6-137" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb6-138"><a href="#cb6-138" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> build_s_matrix(Npsi, Nphi, partials, idx_array<span class="op">=</span>kx, factor_mode<span class="op">=</span><span class="st">"np"</span>)</span>
-<span id="cb6-139"><a href="#cb6-139" aria-hidden="true" tabindex="-1"></a>    s_reshaped <span class="op">=</span> s.reshape((Npsi, Nphi<span class="op">**</span><span class="dv">2</span>), order<span class="op">=</span><span class="st">"F"</span>)</span>
-<span id="cb6-140"><a href="#cb6-140" aria-hidden="true" tabindex="-1"></a>    m_mat <span class="op">=</span> np.repeat(s_reshaped, Npsi, axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb6-141"><a href="#cb6-141" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> m_mat[:S, :]</span>
-<span id="cb6-142"><a href="#cb6-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-143"><a href="#cb6-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-144"><a href="#cb6-144" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> g6(Npsi, Nphi, S, ky, cache):</span>
-<span id="cb6-145"><a href="#cb6-145" aria-hidden="true" tabindex="-1"></a>    partials <span class="op">=</span> [</span>
-<span id="cb6-146"><a href="#cb6-146" aria-hidden="true" tabindex="-1"></a>        cache[<span class="st">"i9_Ly"</span>],</span>
-<span id="cb6-147"><a href="#cb6-147" aria-hidden="true" tabindex="-1"></a>        cache[<span class="st">"i10_Ly"</span>],</span>
-<span id="cb6-148"><a href="#cb6-148" aria-hidden="true" tabindex="-1"></a>        cache[<span class="st">"i11_Ly"</span>],</span>
-<span id="cb6-149"><a href="#cb6-149" aria-hidden="true" tabindex="-1"></a>        cache[<span class="st">"i12_Ly"</span>],</span>
-<span id="cb6-150"><a href="#cb6-150" aria-hidden="true" tabindex="-1"></a>        cache[<span class="st">"i13_Ly"</span>],</span>
-<span id="cb6-151"><a href="#cb6-151" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb6-152"><a href="#cb6-152" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> build_s_matrix(Npsi, Nphi, partials, idx_array<span class="op">=</span>ky, factor_mode<span class="op">=</span><span class="st">"np"</span>)</span>
-<span id="cb6-153"><a href="#cb6-153" aria-hidden="true" tabindex="-1"></a>    s_reshaped <span class="op">=</span> s.reshape((Npsi, Nphi<span class="op">**</span><span class="dv">2</span>), order<span class="op">=</span><span class="st">"F"</span>)</span>
-<span id="cb6-154"><a href="#cb6-154" aria-hidden="true" tabindex="-1"></a>    m_mat <span class="op">=</span> np.tile(s_reshaped, (Npsi, <span class="dv">1</span>))</span>
-<span id="cb6-155"><a href="#cb6-155" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> m_mat[:S, :]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
-<p>::: {#cell-13 .cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’}</p>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> H_tensor_rectangular(</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    coeff0,</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    coeff1,</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    coeff2,</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    Nphi,</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    Npsi,</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    Lx,</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    Ly,</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    kx,</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    ky,</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>):</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">    Compute the H tensor for rectangular plates.</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    S <span class="op">=</span> coeff1.shape[<span class="dv">1</span>]  <span class="co"># Number of modes</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Initialize H tensors</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    H0 <span class="op">=</span> np.zeros((S, Nphi <span class="op">*</span> Nphi))</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    H1 <span class="op">=</span> np.zeros((S, Nphi <span class="op">*</span> Nphi))</span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    H2 <span class="op">=</span> np.zeros((S, Nphi <span class="op">*</span> Nphi))</span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    partials <span class="op">=</span> compute_partial_integrals(Npsi, Nphi, Lx, Ly)</span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Compute integral components</span></span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    m1 <span class="op">=</span> g1(Npsi, Nphi, S, kx, partials)</span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    m2 <span class="op">=</span> g2(Npsi, Nphi, S, kx, partials)</span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>    m3 <span class="op">=</span> g3(Npsi, Nphi, S, ky, partials)</span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>    m4 <span class="op">=</span> g4(Npsi, Nphi, S, ky, partials)</span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>    m5 <span class="op">=</span> g5(Npsi, Nphi, S, kx, partials)</span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>    m6 <span class="op">=</span> g6(Npsi, Nphi, S, ky, partials)</span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Compute H tensor</span></span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(S):</span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>        f0 <span class="op">=</span> coeff0[:, n].T <span class="op">@</span> (m1 <span class="op">*</span> m4 <span class="op">+</span> m2 <span class="op">*</span> m3 <span class="op">-</span> <span class="dv">2</span> <span class="op">*</span> m5 <span class="op">*</span> m6)</span>
-<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>        f1 <span class="op">=</span> coeff1[:, n].T <span class="op">@</span> (m1 <span class="op">*</span> m4 <span class="op">+</span> m2 <span class="op">*</span> m3 <span class="op">-</span> <span class="dv">2</span> <span class="op">*</span> m5 <span class="op">*</span> m6)</span>
-<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>        f2 <span class="op">=</span> coeff2[:, n].T <span class="op">@</span> (m1 <span class="op">*</span> m4 <span class="op">+</span> m2 <span class="op">*</span> m3 <span class="op">-</span> <span class="dv">2</span> <span class="op">*</span> m5 <span class="op">*</span> m6)</span>
-<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>        H0[n, :] <span class="op">=</span> f0</span>
-<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>        H1[n, :] <span class="op">=</span> f1</span>
-<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>        H2[n, :] <span class="op">=</span> f2</span>
-<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Normalize with constants</span></span>
-<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>    const_factor <span class="op">=</span> <span class="dv">4</span> <span class="op">*</span> np.pi<span class="op">**</span><span class="dv">4</span> <span class="op">/</span> (Lx<span class="op">**</span><span class="dv">3</span> <span class="op">*</span> Ly<span class="op">**</span><span class="dv">3</span>)</span>
-<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>    H0 <span class="op">*=</span> const_factor</span>
-<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>    H1 <span class="op">*=</span> const_factor</span>
-<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>    H2 <span class="op">*=</span> const_factor</span>
-<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Zero small values</span></span>
-<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>    threshold <span class="op">=</span> <span class="fl">1e-8</span></span>
-<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>    H0[np.<span class="bu">abs</span>(H0 <span class="op">/</span> np.<span class="bu">max</span>(np.<span class="bu">abs</span>(H0))) <span class="op">&lt;</span> threshold] <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>    H1[np.<span class="bu">abs</span>(H1 <span class="op">/</span> np.<span class="bu">max</span>(np.<span class="bu">abs</span>(H1))) <span class="op">&lt;</span> threshold] <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>    H2[np.<span class="bu">abs</span>(H2 <span class="op">/</span> np.<span class="bu">max</span>(np.<span class="bu">abs</span>(H2))) <span class="op">&lt;</span> threshold] <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> H0, H1, H2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
-<p>::: {#cell-14 .cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’}</p>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> compute_coupling_matrix(</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    n_psi,</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    n_phi,</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    lx,</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    ly,</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    kx_indices,</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    ky_indices,</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>):</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    K, M <span class="op">=</span> assemble_K_and_M(n_psi, lx, ly)</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># this will give different results than in MATLAB</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    vals, vecs <span class="op">=</span> eig(K, M)</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    coeff0, coeff1, coeff2 <span class="op">=</span> airy_stress_coefficients(n_psi, vals, vecs)</span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    H0, H1, H2 <span class="op">=</span> H_tensor_rectangular(</span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>        coeff0<span class="op">=</span>coeff0,</span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>        coeff1<span class="op">=</span>coeff1,</span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>        coeff2<span class="op">=</span>coeff2,</span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>        Npsi<span class="op">=</span>n_psi,</span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>        Nphi<span class="op">=</span>n_phi,</span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>        Lx<span class="op">=</span>lx,</span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>        Ly<span class="op">=</span>ly,</span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>        kx<span class="op">=</span>kx_indices,</span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>        ky<span class="op">=</span>ky_indices,</span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>    H0 <span class="op">=</span> H0[:n_psi, : n_phi <span class="op">*</span> n_phi]</span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>    H1 <span class="op">=</span> H1[:n_psi, : n_phi <span class="op">*</span> n_phi]</span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>    H2 <span class="op">=</span> H2[:n_psi, : n_phi <span class="op">*</span> n_phi]</span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>    H0 <span class="op">=</span> H0.reshape((n_psi, n_phi, n_phi))</span>
-<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>    H1 <span class="op">=</span> H1.reshape((n_psi, n_phi, n_phi))</span>
-<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>    H2 <span class="op">=</span> H2.reshape((n_psi, n_phi, n_phi))</span>
-<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> H0, H1, H2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
+<hr>
+<section id="g6" class="level3">
+<h3 class="anchored" data-anchor-id="g6">g6</h3>
+<blockquote class="blockquote">
+<pre><code> g6 (Npsi, Nphi, S, ky, cache)</code></pre>
+</blockquote>
+<hr>
+</section>
+<section id="g5" class="level3">
+<h3 class="anchored" data-anchor-id="g5">g5</h3>
+<blockquote class="blockquote">
+<pre><code> g5 (Npsi, Nphi, S, kx, cache)</code></pre>
+</blockquote>
+<hr>
+</section>
+<section id="g4" class="level3">
+<h3 class="anchored" data-anchor-id="g4">g4</h3>
+<blockquote class="blockquote">
+<pre><code> g4 (Npsi, Nphi, S, ky, cache)</code></pre>
+</blockquote>
+<hr>
+</section>
+<section id="g3" class="level3">
+<h3 class="anchored" data-anchor-id="g3">g3</h3>
+<blockquote class="blockquote">
+<pre><code> g3 (Npsi, Nphi, S, ky, cache)</code></pre>
+</blockquote>
+<hr>
+</section>
+<section id="g2" class="level3">
+<h3 class="anchored" data-anchor-id="g2">g2</h3>
+<blockquote class="blockquote">
+<pre><code> g2 (Npsi, Nphi, S, kx, cache)</code></pre>
+</blockquote>
+<hr>
+</section>
+<section id="g1" class="level3">
+<h3 class="anchored" data-anchor-id="g1">g1</h3>
+<blockquote class="blockquote">
+<pre><code> g1 (Npsi, Nphi, S, kx, cache)</code></pre>
+</blockquote>
+<hr>
+</section>
+<section id="build_s_matrix" class="level3">
+<h3 class="anchored" data-anchor-id="build_s_matrix">build_s_matrix</h3>
+<blockquote class="blockquote">
+<pre><code> build_s_matrix (Npsi, Nphi, partials, idx_array, factor_mode)</code></pre>
+</blockquote>
+<p><em>Summation of partial integrals in a 3D array with a factor.</em></p>
+<table class="table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 38%">
+<col style="width: 52%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Npsi</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Nphi</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>partials</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>idx_array</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>factor_mode</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Returns</strong></td>
+<td><strong>np.ndarray of shape (Npsi, Nphi, Nphi)</strong></td>
+<td><strong>The 3D tensor after summation and factor application.</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="compute_partial_integrals" class="level3">
+<h3 class="anchored" data-anchor-id="compute_partial_integrals">compute_partial_integrals</h3>
+<blockquote class="blockquote">
+<pre><code> compute_partial_integrals (Npsi, Nphi, Lx, Ly)</code></pre>
+</blockquote>
+<p><em>Precompute and store all partial-integral matrices needed. Returns them in a dictionary or a custom object.</em></p>
+<hr>
+</section>
+<section id="h_tensor_rectangular" class="level3">
+<h3 class="anchored" data-anchor-id="h_tensor_rectangular">H_tensor_rectangular</h3>
+<blockquote class="blockquote">
+<pre><code> H_tensor_rectangular (coeff0, coeff1, coeff2, Nphi, Npsi, Lx, Ly, kx, ky)</code></pre>
+</blockquote>
+<p><em>Compute the H tensor for rectangular plates.</em></p>
+<hr>
+</section>
+<section id="compute_coupling_matrix" class="level3">
+<h3 class="anchored" data-anchor-id="compute_coupling_matrix">compute_coupling_matrix</h3>
+<blockquote class="blockquote">
+<pre><code> compute_coupling_matrix (n_psi, n_phi, lx, ly, kx_indices, ky_indices)</code></pre>
+</blockquote>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
