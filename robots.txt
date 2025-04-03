@@ -1,1 +1,1 @@
-Sitemap: https://rodrigodzf.github.io/vkplatejax/sitemap.xml
+Sitemap: https://rodrigodzf.github.io/jaxdiffmodal/sitemap.xml

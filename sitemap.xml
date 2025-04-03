@@ -1,35 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://rodrigodzf.github.io/vkplatejax/num_utils.html</loc>
-    <lastmod>2025-02-24T17:01:14.659Z</lastmod>
+    <loc>https://rodrigodzf.github.io/jaxdiffmodal/index.html</loc>
+    <lastmod>2025-04-03T09:28:19.893Z</lastmod>
   </url>
   <url>
-    <loc>https://rodrigodzf.github.io/vkplatejax/utils.html</loc>
-    <lastmod>2025-02-24T17:01:14.245Z</lastmod>
+    <loc>https://rodrigodzf.github.io/jaxdiffmodal/api/losses.html</loc>
+    <lastmod>2025-04-03T09:28:21.742Z</lastmod>
   </url>
   <url>
-    <loc>https://rodrigodzf.github.io/vkplatejax/sv.html</loc>
-    <lastmod>2025-02-24T17:01:14.074Z</lastmod>
+    <loc>https://rodrigodzf.github.io/jaxdiffmodal/api/lpc.html</loc>
+    <lastmod>2025-04-03T09:28:20.675Z</lastmod>
   </url>
   <url>
-    <loc>https://rodrigodzf.github.io/vkplatejax/excitations.html</loc>
-    <lastmod>2025-02-24T17:01:13.821Z</lastmod>
+    <loc>https://rodrigodzf.github.io/jaxdiffmodal/api/time_integrators.html</loc>
+    <lastmod>2025-04-03T09:28:20.344Z</lastmod>
   </url>
   <url>
-    <loc>https://rodrigodzf.github.io/vkplatejax/coupling.html</loc>
-    <lastmod>2025-02-24T17:01:14.034Z</lastmod>
+    <loc>https://rodrigodzf.github.io/jaxdiffmodal/api/coupling.html</loc>
+    <lastmod>2025-04-03T09:28:20.381Z</lastmod>
   </url>
   <url>
-    <loc>https://rodrigodzf.github.io/vkplatejax/index.html</loc>
-    <lastmod>2025-02-24T17:01:13.839Z</lastmod>
+    <loc>https://rodrigodzf.github.io/jaxdiffmodal/examples/non-linear.html</loc>
+    <lastmod>2025-04-03T09:28:19.893Z</lastmod>
   </url>
   <url>
-    <loc>https://rodrigodzf.github.io/vkplatejax/ftm.html</loc>
-    <lastmod>2025-02-24T17:01:14.494Z</lastmod>
+    <loc>https://rodrigodzf.github.io/jaxdiffmodal/examples/simulations.html</loc>
+    <lastmod>2025-04-03T09:28:20.040Z</lastmod>
   </url>
   <url>
-    <loc>https://rodrigodzf.github.io/vkplatejax/losses.html</loc>
-    <lastmod>2025-02-24T17:01:14.141Z</lastmod>
+    <loc>https://rodrigodzf.github.io/jaxdiffmodal/api/features.html</loc>
+    <lastmod>2025-04-03T09:28:20.603Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rodrigodzf.github.io/jaxdiffmodal/api/excitations.html</loc>
+    <lastmod>2025-04-03T09:28:19.956Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rodrigodzf.github.io/jaxdiffmodal/api/ftm.html</loc>
+    <lastmod>2025-04-03T09:28:20.730Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rodrigodzf.github.io/jaxdiffmodal/api/utils.html</loc>
+    <lastmod>2025-04-03T09:28:20.505Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rodrigodzf.github.io/jaxdiffmodal/api/num_utils.html</loc>
+    <lastmod>2025-04-03T09:28:20.877Z</lastmod>
   </url>
 </urlset>
