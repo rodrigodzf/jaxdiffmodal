@@ -1,0 +1,13 @@
+# Simulations
+
+
+We can simulate strings, membranes, and plates in different ways.
+However, for most cases the steps are similar:
+
+1.  Define the parameters of the simulation
+2.  Get the eigenpairs
+3.  Discretize
+4.  Simulate
+
+We will go through these steps for a string, a membrane, and a plate,
+for the linear and non-linear cases.

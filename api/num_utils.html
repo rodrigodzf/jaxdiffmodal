@@ -155,7 +155,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Getting Started</span></a>
+ <span class="menu-text">jaxdiffmodal</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -167,29 +167,75 @@ window.Quarto = {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../examples/simulations/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Simulations</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../examples/non-linear.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Simulating strings, membranes and plates with non-linearities</span></a>
+  <a href="../examples/simulations/linear.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../examples/simulations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Simulating strings, membranes, and plates</span></a>
+  <a href="../examples/simulations/non-linear.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Non-linear models</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">API</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a href="../examples/optimisation/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Optimisation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../examples/optimisation/optimise_string.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fitting a real plucked guitar string</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../examples/optimisation/optimise_plate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fitting to a real (thick) plate</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../examples/optimisation/optimise_vkplate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Optimising the parameters of the Von Karman plate</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../examples/optimisation/optimise_vkplate_h.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Optimising the coupling coefficients of the Von Karman plate model</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">API</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../api/coupling.html" class="sidebar-item-text sidebar-link">
@@ -298,6 +344,9 @@ window.Quarto = {
 
 
 <!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
+<p>These are some numerical utilities to compute the modes for the von Kármán plate and to process the modes.</p>
+<p>The modes for different boundary conditions are computed using the <a href="https://github.com/Nemus-Project/magpie-python"><code>magpie-python</code></a> package.</p>
+<p>The processing of the modes is done using a port of the <a href="https://github.com/Nemus-Project/VKPlate"><code>vkplate</code></a> Matlab code.</p>
 <hr>
 <section id="second_derivative_mixed" class="level3">
 <h3 class="anchored" data-anchor-id="second_derivative_mixed">second_derivative_mixed</h3>

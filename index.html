@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Fast and differentiable simulation modal simulation of strings, membranes, and plates using JAX.">
 
-<title>Getting Started – jaxdiffmodal</title>
+<title>jaxdiffmodal</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -106,11 +105,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Getting Started – jaxdiffmodal">
-<meta property="og:description" content="Fast and differentiable simulation modal simulation of strings, membranes, and plates using JAX.">
+<meta property="og:title" content="jaxdiffmodal">
+<meta property="og:description" content="A collection vibration models (e.g.&nbsp;von Kármán plates, tension-modulated and stiff strings) implemented in JAX for fast, differentiable simulations">
 <meta property="og:site_name" content="jaxdiffmodal">
-<meta name="twitter:title" content="Getting Started – jaxdiffmodal">
-<meta name="twitter:description" content="Fast and differentiable simulation modal simulation of strings, membranes, and plates using JAX.">
+<meta name="twitter:title" content="jaxdiffmodal">
+<meta name="twitter:description" content="A collection vibration models (e.g.&nbsp;von Kármán plates, tension-modulated and stiff strings) implemented in JAX for fast, differentiable simulations">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -147,7 +146,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Getting Started</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">jaxdiffmodal</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -162,7 +161,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Getting Started</span></a>
+ <span class="menu-text">jaxdiffmodal</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -174,29 +173,75 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./examples/simulations/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Simulations</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./examples/non-linear.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Simulating strings, membranes and plates with non-linearities</span></a>
+  <a href="./examples/simulations/linear.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./examples/simulations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Simulating strings, membranes, and plates</span></a>
+  <a href="./examples/simulations/non-linear.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Non-linear models</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">API</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a href="./examples/optimisation/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Optimisation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examples/optimisation/optimise_string.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fitting a real plucked guitar string</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examples/optimisation/optimise_plate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fitting to a real (thick) plate</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examples/optimisation/optimise_vkplate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Optimising the parameters of the Von Karman plate</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./examples/optimisation/optimise_vkplate_h.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Optimising the coupling coefficients of the Von Karman plate model</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">API</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./api/coupling.html" class="sidebar-item-text sidebar-link">
@@ -263,54 +308,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#installation-for-development" id="toc-installation-for-development" class="nav-link active" data-scroll-target="#installation-for-development">Installation for Development</a></li>
-  <li><a href="#how-to-use" id="toc-how-to-use" class="nav-link" data-scroll-target="#how-to-use">How to use</a></li>
+  <li><a href="#jaxdiffmodal" id="toc-jaxdiffmodal" class="nav-link active" data-scroll-target="#jaxdiffmodal">jaxdiffmodal</a>
+  <ul class="collapse">
+  <li><a href="#features" id="toc-features" class="nav-link" data-scroll-target="#features">Features</a></li>
+  <li><a href="#installation-for-development" id="toc-installation-for-development" class="nav-link" data-scroll-target="#installation-for-development">Installation for Development</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
+  <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/rodrigodzf/jaxdiffmodal/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.html.md"><i class="bi bi-file-code"></i>CommonMark</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/rodrigodzf/jaxdiffmodal/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.md"><i class="bi bi-file-code"></i>CommonMark</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Getting Started</h1>
-</div>
-
-<div>
-  <div class="description">
-    Fast and differentiable simulation modal simulation of strings, membranes, and plates using JAX.
-  </div>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
 
 
-</header>
-
-
-<!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
-<p>This code is based on the matlab implementation of the Von Karman plate model found <a href="https://github.com/Nemus-Project/VKPlate">here</a> and the analytical/Galerkin solution for the simply supported plate found <a href="https://github.com/rodrigodzf/VKGong">here</a>.</p>
+<section id="jaxdiffmodal" class="level1">
+<h1>jaxdiffmodal</h1>
+<p>Fast, differentiable, and GPU-accelerated simulation framework for modelling the dynamics of strings, membranes, and plates using modal methods implemented in <a href="https://github.com/google/jax">JAX</a>.</p>
+<section id="features" class="level2">
+<h2 class="anchored" data-anchor-id="features">Features</h2>
+<ul>
+<li>Differentiable implementation using JAX</li>
+<li>Simulates linear and nonlinear models:
+<ul>
+<li>Tension-modulated string (Kirchhoff–Carrier)</li>
+<li>Tension-modulated membrane (Berger model)</li>
+<li>von Kármán nonlinear plate</li>
+</ul></li>
+<li>Fast GPU-accelerated time integration</li>
+<li>Designed for real-time synthesis, inverse modelling, and dataset generation</li>
+<li>Includes example notebooks to reproduce results from the paper</li>
+</ul>
+</section>
 <section id="installation-for-development" class="level2">
 <h2 class="anchored" data-anchor-id="installation-for-development">Installation for Development</h2>
-<p>It is strongly recommended to use the <a href="https://github.com/astral-sh/uv"><code>uv</code> package manager</a> to install the environment and dependencies.</p>
+<p>It is recommended to use the <a href="https://github.com/astral-sh/uv"><code>uv</code></a> package manager to install the environment and dependencies.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> sync <span class="at">--all-extras</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>otherwise you can create a virtual environment and install the dependencies manually:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> venv .venv</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> .venv/bin/activate</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-e</span> .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="how-to-use" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-use">How to use</h2>
-<p>Once everything is installed, you can run the <code>vkplate_opt.ipynb</code> notebook.</p>
+<section id="examples" class="level2">
+<h2 class="anchored" data-anchor-id="examples">Examples</h2>
+<p>The <code>nbs/examples</code> directory includes:</p>
+<ul>
+<li>Synthetic and real-world inverse modelling experiments for strings and plates</li>
+<li>Optimisation of nonlinear parameters and coupling tensors</li>
+<li>Scripts to reproduce figures from the paper</li>
+</ul>
+<p>The <code>benchmark</code> directory includes comparisons against: - An optimised C++ implementation using Eigen and BLAS - A JIT-compiled PyTorch implementation (GPU) - A MATLAB baseline</p>
+<blockquote class="blockquote">
+<p>We plan to add more benchmarks, examples, and real-time synthesis demos in future updates.</p>
+</blockquote>
+</section>
+<section id="acknowledgements" class="level2">
+<h2 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h2>
+<ul>
+<li>Mode processing adapted from <a href="https://github.com/Nemus-Project/VKPlate">VKPlate</a></li>
+<li>Plate mode computation using <a href="https://github.com/Nemus-Project/magpie-python">magpie-python</a></li>
+<li>Coupling coefficient implementation based on <a href="https://github.com/rodrigodzf/VKGong">VKGong</a></li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

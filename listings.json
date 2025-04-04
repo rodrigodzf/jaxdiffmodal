@@ -1,0 +1,31 @@
+[
+  {
+    "listing": "/examples/index.html",
+    "items": [
+      "/examples/optimisation/optimise_string.html",
+      "/examples/optimisation/optimise_plate.html",
+      "/examples/optimisation/optimise_vkplate.html",
+      "/examples/optimisation/optimise_vkplate_h.html",
+      "/examples/simulations/linear.html",
+      "/examples/simulations/non-linear.html",
+      "/examples/optimisation/index.html",
+      "/examples/simulations/index.html"
+    ]
+  },
+  {
+    "listing": "/examples/simulations/index.html",
+    "items": [
+      "/examples/simulations/linear.html",
+      "/examples/simulations/non-linear.html"
+    ]
+  },
+  {
+    "listing": "/examples/optimisation/index.html",
+    "items": [
+      "/examples/optimisation/optimise_string.html",
+      "/examples/optimisation/optimise_plate.html",
+      "/examples/optimisation/optimise_vkplate.html",
+      "/examples/optimisation/optimise_vkplate_h.html"
+    ]
+  }
+]

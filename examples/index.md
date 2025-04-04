@@ -1,0 +1,12 @@
+# Examples
+
+
+This section contains practical examples demonstrating how to use
+jaxdiffmodal for various physical modeling scenarios. You’ll find
+examples covering:
+
+- Simulations of strings, membranes, and plates in both linear and
+  non-linear cases
+- Parameter optimization using JAX’s automatic differentiation
+
+Each example includes explanations, code snippets, and visualizations.

@@ -2,50 +2,78 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://rodrigodzf.github.io/jaxdiffmodal/index.html</loc>
-    <lastmod>2025-04-03T09:28:19.893Z</lastmod>
+    <lastmod>2025-04-04T11:42:41.835Z</lastmod>
   </url>
   <url>
     <loc>https://rodrigodzf.github.io/jaxdiffmodal/api/losses.html</loc>
-    <lastmod>2025-04-03T09:28:21.742Z</lastmod>
+    <lastmod>2025-04-04T11:51:31.996Z</lastmod>
   </url>
   <url>
     <loc>https://rodrigodzf.github.io/jaxdiffmodal/api/lpc.html</loc>
-    <lastmod>2025-04-03T09:28:20.675Z</lastmod>
+    <lastmod>2025-04-04T11:51:32.403Z</lastmod>
   </url>
   <url>
     <loc>https://rodrigodzf.github.io/jaxdiffmodal/api/time_integrators.html</loc>
-    <lastmod>2025-04-03T09:28:20.344Z</lastmod>
+    <lastmod>2025-04-04T11:51:32.045Z</lastmod>
   </url>
   <url>
     <loc>https://rodrigodzf.github.io/jaxdiffmodal/api/coupling.html</loc>
-    <lastmod>2025-04-03T09:28:20.381Z</lastmod>
+    <lastmod>2025-04-04T11:51:31.861Z</lastmod>
   </url>
   <url>
-    <loc>https://rodrigodzf.github.io/jaxdiffmodal/examples/non-linear.html</loc>
-    <lastmod>2025-04-03T09:28:19.893Z</lastmod>
+    <loc>https://rodrigodzf.github.io/jaxdiffmodal/examples/index.html</loc>
+    <lastmod>2025-04-03T16:06:58.394Z</lastmod>
   </url>
   <url>
-    <loc>https://rodrigodzf.github.io/jaxdiffmodal/examples/simulations.html</loc>
-    <lastmod>2025-04-03T09:28:20.040Z</lastmod>
+    <loc>https://rodrigodzf.github.io/jaxdiffmodal/examples/simulations/index.html</loc>
+    <lastmod>2025-04-03T16:06:54.693Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rodrigodzf.github.io/jaxdiffmodal/examples/optimisation/optimise_vkplate.html</loc>
+    <lastmod>2025-04-04T11:51:31.335Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rodrigodzf.github.io/jaxdiffmodal/examples/optimisation/index.html</loc>
+    <lastmod>2025-04-04T08:07:29.315Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rodrigodzf.github.io/jaxdiffmodal/examples/optimisation/optimise_string.html</loc>
+    <lastmod>2025-04-04T11:51:31.308Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rodrigodzf.github.io/jaxdiffmodal/examples/optimisation/optimise_vkplate_h.html</loc>
+    <lastmod>2025-04-04T11:51:31.326Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rodrigodzf.github.io/jaxdiffmodal/examples/optimisation/optimise_plate.html</loc>
+    <lastmod>2025-04-04T11:51:31.311Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rodrigodzf.github.io/jaxdiffmodal/examples/simulations/linear.html</loc>
+    <lastmod>2025-04-04T11:51:31.476Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rodrigodzf.github.io/jaxdiffmodal/examples/simulations/non-linear.html</loc>
+    <lastmod>2025-04-04T11:51:31.351Z</lastmod>
   </url>
   <url>
     <loc>https://rodrigodzf.github.io/jaxdiffmodal/api/features.html</loc>
-    <lastmod>2025-04-03T09:28:20.603Z</lastmod>
+    <lastmod>2025-04-04T11:51:32.566Z</lastmod>
   </url>
   <url>
     <loc>https://rodrigodzf.github.io/jaxdiffmodal/api/excitations.html</loc>
-    <lastmod>2025-04-03T09:28:19.956Z</lastmod>
+    <lastmod>2025-04-04T11:51:31.429Z</lastmod>
   </url>
   <url>
     <loc>https://rodrigodzf.github.io/jaxdiffmodal/api/ftm.html</loc>
-    <lastmod>2025-04-03T09:28:20.730Z</lastmod>
+    <lastmod>2025-04-04T11:51:32.612Z</lastmod>
   </url>
   <url>
     <loc>https://rodrigodzf.github.io/jaxdiffmodal/api/utils.html</loc>
-    <lastmod>2025-04-03T09:28:20.505Z</lastmod>
+    <lastmod>2025-04-04T11:51:32.071Z</lastmod>
   </url>
   <url>
     <loc>https://rodrigodzf.github.io/jaxdiffmodal/api/num_utils.html</loc>
-    <lastmod>2025-04-03T09:28:20.877Z</lastmod>
+    <lastmod>2025-04-04T11:51:32.621Z</lastmod>
   </url>
 </urlset>

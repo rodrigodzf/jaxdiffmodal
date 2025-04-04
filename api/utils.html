@@ -126,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Getting Started</span></a>
+ <span class="menu-text">jaxdiffmodal</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -138,29 +138,75 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../examples/simulations/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Simulations</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../examples/non-linear.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Simulating strings, membranes and plates with non-linearities</span></a>
+  <a href="../examples/simulations/linear.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../examples/simulations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Simulating strings, membranes, and plates</span></a>
+  <a href="../examples/simulations/non-linear.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Non-linear models</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">API</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a href="../examples/optimisation/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Optimisation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../examples/optimisation/optimise_string.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fitting a real plucked guitar string</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../examples/optimisation/optimise_plate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fitting to a real (thick) plate</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../examples/optimisation/optimise_vkplate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Optimising the parameters of the Von Karman plate</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../examples/optimisation/optimise_vkplate_h.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Optimising the coupling coefficients of the Von Karman plate model</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">API</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../api/coupling.html" class="sidebar-item-text sidebar-link">
@@ -240,6 +286,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#tf_freqs" id="toc-tf_freqs" class="nav-link" data-scroll-target="#tf_freqs">tf_freqs</a></li>
   <li><a href="#tf_freqz" id="toc-tf_freqz" class="nav-link" data-scroll-target="#tf_freqz">tf_freqz</a></li>
   <li><a href="#compute_spectrogram" id="toc-compute_spectrogram" class="nav-link" data-scroll-target="#compute_spectrogram">compute_spectrogram</a></li>
+  <li><a href="#display_audio_with_title" id="toc-display_audio_with_title" class="nav-link" data-scroll-target="#display_audio_with_title">display_audio_with_title</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/rodrigodzf/jaxdiffmodal/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="utils.html.md"><i class="bi bi-file-code"></i>CommonMark</a></li></ul></div></nav>
     </div>
@@ -266,6 +313,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
+<p>Utilities for visualisation and filtering.</p>
 <hr>
 <section id="next_root" class="level3">
 <h3 class="anchored" data-anchor-id="next_root">next_root</h3>
@@ -564,6 +612,14 @@ ul.task-list li input[type="checkbox"] {
                       hop_length:int, max_freq:float=None,
                       time_limit_s:float=0.5)</code></pre>
 </blockquote>
+<hr>
+</section>
+<section id="display_audio_with_title" class="level3">
+<h3 class="anchored" data-anchor-id="display_audio_with_title">display_audio_with_title</h3>
+<blockquote class="blockquote">
+<pre><code> display_audio_with_title (audio_data, sample_rate, title)</code></pre>
+</blockquote>
+<p><em>Display audio with a title next to it in a Jupyter notebook.</em></p>
 
 
 </section>

@@ -92,6 +92,12 @@ $$
 
 ------------------------------------------------------------------------
 
+### plate_tau_with_density
+
+>  plate_tau_with_density (plate_params)
+
+------------------------------------------------------------------------
+
 ### second_order_step
 
 >  second_order_step (u0:jax.Array, v0:jax.Array, dt:float,

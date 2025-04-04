@@ -982,7 +982,7 @@ c = ax[1].pcolormesh(theta, r, g_reconstructed, shading="auto", cmap="viridis")
 
 ### damping_term_simple
 
->  damping_term_simple (omega_mu:jax.Array, factor:float=0.001)
+>  damping_term_simple (lambda_mu:jax.Array, factor:float=0.001)
 
 ------------------------------------------------------------------------
 
