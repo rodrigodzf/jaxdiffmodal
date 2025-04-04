@@ -16,7 +16,7 @@ transformation method.
 
 *Dataclass to store the parameters of the string.*
 
-    /home/diaz/projects/jaxdiffmodal/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: Unknown section Properties
+    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: Unknown section Properties
       else: warn(msg)
 
 ------------------------------------------------------------------------
@@ -283,13 +283,13 @@ where *μ* and *ν* are the mode numbers, and *L*<sub>1</sub> and
 </tbody>
 </table>
 
-    /home/diaz/projects/jaxdiffmodal/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
+    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
     Parameters: 
     ---------- in 
     Compute the modes of the drumhead.
     The modes of the drumhead are given by the Bessel function times the sine/cosine of the angle....
       else: warn(msg)
-    /home/diaz/projects/jaxdiffmodal/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
+    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
     Returns: 
     ------- in 
     Compute the modes of the drumhead.
@@ -347,13 +347,13 @@ modes: np.ndarray The eigenfunctions for the drumhead.\*
 </tbody>
 </table>
 
-    /home/diaz/projects/jaxdiffmodal/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
+    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
     Parameters: 
     ---------- in 
     Compute the eigenvalues of the drumhead.
     The eigenvalues of the drumhead are given by the square of the wavenumbers....
       else: warn(msg)
-    /home/diaz/projects/jaxdiffmodal/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
+    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
     Returns: 
     ------- in 
     Compute the eigenvalues of the drumhead.
@@ -395,13 +395,13 @@ eigenvalues: np.ndarray The eigenvalues of the drumhead.\*
 </tbody>
 </table>
 
-    /home/diaz/projects/jaxdiffmodal/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
+    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
     Parameters: 
     ---------- in 
     Compute the wavenumbers of the drumhead.
     ...
       else: warn(msg)
-    /home/diaz/projects/jaxdiffmodal/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
+    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
     Returns: 
     ------- in 
     Compute the wavenumbers of the drumhead.
@@ -476,9 +476,9 @@ assert np.allclose(plate_eigenfunctions(wnx, wny, grid_x, grid_y), K)
 assert np.allclose(plate_eigenvalues(wnx, wny), Lambda)
 ```
 
-    /home/diaz/projects/jaxdiffmodal/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: Unknown section Parameters:
+    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: Unknown section Parameters:
       else: warn(msg)
-    /home/diaz/projects/jaxdiffmodal/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: Unknown section Returns:
+    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: Unknown section Returns:
       else: warn(msg)
 
 ------------------------------------------------------------------------

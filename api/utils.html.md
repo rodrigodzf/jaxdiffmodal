@@ -75,9 +75,9 @@ n)</strong></td>
 </tbody>
 </table>
 
-    /home/diaz/projects/jaxdiffmodal/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: Unknown section Parameters:
+    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: Unknown section Parameters:
       else: warn(msg)
-    /home/diaz/projects/jaxdiffmodal/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: Unknown section Returns:
+    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: Unknown section Returns:
       else: warn(msg)
 
 ------------------------------------------------------------------------

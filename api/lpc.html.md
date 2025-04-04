@@ -170,7 +170,7 @@ stride similar to the pytorch unfold function.*
 </tbody>
 </table>
 
-    /home/diaz/projects/jaxdiffmodal/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: Unknown section Parameters:
+    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: Unknown section Parameters:
       else: warn(msg)
 
 ------------------------------------------------------------------------
@@ -200,13 +200,13 @@ assert np.allclose(X_np, X_jax[0])
 assert np.allclose(unfolded_np, unfolded_jax[0])
 ```
 
-    /home/diaz/projects/jaxdiffmodal/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
+    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
     Parameters: 
     ---------- in 
     Compute the Linear Prediction Coefficients (LPC) of a signal x.
     Based on "Introduction to Digital Speech Processing" by Rabiner and Schafer....
       else: warn(msg)
-    /home/diaz/projects/jaxdiffmodal/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
+    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
     Returns: 
     ------- in 
     Compute the Linear Prediction Coefficients (LPC) of a signal x.
@@ -302,19 +302,19 @@ print(a_covar, g_covar)
     [-0.03891267  0.05897309 -0.11110881 -0.10518435] 8.848879174571616
     [-0.05351606  0.04524858 -0.09969181 -0.10755192] 8.666443074154966
 
-    /home/diaz/projects/jaxdiffmodal/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
+    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
     Parameters: 
     ---------- in 
     Computes the linear prediction of a 1D signal. The signal will be padded on the left with zeros.
     ...
       else: warn(msg)
-    /home/diaz/projects/jaxdiffmodal/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
+    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
     Returns: 
     ---------- in 
     Computes the linear prediction of a 1D signal. The signal will be padded on the left with zeros.
     ...
       else: warn(msg)
-    /home/diaz/projects/jaxdiffmodal/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: Unknown section Returns:
+    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: Unknown section Returns:
       else: warn(msg)
 
 ------------------------------------------------------------------------
@@ -412,13 +412,13 @@ lp_jax = linear_prediction(x, a)
 assert np.allclose(lp_np, lp_jax)
 ```
 
-    /home/diaz/projects/jaxdiffmodal/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
+    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
     Parameters: 
     ---------- in 
     Computes the inverse filter of a signal x using the coefficients a.
     ...
       else: warn(msg)
-    /home/diaz/projects/jaxdiffmodal/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
+    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
     Returns: 
     ---------- in 
     Computes the inverse filter of a signal x using the coefficients a.
