@@ -1,0 +1,13 @@
+website:
+  sidebar:
+    style: floating
+    contents:
+      - index.qmd
+      - section: Examples
+        contents:
+          - section: Simulations
+            contents: examples/simulations/*
+          - section: Optimisation
+            contents: examples/optimisation/*
+      - section: API
+        contents: api/*

@@ -1,0 +1,10 @@
+---
+title: Optimisation
+listing:
+  fields: [title, description]
+  type: table
+  sort-ui: false
+  filter-ui: false
+---
+
+Here we show some examples of optimisation problems.

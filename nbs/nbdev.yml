@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "jaxdiffmodal"
+  site-url: "https://rodrigodzf.github.io/jaxdiffmodal"
+  description: "A collection vibration models (e.g. von Kármán plates, tension-modulated and stiff strings) implemented in JAX for fast, differentiable simulations"
+  repo-branch: main
+  repo-url: "https://github.com/rodrigodzf/jaxdiffmodal"
