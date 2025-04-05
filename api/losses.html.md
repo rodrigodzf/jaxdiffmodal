@@ -9,10 +9,6 @@ A collection of losses including:
 - Spectral convergence loss
 - Wasserstein loss
 
-``` python
-import matplotlib.pyplot as plt
-```
-
 ------------------------------------------------------------------------
 
 ### wasserstein_1d
@@ -278,7 +274,7 @@ x_fft = compute_mag(gt_osc_values) ** 2
 plt.plot(x_fft[:5].T)
 ```
 
-![](losses_files/figure-commonmark/cell-13-output-1.png)
+![](losses_files/figure-commonmark/cell-12-output-1.png)
 
 ``` python
 ranges = jnp.linspace(-50, 50, 100)
@@ -296,7 +292,7 @@ plt.plot(ranges, loss_ot)
     (100,) float32
     (100,) float32
 
-![](losses_files/figure-commonmark/cell-14-output-2.png)
+![](losses_files/figure-commonmark/cell-13-output-2.png)
 
 ``` python
 omegas_gt = jax.random.uniform(jax.random.PRNGKey(0), shape=(10,)) * 1000
@@ -312,7 +308,7 @@ plt.semilogx(x_mag)
 plt.semilogx(y_mag)
 ```
 
-![](losses_files/figure-commonmark/cell-15-output-1.png)
+![](losses_files/figure-commonmark/cell-14-output-1.png)
 
 ------------------------------------------------------------------------
 

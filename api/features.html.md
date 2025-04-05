@@ -31,9 +31,6 @@ This is an implementation of the CQT1992v2 from
 
 >  conv1d_efficient (x, kernel, stride=1)
 
-*Efficient JAX implementation of 1D convolution using
-lax.conv_general_dilated.*
-
 ------------------------------------------------------------------------
 
 ### create_cqt_kernels
@@ -57,12 +54,8 @@ lax.conv_general_dilated.*
 
 >  broadcast_dim (x)
 
-*Auto broadcast input so that it can fit into a Conv1d.*
-
 ------------------------------------------------------------------------
 
 ### nextpow2
 
 >  nextpow2 (A)
-
-*Calculate the next nearest number to the power of 2.*
