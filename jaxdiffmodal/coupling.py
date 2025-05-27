@@ -264,6 +264,8 @@ def airy_stress_coefficients(
     n_psi,
     vals,
     vecs,
+    Lx,
+    Ly,
 ):
     """
     Compute the Airy stress function coefficients from the eigenvalues and eigenvectors
@@ -298,8 +300,8 @@ def airy_stress_coefficients(
     coeff1 = np.zeros((dim, coeff.shape[0]), dtype=float)
     coeff2 = np.zeros((dim, coeff.shape[0]), dtype=float)
 
-    NN = int2_mat(n_psi, 0.2)  # NxN
-    MM = int2_mat(n_psi, 0.3)  # NxN
+    NN = int2_mat(n_psi, Lx)
+    MM = int2_mat(n_psi, Ly)
 
     NN = np.tile(NN.reshape(-1, 1), dim)
     MM = np.tile(MM.reshape(1, -1), (dim, 1))
@@ -307,40 +309,22 @@ def airy_stress_coefficients(
     nmatr = NN * MM
     nmatr = np.reshape(nmatr, (n_psi, n_psi, n_psi, n_psi))
 
-    # 3) Permute from [0,1,2,3] -> [3,0,2,1]
-    #    i.e. "permute(nmatr,[4 1 3 2])" in Matlab => zero-based is (3,0,2,1)
     nmatr = np.transpose(nmatr, (3, 0, 2, 1))
     nmatr = np.reshape(nmatr, (1, n_psi**4))
 
-    nmatr = sparse.csr_matrix(nmatr)  # Or "sparse.csc_matrix(nmatr)" or whichever
+    nmatr = sparse.csr_matrix(nmatr)
 
     S = auto.shape[0]
 
     for d in range(S):
         temp = coeff[:, d]  # shape (DIM,)
 
-        # "temp = reshape(temp, [Npsi^2,1]);"
-        temp = temp.reshape(n_psi**2, 1)  # shape (DIM,1)
-
-        # "temp = repmat(temp,[1 Npsi^2]);" => now shape (DIM, DIM)
-        # In Python: replicate horizontally Npsi^2 times
-        temp_big = np.tile(temp, (1, n_psi**2))  # shape (DIM, DIM)
-
-        # "temp2 = permute(temp,[2,1]);" => shape (DIM, DIM) transposed
-        temp2 = temp_big.T  # shape (DIM, DIM)
-
-        # "temp3 = temp.*temp2;" => shape (DIM, DIM), elementwise multiply
-        temp3 = temp_big * temp2  # shape (DIM, DIM)
-
-        # "temp3 = reshape(temp3,[Npsi^4,1]);"
-        temp3 = temp3.reshape(n_psi**4, 1)  # shape (Npsi^4, 1)
-
-        # "norms = (nmatr*temp3);" => shape (1,1)
-        # with nmatr shape (1, Npsi^4), temp3 shape (Npsi^4,1)
-        norms = nmatr.dot(temp3)  # shape (1,1) as a sparse result
-
-        # Convert to scalar:
-        # norms_val = norms[0,0]
+        temp = temp.reshape(n_psi**2, 1)
+        temp_big = np.tile(temp, (1, n_psi**2))
+        temp2 = temp_big.T
+        temp3 = temp_big * temp2
+        temp3 = temp3.reshape(n_psi**4, 1)
+        norms = nmatr.dot(temp3)
 
         # Then do the same normalizations:
         coeff0[:, d] = coeff[:, d] / np.sqrt(norms)
@@ -949,7 +933,7 @@ def compute_coupling_matrix(
     # this will give different results than in MATLAB
     vals, vecs = eig(K, M)
 
-    coeff0, coeff1, coeff2 = airy_stress_coefficients(n_psi, vals, vecs)
+    coeff0, coeff1, coeff2 = airy_stress_coefficients(n_psi, vals, vecs, lx, ly)
     H0, H1, H2 = H_tensor_rectangular(
         coeff0=coeff0,
         coeff1=coeff1,
