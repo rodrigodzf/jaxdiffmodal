@@ -1,9 +1,9 @@
 [project]
-name = "jaxdiffmodal"
+name="jaxdiffmodal"
 version = "0.1.0"
 description = "A collection of vibration models (e.g. von Kármán plates, tension-modulated and stiff strings) implemented in JAX for fast, differentiable simulations"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python=">=3.10.11"
 dependencies = [
     "jax>=0.5.0",
     "einops>=0.8.0",
@@ -22,6 +22,7 @@ dependencies = [
     "ott-jax>=0.5.0",
     "fouriax>=0.1.1",
     "equinox>=0.11.12",
+    "scikit-fem>=10.0.2",
 ]
 
 [project.optional-dependencies]
@@ -89,7 +90,7 @@ _check_format = "uv run ruff format --diff"
 _mypy = "uv run mypy ."
 
 # Package management
-_sync = "uv sync --all-extras"
+_sync = "uv sync --extra dev"
 [tool.poe.tasks.clean]
 help = "Remove temporary files generated during build process"
 cmd = """

@@ -18,7 +18,7 @@ Fast, differentiable, and GPU-accelerated simulation framework for modelling the
 It is recommended to use the [`uv`](https://github.com/astral-sh/uv) package manager to install the environment and dependencies.
 
 ```bash
-uv sync --all-extras
+uv sync --extra dev --extra benchmark
 ```
 
 otherwise you can create a virtual environment and install the dependencies manually:

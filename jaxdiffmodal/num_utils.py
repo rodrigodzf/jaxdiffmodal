@@ -431,7 +431,8 @@ def compute_coupling_matrix_numerical(
         h,
     )
 
-    n_modes = psi.shape[1]
+    n_psi = psi.shape[1]
+    n_phi = phi.shape[1]
 
     # Compute the norms of the in-plane modes
     # psi_norms = np.array(
@@ -448,14 +449,14 @@ def compute_coupling_matrix_numerical(
     # )
 
     # Compute the coupling matrix
-    H = np.zeros((n_modes, n_modes, n_modes))
-    for k in range(n_modes):
+    H = np.zeros((n_psi, n_phi, n_phi))
+    for k in range(n_psi):
         psik = psi[:, k]
         # norm_k = psi_norms[k]
-        for p in range(n_modes):
+        for p in range(n_phi):
             phip = phi[:, p]
             # phi_norm_p = phi_norms[p]
-            for q in range(p, n_modes):
+            for q in range(p, n_phi):
                 phiq = phi[:, q]
                 # phi_norm_q = phi_norms[q]
                 vkop = vkoperator(phip, phiq, Dxx, Dyy, Dxy)
