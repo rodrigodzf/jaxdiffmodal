@@ -1,6 +1,13 @@
 %% This main file is used to execute the simulation functions for the nonlinear vibrations of thin plates. 
+%% REFERENCE SCRIPT for generating test data - Updated for tests/ directory
 clear all;
 clc;
+
+%% Add paths for VKGong functions (from tests/ directory)
+addpath(genpath('../third_party/VKGong/matlab/VK-Gong/Code'));
+addpath(genpath('Parameters'));
+addpath(genpath('patched'));
+
 %% Input parameters files
 PlateCharacteristicsFileName = 'PlateCharacteristicsRectangular.mat'; % Physical characteristics of the plate: Dimensions, imperfection profile, material and boundary conditions.  
 SimulationParametersFileName = 'SimulationParametersRectangular.mat'; % Parameters related to the simulation: Time length, scheme, number of modes, output points, accuracy.
@@ -31,13 +38,36 @@ E = 2e12;
 rho = 7850;
 
 % Damping % X = {'Undamped', 'PowerLaw'}
-X = [];
+X = 'PowerLaw';
 c = zeros(1500, 1);
+dFac = 0.001; % Damping factor
+dExp = 1; % Damping exponent
+dCons = 0; % Frequency independent damping constant
 
 BC = 'SimplySupported'; % Boundary conditions: 'SimplySupported'
 
-PlateCharacteristicsFileName = 'CustomCharParRect.mat';
-save('Parameters/Input files/CustomCharParRect.mat', "Lx", "Ly", "hd", "H", "ImperfectionType", "xWidth", "yWidth", "proj", "modeIndices", "ModeType", "error_coef", "nu", "E", "rho", "X", "c", "BC");
+% Create parameter directories if they don't exist
+if ~exist('Parameters', 'dir')
+    mkdir('Parameters');
+end
+if ~exist('Parameters/Input files', 'dir')
+    mkdir('Parameters/Input files');
+end
+if ~exist('Parameters/Mode files', 'dir')
+    mkdir('Parameters/Mode files');
+end
+if ~exist('Parameters/Mode files/Rectangular', 'dir')
+    mkdir('Parameters/Mode files/Rectangular');
+end
+if ~exist('Parameters/H files', 'dir')
+    mkdir('Parameters/H files');
+end
+if ~exist('Parameters/H files/Rectangular', 'dir')
+    mkdir('Parameters/H files/Rectangular');
+end
+
+PlateCharacteristicsFileName = 'Parameters/Input files/CustomCharParRect.mat';
+save('Parameters/Input files/CustomCharParRect.mat', "Lx", "Ly", "hd", "H", "ImperfectionType", "xWidth", "yWidth", "proj", "modeIndices", "ModeType", "error_coef", "nu", "E", "rho", "X", "c", "BC", "dFac", "dExp", "dCons");
 
 %% Simulation parameters 
 Nphi = 10; %select number of transverse modes
@@ -55,15 +85,32 @@ Ny = 30; % Number of discretization points for \theta
 
 % Output points
 op = [0.1 0.1];
-SimulationParametersFileName = 'CustomSimParRect.mat';
+SimulationParametersFileName = 'Parameters/Input files/CustomSimParRect.mat';
 save('Parameters/Input files/CustomSimParRect.mat', "op", "Nx", "Ny", "NA", "Nphi", "Npsi", "scheme", "fsd", "Tsd");
+
+%% Create Score Parameters (Excitation)
+% Create a simple strike excitation for better audio output
+% Structure: score_cell = {'Strike' [T0 fm Twid fp_x fp_y]}
+% T0: Start time (s), fm: Force magnitude (N), Twid: Time width (s), fp_x/fp_y: Position (0-1)
+
+sc = [0.01 50.0 2e-3 0.5 0.5]; % Strike at center with 50N force, 2ms width
+score_cell = {
+    'Strike' sc;  % Strike at center with 50N force, 2ms width
+};
+
+% Save score parameters to temporary file
+CustomScoreFileName = 'Parameters/Input files/CustomScoreParRect.mat';
+save('Parameters/Input files/CustomScoreParRect.mat', 'score_cell');
+
+% Update the score filename reference to use our custom file
+ScoreFileName = CustomScoreFileName;
 %%
 
-[Lx, Ly, hd, E, rho, BC, e,  Nphi, Npsi, scheme, H0, H1, H2, filename, Ai, C, C1, C2, kx, ky, om_dim, rp, tad, fsd, Tsd] = plate_def_rect(PlateCharacteristicsFileName, SimulationParametersFileName, OutputFileName, GammaFileName );
+[Lx, Ly, hd, E, rho, BC, e,  Nphi, Npsi, scheme, H0, H1, H2, filename, Ai, C, C1, C2, kx, ky, om_dim, rp, tad, fsd, Tsd, c] = plate_def_rect_modified(PlateCharacteristicsFileName, SimulationParametersFileName, OutputFileName, GammaFileName);
 
 %%
 [ f_time, Tn ] = score_rect( ScoreFileName, Lx, Ly, hd, rho, kx, ky, BC, Nphi, scheme, C, fsd, Tsd);
-save('debug.mat',"f_time", "rp", "H1");
+save('reference_data/debug.mat',"f_time", "rp", "H0", "H1", "H2", "om_dim", "C", "C1", "C2", "c", "e", "sc", "Tsd", "fsd");
 %% Time simulation
 switch scheme
     case 'ECS'

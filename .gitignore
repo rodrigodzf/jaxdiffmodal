@@ -189,3 +189,6 @@ third_party/
 *.pdf
 *.mat
 benchmark/cpp/benchmark_sequence
+docs/api
+docs/_extensions
+*.html

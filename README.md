@@ -31,6 +31,48 @@ source .venv/bin/activate
 pip install -e .
 ```
 
+## Testing
+
+The project includes comprehensive tests to validate the Python implementation against MATLAB reference code.
+
+### Running Tests
+
+Prerequisites: The tests use `pytest` and require `scipy` for eigenvalue computations.
+
+Run all tests from the project root directory:
+```bash
+python -m pytest tests/ -v
+```
+
+Run specific test modules:
+```bash
+# Test K and M matrix assembly with MATLAB comparison
+python -m pytest tests/test_K_M_matlab_comparison.py -v
+
+# Test integral functions (int1, int2, int4)
+python -m pytest tests/test_intx_matlab_comparison.py -v
+
+# Test matrix integration functions (i_mat)
+python -m pytest tests/test_imat_matlab_comparison.py -v
+```
+
+### Generating MATLAB Reference Data
+
+To regenerate MATLAB reference data (requires MATLAB installation):
+```bash
+cd tests
+matlab -batch test_K_M_matlab_reference
+matlab -batch test_intx_matlab_reference_fixed
+matlab -batch test_imat_matlab_reference
+```
+
+### Test Coverage
+
+- **K, M matrix assembly**: Perfect match with MATLAB (1e-8 tolerance)
+- **Airy stress coefficients**: Validated using MATLAB eigenvalues/eigenvectors as input (1e-6 tolerance)
+- **Integral functions**: Comprehensive parameter space validation
+- **Basic functionality**: Matrix properties, dimensions, and mathematical consistency
+
 ## Examples
 
 The `nbs/examples` directory includes:

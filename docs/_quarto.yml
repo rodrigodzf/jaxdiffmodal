@@ -1,0 +1,227 @@
+project:
+  type: website
+  output-dir: _build
+
+metadata-files:
+  - api/_sidebar.yml
+
+# filters:
+#   - interlinks
+# filters:
+#     - marimo-team/marimo
+
+# interlinks:
+#   sources:
+#     numpy:
+#       url: https://numpy.org/doc/stable/
+#     python:
+#       url: https://docs.python.org/3/
+#     quartodoc-test:
+#       url: https://machow.github.io/quartodoc
+#       inv: objects-test.txt
+
+format:
+  html:
+    respect-user-color-scheme: true
+    code-copy: true
+    code-overflow: wrap
+    theme:
+      light: [cosmo, theme.scss]
+      dark: [cosmo, theme-dark.scss]
+    css: 
+      - styles.css
+      - api/_styles-quartodoc.css
+    toc: true
+
+website:
+  title: "jaxdiffmodal"
+  twitter-card: true
+  open-graph: true
+  repo-actions: [issue]
+  navbar:
+    search: true
+    left:
+      - file: get-started/index.qmd
+        text: Get Started
+      - file: examples/index.qmd
+        text: Examples
+      - href: api/
+        text: Reference
+    right:
+      - icon: github
+        href: "https://github.com/rodrigodzf/jaxdiffmodal"
+  sidebar:
+    - id: get-started
+      title: Get Started
+      style: floating
+      align: left
+      contents:
+        - file: get-started/index.qmd
+    - id: examples
+      title: Examples
+      style: floating
+      align: left
+      contents:
+        - file: examples/index.qmd
+          text: Overview
+        - file: examples/linear.qmd
+          text: Linear Example
+        - file: examples/nonlinear.qmd
+          text: Nonlinear Example
+        - file: examples/optimize_string.qmd
+          text: String Optimization
+        - file: examples/optimize_plate.qmd
+          text: Plate Optimization
+        - file: examples/optimize_vkplate.qmd
+          text: VK Plate Optimization
+        - file: examples/optimize_vkplate_H.qmd
+          text: VK Plate H Optimization
+
+
+quartodoc:
+  # the name used to import the package you want to create reference docs for
+  package: jaxdiffmodal
+  style: pkgdown
+  dir: api
+  renderer:
+    style: markdown
+    table_style: description-list
+    show_signature_annotations: true
+    display_name: relative
+  # write sidebar and style data
+  sidebar: 
+    file: api/_sidebar.yml
+    collapse-level: 1
+  css: "api/_styles-quartodoc.css"
+  # render_interlinks: true
+
+  sections:
+    - title: Modal Analysis (ftm)
+      desc: |
+        Functions for eigenvalues, eigenfunctions, and transform operations.
+      contents:
+        - ftm.string_eigenvalues
+        - ftm.string_eigenfunctions
+        - ftm.plate_wavenumbers
+        - ftm.plate_eigenvalues
+        - ftm.plate_eigenfunctions
+        - ftm.drumhead_wavenumbers
+        - ftm.drumhead_eigenvalues
+        - ftm.drumhead_eigenfunctions
+        - ftm.forward_STL
+        - ftm.inverse_STL
+        - ftm.forward_STL_2d
+        - ftm.inverse_STL_2d
+        - ftm.forward_STL_drumhead
+        - ftm.inverse_STL_drumhead
+        - ftm.evaluate_string_eigenfunctions
+        - ftm.evaluate_rectangular_eigenfunctions
+        - ftm.eigenvalues_from_pde
+        - ftm.select_modes_from_eigenvalues
+    
+    - title: Transfer Functions (ftm)
+      desc: Transfer function operations for modal dynamics.
+      contents:
+        - ftm.damping_term
+        - ftm.damping_term_simple
+        - ftm.stiffness_term
+        - ftm.sample_parallel_tf
+        - ftm.tf_initial_conditions_continuous_2
+        - ftm.tf_excitation_continuous
+        - ftm.tf_excitation_discrete
+        - ftm.tf_initial_conditions_continuous
+        - ftm.tf_initial_conditions_discrete
+
+    - title: Nonlinear Coupling (coupling)
+      desc: Functions for computing nonlinear coupling coefficients and H-tensors.
+      contents:
+        - coupling.assemble_K_and_M
+        - coupling.airy_stress_coefficients
+        - coupling.H_tensor_rectangular
+
+    - title: Numerical Utilities (num_utils)
+      desc: High-level eigendecomposition and modal analysis utilities.
+      contents:
+        - num_utils.biharmonic_eigendecomposition
+        - num_utils.eigenMAC
+        - num_utils.multiresolution_eigendecomposition
+
+    - title: Time Integration
+      desc: Functions for time integration and simulation.
+      contents:
+        - time_integrators.make_vk_nl_fn
+        - time_integrators.make_tm_nl_fn
+        - time_integrators.plate_tau_with_density
+        - time_integrators.string_tau_with_density
+        - time_integrators.second_order_step
+        - time_integrators.solve_sv_vk_jax_scan
+        - time_integrators.solve_sv_excitation
+        - time_integrators.solve_sv_initial_conditions
+        - time_integrators.solve_tf_excitation
+        - time_integrators.solve_tf_initial_conditions
+        - time_integrators.solve_sinusoidal
+        - time_integrators.solve_sinusoidal_excitation
+        - time_integrators.solve_tf_ic
+
+    - title: Signal Processing Utilities
+      desc: Utility functions for signal processing and analysis.
+      contents:
+        - utils.to_db
+        - utils.safe_log
+        - utils.next_root
+        - utils.impulse_response
+        - utils.iir_filter_parallel
+        - utils.plot_poles_zeros
+        - utils.mel2hz
+        - utils.hz2mel
+        - utils.bark2hz
+        - utils.hz2bark
+        - utils.tf_freqs
+        - utils.tf_freqz
+        - utils.compute_spectrogram
+
+    - title: Excitations
+      desc: Functions for creating excitation signals.
+      contents:
+        - excitations.create_1d_raised_cosine
+        - excitations.create_raised_cosine
+        - excitations.create_pluck_modal
+
+    - title: Loss Functions
+      desc: Loss functions for optimization and training.
+      contents:
+        - losses.quantile_function
+        - losses.wasserstein_1d
+        - losses.compute_mag
+        - losses.spectral_wasserstein
+        - losses.batched_spectral_wasserstein
+        - losses.log_mag
+        - losses.log_mag_loss
+        - losses.spectral_convergence_loss
+
+    - title: Linear Predictive Coding
+      desc: Functions for linear predictive coding analysis.
+      contents:
+        - lpc.next_power_of_2
+        - lpc.autocorr
+        - lpc.unfold
+        - lpc.covariance_matrix
+        - lpc.covariance_matrix_np
+        - lpc.discrete_convolution
+        - lpc.jitted_lstsq
+        - lpc.jitted_linear_solve
+        - lpc.lpc_cpu_solve
+        - lpc.linear_prediction_np
+        - lpc.linear_prediction
+        - lpc.inverse_filter_np
+        - lpc.coeffs_and_residual
+
+    - title: Feature Extraction
+      desc: Functions for audio feature extraction.
+      contents:
+        - features.nextpow2
+        - features.broadcast_dim
+        - features.get_window_dispatch
+        - features.create_cqt_kernels
+        - features.conv1d_efficient
+        - features.cqt_transform

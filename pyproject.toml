@@ -23,6 +23,7 @@ dependencies = [
     "fouriax>=0.1.1",
     "equinox>=0.11.12",
     "scikit-fem>=10.0.2",
+    "jaxtyping>=0.3.2",
 ]
 
 [project.optional-dependencies]
@@ -33,9 +34,11 @@ cuda = [
 ]
 dev = [
     "ipykernel>=6.29.5",
-    "nbdev>=2.3.34", 
     "poethepoet>=0.32.1",
     "ruff>=0.9.2",
+    "pytest>=8.4.1",
+    "quartodoc>=0.11.1",
+    "marimo[recommended]>=0.14.15",
 ]
 benchmark = [
     "jaxopt>=0.8.3",
@@ -146,14 +149,15 @@ sequence = ["_nb_test"]
 
 [tool.poe.tasks.preview]
 help = "Preview documentation with quarto"
-cmd = "uv run nbdev_preview"
+shell = "quartodoc build && quarto preview"
 env = { JAX_PLATFORMS = "cpu" }
-cwd = "nbs"
+cwd = "docs"
 
 [tool.poe.tasks.publish]
 help = "Publish documentation to GitHub Pages"
-shell = "nbdev_proc_nbs && cd _proc && quarto publish gh-pages --no-prompt"
+shell = "quartodoc build && quarto publish gh-pages --no-prompt"
 env = { JAX_PLATFORMS = "cpu" }
+cwd = "docs"
 
 [tool.uv.sources]
 nemus-magpie = { git = "https://github.com/Nemus-Project/magpie-python" }
