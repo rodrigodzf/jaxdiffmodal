@@ -331,7 +331,6 @@ def solve_sv_excitation(
         state: tuple[Float[Array, " N"], Float[Array, " N"]],  # initial state
         x: Float[Array, " N"],  # input
     ) -> tuple[tuple[Float[Array, " N"], Float[Array, " N"]], Float[Array, " N"]]:
-
         q_prev, q = state
         nl = nl_fn(q)
         q_next = B * q + C * q_prev - A_inv * nl + A_inv * x
@@ -359,7 +358,7 @@ def solve_sv_excitation(
         "nl_fn",
     ),
 )
-def solve_sv_initial_conditions(
+def solve_sv_ic_one_step(
     gamma2_mu: Float[Array, " N"],
     omega_mu_squared: Float[Array, " N"],
     u0: Float[Array, " N"],
@@ -368,6 +367,117 @@ def solve_sv_initial_conditions(
     n_steps: int,
     nl_fn: Callable[[Float[Array, " N"]], Float[Array, " N"]],
 ) -> tuple[tuple[Float[Array, " N"], Float[Array, " N"]], Float[Array, "T N"]]:
+    r"""
+    Solve using one-step "leapfrog" Verlet scheme with initial conditions.
+
+    Implements the one-step Verlet scheme using staggered time grid
+    where positions are at integer steps and velocities at half-steps.
+
+    Parameters
+    ----------
+    gamma2_mu : jax.numpy.ndarray
+        Damping coefficients (2*gamma), shape (n_modes,)
+    omega_mu_squared : jax.numpy.ndarray
+        Squared natural frequencies, shape (n_modes,)
+    u0 : jax.numpy.ndarray
+        Initial displacement, shape (n_modes,)
+    v0 : jax.numpy.ndarray
+        Initial velocity, shape (n_modes,)
+    dt : float
+        Time step size
+    n_steps : int
+        Number of time steps
+    nl_fn : callable
+        Nonlinear function
+
+    Returns
+    -------
+    tuple
+        Final state and time series of positions
+    """
+    # Initial acceleration: a0 = -c*v0 - k*q0 (without external force)
+    a0 = -gamma2_mu * v0 - omega_mu_squared * u0
+
+    # Initial half-step velocity: v_{-1/2} = v0 - (h/2)*a0
+    v_half_prev = v0 - 0.5 * dt * a0
+
+    # Coefficients for one-step scheme
+    alpha = (1.0 - gamma2_mu * dt / 2.0) / (1.0 + gamma2_mu * dt / 2.0)
+    beta = dt / (1.0 + gamma2_mu * dt / 2.0)
+
+    q0 = u0
+
+    def advance_state(
+        state: tuple[Float[Array, " N"], Float[Array, " N"]],
+        _: None,
+    ) -> tuple[tuple[Float[Array, " N"], Float[Array, " N"]], Float[Array, " N"]]:
+        q_curr, v_half_prev = state
+
+        # Nonlinear term at current position
+        nl = nl_fn(q_curr)
+
+        # Update half-step velocity: v_{n+1/2} = alpha * v_{n-1/2} + beta * (-k*q_n - nl)
+        v_half_next = alpha * v_half_prev + beta * (-omega_mu_squared * q_curr - nl)
+
+        # Update position: q_{n+1} = q_n + h * v_{n+1/2}
+        q_next = q_curr + dt * v_half_next
+
+        return (q_next, v_half_next), q_next
+
+    state, final = jax.lax.scan(
+        advance_state,
+        (q0, v_half_prev),
+        length=n_steps - 1,
+        unroll=8,
+    )
+    final = jnp.concatenate([q0[None], final], axis=0)
+
+    return state, final
+
+
+@partial(
+    jax.jit,
+    static_argnames=(
+        "n_steps",
+        "nl_fn",
+    ),
+)
+def solve_sv_ic(
+    gamma2_mu: Float[Array, " N"],
+    omega_mu_squared: Float[Array, " N"],
+    u0: Float[Array, " N"],
+    v0: Float[Array, " N"],
+    dt: float,
+    n_steps: int,
+    nl_fn: Callable[[Float[Array, " N"]], Float[Array, " N"]],
+) -> tuple[tuple[Float[Array, " N"], Float[Array, " N"]], Float[Array, "T N"]]:
+    r"""
+    Solve using two-step Störmer-Verlet scheme with initial conditions.
+
+    Implements the two-step Verlet scheme.
+
+    Parameters
+    ----------
+    gamma2_mu : jax.numpy.ndarray
+        Damping coefficients (2*gamma), shape (n_modes,)
+    omega_mu_squared : jax.numpy.ndarray
+        Squared natural frequencies, shape (n_modes,)
+    u0 : jax.numpy.ndarray
+        Initial displacement, shape (n_modes,)
+    v0 : jax.numpy.ndarray
+        Initial velocity, shape (n_modes,)
+    dt : float
+        Time step size
+    n_steps : int
+        Number of time steps
+    nl_fn : callable
+        Nonlinear function
+
+    Returns
+    -------
+    tuple
+        Final state and time series of positions
+    """
     A_inv = A_inv_vector(dt, gamma2_mu)
     B = B_vector(dt, omega_mu_squared) * A_inv
     C = C_vector(dt, gamma2_mu) * A_inv
@@ -570,7 +680,13 @@ def solve_tf_excitation(
     def advance_state(
         state: tuple[Float[Array, " N"], Float[Array, " N"]],
         x: Float[Array, " N"],
-    ) -> tuple[tuple[Float[Array, " N"], Float[Array, " N"],], Float[Array, " N"]]:
+    ) -> tuple[
+        tuple[
+            Float[Array, " N"],
+            Float[Array, " N"],
+        ],
+        Float[Array, " N"],
+    ]:
         q_prev, q_curr = state
         nl = nl_fn(q_curr)
         q_next = a1 * q_curr + a2 * q_prev - b1_exc * nl + b1_exc * x
@@ -592,7 +708,7 @@ def solve_tf_excitation(
         "nl_fn",
     ),
 )
-def solve_tf_initial_conditions(
+def solve_tf_ic(
     gamma2_mu: Float[Array, " N"],
     omega_mu_squared: Float[Array, " N"],
     u0: Float[Array, " N"],
@@ -741,53 +857,3 @@ def solve_sinusoidal_excitation(
     modal_solution = output.imag
 
     return modal_solution
-
-
-def solve_tf_ic(
-    gamma2_mu: Float[Array, " N"],
-    omega_mu_squared: Float[Array, " N"],
-    ic: Float[Array, " N"],
-    n_steps: int,
-    dt: float,
-    nl_fn: Callable[[Float[Array, " N"]], Float[Array, " N"]],
-) -> Float[Array, "N T"]:
-    gamma_mu = gamma2_mu / 2.0
-    omega_mu_damped = jnp.sqrt(omega_mu_squared - gamma_mu**2)
-
-    radius = jnp.exp(-gamma_mu * dt)
-    imag = radius * jnp.sin(omega_mu_damped * dt)
-    real = radius * jnp.cos(omega_mu_damped * dt)
-
-    b1_ic = imag / omega_mu_damped * gamma_mu - real
-
-    b1_exc = dt * imag / omega_mu_damped
-
-    b1_ic = -b1_ic * ic
-
-    a1 = 2.0 * real
-    a2 = -(radius**2)
-
-    # initial condition: q0 = ic
-    q0 = ic
-
-    # compute q1 using Taylor expansion
-    v0 = jnp.zeros_like(ic)
-    ddq0 = -gamma2_mu * v0 - omega_mu_squared * ic
-    q1 = ic + dt * v0 + 0.5 * dt**2 * ddq0
-
-    # recurrence loop
-    def step_fn(q_past, _):
-        q_prev, q_curr = q_past
-
-        nl = nl_fn(q_curr)
-
-        q_next = a1 * q_curr + a2 * q_prev - b1_exc * nl
-        return (q_curr, q_next), q_next
-
-    (_, _), q_rest = jax.lax.scan(
-        step_fn,
-        (q0, q1),
-        xs=None,
-        length=n_steps - 2,
-    )
-    return jnp.concatenate([q0[:, None], q1[:, None], q_rest.T], axis=1)
