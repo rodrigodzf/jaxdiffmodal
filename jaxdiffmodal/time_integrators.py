@@ -358,20 +358,23 @@ def solve_sv_excitation(
         "nl_fn",
     ),
 )
-def solve_sv_ic_one_step(
+def solve_sv_leapfrog(
     gamma2_mu: Float[Array, " N"],
     omega_mu_squared: Float[Array, " N"],
-    u0: Float[Array, " N"],
-    v0: Float[Array, " N"],
     dt: float,
-    n_steps: int,
-    nl_fn: Callable[[Float[Array, " N"]], Float[Array, " N"]],
+    n_steps: int | None = None,
+    nl_fn: Callable[[Float[Array, " N"]], Float[Array, " N"]] | None = None,
+    u0: Float[Array, " N"] | None = None,
+    v0: Float[Array, " N"] | None = None,
+    xs: Float[Array, "T N"] | None = None,
 ) -> tuple[tuple[Float[Array, " N"], Float[Array, " N"]], Float[Array, "T N"]]:
     r"""
     Solve using one-step "leapfrog" Verlet scheme with initial conditions.
 
     Implements the one-step Verlet scheme using staggered time grid
     where positions are at integer steps and velocities at half-steps.
+    See "Geometric numerical integration illustrated by the Stoermer-Verlet method",
+    Hairer et al. 2003
 
     Parameters
     ----------
@@ -383,6 +386,8 @@ def solve_sv_ic_one_step(
         Initial displacement, shape (n_modes,)
     v0 : jax.numpy.ndarray
         Initial velocity, shape (n_modes,)
+    xs: jax.numpy.ndarray
+        External force, shape (T, n_modes)
     dt : float
         Time step size
     n_steps : int
@@ -395,42 +400,69 @@ def solve_sv_ic_one_step(
     tuple
         Final state and time series of positions
     """
-    # Initial acceleration: a0 = -c*v0 - k*q0 (without external force)
-    a0 = -gamma2_mu * v0 - omega_mu_squared * u0
+    n_modes = gamma2_mu.shape[0]
 
-    # Initial half-step velocity: v_{-1/2} = v0 - (h/2)*a0
-    v_half_prev = v0 - 0.5 * dt * a0
+    # Set defaults for optional parameters
+    u0 = u0 if u0 is not None else jnp.zeros(n_modes)
+    v0 = v0 if v0 is not None else jnp.zeros(n_modes)
 
-    # Coefficients for one-step scheme
-    alpha = (1.0 - gamma2_mu * dt / 2.0) / (1.0 + gamma2_mu * dt / 2.0)
-    beta = dt / (1.0 + gamma2_mu * dt / 2.0)
+    # Determine number of steps
+    if xs is not None:
+        n_steps = n_steps if n_steps is not None else xs.shape[0]
+    elif n_steps is None:
+        raise ValueError("Either xs or n_steps must be provided")
 
-    q0 = u0
+    # Initial conditions for leapfrog scheme
+    a0 = -gamma2_mu * v0 - omega_mu_squared * u0  # Initial acceleration
+    v_half_prev = v0 - 0.5 * dt * a0  # Half-step velocity at t_{-1/2}
+
+    # Leapfrog coefficients
+    damping_factor = 1.0 + gamma2_mu * dt / 2.0
+    alpha = (1.0 - gamma2_mu * dt / 2.0) / damping_factor
+    beta = dt / damping_factor
+
+    # Define efficient operations via closure
+    apply_nl = nl_fn if nl_fn is not None else lambda q: 0.0
 
     def advance_state(
         state: tuple[Float[Array, " N"], Float[Array, " N"]],
-        _: None,
+        excitation,  # External force (array or None)
     ) -> tuple[tuple[Float[Array, " N"], Float[Array, " N"]], Float[Array, " N"]]:
-        q_curr, v_half_prev = state
+        q, v_half = state
 
-        # Nonlinear term at current position
-        nl = nl_fn(q_curr)
+        # Force calculation: F = excitation - k*q - nl(q)
+        f = (
+            (excitation if excitation is not None else 0.0)
+            - omega_mu_squared * q
+            - apply_nl(q)
+        )
 
-        # Update half-step velocity: v_{n+1/2} = alpha * v_{n-1/2} + beta * (-k*q_n - nl)
-        v_half_next = alpha * v_half_prev + beta * (-omega_mu_squared * q_curr - nl)
-
-        # Update position: q_{n+1} = q_n + h * v_{n+1/2}
-        q_next = q_curr + dt * v_half_next
+        # Leapfrog update
+        v_half_next = alpha * v_half + beta * f
+        q_next = q + dt * v_half_next
 
         return (q_next, v_half_next), q_next
 
-    state, final = jax.lax.scan(
-        advance_state,
-        (q0, v_half_prev),
-        length=n_steps - 1,
-        unroll=8,
-    )
-    final = jnp.concatenate([q0[None], final], axis=0)
+    if xs is not None:
+        state, final = jax.lax.scan(
+            advance_state,
+            (u0, v_half_prev),
+            xs,
+            unroll=8,
+        )
+    else:
+        assert n_steps is not None
+        state, final = jax.lax.scan(
+            advance_state,
+            (u0, v_half_prev),
+            None,
+            length=n_steps - 1,
+            unroll=8,
+        )
+
+    # Always concatenate initial state and slice to exactly n_steps
+    full_result = jnp.concatenate([u0[None], final], axis=0)
+    final = full_result[:n_steps]
 
     return state, final
 
