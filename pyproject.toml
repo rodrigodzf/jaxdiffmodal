@@ -4,21 +4,6 @@ version = "0.1.0"
 description = "A collection of vibration models (e.g. von Kármán plates, tension-modulated and stiff strings) implemented in JAX for fast, differentiable simulations"
 readme = "README.md"
 requires-python=">=3.11"
-authors = [
-    {name = "Rodrigo Diaz", email = "rodrigodzf@gmail.com"},
-]
-license = {text = "GPL-3.0"}
-keywords = ["JAX", "differentiable", "physics", "simulation", "vibration", "acoustics", "musical instruments"]
-classifiers = [
-    "Development Status :: 3 - Alpha",
-    "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Topic :: Scientific/Engineering :: Physics",
-]
-urls = {homepage = "https://github.com/rodrigodzf/jaxdiffmodal"}
 dependencies = [
     "jax>=0.7.0; sys_platform != 'linux'",
     "jax[cuda12]>=0.7.0; sys_platform == 'linux'",

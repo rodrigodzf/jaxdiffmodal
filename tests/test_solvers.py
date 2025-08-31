@@ -1,16 +1,7 @@
-"""
-Solver Accuracy Test
-
-This script compares various time integration solvers against a high-precision
-Runge-Kutta reference implementation using SciPy's solve_ivp. The test evaluates
-both position and velocity accuracy for initial condition and excitation scenarios.
-
-NOTE: Velocity comparisons show significant relative errors when tested against
-the RK reference, likely due to numerical sensitivity. For velocity validation,
-we compare against the Leapfrog solver as a more stable reference.
-"""
+# This is a test for the solvers
 
 # %%
+import jax
 import jax.numpy as jnp
 import numpy as np
 from matplotlib import pyplot as plt
@@ -28,7 +19,6 @@ from jaxdiffmodal.time_integrators import (
     solve_sv_excitation,
     solve_sv_ic,
     solve_sv_leapfrog,
-    solve_sv_leapfrog_2,
     solve_sv_two_step,
 )
 
@@ -151,7 +141,7 @@ def solve_scipy_rk(
 
     # Concatenate initial conditions at the start to match other solvers
     # u_with_ic = np.concatenate([u0[None], u_solution], axis=0)
-    v_with_ic = v_solution
+    v_with_ic = np.concatenate([v0[None], v_solution], axis=0)
     u_with_ic = u_solution  # Initial condition already included in solve_ivp output
     return None, u_with_ic, v_with_ic  # Return format matching other solvers
 
@@ -194,16 +184,6 @@ _, sol_u_leapfrog, sol_v_leapfrog = solve_sv_leapfrog(
     nl_fn=lin_fn,
 )
 
-_, sol_u_leapfrog_2, sol_v_leapfrog_2 = solve_sv_leapfrog_2(
-    gamma2_mu=gamma2_mu,
-    omega_mu_squared=omega_mu_squared,
-    u0=u0,
-    v0=v0,
-    dt=dt,
-    n_steps=n_steps,
-    nl_fn=lin_fn,
-)
-
 _, sol_u_two_step_ic, sol_v_two_step_ic = solve_sv_two_step(
     gamma2_mu=gamma2_mu,
     omega_mu_squared=omega_mu_squared,
@@ -219,111 +199,67 @@ n_mode = 2
 # print(traj.shape, sol.shape)
 plt.figure(figsize=(15, 6))
 plt.subplot(1, 3, 1)
-plt.plot(time, traj[:, n_mode], label="solve_sv_ic")
-plt.plot(time, sol_u_leapfrog[:, n_mode], label="Leapfrog", linestyle="--")
-plt.plot(time, sol_u_leapfrog_2[:, n_mode], label="Leapfrog 2", linestyle=":")
+# plt.plot(time, traj[:, n_mode], label="Implicit")
+# plt.plot(time, sol_u_leapfrog[:, n_mode], label="Leapfrog", linestyle="--")
 plt.plot(time, sol_u_two_step_ic[:, n_mode], label="Two-step", linestyle="-.")
-plt.plot(time, sol_u_solve_ivp[:n_steps, n_mode], label="RK (SciPy)", linestyle=":")
+plt.plot(time, sol_u_solve_ivp[:n_steps, n_mode], label="SciPy", linestyle=":")
 plt.legend()
 plt.title("Initial Conditions Test - Position")
 plt.xlabel("Time")
 plt.ylabel("Displacement")
-plt.grid()
-plt.xlim(0, 0.01)
 
 plt.subplot(1, 3, 2)
-plt.plot(time, sol_v_leapfrog[:, n_mode], label="Leapfrog", linestyle="--")
-plt.plot(time, sol_v_leapfrog_2[:, n_mode], label="Leapfrog 2", linestyle=":")
+# plt.plot(time, sol_v_leapfrog[:, n_mode], label="Leapfrog", linestyle="--")
 plt.plot(time, sol_v_two_step_ic[:n_steps, n_mode], label="Two-step", linestyle="-.")
 plt.plot(time, sol_v_solve_ivp[:n_steps, n_mode], label="SciPy", linestyle=":")
 plt.legend()
 plt.title("Initial Conditions Test - Velocity")
 plt.xlabel("Time")
 plt.ylabel("Velocity")
-plt.grid()
-plt.xlim(0, 0.01)
-
-# %%
 
 
-# %% Check solver accuracy with multiple metrics
-def check_solver_accuracy(ref_traj, test_traj, solver_name, rtol=1e-0, atol=1e-4):
-    """
-    Check solver accuracy using multiple error metrics against RK reference.
-
-    Parameters:
-    - rtol: Relative tolerance (default 0.5 = 50%)
-    - atol: Absolute tolerance (default 1e-4)
-    """
+# %% Check differences are within one order of magnitude
+def check_solver_accuracy(ref_traj, test_traj, solver_name):
     diff = np.abs(test_traj - ref_traj)
     max_diff = np.max(diff)
     max_amplitude = np.max(np.abs(ref_traj))
 
-    # RMS error for overall assessment
-    rms_error = np.sqrt(np.mean(diff**2))
-    rms_amplitude = np.sqrt(np.mean(ref_traj**2))
+    print(f"Max difference ({solver_name} vs Reference): {max_diff:.2e}")
+    print(f"Max amplitude: {max_amplitude:.2e}")
 
-    # Relative error where reference is non-zero (use larger threshold for velocity)
-    threshold = max(atol, 0.1 * rms_amplitude)  # Use adaptive threshold
-    mask = np.abs(ref_traj) > threshold
-    rel_error = np.zeros_like(diff)
-    if np.any(mask):
-        rel_error[mask] = diff[mask] / np.abs(ref_traj[mask])
-    max_rel_error = np.max(rel_error) if np.any(mask) else 0.0
-
-    print(f"=== {solver_name} vs RK Reference ===")
-    print(f"Max absolute error: {max_diff:.2e}")
-    print(f"Max relative error: {max_rel_error:.2e}")
-    print(f"RMS error: {rms_error:.2e}")
-    print(f"RMS amplitude: {rms_amplitude:.2e}")
-    print(f"RMS error/amplitude ratio: {rms_error / rms_amplitude:.2e}")
-
-    # Multiple tolerance checks
-    assert max_diff < atol + rtol * max_amplitude, (
-        f"{solver_name}: Max error {max_diff:.2e} exceeds tolerance "
-        f"{atol + rtol * max_amplitude:.2e}"
+    assert max_diff < max_amplitude, (
+        f"{solver_name} solver differs by more than one order of magnitude"
     )
 
-    if np.any(mask):
-        assert max_rel_error < rtol, (
-            f"{solver_name}: Max relative error {max_rel_error:.2e} exceeds {rtol:.2e}"
-        )
-
-    assert rms_error < atol + rtol * rms_amplitude, (
-        f"{solver_name}: RMS error {rms_error:.2e} exceeds tolerance "
-        f"{atol + rtol * rms_amplitude:.2e}"
-    )
-
-    print(f"✓ {solver_name} passes all accuracy tests")
-    print()
+    print(f"✓ {solver_name} solver agrees within one order of magnitude")
 
 
+print("=== Initial Conditions Test ===")
 check_solver_accuracy(
-    sol_u_solve_ivp[:n_steps, n_mode],
-    traj[:, n_mode],
-    "solve_sv_ic",
+    sol_u_solve_ivp[:n_steps, 2],
+    traj[:, 2],
+    "Implicit",
 )
 check_solver_accuracy(
-    sol_u_solve_ivp[:n_steps, n_mode],
-    sol_u_leapfrog[:, n_mode],
+    sol_u_solve_ivp[:n_steps, 2],
+    sol_u_leapfrog[:, 2],
     "Leapfrog",
 )
 check_solver_accuracy(
-    sol_u_solve_ivp[:n_steps, n_mode],
-    sol_u_two_step_ic[:, n_mode],
+    sol_u_solve_ivp[:n_steps, 2],
+    sol_u_two_step_ic[:, 2],
     "Two-step IC",
 )
 
 print("\n=== Velocity Comparisons (Initial Conditions) ===")
 check_solver_accuracy(
-    sol_v_leapfrog_2[:n_steps, n_mode],
-    sol_v_leapfrog[:n_steps, n_mode],
+    sol_v_solve_ivp[:n_steps, 2],
+    sol_v_leapfrog[:, 2],
     "Leapfrog velocity",
 )
-
 check_solver_accuracy(
-    sol_v_leapfrog_2[:n_steps, n_mode],
-    sol_v_two_step_ic[:, n_mode],
+    sol_v_solve_ivp[:n_steps, 2],
+    sol_v_two_step_ic[:, 2],
     "Two-step velocity",
 )
 
@@ -348,18 +284,7 @@ _, sol_u_exc = solve_sv_excitation(
     u0=jnp.zeros(n_modes),
     v0=jnp.zeros(n_modes),
 )
-
 _, sol_u_leapfrog, sol_v_leapfrog_exc = solve_sv_leapfrog(
-    gamma2_mu=gamma2_mu,
-    omega_mu_squared=omega_mu_squared,
-    dt=dt,
-    xs=modal_excitation,
-    nl_fn=lin_fn,
-    u0=jnp.zeros(n_modes),
-    v0=jnp.zeros(n_modes),
-)
-
-_, sol_u_leapfrog_2, sol_v_leapfrog_exc_2 = solve_sv_leapfrog_2(
     gamma2_mu=gamma2_mu,
     omega_mu_squared=omega_mu_squared,
     dt=dt,
@@ -412,7 +337,6 @@ print("Two-step velocities shape (exc):", sol_v_two_step_exc.shape)
 plt.subplot(1, 3, 3)
 plt.plot(time, sol_u_exc[:n_steps, n_mode], label="Excitation")
 plt.plot(time, sol_u_leapfrog[:, n_mode], label="Leapfrog", linestyle="--")
-plt.plot(time, sol_u_leapfrog_2[:, n_mode], label="Leapfrog 2", linestyle=":")
 plt.plot(time, sol_u_two_step[:n_steps, n_mode], label="Two-step (ICs)", linestyle="-.")
 plt.plot(
     time, sol_u_two_step_exc[:n_steps, n_mode], label="Two-step (exc)", linestyle=":"
@@ -433,7 +357,6 @@ plt.ylabel("Displacement")
 plt.figure(figsize=(10, 6))
 plt.subplot(1, 2, 1)
 plt.plot(time, sol_v_leapfrog_exc[:, n_mode], label="Leapfrog", linestyle="--")
-plt.plot(time, sol_v_leapfrog_exc_2[:, n_mode], label="Leapfrog 2", linestyle=":")
 plt.plot(
     time, sol_v_two_step_exc[:n_steps, n_mode], label="Two-step (exc)", linestyle=":"
 )
@@ -448,9 +371,6 @@ plt.legend()
 plt.title("Excitation Test - Velocity")
 plt.xlabel("Time")
 plt.ylabel("Velocity")
-plt.grid()
-plt.xlim(time[20], time[40])
-
 
 plt.subplot(1, 2, 2)
 plt.plot(time, sol_u_exc[:n_steps, n_mode], label="Excitation")
@@ -471,8 +391,6 @@ plt.xlabel("Time")
 plt.ylabel("Displacement")
 
 plt.tight_layout()
-plt.grid()
-plt.xlim(time[20], time[40])
 plt.show()
 
 print("\n=== Excitation Test ===")

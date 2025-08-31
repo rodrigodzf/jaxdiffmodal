@@ -367,7 +367,11 @@ def solve_sv_leapfrog(
     u0: Float[Array, " N"] | None = None,
     v0: Float[Array, " N"] | None = None,
     xs: Float[Array, "T N"] | None = None,
-) -> tuple[tuple[Float[Array, " N"], Float[Array, " N"]], Float[Array, "T N"]]:
+) -> tuple[
+    tuple[Float[Array, " N"], Float[Array, " N"]],
+    Float[Array, "T N"],
+    Float[Array, "T N"],
+]:
     r"""
     Solve using one-step "leapfrog" Verlet scheme with initial conditions.
 
@@ -398,7 +402,7 @@ def solve_sv_leapfrog(
     Returns
     -------
     tuple
-        Final state and time series of positions
+        Final state, time series of positions, and time series of velocities
     """
     n_modes = gamma2_mu.shape[0]
 
@@ -421,13 +425,15 @@ def solve_sv_leapfrog(
     alpha = (1.0 - gamma2_mu * dt / 2.0) / damping_factor
     beta = dt / damping_factor
 
-    # Define efficient operations via closure
     apply_nl = nl_fn if nl_fn is not None else lambda q: 0.0
 
     def advance_state(
         state: tuple[Float[Array, " N"], Float[Array, " N"]],
         excitation,  # External force (array or None)
-    ) -> tuple[tuple[Float[Array, " N"], Float[Array, " N"]], Float[Array, " N"]]:
+    ) -> tuple[
+        tuple[Float[Array, " N"], Float[Array, " N"]],
+        tuple[Float[Array, " N"], Float[Array, " N"]],
+    ]:
         q, v_half = state
 
         # Force calculation: F = excitation - k*q - nl(q)
@@ -441,30 +447,39 @@ def solve_sv_leapfrog(
         v_half_next = alpha * v_half + beta * f
         q_next = q + dt * v_half_next
 
-        return (q_next, v_half_next), q_next
+        # Convert half-step velocity to full-step velocity: v_n = (v_half_{n-1/2} + v_half_{n+1/2}) / 2
+        v_next = (v_half + v_half_next) / 2.0
+
+        return (q_next, v_half_next), (q_next, v_next)
 
     if xs is not None:
-        state, final = jax.lax.scan(
+        state, outputs = jax.lax.scan(
             advance_state,
             (u0, v_half_prev),
             xs,
             unroll=8,
         )
+        final_positions, final_velocities = outputs
     else:
         assert n_steps is not None
-        state, final = jax.lax.scan(
+        state, outputs = jax.lax.scan(
             advance_state,
             (u0, v_half_prev),
             None,
             length=n_steps - 1,
             unroll=8,
         )
+        final_positions, final_velocities = outputs
 
     # Always concatenate initial state and slice to exactly n_steps
-    full_result = jnp.concatenate([u0[None], final], axis=0)
-    final = full_result[:n_steps]
+    full_positions = jnp.concatenate([u0[None], final_positions], axis=0)
+    positions = full_positions[:n_steps]
 
-    return state, final
+    # For velocities, we need the initial velocity v0
+    full_velocities = jnp.concatenate([v0[None], final_velocities], axis=0)
+    velocities = full_velocities[:n_steps]
+
+    return state, positions, velocities
 
 
 @partial(
@@ -508,7 +523,7 @@ def solve_sv_ic(
     Returns
     -------
     tuple
-        Final state and time series of positions
+        Final state, time series of positions, and time series of velocities
     """
     A_inv = A_inv_vector(dt, gamma2_mu)
     B = B_vector(dt, omega_mu_squared) * A_inv
@@ -646,30 +661,25 @@ def solve_sv_two_step(
         # Extract positions and velocities from outputs
         final_positions, final_velocities = outputs
         # Concatenate initial state + all computed states (including q1 and final)
-        full_positions = jnp.concatenate(
-            [q0[None], q1[None], final_positions],
-            axis=0,
+        full_positions = jnp.concatenate([q0[None], q1[None], final_positions], axis=0)
+        full_velocities = jnp.concatenate(
+            [v0[None], v1[None], final_velocities], axis=0
         )
-        full_velocities = jnp.concatenate([v0[None], final_velocities], axis=0)
     else:
         # No external excitation - use None as input
         state, outputs = jax.lax.scan(
             advance_state,
             (q0, q1, v1),
             None,
-            length=n_steps - 1,
+            length=n_steps - 2,
             unroll=8,
         )
         # Extract positions and velocities from outputs
         final_positions, final_velocities = outputs
         # Concatenate initial states with computed trajectory
-        full_positions = jnp.concatenate(
-            [q0[None], q1[None], final_positions[:-1]],
-            axis=0,
-        )
+        full_positions = jnp.concatenate([q0[None], q1[None], final_positions], axis=0)
         full_velocities = jnp.concatenate(
-            [v0[None], final_velocities],
-            axis=0,
+            [v0[None], v1[None], final_velocities], axis=0
         )
 
     # Ensure output matches requested n_steps, but don't truncate if we have excitation
