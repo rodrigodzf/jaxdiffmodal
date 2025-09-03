@@ -66,7 +66,7 @@ $$
 
 ### make_tm_nl_fn
 
->  make_tm_nl_fn (lambda_mu, factors)
+>      make_tm_nl_fn (lambda_mu, factors)
 
 *Returns a function that computes nl given q.*
 
@@ -74,7 +74,7 @@ $$
 
 ### make_vk_nl_fn
 
->  make_vk_nl_fn (H)
+>      make_vk_nl_fn (H)
 
 *Returns a function that computes nl given q.*
 
@@ -82,25 +82,25 @@ $$
 
 ### make_identity_nl_fn
 
->  make_identity_nl_fn ()
+>      make_identity_nl_fn ()
 
 ------------------------------------------------------------------------
 
 ### string_tau_with_density
 
->  string_tau_with_density (string_params)
+>      string_tau_with_density (string_params)
 
 ------------------------------------------------------------------------
 
 ### plate_tau_with_density
 
->  plate_tau_with_density (plate_params)
+>      plate_tau_with_density (plate_params)
 
 ------------------------------------------------------------------------
 
 ### second_order_step
 
->  second_order_step (u0:jax.Array, v0:jax.Array, dt:float,
+>      second_order_step (u0:jax.Array, v0:jax.Array, dt:float,
 >                         gamma2_mu:jax.Array, omega_mu_squared:jax.Array)
 
 *One step of 2nd-order Taylor expansion for damped oscillator. Returns:
@@ -108,34 +108,34 @@ $$
 
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>u0</td>
 <td>Array</td>
 <td>initial conditions (n_modes,)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>v0</td>
 <td>Array</td>
 <td>initial conditions (n_modes,)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>dt</td>
 <td>float</td>
 <td>time step</td>
 </tr>
-<tr>
+<tr class="even">
 <td>gamma2_mu</td>
 <td>Array</td>
 <td>damping (n_modes,)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>omega_mu_squared</td>
 <td>Array</td>
 <td>frequency (n_modes,)</td>
@@ -147,7 +147,7 @@ $$
 
 ### rk4_step
 
->  rk4_step (u0:jax.Array, v0:jax.Array, dt:float, gamma2_mu:jax.Array,
+>      rk4_step (u0:jax.Array, v0:jax.Array, dt:float, gamma2_mu:jax.Array,
 >                omega_mu_squared:jax.Array)
 
 *One step of RK4 for the second-order damped oscillator. Returns: (u1,
@@ -155,34 +155,34 @@ v1)*
 
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>u0</td>
 <td>Array</td>
 <td>initial conditions (n_modes,)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>v0</td>
 <td>Array</td>
 <td>initial conditions (n_modes,)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>dt</td>
 <td>float</td>
 <td>time step</td>
 </tr>
-<tr>
+<tr class="even">
 <td>gamma2_mu</td>
 <td>Array</td>
 <td>damping (n_modes,)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>omega_mu_squared</td>
 <td>Array</td>
 <td>frequency (n_modes,)</td>
@@ -194,50 +194,50 @@ v1)*
 
 ### solve_sv_initial_conditions
 
->  solve_sv_initial_conditions (gamma2_mu, omega_mu_squared, u0:jax.Array,
+>      solve_sv_initial_conditions (gamma2_mu, omega_mu_squared, u0:jax.Array,
 >                                   v0:jax.Array, dt:float, n_steps:int,
 >                                   nl_fn:collections.abc.Callable)
 
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>gamma2_mu</td>
 <td></td>
 <td>(n_modes,)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>omega_mu_squared</td>
 <td></td>
 <td>(n_modes,)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>u0</td>
 <td>Array</td>
 <td>initial conditions (n_modes,)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>v0</td>
 <td>Array</td>
 <td>initial conditions (n_modes,)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>dt</td>
 <td>float</td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>n_steps</td>
 <td>int</td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>nl_fn</td>
 <td>Callable</td>
 <td></td>
@@ -249,40 +249,40 @@ v1)*
 
 ### solve_sv_excitation
 
->  solve_sv_excitation (gamma2_mu, omega_mu_squared,
+>      solve_sv_excitation (gamma2_mu, omega_mu_squared,
 >                           modal_excitation:jax.Array, dt:float,
 >                           nl_fn:collections.abc.Callable)
 
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>gamma2_mu</td>
 <td></td>
 <td>(n_modes,)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>omega_mu_squared</td>
 <td></td>
 <td>(n_modes,)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>modal_excitation</td>
 <td>Array</td>
 <td>(T, n_modes)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>dt</td>
 <td>float</td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>nl_fn</td>
 <td>Callable</td>
 <td></td>
@@ -294,40 +294,40 @@ v1)*
 
 ### solve_sv_vk_jax_scan
 
->  solve_sv_vk_jax_scan (A_inv:jax.Array, B:jax.Array, C:jax.Array,
+>      solve_sv_vk_jax_scan (A_inv:jax.Array, B:jax.Array, C:jax.Array,
 >                            modal_excitation:jax.Array,
 >                            nl_fn:collections.abc.Callable)
 
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>A_inv</td>
 <td>Array</td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>B</td>
 <td>Array</td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>C</td>
 <td>Array</td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>modal_excitation</td>
 <td>Array</td>
 <td>(T, n_modes)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>nl_fn</td>
 <td>Callable</td>
 <td></td>
@@ -341,7 +341,7 @@ v1)*
 
 ### solve_tf_initial_conditions
 
->  solve_tf_initial_conditions (gamma2_mu, omega_mu_squared, u0:jax.Array,
+>      solve_tf_initial_conditions (gamma2_mu, omega_mu_squared, u0:jax.Array,
 >                                   v0:jax.Array, dt:float, n_steps:int,
 >                                   nl_fn:collections.abc.Callable)
 
@@ -349,44 +349,44 @@ v1)*
 
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>gamma2_mu</td>
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>omega_mu_squared</td>
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>u0</td>
 <td>Array</td>
 <td>initial conditions (n_modes,)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>v0</td>
 <td>Array</td>
 <td>initial conditions (n_modes,)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>dt</td>
 <td>float</td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>n_steps</td>
 <td>int</td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>nl_fn</td>
 <td>Callable</td>
 <td></td>
@@ -398,7 +398,7 @@ v1)*
 
 ### solve_tf_excitation
 
->  solve_tf_excitation (gamma2_mu, omega_mu_squared,
+>      solve_tf_excitation (gamma2_mu, omega_mu_squared,
 >                           modal_excitation:jax.Array, dt:float,
 >                           nl_fn:collections.abc.Callable)
 
@@ -406,34 +406,34 @@ v1)*
 
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>gamma2_mu</td>
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>omega_mu_squared</td>
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>modal_excitation</td>
 <td>Array</td>
 <td>(T, n_modes)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>dt</td>
 <td>float</td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>nl_fn</td>
 <td>Callable</td>
 <td></td>
@@ -467,46 +467,46 @@ and discrete time eigenvalues (poles) are
 
 ### solve_sinusoidal
 
->  solve_sinusoidal (gamma2_mu, omega_mu_squared, ic, n_steps, dt)
+>      solve_sinusoidal (gamma2_mu, omega_mu_squared, ic, n_steps, dt)
 
 *Solve the system of ODEs using complex exponentials NB: this assumes
 the ic is only for positions and that the initial velocities are 0*
 
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>gamma2_mu</td>
 <td>jnp.ndarray</td>
 <td>Damping coefficients</td>
 </tr>
-<tr>
+<tr class="even">
 <td>omega_mu_squared</td>
 <td>jnp.ndarray</td>
 <td>Squared frequencies</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>ic</td>
 <td>jnp.ndarray</td>
 <td>Initial conditions</td>
 </tr>
-<tr>
+<tr class="even">
 <td>n_steps</td>
 <td>int</td>
 <td>Number of steps</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>dt</td>
 <td>float</td>
 <td>Time step</td>
 </tr>
-<tr>
+<tr class="even">
 <td><strong>Returns</strong></td>
 <td><strong>jnp.ndarray</strong></td>
 <td><strong>Modal solution</strong></td>
@@ -518,7 +518,7 @@ the ic is only for positions and that the initial velocities are 0*
 
 ### solve_sinusoidal_excitation
 
->  solve_sinusoidal_excitation (gamma2_mu, omega_mu_squared,
+>      solve_sinusoidal_excitation (gamma2_mu, omega_mu_squared,
 >                                   modal_excitation:jax.Array, dt:float)
 
 *Solve the modal system with sinusoidal response for external excitation
@@ -526,34 +526,34 @@ using parallel scan.*
 
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>gamma2_mu</td>
 <td>jnp.ndarray</td>
 <td>Damping coefficients (n_modes,)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>omega_mu_squared</td>
 <td>jnp.ndarray</td>
 <td>Squared frequencies (n_modes,)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>modal_excitation</td>
 <td>Array</td>
 <td>(T, n_modes)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>dt</td>
 <td>float</td>
 <td>Time step</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><strong>Returns</strong></td>
 <td><strong>jnp.ndarray</strong></td>
 <td><strong>Modal solution (T, n_modes)</strong></td>
@@ -565,4 +565,4 @@ using parallel scan.*
 
 ### solve_tf_ic
 
->  solve_tf_ic (gamma2_mu, omega_mu_squared, ic, n_steps, dt, nl_fn)
+>      solve_tf_ic (gamma2_mu, omega_mu_squared, ic, n_steps, dt, nl_fn)

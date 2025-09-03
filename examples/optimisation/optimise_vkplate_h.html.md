@@ -35,7 +35,6 @@ readout_position = (0.1, 0.1)
 ```
 
 </details>
-
 <details class="code-fold">
 <summary>Code</summary>
 
@@ -163,7 +162,6 @@ Plot the intial simulation
               </div>
     </div>
     &#10;
-
 Optimisation loop
 
 <details class="code-fold">

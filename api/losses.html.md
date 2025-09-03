@@ -13,7 +13,7 @@ A collection of losses including:
 
 ### wasserstein_1d
 
->  wasserstein_1d (u_values, v_values, u_weights=None, v_weights=None, p=1,
+>      wasserstein_1d (u_values, v_values, u_weights=None, v_weights=None, p=1,
 >                      require_sort=True)
 
 \*This is a port of the wasserstein_1d function from
@@ -40,7 +40,7 @@ weights are required.\*
 <col style="width: 34%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Default</strong></th>
@@ -48,43 +48,43 @@ weights are required.\*
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>u_values</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>v_values</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>u_weights</td>
 <td>NoneType</td>
 <td>None</td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>v_weights</td>
 <td>NoneType</td>
 <td>None</td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>p</td>
 <td>int</td>
 <td>1</td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>require_sort</td>
 <td>bool</td>
 <td>True</td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td><strong>Returns</strong></td>
 <td><strong>cost: float/array-like, shape (…)</strong></td>
 <td></td>
@@ -97,7 +97,7 @@ weights are required.\*
 
 ### quantile_function
 
->  quantile_function (qs, cws, xs)
+>      quantile_function (qs, cws, xs)
 
 *Computes the quantile function of an empirical distribution*
 
@@ -108,29 +108,29 @@ weights are required.\*
 <col style="width: 52%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>qs</td>
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>cws</td>
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>xs</td>
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td><strong>Returns</strong></td>
 <td><strong>q: array-like, shape (…, n)</strong></td>
 <td><strong>The quantiles of the distribution</strong></td>
@@ -142,23 +142,23 @@ weights are required.\*
 
 ### compute_mag
 
->  compute_mag (x:jax.Array)
+>      compute_mag (x:jax.Array)
 
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>x</td>
 <td>Array</td>
 <td>(b, t)</td>
 </tr>
-<tr>
+<tr class="even">
 <td><strong>Returns</strong></td>
 <td><strong>Array</strong></td>
 <td></td>
@@ -170,13 +170,13 @@ weights are required.\*
 
 ### spectral_wasserstein
 
->  spectral_wasserstein (x, y, squared=True, is_mag=False)
+>      spectral_wasserstein (x, y, squared=True, is_mag=False)
 
 ------------------------------------------------------------------------
 
 ### log_mag_loss
 
->  log_mag_loss (pred:jax.Array, target:jax.Array, eps:float=1e-10,
+>      log_mag_loss (pred:jax.Array, target:jax.Array, eps:float=1e-10,
 >                    distance:str='l1')
 
 *Spectral log magtinude loss but for a fft of a signal See [Arik et al.,
@@ -184,7 +184,7 @@ weights are required.\*
 
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Default</strong></th>
@@ -192,25 +192,25 @@ weights are required.\*
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>pred</td>
 <td>Array</td>
 <td></td>
 <td>complex valued fft of the signal</td>
 </tr>
-<tr>
+<tr class="even">
 <td>target</td>
 <td>Array</td>
 <td></td>
 <td>complex valued fft of the signal</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>eps</td>
 <td>float</td>
 <td>1e-10</td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>distance</td>
 <td>str</td>
 <td>l1</td>
@@ -223,7 +223,7 @@ weights are required.\*
 
 ### log_mag
 
->  log_mag (x:jax.Array, eps:float=1e-10)
+>      log_mag (x:jax.Array, eps:float=1e-10)
 
 ``` python
 phase = 0.0
@@ -314,26 +314,26 @@ plt.semilogx(y_mag)
 
 ### spectral_convergence_loss
 
->  spectral_convergence_loss (pred:jax.Array, target:jax.Array)
+>      spectral_convergence_loss (pred:jax.Array, target:jax.Array)
 
 *Spectral convergence loss but for a fft of a signal See [Arik et al.,
 2018](https://arxiv.org/abs/1808.06719)*
 
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>pred</td>
 <td>Array</td>
 <td>magnitude of the fft of the predicted signal</td>
 </tr>
-<tr>
+<tr class="even">
 <td>target</td>
 <td>Array</td>
 <td>magnitude of the fft of the target signal</td>

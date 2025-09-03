@@ -17,13 +17,13 @@ The processing of the modes is done using a port of the
 
 ### second_derivative_mixed
 
->  second_derivative_mixed (Nx, Ny, h)
+>      second_derivative_mixed (Nx, Ny, h)
 
 ------------------------------------------------------------------------
 
 ### second_derivative
 
->  second_derivative (Nx, Ny, h, direction='x')
+>      second_derivative (Nx, Ny, h, direction='x')
 
 *Construct a higher-order second derivative operator matching the MATLAB
 implementation of vkplate.*
@@ -36,7 +36,7 @@ implementation of vkplate.*
 <col style="width: 34%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Default</strong></th>
@@ -44,31 +44,31 @@ implementation of vkplate.*
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>Nx</td>
 <td>int</td>
 <td></td>
 <td>Number of intervals in the x-direction.</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Ny</td>
 <td>int</td>
 <td></td>
 <td>Number of intervals in the y-direction.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>h</td>
 <td>float</td>
 <td></td>
 <td>Grid spacing.</td>
 </tr>
-<tr>
+<tr class="even">
 <td>direction</td>
 <td>str</td>
 <td>x</td>
 <td>Direction of the second derivative operator. Can be ‘x’ or ‘y’.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><strong>Returns</strong></td>
 <td><strong>scipy.sparse.spmatrix</strong></td>
 <td></td>
@@ -87,7 +87,7 @@ The bilinear von Kármán operator is defined as
 
 ### vkoperator
 
->  vkoperator (phi1:numpy.ndarray, phi2:numpy.ndarray,
+>      vkoperator (phi1:numpy.ndarray, phi2:numpy.ndarray,
 >                  Dxx:scipy.sparse._matrix.spmatrix,
 >                  Dyy:scipy.sparse._matrix.spmatrix,
 >                  Dxy:scipy.sparse._matrix.spmatrix)
@@ -111,39 +111,39 @@ $$
 <col style="width: 52%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>phi1</td>
 <td>ndarray</td>
 <td>First function discretized on grid</td>
 </tr>
-<tr>
+<tr class="even">
 <td>phi2</td>
 <td>ndarray</td>
 <td>Second function discretized on grid</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Dxx</td>
 <td>spmatrix</td>
 <td>Second derivative operator in x direction</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Dyy</td>
 <td>spmatrix</td>
 <td>Second derivative operator in y direction</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Dxy</td>
 <td>spmatrix</td>
 <td>Mixed derivative operator</td>
 </tr>
-<tr>
+<tr class="even">
 <td><strong>Returns</strong></td>
 <td><strong>ndarray</strong></td>
 <td><strong>Discretized von Kármán operator evaluated at grid
@@ -156,46 +156,46 @@ points</strong></td>
 
 ### double_trapezoid_flat
 
->  double_trapezoid_flat (f:numpy.ndarray, dx:float, dy:float, Ny:int,
+>      double_trapezoid_flat (f:numpy.ndarray, dx:float, dy:float, Ny:int,
 >                             Nx:int)
 
 *Compute double trapezoid integration on flattened array.*
 
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>f</td>
 <td>ndarray</td>
 <td>Flattened array to integrate</td>
 </tr>
-<tr>
+<tr class="even">
 <td>dx</td>
 <td>float</td>
 <td>Grid spacing in x direction</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>dy</td>
 <td>float</td>
 <td>Grid spacing in y direction</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Ny</td>
 <td>int</td>
 <td>Number of points in y direction</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Nx</td>
 <td>int</td>
 <td>Number of points in x direction</td>
 </tr>
-<tr>
+<tr class="even">
 <td><strong>Returns</strong></td>
 <td><strong>float</strong></td>
 <td><strong>Result of double integration</strong></td>
@@ -207,13 +207,13 @@ points</strong></td>
 
 ### double_trapezoid
 
->  double_trapezoid (f, dx, dy=None)
+>      double_trapezoid (f, dx, dy=None)
 
 ------------------------------------------------------------------------
 
 ### compute_coupling_matrix_numerical
 
->  compute_coupling_matrix_numerical (psi:numpy.ndarray, phi:numpy.ndarray,
+>      compute_coupling_matrix_numerical (psi:numpy.ndarray, phi:numpy.ndarray,
 >                                         h:float, nx:int, ny:int)
 
 \*Compute the coupling matrix for the given in-plane and out-of-plane
@@ -239,43 +239,43 @@ since the *Ψ* and *Φ* functions are normalised elsewhere.\*
 <col style="width: 52%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>psi</td>
 <td>ndarray</td>
 <td>The <strong>normalised</strong> in-plane modes with shape (ny+1 *
 nx+1, n_modes.<br>These are stored in a flattened array
 column-wise.</td>
 </tr>
-<tr>
+<tr class="even">
 <td>phi</td>
 <td>ndarray</td>
 <td>The <strong>normalised</strong> out-of-plane modes with shape (ny+1
 * nx+1, n_modes).<br>These are stored in a flattened array
 column-wise.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>h</td>
 <td>float</td>
 <td>The grid spacing.</td>
 </tr>
-<tr>
+<tr class="even">
 <td>nx</td>
 <td>int</td>
 <td>The number of intervals in the x-direction.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>ny</td>
 <td>int</td>
 <td>The number of intervals in the y-direction.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><strong>Returns</strong></td>
 <td><strong>np.ndarray</strong></td>
 <td><strong>The coupling matrix with shape (n_modes, n_modes,
@@ -290,13 +290,13 @@ n_modes).</strong></td>
 
 ### polarisation
 
->  polarisation (interpolated_eigenvectors, eigenvectors, h)
+>      polarisation (interpolated_eigenvectors, eigenvectors, h)
 
 ------------------------------------------------------------------------
 
 ### eigenMAC
 
->  eigenMAC (ref_eigenvectors, ref_nx, ref_ny, eigenvectors, eigenvalues,
+>      eigenMAC (ref_eigenvectors, ref_nx, ref_ny, eigenvectors, eigenvalues,
 >                nx, ny, n_modes, Lx, Ly, h)
 
 \*Computes the Modal Assurance Criterion (MAC) between reference
@@ -322,69 +322,69 @@ while a value near 0 indicates they are nearly orthogonal.\*
 <col style="width: 52%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>ref_eigenvectors</td>
 <td>ndarray</td>
 <td>Reference eigenvectors (reshaped for interpolation).</td>
 </tr>
-<tr>
+<tr class="even">
 <td>ref_nx</td>
 <td>int</td>
 <td>Number of reference grid points along the x-axis.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>ref_ny</td>
 <td>int</td>
 <td>Number of reference grid points along the y-axis.</td>
 </tr>
-<tr>
+<tr class="even">
 <td>eigenvectors</td>
 <td>ndarray</td>
 <td>Eigenvectors to compare against the reference.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>eigenvalues</td>
 <td>ndarray</td>
 <td>Corresponding eigenvalues of the eigenvectors.</td>
 </tr>
-<tr>
+<tr class="even">
 <td>nx</td>
 <td>int</td>
 <td>Number of grid points along the x-axis for interpolation.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>ny</td>
 <td>int</td>
 <td>Number of grid points along the y-axis for interpolation.</td>
 </tr>
-<tr>
+<tr class="even">
 <td>n_modes</td>
 <td>int</td>
 <td>Number of modes to compare.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Lx</td>
 <td>float</td>
 <td>Length of the domain along the x-axis.</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Ly</td>
 <td>float</td>
 <td>Length of the domain along the y-axis.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>h</td>
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td><strong>Returns</strong></td>
 <td><strong>ndarray</strong></td>
 <td><strong>Reordered eigenvectors after MAC computation.</strong></td>
@@ -408,7 +408,7 @@ plate, respectively.
 
 ### biharmonic_eigendecomposition
 
->  biharmonic_eigendecomposition (params:jaxdiffmodal.ftm.PlateParameters,
+>      biharmonic_eigendecomposition (params:jaxdiffmodal.ftm.PlateParameters,
 >                                     n_modes:int, bcs:numpy.ndarray, nx:int,
 >                                     ny:int, h:float,
 >                                     normalise_eigenvectors=True)
@@ -427,7 +427,7 @@ order, and normalises the eigenvectors if requested.\*
 <col style="width: 34%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Default</strong></th>
@@ -435,49 +435,49 @@ order, and normalises the eigenvectors if requested.\*
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>params</td>
 <td>PlateParameters</td>
 <td></td>
 <td>The parameters of the plate.</td>
 </tr>
-<tr>
+<tr class="even">
 <td>n_modes</td>
 <td>int</td>
 <td></td>
 <td>The number of modes to compute.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>bcs</td>
 <td>ndarray</td>
 <td></td>
 <td>The boundary conditions of the plate.</td>
 </tr>
-<tr>
+<tr class="even">
 <td>nx</td>
 <td>int</td>
 <td></td>
 <td>The number of points in the x direction.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>ny</td>
 <td>int</td>
 <td></td>
 <td>The number of points in the y direction.</td>
 </tr>
-<tr>
+<tr class="even">
 <td>h</td>
 <td>float</td>
 <td></td>
 <td>The spacing between points.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>normalise_eigenvectors</td>
 <td>bool</td>
 <td>True</td>
 <td>Whether to normalise the eigenvectors.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><strong>Returns</strong></td>
 <td><strong>Tuple[np.ndarray, np.ndarray, np.ndarray]</strong></td>
 <td></td>
@@ -491,7 +491,7 @@ eigenvectors.</strong></td>
 
 ### multiresolution_eigendecomposition
 
->  multiresolution_eigendecomposition
+>      multiresolution_eigendecomposition
 >                                          (params:jaxdiffmodal.ftm.PlateParamet
 >                                          ers, n_modes:int, bcs:numpy.ndarray,
 >                                          h:float, nx:int, ny:int,
@@ -508,7 +508,7 @@ multiple grid resolutions.*
 <col style="width: 34%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Default</strong></th>
@@ -516,43 +516,43 @@ multiple grid resolutions.*
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>params</td>
 <td>PlateParameters</td>
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>n_modes</td>
 <td>int</td>
 <td></td>
 <td>Number of eigenmodes to compute.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>bcs</td>
 <td>ndarray</td>
 <td></td>
 <td>Boundary conditions.</td>
 </tr>
-<tr>
+<tr class="even">
 <td>h</td>
 <td>float</td>
 <td></td>
 <td>Initial grid spacing.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>nx</td>
 <td>int</td>
 <td></td>
 <td>Number of grid points in the x-direction.</td>
 </tr>
-<tr>
+<tr class="even">
 <td>ny</td>
 <td>int</td>
 <td></td>
 <td>Number of grid points in the y-direction.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>levels</td>
 <td>int</td>
 <td>2</td>
@@ -560,7 +560,7 @@ multiple grid resolutions.*
 is the coarse grid, and each subsequent level<br>uses h/2 and double the
 grid points to cover the same domain.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><strong>Returns</strong></td>
 <td><strong>swapped_eigenvectors, swapped_eigenvalues from the last
 refinement.</strong></td>

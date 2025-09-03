@@ -35,7 +35,6 @@ readout_position = (0.1, 0.1)
 ```
 
 </details>
-
 <details class="code-fold">
 <summary>Code</summary>
 
@@ -249,7 +248,6 @@ Now we optimise the bending stiffness. Starting from an initial value of
               </div>
     </div>
     &#10;
-
 Optimisation loop. This might take a while to run, depending on how long
 is the sequence we want to optimise over and the number of iterations.
 Here we optimise over a 0.3 second sequence (13230 samples), which is on
@@ -326,7 +324,6 @@ for i in bar:
               </div>
     </div>
     &#10;
-
 ## Multistart parallel optimisation
 
 We can also optimise over a larger range of initial bending stiffness

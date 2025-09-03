@@ -10,20 +10,20 @@ transformation method.
 
 ### StringParameters
 
->  StringParameters (A:float=5.188e-07, I:float=1.41e-13, rho:float=1140,
+>      StringParameters (A:float=5.188e-07, I:float=1.41e-13, rho:float=1140,
 >                        E:int=5400000000.0, d1:float=8e-05, d3:float=1.4e-05,
 >                        Ts0:float=60.97, length:float=0.65)
 
 *Dataclass to store the parameters of the string.*
 
-    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: Unknown section Properties
+    /Users/diaz/projects/jaxdiffmodal_main/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: Unknown section Properties
       else: warn(msg)
 
 ------------------------------------------------------------------------
 
 ### PlateParameters
 
->  PlateParameters (h:float=0.0005, l1:float=0.2, l2:float=0.3,
+>      PlateParameters (h:float=0.0005, l1:float=0.2, l2:float=0.3,
 >                       rho:float=7800.0, E:int=2000000000000.0, nu:float=0.3,
 >                       d1:float=0.042, d3:float=0.0023, Ts0:float=100)
 
@@ -33,7 +33,7 @@ transformation method.
 
 ### CircularDrumHeadParameters
 
->  CircularDrumHeadParameters (h:float=0.00019, r0:float=0.328,
+>      CircularDrumHeadParameters (h:float=0.00019, r0:float=0.328,
 >                                  I:float=5.7e-13, rho:float=1380.0,
 >                                  E:int=3500000000.0, nu:float=0.35,
 >                                  d1:float=0.14, d3:float=0.32, Ts0:float=3990,
@@ -46,7 +46,7 @@ with the functional transformation method Table 5.2.*
 
 ### string_eigenfunctions
 
->  string_eigenfunctions (wavenumbers:numpy.ndarray, grid:numpy.ndarray)
+>      string_eigenfunctions (wavenumbers:numpy.ndarray, grid:numpy.ndarray)
 
 \*Compute the modes of the string. The modes of the string are given by:
 
@@ -61,24 +61,24 @@ where *k* is the wavenumber and *x* is the grid positions.\*
 <col style="width: 52%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>wavenumbers</td>
 <td>ndarray</td>
 <td>The wavenumbers of the string.</td>
 </tr>
-<tr>
+<tr class="even">
 <td>grid</td>
 <td>ndarray</td>
 <td>The grid positions of the string where to compute the modes.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><strong>Returns</strong></td>
 <td><strong>ndarray</strong></td>
 <td><strong>The modes of the string at the given grid
@@ -91,7 +91,7 @@ positions.</strong></td>
 
 ### string_eigenvalues
 
->  string_eigenvalues (n_modes:int, length:float)
+>      string_eigenvalues (n_modes:int, length:float)
 
 \*Compute the eigenvalues of a string with fixed ends.
 
@@ -108,24 +108,24 @@ where *μ* is the mode number and *L* is the length of the string.\*
 <col style="width: 52%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>n_modes</td>
 <td>int</td>
 <td>Number of modes to compute</td>
 </tr>
-<tr>
+<tr class="even">
 <td>length</td>
 <td>float</td>
 <td>Length of the string</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><strong>Returns</strong></td>
 <td><strong>jnp.ndarray</strong></td>
 <td><strong>Array of eigenvalues with shape (n_modes,)</strong></td>
@@ -137,7 +137,7 @@ where *μ* is the mode number and *L* is the length of the string.\*
 
 ### plate_eigenfunctions
 
->  plate_eigenfunctions (wavenumbers_x:numpy.ndarray,
+>      plate_eigenfunctions (wavenumbers_x:numpy.ndarray,
 >                            wavenumbers_y:numpy.ndarray, x:numpy.ndarray,
 >                            y:numpy.ndarray)
 
@@ -149,34 +149,34 @@ where *k* is the wavenumber and *x* and *y* are the grid positions.\*
 
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>wavenumbers_x</td>
 <td>ndarray</td>
 <td>(n_max_modes_x,)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>wavenumbers_y</td>
 <td>ndarray</td>
 <td>(n_max_modes_y,)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>x</td>
 <td>ndarray</td>
 <td>(n_gridpoints_x,)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>y</td>
 <td>ndarray</td>
 <td>(n_gridpoints_y,)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><strong>Returns</strong></td>
 <td><strong>ndarray</strong></td>
 <td></td>
@@ -188,7 +188,7 @@ where *k* is the wavenumber and *x* and *y* are the grid positions.\*
 
 ### plate_eigenvalues
 
->  plate_eigenvalues (wavenumbers_x:numpy.ndarray,
+>      plate_eigenvalues (wavenumbers_x:numpy.ndarray,
 >                         wavenumbers_y:numpy.ndarray)
 
 \*Compute the eigenvalues of the plate. The eigenvalues of the plate are
@@ -199,24 +199,24 @@ where *μ* and *ν* are the mode numbers and *L*<sub>1</sub> and
 
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>wavenumbers_x</td>
 <td>ndarray</td>
 <td>(n_max_modes_x,)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>wavenumbers_y</td>
 <td>ndarray</td>
 <td>(n_max_modes_y,)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><strong>Returns</strong></td>
 <td><strong>np.ndarray</strong></td>
 <td><strong>The eigenvalues</strong></td>
@@ -228,7 +228,7 @@ where *μ* and *ν* are the mode numbers and *L*<sub>1</sub> and
 
 ### plate_wavenumbers
 
->  plate_wavenumbers (n_max_modes_x:int, n_max_modes_y:int, l1:float,
+>      plate_wavenumbers (n_max_modes_x:int, n_max_modes_y:int, l1:float,
 >                         l2:float)
 
 \*Compute the wavenumbers of a rectangular plate with clamped edges.
@@ -247,34 +247,34 @@ where *μ* and *ν* are the mode numbers, and *L*<sub>1</sub> and
 <col style="width: 52%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>n_max_modes_x</td>
 <td>int</td>
 <td>Number of modes in x direction</td>
 </tr>
-<tr>
+<tr class="even">
 <td>n_max_modes_y</td>
 <td>int</td>
 <td>Number of modes in y direction</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>l1</td>
 <td>float</td>
 <td>Width of the plate</td>
 </tr>
-<tr>
+<tr class="even">
 <td>l2</td>
 <td>float</td>
 <td>Height of the plate</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><strong>Returns</strong></td>
 <td><strong>tuple</strong></td>
 <td><strong>Wavenumbers in x and y directions with shapes
@@ -283,13 +283,13 @@ where *μ* and *ν* are the mode numbers, and *L*<sub>1</sub> and
 </tbody>
 </table>
 
-    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
+    /Users/diaz/projects/jaxdiffmodal_main/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
     Parameters: 
     ---------- in 
     Compute the modes of the drumhead.
     The modes of the drumhead are given by the Bessel function times the sine/cosine of the angle....
       else: warn(msg)
-    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
+    /Users/diaz/projects/jaxdiffmodal_main/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
     Returns: 
     ------- in 
     Compute the modes of the drumhead.
@@ -300,7 +300,7 @@ where *μ* and *ν* are the mode numbers, and *L*<sub>1</sub> and
 
 ### drumhead_eigenfunctions
 
->  drumhead_eigenfunctions (wavenumbers:numpy.ndarray, r:numpy.ndarray,
+>      drumhead_eigenfunctions (wavenumbers:numpy.ndarray, r:numpy.ndarray,
 >                               theta:numpy.ndarray)
 
 \*Compute the modes of the drumhead. The modes of the drumhead are given
@@ -317,29 +317,29 @@ modes: np.ndarray The eigenfunctions for the drumhead.\*
 
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>wavenumbers</td>
 <td>ndarray</td>
 <td>(n_max_modes, m_max_modes)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>r</td>
 <td>ndarray</td>
 <td>(n_gridpoints_r)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>theta</td>
 <td>ndarray</td>
 <td>(n_gridpoints_theta)</td>
 </tr>
-<tr>
+<tr class="even">
 <td><strong>Returns</strong></td>
 <td><strong>ndarray</strong></td>
 <td></td>
@@ -347,13 +347,13 @@ modes: np.ndarray The eigenfunctions for the drumhead.\*
 </tbody>
 </table>
 
-    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
+    /Users/diaz/projects/jaxdiffmodal_main/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
     Parameters: 
     ---------- in 
     Compute the eigenvalues of the drumhead.
     The eigenvalues of the drumhead are given by the square of the wavenumbers....
       else: warn(msg)
-    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
+    /Users/diaz/projects/jaxdiffmodal_main/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
     Returns: 
     ------- in 
     Compute the eigenvalues of the drumhead.
@@ -364,7 +364,7 @@ modes: np.ndarray The eigenfunctions for the drumhead.\*
 
 ### drumhead_eigenvalues
 
->  drumhead_eigenvalues (wavenumbers:numpy.ndarray)
+>      drumhead_eigenvalues (wavenumbers:numpy.ndarray)
 
 \*Compute the eigenvalues of the drumhead. The eigenvalues of the
 drumhead are given by the square of the wavenumbers.
@@ -380,14 +380,14 @@ eigenvalues: np.ndarray The eigenvalues of the drumhead.\*
 
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>wavenumbers</td>
 <td>ndarray</td>
 <td>(n_max_modes, m_max_modes)</td>
@@ -395,13 +395,13 @@ eigenvalues: np.ndarray The eigenvalues of the drumhead.\*
 </tbody>
 </table>
 
-    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
+    /Users/diaz/projects/jaxdiffmodal_main/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
     Parameters: 
     ---------- in 
     Compute the wavenumbers of the drumhead.
     ...
       else: warn(msg)
-    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
+    /Users/diaz/projects/jaxdiffmodal_main/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
     Returns: 
     ------- in 
     Compute the wavenumbers of the drumhead.
@@ -412,7 +412,7 @@ eigenvalues: np.ndarray The eigenvalues of the drumhead.\*
 
 ### drumhead_wavenumbers
 
->  drumhead_wavenumbers (n_max_modes:int, m_max_modes:int, radius:float)
+>      drumhead_wavenumbers (n_max_modes:int, m_max_modes:int, radius:float)
 
 \*Compute the wavenumbers of the drumhead.
 
@@ -429,7 +429,7 @@ wavenumbers: np.ndarray The wavenumbers for the drumhead.\*
 
 ### dblintegral
 
->  dblintegral (integrand, x, y, method='simpson')
+>      dblintegral (integrand, x, y, method='simpson')
 
 *Compute the double integral of a function K over the domain x and y.*
 
@@ -476,45 +476,45 @@ assert np.allclose(plate_eigenfunctions(wnx, wny, grid_x, grid_y), K)
 assert np.allclose(plate_eigenvalues(wnx, wny), Lambda)
 ```
 
-    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: Unknown section Parameters:
+    /Users/diaz/projects/jaxdiffmodal_main/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: Unknown section Parameters:
       else: warn(msg)
-    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: Unknown section Returns:
+    /Users/diaz/projects/jaxdiffmodal_main/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: Unknown section Returns:
       else: warn(msg)
 
 ------------------------------------------------------------------------
 
 ### inverse_STL
 
->  inverse_STL (K:numpy.ndarray, u_bar:numpy.ndarray, length:float)
+>      inverse_STL (K:numpy.ndarray, u_bar:numpy.ndarray, length:float)
 
 *Compute the inverse STL transform using the formula of Rabenstein et
 al. (2000).*
 
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>K</td>
 <td>ndarray</td>
 <td>(n_modes, n_gridpoints)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>u_bar</td>
 <td>ndarray</td>
 <td>(n_modes, n_samples) or (n_modes,)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>length</td>
 <td>float</td>
 <td>length of the string</td>
 </tr>
-<tr>
+<tr class="even">
 <td><strong>Returns</strong></td>
 <td><strong>ndarray</strong></td>
 <td></td>
@@ -526,7 +526,7 @@ al. (2000).*
 
 ### forward_STL
 
->  forward_STL (K:numpy.ndarray, u:numpy.ndarray, dx:float)
+>      forward_STL (K:numpy.ndarray, u:numpy.ndarray, dx:float)
 
 *Compute the forward STL transform. The integration is done using the
 trapezoidal rule.*
@@ -538,29 +538,29 @@ trapezoidal rule.*
 <col style="width: 52%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>K</td>
 <td>ndarray</td>
 <td>(n_modes, n_gridpoints)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>u</td>
 <td>ndarray</td>
 <td>(n_gridpoints, n_samples) or (n_gridpoints,)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>dx</td>
 <td>float</td>
 <td>grid spacing</td>
 </tr>
-<tr>
+<tr class="even">
 <td><strong>Returns</strong></td>
 <td><strong>ndarray</strong></td>
 <td><strong>The transformed signal. Shape (n_modes, n_samples) or
@@ -573,7 +573,7 @@ trapezoidal rule.*
 
 ### inverse_STL_2d
 
->  inverse_STL_2d (K:numpy.ndarray, u_bar:numpy.ndarray, l1:float, l2:float)
+>      inverse_STL_2d (K:numpy.ndarray, u_bar:numpy.ndarray, l1:float, l2:float)
 
 *Compute the inverse STL transform.*
 
@@ -584,34 +584,34 @@ trapezoidal rule.*
 <col style="width: 52%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>K</td>
 <td>ndarray</td>
 <td>(n_modes_x, n_modes_y, n_gridpoints_x, n_gridpoints_y)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>u_bar</td>
 <td>ndarray</td>
 <td>(n_modes_x, n_modes_y, n_samples) or (n_modes_x, n_modes_y)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>l1</td>
 <td>float</td>
 <td>length in x</td>
 </tr>
-<tr>
+<tr class="even">
 <td>l2</td>
 <td>float</td>
 <td>length in y</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><strong>Returns</strong></td>
 <td><strong>ndarray</strong></td>
 <td><strong>The reconstructed signal. Shape (n_gridpoints, n_samples) or
@@ -624,7 +624,7 @@ trapezoidal rule.*
 
 ### forward_STL_2d
 
->  forward_STL_2d (K:numpy.ndarray, u:numpy.ndarray, x:float, y:float,
+>      forward_STL_2d (K:numpy.ndarray, u:numpy.ndarray, x:float, y:float,
 >                      use_simpson:bool=False)
 
 *Compute the forward STL transform. The integration is done using the
@@ -638,7 +638,7 @@ trapezoidal rule.*
 <col style="width: 34%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Default</strong></th>
@@ -646,38 +646,38 @@ trapezoidal rule.*
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>K</td>
 <td>ndarray</td>
 <td></td>
 <td>(n_modes_x, n_modes_y, n_gridpoints_x, n_gridpoints_y)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>u</td>
 <td>ndarray</td>
 <td></td>
 <td>(n_gridpoints_x, n_gridpoints_y, n_samples) or (n_gridpoints_x,
 n_gridpoints_y)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>x</td>
 <td>float</td>
 <td></td>
 <td>grid spacing</td>
 </tr>
-<tr>
+<tr class="even">
 <td>y</td>
 <td>float</td>
 <td></td>
 <td>grid spacing</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>use_simpson</td>
 <td>bool</td>
 <td>False</td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td><strong>Returns</strong></td>
 <td><strong>ndarray</strong></td>
 <td></td>
@@ -691,7 +691,7 @@ n_gridpoints_y)</td>
 
 ### evaluate_rectangular_eigenfunctions
 
->  evaluate_rectangular_eigenfunctions (mn_indices:numpy.ndarray,
+>      evaluate_rectangular_eigenfunctions (mn_indices:numpy.ndarray,
 >                                           position:numpy.ndarray,
 >                                           params:__main__.PlateParameters)
 
@@ -702,29 +702,29 @@ n_gridpoints_y)</td>
 <col style="width: 52%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>mn_indices</td>
 <td>ndarray</td>
 <td>(n_modes, 2) selected mode indices</td>
 </tr>
-<tr>
+<tr class="even">
 <td>position</td>
 <td>ndarray</td>
 <td>(2,) position to evaluate the eigenfunctions</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>params</td>
 <td>PlateParameters</td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td><strong>Returns</strong></td>
 <td><strong>ndarray</strong></td>
 <td><strong>(n_modes,) mode gains of selected modes at the given
@@ -737,7 +737,7 @@ position</strong></td>
 
 ### evaluate_string_eigenfunctions
 
->  evaluate_string_eigenfunctions (indices:numpy.ndarray,
+>      evaluate_string_eigenfunctions (indices:numpy.ndarray,
 >                                      position:numpy.ndarray,
 >                                      params:__main__.StringParameters)
 
@@ -748,29 +748,29 @@ position</strong></td>
 <col style="width: 52%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>indices</td>
 <td>ndarray</td>
 <td>(n_modes,) selected mode indices</td>
 </tr>
-<tr>
+<tr class="even">
 <td>position</td>
 <td>ndarray</td>
 <td>(1,) position to evaluate the eigenfunctions</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>params</td>
 <td>StringParameters</td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td><strong>Returns</strong></td>
 <td><strong>ndarray</strong></td>
 <td><strong>(n_modes,) mode gains of selected modes at the given
@@ -821,7 +821,7 @@ ax[1].set_title("Reconstructed excitation")
 
 ### inverse_STL_drumhead
 
->  inverse_STL_drumhead (K_inv:numpy.ndarray, u_bar:numpy.ndarray)
+>      inverse_STL_drumhead (K_inv:numpy.ndarray, u_bar:numpy.ndarray)
 
 *Compute the inverse STL transform using the formula of Rabenstein et
 al. (2000).*
@@ -833,24 +833,24 @@ al. (2000).*
 <col style="width: 52%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>K_inv</td>
 <td>ndarray</td>
 <td>(n_modes_x, n_modes_y, n_gridpoints_x, n_gridpoints_y)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>u_bar</td>
 <td>ndarray</td>
 <td>(n_modes_x, n_modes_y, n_samples) or (n_modes_x, n_modes_y)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><strong>Returns</strong></td>
 <td><strong>ndarray</strong></td>
 <td></td>
@@ -862,7 +862,7 @@ al. (2000).*
 
 ### forward_STL_drumhead
 
->  forward_STL_drumhead (K:numpy.ndarray, u:numpy.ndarray, r:numpy.ndarray,
+>      forward_STL_drumhead (K:numpy.ndarray, u:numpy.ndarray, r:numpy.ndarray,
 >                            theta:numpy.ndarray, use_simpson:bool=False)
 
 *Compute the forward STL transform. The integration is done using the
@@ -876,7 +876,7 @@ trapezoidal rule or Simpson’s rule.*
 <col style="width: 34%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Default</strong></th>
@@ -884,38 +884,38 @@ trapezoidal rule or Simpson’s rule.*
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>K</td>
 <td>ndarray</td>
 <td></td>
 <td>(n_modes_r, n_modes_theta, n_gridpoints_r, n_gridpoints_theta)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>u</td>
 <td>ndarray</td>
 <td></td>
 <td>(n_gridpoints_x, n_gridpoints_y, n_samples) or (n_gridpoints_x,
 n_gridpoints_y)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>r</td>
 <td>ndarray</td>
 <td></td>
 <td>radial grid</td>
 </tr>
-<tr>
+<tr class="even">
 <td>theta</td>
 <td>ndarray</td>
 <td></td>
 <td>angular grid</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>use_simpson</td>
 <td>bool</td>
 <td>False</td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td><strong>Returns</strong></td>
 <td><strong>ndarray</strong></td>
 <td></td>
@@ -976,25 +976,25 @@ c = ax[1].pcolormesh(theta, r, g_reconstructed, shading="auto", cmap="viridis")
 
 ### stiffness_term
 
->  stiffness_term (params:__main__.PhysicalParameters, lambda_mu:jax.Array)
+>      stiffness_term (params:__main__.PhysicalParameters, lambda_mu:jax.Array)
 
 ------------------------------------------------------------------------
 
 ### damping_term_simple
 
->  damping_term_simple (lambda_mu:jax.Array, factor:float=0.001)
+>      damping_term_simple (lambda_mu:jax.Array, factor:float=0.001)
 
 ------------------------------------------------------------------------
 
 ### damping_term
 
->  damping_term (params:__main__.PhysicalParameters, lambda_mu:jax.Array)
+>      damping_term (params:__main__.PhysicalParameters, lambda_mu:jax.Array)
 
 ------------------------------------------------------------------------
 
 ### eigenvalues_from_pde
 
->  eigenvalues_from_pde (pars:__main__.PhysicalParameters,
+>      eigenvalues_from_pde (pars:__main__.PhysicalParameters,
 >                            lambda_mu:jax.Array)
 
 *Compute the positive imaginary side of the eigenvalues of the
@@ -1007,24 +1007,24 @@ continuous-time system from the PDE parameters.*
 <col style="width: 52%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>pars</td>
 <td>PhysicalParameters</td>
 <td>The physical parameters of the system.</td>
 </tr>
-<tr>
+<tr class="even">
 <td>lambda_mu</td>
 <td>Array</td>
 <td>The eigenvalues of the decompostion of the Laplacian operator.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><strong>Returns</strong></td>
 <td><strong>Array</strong></td>
 <td><strong>The eigenvalues of the continuous-time system.</strong></td>
@@ -1056,7 +1056,6 @@ display(Audio(states.sum(0), rate=sr))
                     Your browser does not support the audio element.
                 </audio>
               &#10;
-
 ``` python
 sr = 44100
 dt = 1 / sr
@@ -1087,7 +1086,6 @@ display(Audio(states.sum(0), rate=sr))
                     Your browser does not support the audio element.
                 </audio>
               &#10;
-
 ``` python
 sr = 44100
 dt = 1 / sr
@@ -1117,7 +1115,7 @@ display(Audio(states[0], rate=sr))
 
 ### sample_parallel_tf
 
->  sample_parallel_tf (num:numpy.ndarray, den:numpy.ndarray, dt:float,
+>      sample_parallel_tf (num:numpy.ndarray, den:numpy.ndarray, dt:float,
 >                          method:str='impulse')
 
 *Sample multiple transfer functions.*
@@ -1130,7 +1128,7 @@ display(Audio(states[0], rate=sr))
 <col style="width: 34%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Default</strong></th>
@@ -1138,31 +1136,31 @@ display(Audio(states[0], rate=sr))
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>num</td>
 <td>ndarray</td>
 <td></td>
 <td>(n_modes,)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>den</td>
 <td>ndarray</td>
 <td></td>
 <td>(n_modes,)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>dt</td>
 <td>float</td>
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>method</td>
 <td>str</td>
 <td>impulse</td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td><strong>Returns</strong></td>
 <td><strong>np.ndarray</strong></td>
 <td></td>
@@ -1176,7 +1174,7 @@ function.</strong></td>
 
 ### tf_initial_conditions_continuous_2
 
->  tf_initial_conditions_continuous_2 (D:float, density:float, d1:float,
+>      tf_initial_conditions_continuous_2 (D:float, density:float, d1:float,
 >                                          d3:float, Ts0:float,
 >                                          lambda_mu:<function array>)
 
@@ -1191,46 +1189,46 @@ that eigenvalues of the PDE as input.*
 <col style="width: 52%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>D</td>
 <td>float</td>
 <td>The bending stiffness of the string or plate.</td>
 </tr>
-<tr>
+<tr class="even">
 <td>density</td>
 <td>float</td>
 <td>The area or surface density of the string or plate.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>d1</td>
 <td>float</td>
 <td>The linear damping coefficient, or frequency-independent
 damping.</td>
 </tr>
-<tr>
+<tr class="even">
 <td>d3</td>
 <td>float</td>
 <td>The cubic damping coefficient, or frequency-dependent damping.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Ts0</td>
 <td>float</td>
 <td>The initial tension of the string or plate.</td>
 </tr>
-<tr>
+<tr class="even">
 <td>lambda_mu</td>
 <td>array</td>
 <td>The eigenvalues from the decomposition of the Laplacian
 operator.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><strong>Returns</strong></td>
 <td><strong>tuple</strong></td>
 <td><strong>The numerator and denominator of the transfer
@@ -1243,7 +1241,7 @@ function.</strong></td>
 
 ### tf_excitation_discrete
 
->  tf_excitation_discrete (eigenvalues:numpy.ndarray, density:float,
+>      tf_excitation_discrete (eigenvalues:numpy.ndarray, density:float,
 >                              dt:float)
 
 *Compute the discrete-time excitation transfer function of a system.*
@@ -1255,29 +1253,29 @@ function.</strong></td>
 <col style="width: 52%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>eigenvalues</td>
 <td>ndarray</td>
 <td>The eigenvalues of the system.</td>
 </tr>
-<tr>
+<tr class="even">
 <td>density</td>
 <td>float</td>
 <td>surface or area density</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>dt</td>
 <td>float</td>
 <td>time step</td>
 </tr>
-<tr>
+<tr class="even">
 <td><strong>Returns</strong></td>
 <td><strong>tuple</strong></td>
 <td><strong>The numerator of the discrete-time transfer
@@ -1290,7 +1288,7 @@ function.</strong></td>
 
 ### tf_excitation_continuous
 
->  tf_excitation_continuous (eigenvalues:numpy.ndarray, density:float)
+>      tf_excitation_continuous (eigenvalues:numpy.ndarray, density:float)
 
 *Compute the continuous excitation transfer function.*
 
@@ -1301,24 +1299,24 @@ function.</strong></td>
 <col style="width: 52%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>eigenvalues</td>
 <td>ndarray</td>
 <td>The eigenvalues of the system.</td>
 </tr>
-<tr>
+<tr class="even">
 <td>density</td>
 <td>float</td>
 <td>surface or area density</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><strong>Returns</strong></td>
 <td><strong>tuple</strong></td>
 <td><strong>The numerator of the discrete-time transfer
@@ -1331,7 +1329,7 @@ function.</strong></td>
 
 ### tf_initial_conditions_discrete
 
->  tf_initial_conditions_discrete (eigenvalues:numpy.ndarray, dt:float)
+>      tf_initial_conditions_discrete (eigenvalues:numpy.ndarray, dt:float)
 
 *Compute the discrete-time initial conditions transfer function of a
 system.*
@@ -1343,24 +1341,24 @@ system.*
 <col style="width: 52%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>eigenvalues</td>
 <td>ndarray</td>
 <td>The eigenvalues of the system.</td>
 </tr>
-<tr>
+<tr class="even">
 <td>dt</td>
 <td>float</td>
 <td>time step</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><strong>Returns</strong></td>
 <td><strong>tuple</strong></td>
 <td><strong>The numerator of the discrete-time transfer
@@ -1373,7 +1371,7 @@ function.</strong></td>
 
 ### tf_initial_conditions_continuous
 
->  tf_initial_conditions_continuous (eigenvalues:numpy.ndarray)
+>      tf_initial_conditions_continuous (eigenvalues:numpy.ndarray)
 
 *Compute the continuos “initial-conditions” transfer function from the
 eigenvalues of the system.*
@@ -1385,19 +1383,19 @@ eigenvalues of the system.*
 <col style="width: 52%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>eigenvalues</td>
 <td>ndarray</td>
 <td>The eigenvalues of the system.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><strong>Returns</strong></td>
 <td><strong>tuple</strong></td>
 <td><strong>The numerator of the discrete-time transfer

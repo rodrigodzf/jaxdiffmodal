@@ -9,25 +9,25 @@ Utilities for visualisation and filtering.
 
 ### next_root
 
->  next_root (x)
+>      next_root (x)
 
 ------------------------------------------------------------------------
 
 ### safe_log
 
->  safe_log (x, eps=1e-10)
+>      safe_log (x, eps=1e-10)
 
 ------------------------------------------------------------------------
 
 ### to_db
 
->  to_db (x)
+>      to_db (x)
 
 ------------------------------------------------------------------------
 
 ### impulse_response
 
->  impulse_response (b:jax.Array, a:jax.Array, n=4410)
+>      impulse_response (b:jax.Array, a:jax.Array, n=4410)
 
 *Compute the impulse response of a discrete time system*
 
@@ -39,7 +39,7 @@ Utilities for visualisation and filtering.
 <col style="width: 34%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Default</strong></th>
@@ -47,25 +47,25 @@ Utilities for visualisation and filtering.
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>b</td>
 <td>Array</td>
 <td></td>
 <td>numerators of the discrete transfer function</td>
 </tr>
-<tr>
+<tr class="even">
 <td>a</td>
 <td>Array</td>
 <td></td>
 <td>denominators of the discrete transfer function</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>n</td>
 <td>int</td>
 <td>4410</td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td><strong>Returns</strong></td>
 <td><strong>jnp.ndarray</strong></td>
 <td></td>
@@ -75,36 +75,36 @@ n)</strong></td>
 </tbody>
 </table>
 
-    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: Unknown section Parameters:
+    /Users/diaz/projects/jaxdiffmodal_main/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: Unknown section Parameters:
       else: warn(msg)
-    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: Unknown section Returns:
+    /Users/diaz/projects/jaxdiffmodal_main/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: Unknown section Returns:
       else: warn(msg)
 
 ------------------------------------------------------------------------
 
 ### iir_filter_parallel
 
->  iir_filter_parallel (b, a, x)
+>      iir_filter_parallel (b, a, x)
 
 *Efficient parallel IIR filter implementation using JAX.*
 
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>b</td>
 <td>shape (n_modes, 3)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>a</td>
 <td>shape (n_modes, 3)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>x</td>
 <td>shape (n_samples,)</td>
 </tr>
@@ -115,7 +115,7 @@ n)</strong></td>
 
 ### plot_poles_zeros
 
->  plot_poles_zeros (p:numpy.ndarray, ax=None, xlim=(-1.1, 1.1), ylim=(-1.1,
+>      plot_poles_zeros (p:numpy.ndarray, ax=None, xlim=(-1.1, 1.1), ylim=(-1.1,
 >                        1.1), show_unit_circle=True, save_path=None, **kwargs)
 
 \*Plot poles and zeros on a 2D complex plane with customizable axis
@@ -131,7 +131,7 @@ Additional keyword arguments passed to scatter plot.\*
 
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Default</strong></th>
@@ -139,43 +139,43 @@ Additional keyword arguments passed to scatter plot.\*
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>p</td>
 <td>ndarray</td>
 <td></td>
 <td>Array of zeros or poles (any shape)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>ax</td>
 <td>NoneType</td>
 <td>None</td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>xlim</td>
 <td>tuple</td>
 <td>(-1.1, 1.1)</td>
 <td>Default x-axis limits</td>
 </tr>
-<tr>
+<tr class="even">
 <td>ylim</td>
 <td>tuple</td>
 <td>(-1.1, 1.1)</td>
 <td>Default y-axis limits</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>show_unit_circle</td>
 <td>bool</td>
 <td>True</td>
 <td>Option to show the unit circle</td>
 </tr>
-<tr>
+<tr class="even">
 <td>save_path</td>
 <td>NoneType</td>
 <td>None</td>
 <td>Optional file path to save the plot</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>kwargs</td>
 <td>VAR_KEYWORD</td>
 <td></td>
@@ -188,31 +188,31 @@ Additional keyword arguments passed to scatter plot.\*
 
 ### hz2bark
 
->  hz2bark (f)
+>      hz2bark (f)
 
 ------------------------------------------------------------------------
 
 ### bark2hz
 
->  bark2hz (b)
+>      bark2hz (b)
 
 ------------------------------------------------------------------------
 
 ### hz2mel
 
->  hz2mel (h)
+>      hz2mel (h)
 
 ------------------------------------------------------------------------
 
 ### mel2hz
 
->  mel2hz (m)
+>      mel2hz (m)
 
 ------------------------------------------------------------------------
 
 ### tf_freqs
 
->  tf_freqs (b:jax.Array, a:jax.Array, s:jax.Array)
+>      tf_freqs (b:jax.Array, a:jax.Array, s:jax.Array)
 
 *Sample the frequency response of a transfer functions.*
 
@@ -223,29 +223,29 @@ Additional keyword arguments passed to scatter plot.\*
 <col style="width: 52%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>b</td>
 <td>Array</td>
 <td>numerator (n_modes, 3)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>a</td>
 <td>Array</td>
 <td>denominator (n_modes, 3)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>s</td>
 <td>Array</td>
 <td>frequency (n_freqs,)</td>
 </tr>
-<tr>
+<tr class="even">
 <td><strong>Returns</strong></td>
 <td><strong>Array</strong></td>
 <td><strong>The frequency response of the transfer
@@ -258,7 +258,7 @@ function.</strong></td>
 
 ### tf_freqz
 
->  tf_freqz (b:jax.Array, a:jax.Array, worN:jax.Array, sample_rate:int)
+>      tf_freqz (b:jax.Array, a:jax.Array, worN:jax.Array, sample_rate:int)
 
 *Sample the frequency response of the transfer functions.*
 
@@ -269,34 +269,34 @@ function.</strong></td>
 <col style="width: 52%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>b</td>
 <td>Array</td>
 <td>numerator (n_modes, 3)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>a</td>
 <td>Array</td>
 <td>denominator (n_modes, 3)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>worN</td>
 <td>Array</td>
 <td>frequencies (n_freqs,)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>sample_rate</td>
 <td>int</td>
 <td>The sample rate in Hz of the transfer function</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><strong>Returns</strong></td>
 <td><strong>jnp.ndarray</strong></td>
 <td><strong>The frequency response of the transfer
@@ -309,7 +309,7 @@ function</strong></td>
 
 ### compute_spectrogram
 
->  compute_spectrogram (signal:numpy.ndarray, sample_rate:int, n_fft:int,
+>      compute_spectrogram (signal:numpy.ndarray, sample_rate:int, n_fft:int,
 >                           hop_length:int, max_freq:float=None,
 >                           time_limit_s:float=0.5)
 
@@ -317,6 +317,6 @@ function</strong></td>
 
 ### display_audio_with_title
 
->  display_audio_with_title (audio_data, sample_rate, title)
+>      display_audio_with_title (audio_data, sample_rate, title)
 
 *Display audio with a title next to it in a Jupyter notebook.*

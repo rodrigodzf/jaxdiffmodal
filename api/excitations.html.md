@@ -7,7 +7,7 @@
 
 ### create_1d_raised_cosine
 
->  create_1d_raised_cosine (duration:float, start_time:float,
+>      create_1d_raised_cosine (duration:float, start_time:float,
 >                               end_time:float, amplitude:float,
 >                               sample_rate:float)
 
@@ -15,39 +15,39 @@
 
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>duration</td>
 <td>float</td>
 <td>Total duration of the excitation (in seconds).</td>
 </tr>
-<tr>
+<tr class="even">
 <td>start_time</td>
 <td>float</td>
 <td>Start time of the excitation (in seconds).</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>end_time</td>
 <td>float</td>
 <td>End time of the excitation (in seconds).</td>
 </tr>
-<tr>
+<tr class="even">
 <td>amplitude</td>
 <td>float</td>
 <td>Amplitude of the excitation.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>sample_rate</td>
 <td>float</td>
 <td>Sample rate (samples per second).</td>
 </tr>
-<tr>
+<tr class="even">
 <td><strong>Returns</strong></td>
 <td><strong>ndarray</strong></td>
 <td><strong>The excitation signal.</strong></td>
@@ -73,7 +73,7 @@ plt.plot(rc)
 
 ### create_raised_cosine
 
->  create_raised_cosine (Nx, Ny, h, ctr, epsilon, wid)
+>      create_raised_cosine (Nx, Ny, h, ctr, epsilon, wid)
 
 \*Create a raised cosine function on a 2D grid.
 
@@ -114,7 +114,7 @@ plt.imshow(rc, cmap="gray", origin="lower")
 
 ### create_pluck_modal
 
->  create_pluck_modal (lambdas:numpy.ndarray, pluck_position:float=0.28,
+>      create_pluck_modal (lambdas:numpy.ndarray, pluck_position:float=0.28,
 >                          initial_deflection:float=0.03,
 >                          string_length:float=1.0)
 
@@ -129,7 +129,7 @@ position. The pluck is modeled in the modal domain.*
 <col style="width: 34%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Default</strong></th>
@@ -137,31 +137,31 @@ position. The pluck is modeled in the modal domain.*
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>lambdas</td>
 <td>ndarray</td>
 <td></td>
 <td>eigenvalues of the Laplacian operator</td>
 </tr>
-<tr>
+<tr class="even">
 <td>pluck_position</td>
 <td>float</td>
 <td>0.28</td>
 <td>position of pluck on the string in meters</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>initial_deflection</td>
 <td>float</td>
 <td>0.03</td>
 <td>initial deflection of the string in meters</td>
 </tr>
-<tr>
+<tr class="even">
 <td>string_length</td>
 <td>float</td>
 <td>1.0</td>
 <td>total length of the string in meters</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><strong>Returns</strong></td>
 <td><strong>ndarray</strong></td>
 <td></td>

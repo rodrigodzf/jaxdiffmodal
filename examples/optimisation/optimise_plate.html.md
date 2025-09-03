@@ -99,7 +99,6 @@ display_audio_with_title(y, sample_rate, "LPC fit and filtered")
               </div>
     </div>
     &#10;
-
 ![](optimise_plate_files/figure-commonmark/cell-2-output-4.png)
 
 Sample the envelope using the bark scale.
@@ -285,7 +284,6 @@ display_audio_with_title(pred_imp_resp, sample_rate, "Initial")
               </div>
     </div>
     &#10;
-
 ![](optimise_plate_files/figure-commonmark/cell-5-output-3.png)
 
 Optimise the parameters using gradient descent.
@@ -383,5 +381,4 @@ for i in bar:
               </div>
     </div>
     &#10;
-
 ![](optimise_plate_files/figure-commonmark/cell-7-output-3.png)

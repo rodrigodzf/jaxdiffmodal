@@ -9,13 +9,13 @@
 
 ### discrete_convolution
 
->  discrete_convolution (x:numpy.ndarray, a:numpy.ndarray, zi=None)
+>      discrete_convolution (x:numpy.ndarray, a:numpy.ndarray, zi=None)
 
 *Convolves a signal x with a time-varying filter defined by a.*
 
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Default</strong></th>
@@ -23,19 +23,19 @@
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>x</td>
 <td>ndarray</td>
 <td></td>
 <td>(time,)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>a</td>
 <td>ndarray</td>
 <td></td>
 <td>(time, p)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>zi</td>
 <td>NoneType</td>
 <td>None</td>
@@ -48,11 +48,11 @@
 
 ### covariance_matrix_np
 
->  covariance_matrix_np (x:numpy.ndarray, p:int, L:int=None)
+>      covariance_matrix_np (x:numpy.ndarray, p:int, L:int=None)
 
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Default</strong></th>
@@ -60,19 +60,19 @@
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>x</td>
 <td>ndarray</td>
 <td></td>
 <td>(time,)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>p</td>
 <td>int</td>
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>L</td>
 <td>int</td>
 <td>None</td>
@@ -85,12 +85,12 @@
 
 ### covariance_matrix
 
->  covariance_matrix (x:Union[jax.Array,numpy.ndarray,numpy.bool,numpy.numbe
+>      covariance_matrix (x:Union[jax.Array,numpy.ndarray,numpy.bool,numpy.numbe
 >                         r,bool,int,float,complex], p:int, L:int=None)
 
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Default</strong></th>
@@ -98,19 +98,19 @@
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>x</td>
 <td>Union</td>
 <td></td>
 <td>(batch, time)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>p</td>
 <td>int</td>
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>L</td>
 <td>int</td>
 <td>None</td>
@@ -123,7 +123,7 @@
 
 ### unfold_np
 
->  unfold_np (x, kernel_size, stride=1)
+>      unfold_np (x, kernel_size, stride=1)
 
 *Unfolds a signal x (batch, time, channels) into a matrix of patches of
 size kernel_size and stride, similar to the pytorch unfold function,
@@ -133,7 +133,7 @@ using numpy’s as_strided function.*
 
 ### unfold
 
->  unfold (x:Union[jax.Array,numpy.ndarray,numpy.bool,numpy.number,bool,int,
+>      unfold (x:Union[jax.Array,numpy.ndarray,numpy.bool,numpy.number,bool,int,
 >              float,complex], kernel_size:int, stride:int=1)
 
 *Unfolds a signal x into a matrix of patches of size kernel_size and
@@ -141,7 +141,7 @@ stride similar to the pytorch unfold function.*
 
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Default</strong></th>
@@ -149,19 +149,19 @@ stride similar to the pytorch unfold function.*
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>x</td>
 <td>Union</td>
 <td></td>
 <td>(batch, time, channels)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>kernel_size</td>
 <td>int</td>
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>stride</td>
 <td>int</td>
 <td>1</td>
@@ -170,14 +170,14 @@ stride similar to the pytorch unfold function.*
 </tbody>
 </table>
 
-    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: Unknown section Parameters:
+    /Users/diaz/projects/jaxdiffmodal_main/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: Unknown section Parameters:
       else: warn(msg)
 
 ------------------------------------------------------------------------
 
 ### autocorr
 
->  autocorr (x:Union[jax.Array,numpy.ndarray,numpy.bool,numpy.number,bool,in
+>      autocorr (x:Union[jax.Array,numpy.ndarray,numpy.bool,numpy.number,bool,in
 >                t,float,complex], p:int, biased:bool=True)
 
 *Computes the autocorrelation of a signal x up to lag p.*
@@ -186,7 +186,7 @@ stride similar to the pytorch unfold function.*
 
 ### next_power_of_2
 
->  next_power_of_2 (x)
+>      next_power_of_2 (x)
 
 ``` python
 x = np.arange(10).astype(np.float64)
@@ -200,13 +200,13 @@ assert np.allclose(X_np, X_jax[0])
 assert np.allclose(unfolded_np, unfolded_jax[0])
 ```
 
-    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
+    /Users/diaz/projects/jaxdiffmodal_main/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
     Parameters: 
     ---------- in 
     Compute the Linear Prediction Coefficients (LPC) of a signal x.
     Based on "Introduction to Digital Speech Processing" by Rabiner and Schafer....
       else: warn(msg)
-    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
+    /Users/diaz/projects/jaxdiffmodal_main/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
     Returns: 
     ------- in 
     Compute the Linear Prediction Coefficients (LPC) of a signal x.
@@ -217,7 +217,7 @@ assert np.allclose(unfolded_np, unfolded_jax[0])
 
 ### lpc_cpu_solve
 
->  lpc_cpu_solve (x:numpy.ndarray, p:int, method='autocorrelation',
+>      lpc_cpu_solve (x:numpy.ndarray, p:int, method='autocorrelation',
 >                     **kwargs)
 
 \*Compute the Linear Prediction Coefficients (LPC) of a signal x. Based
@@ -235,7 +235,7 @@ energy) of the residual signal.\*
 
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Default</strong></th>
@@ -243,31 +243,31 @@ energy) of the residual signal.\*
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>x</td>
 <td>ndarray</td>
 <td></td>
 <td>(time,)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>p</td>
 <td>int</td>
 <td></td>
 <td>order</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>method</td>
 <td>str</td>
 <td>autocorrelation</td>
 <td>method for the lpc computation</td>
 </tr>
-<tr>
+<tr class="even">
 <td>kwargs</td>
 <td>VAR_KEYWORD</td>
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td><strong>Returns</strong></td>
 <td><strong>Tuple</strong></td>
 <td></td>
@@ -280,13 +280,13 @@ energy) of the residual signal.\*
 
 ### jitted_linear_solve
 
->  jitted_linear_solve (x, p)
+>      jitted_linear_solve (x, p)
 
 ------------------------------------------------------------------------
 
 ### jitted_lstsq
 
->  jitted_lstsq (x, p)
+>      jitted_lstsq (x, p)
 
 ``` python
 x = np.random.randn(100)
@@ -302,26 +302,26 @@ print(a_covar, g_covar)
     [-0.03891267  0.05897309 -0.11110881 -0.10518435] 8.848879174571616
     [-0.05351606  0.04524858 -0.09969181 -0.10755192] 8.666443074154966
 
-    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
+    /Users/diaz/projects/jaxdiffmodal_main/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
     Parameters: 
     ---------- in 
     Computes the linear prediction of a 1D signal. The signal will be padded on the left with zeros.
     ...
       else: warn(msg)
-    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
+    /Users/diaz/projects/jaxdiffmodal_main/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
     Returns: 
     ---------- in 
     Computes the linear prediction of a 1D signal. The signal will be padded on the left with zeros.
     ...
       else: warn(msg)
-    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: Unknown section Returns:
+    /Users/diaz/projects/jaxdiffmodal_main/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: Unknown section Returns:
       else: warn(msg)
 
 ------------------------------------------------------------------------
 
 ### linear_prediction
 
->  linear_prediction (x:Union[jax.Array,numpy.ndarray,numpy.bool,numpy.numbe
+>      linear_prediction (x:Union[jax.Array,numpy.ndarray,numpy.bool,numpy.numbe
 >                         r,bool,int,float,complex], a:Union[jax.Array,numpy.nda
 >                         rray,numpy.bool,numpy.number,bool,int,float,complex])
 
@@ -335,24 +335,24 @@ ArrayLike The coefficients of the linear prediction\*
 
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>x</td>
 <td>Union</td>
 <td>(T)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>a</td>
 <td>Union</td>
 <td>(p)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><strong>Returns</strong></td>
 <td><strong>Union</strong></td>
 <td></td>
@@ -364,7 +364,7 @@ ArrayLike The coefficients of the linear prediction\*
 
 ### linear_prediction_np
 
->  linear_prediction_np (x:numpy.ndarray, a:numpy.ndarray)
+>      linear_prediction_np (x:numpy.ndarray, a:numpy.ndarray)
 
 \*Computes the linear prediction of a 1D signal. The signal will be
 padded on the left with zeros.
@@ -376,24 +376,24 @@ ArrayLike The coefficients of the linear prediction\*
 
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>x</td>
 <td>ndarray</td>
 <td>(T,)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>a</td>
 <td>ndarray</td>
 <td>(p,)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><strong>Returns</strong></td>
 <td><strong>ndarray</strong></td>
 <td></td>
@@ -412,13 +412,13 @@ lp_jax = linear_prediction(x, a)
 assert np.allclose(lp_np, lp_jax)
 ```
 
-    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
+    /Users/diaz/projects/jaxdiffmodal_main/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
     Parameters: 
     ---------- in 
     Computes the inverse filter of a signal x using the coefficients a.
     ...
       else: warn(msg)
-    /home/diaz/projects/jaxdiffmodal_clean/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
+    /Users/diaz/projects/jaxdiffmodal_main/.venv/lib/python3.11/site-packages/fastcore/docscrape.py:230: UserWarning: potentially wrong underline length... 
     Returns: 
     ---------- in 
     Computes the inverse filter of a signal x using the coefficients a.
@@ -429,7 +429,7 @@ assert np.allclose(lp_np, lp_jax)
 
 ### inverse_filter_np
 
->  inverse_filter_np (x:numpy.ndarray, a:numpy.ndarray)
+>      inverse_filter_np (x:numpy.ndarray, a:numpy.ndarray)
 
 \*Computes the inverse filter of a signal x using the coefficients a.
 
@@ -440,24 +440,24 @@ The coefficients of the linear prediction\*
 
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>x</td>
 <td>ndarray</td>
 <td>(T,)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>a</td>
 <td>ndarray</td>
 <td>(p,)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><strong>Returns</strong></td>
 <td><strong>ndarray</strong></td>
 <td></td>
@@ -469,7 +469,7 @@ The coefficients of the linear prediction\*
 
 ### coeffs_and_residual
 
->  coeffs_and_residual (y:Union[jax.Array,numpy.ndarray,numpy.bool,numpy.num
+>      coeffs_and_residual (y:Union[jax.Array,numpy.ndarray,numpy.bool,numpy.num
 >                           ber,bool,int,float,complex], p:int, **kwargs)
 
 *Utility function to compute the LPC coefficients and the residual.*
@@ -481,29 +481,29 @@ The coefficients of the linear prediction\*
 <col style="width: 52%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>y</td>
 <td>Union</td>
 <td>input signal (time,)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>p</td>
 <td>int</td>
 <td>number of coefficients</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>kwargs</td>
 <td>VAR_KEYWORD</td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td><strong>Returns</strong></td>
 <td><strong>Tuple</strong></td>
 <td><strong>coefficients (p+1) and residual and gain</strong></td>

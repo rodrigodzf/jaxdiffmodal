@@ -114,7 +114,6 @@ Single point:
                     Your browser does not support the audio element.
                 </audio>
               &#10;
-
 ![](linear_files/figure-commonmark/cell-7-output-2.png)
 
 All points:
@@ -52696,5 +52695,4 @@ Get the solution in physical space
                     Your browser does not support the audio element.
                 </audio>
               &#10;
-
 ![](linear_files/figure-commonmark/cell-13-output-2.png)

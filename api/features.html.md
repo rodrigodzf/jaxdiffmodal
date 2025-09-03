@@ -10,7 +10,7 @@ This is an implementation of the CQT1992v2 from
 
 ### cqt_transform
 
->  cqt_transform (x, cqt_instance, output_format=None)
+>      cqt_transform (x, cqt_instance, output_format=None)
 
 *JIT-compiled CQT transform function.*
 
@@ -18,7 +18,7 @@ This is an implementation of the CQT1992v2 from
 
 ### CQT1992v2
 
->  CQT1992v2 (sr=22050, hop_length=512, fmin=32.7, fmax=None, n_bins=84,
+>      CQT1992v2 (sr=22050, hop_length=512, fmin=32.7, fmax=None, n_bins=84,
 >                 bins_per_octave=12, filter_scale=1, norm=1, window='hann',
 >                 center=True, pad_mode='reflect', trainable=False,
 >                 output_format='Magnitude')
@@ -29,13 +29,13 @@ This is an implementation of the CQT1992v2 from
 
 ### conv1d_efficient
 
->  conv1d_efficient (x, kernel, stride=1)
+>      conv1d_efficient (x, kernel, stride=1)
 
 ------------------------------------------------------------------------
 
 ### create_cqt_kernels
 
->  create_cqt_kernels (Q, fs, fmin, n_bins=84, bins_per_octave=12, norm=1,
+>      create_cqt_kernels (Q, fs, fmin, n_bins=84, bins_per_octave=12, norm=1,
 >                          window='hann', fmax=None, topbin_check=True, gamma=0)
 
 *Create CQT kernels in time domain.*
@@ -44,7 +44,7 @@ This is an implementation of the CQT1992v2 from
 
 ### get_window_dispatch
 
->  get_window_dispatch (window, N, fftbins=True)
+>      get_window_dispatch (window, N, fftbins=True)
 
 *Get the window function.*
 
@@ -52,10 +52,10 @@ This is an implementation of the CQT1992v2 from
 
 ### broadcast_dim
 
->  broadcast_dim (x)
+>      broadcast_dim (x)
 
 ------------------------------------------------------------------------
 
 ### nextpow2
 
->  nextpow2 (A)
+>      nextpow2 (A)

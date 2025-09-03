@@ -1,15 +1,12 @@
 [
   {
-    "listing": "/examples/index.html",
+    "listing": "/examples/optimisation/index.html",
     "items": [
       "/examples/optimisation/optimise_string.html",
       "/examples/optimisation/optimise_plate.html",
       "/examples/optimisation/optimise_vkplate.html",
       "/examples/optimisation/optimise_vkplate_h.html",
-      "/examples/simulations/linear.html",
-      "/examples/simulations/non-linear.html",
-      "/examples/optimisation/index.html",
-      "/examples/simulations/index.html"
+      "/examples/optimisation/optimise_string_time.html"
     ]
   },
   {
@@ -20,12 +17,17 @@
     ]
   },
   {
-    "listing": "/examples/optimisation/index.html",
+    "listing": "/examples/index.html",
     "items": [
       "/examples/optimisation/optimise_string.html",
       "/examples/optimisation/optimise_plate.html",
       "/examples/optimisation/optimise_vkplate.html",
-      "/examples/optimisation/optimise_vkplate_h.html"
+      "/examples/optimisation/optimise_vkplate_h.html",
+      "/examples/optimisation/optimise_string_time.html",
+      "/examples/simulations/linear.html",
+      "/examples/simulations/non-linear.html",
+      "/examples/optimisation/index.html",
+      "/examples/simulations/index.html"
     ]
   }
 ]
