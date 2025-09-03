@@ -1,5 +1,7 @@
 # jaxdiffmodal
 
+[![arXiv](https://img.shields.io/badge/arXiv-2505.05940-b31b1b.svg)](https://arxiv.org/abs/2505.05940)
+
 Fast, differentiable, and GPU-accelerated simulation framework for modelling the dynamics of strings, membranes, and plates using modal methods implemented in [JAX](https://github.com/google/jax).
 
 ## Features
@@ -21,7 +23,7 @@ It is recommended to use the [`uv`](https://github.com/astral-sh/uv) package man
 uv sync --all-extras
 ```
 
-otherwise you can create a virtual environment and install the dependencies manually:
+Otherwise you can create a virtual environment and install the dependencies manually:
 
 ```bash
 python3 -m venv .venv
@@ -38,6 +40,7 @@ The `nbs/examples` directory includes:
 - Scripts to reproduce figures from the paper
 
 The `benchmark` directory includes comparisons against:
+
 - An optimised C++ implementation using Eigen and BLAS
 - A JIT-compiled PyTorch implementation (GPU)
 - A MATLAB baseline
