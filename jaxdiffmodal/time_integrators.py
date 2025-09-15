@@ -373,7 +373,139 @@ def solve_sv_leapfrog(
     Float[Array, "T N"],
 ]:
     r"""
-    Solve using one-step "leapfrog" Verlet scheme with initial conditions.
+    Solve using one-step "leapfrog" Verlet scheme with initial conditions
+    and external forces.
+
+    Implements the one-step Verlet scheme using staggered time grid
+    where positions and velocities are at integer steps.
+    See:
+    - "Geometric numerical integration illustrated by the Stoermer-Verlet method", Hairer et al. 2003
+    - "Learning Nonlinear Dynamics in Physical Modelling Synthesis using Neural Ordinary Differential Equations", Zheleznov et al. 2025
+
+    Parameters
+    ----------
+    gamma2_mu : jax.numpy.ndarray
+        Damping coefficients (2*gamma), shape (n_modes,)
+    omega_mu_squared : jax.numpy.ndarray
+        Squared natural frequencies, shape (n_modes,)
+    u0 : jax.numpy.ndarray
+        Initial displacement, shape (n_modes,)
+    v0 : jax.numpy.ndarray
+        Initial velocity, shape (n_modes,)
+    xs: jax.numpy.ndarray
+        External force, shape (T, n_modes)
+    dt : float
+        Time step size
+    n_steps : int
+        Number of time steps
+    nl_fn : callable
+        Nonlinear function
+
+    Returns
+    -------
+    tuple
+        Final state, time series of positions, and time series of velocities
+    """
+    n_modes = gamma2_mu.shape[0]
+
+    # Set defaults for optional parameters
+    u0 = u0 if u0 is not None else jnp.zeros(n_modes)
+    v0 = v0 if v0 is not None else jnp.zeros(n_modes)
+
+    # Determine number of steps
+    if xs is not None:
+        n_steps = n_steps if n_steps is not None else xs.shape[0]
+        # Create scan inputs for the external force
+        # we need the (f_n, f_{n+1}) pairs for the scheme
+        scan_inputs = (xs[:-1], xs[1:])
+    elif n_steps is None:
+        raise ValueError("Either xs or n_steps must be provided")
+
+    damping_factor = 1.0 + gamma2_mu * dt / 2.0
+
+    apply_nl = nl_fn if nl_fn is not None else lambda q: 0.0
+
+    def advance_state(
+        state: tuple[Float[Array, " N"], Float[Array, " N"]],
+        excitation,  # External force (array or None)
+    ) -> tuple[
+        tuple[Float[Array, " N"], Float[Array, " N"]],
+        tuple[Float[Array, " N"], Float[Array, " N"]],
+    ]:
+        q, v = state
+        if excitation is not None:
+            f_curr, f_next = excitation
+        else:
+            f_curr, f_next = 0.0, 0.0
+
+        # kick
+        v_half_next = v + 0.5 * dt * (
+            -gamma2_mu * v - omega_mu_squared * q - apply_nl(q) + f_curr
+        )
+
+        # drift
+        q_next = q + dt * v_half_next
+
+        # kick
+        a = (-omega_mu_squared * q_next) - apply_nl(q_next) + f_next
+        v_next = (v_half_next + 0.5 * dt * a) / damping_factor
+
+        return (q_next, v_next), (q_next, v_next)
+
+    if xs is not None:
+        state, outputs = jax.lax.scan(
+            advance_state,
+            (u0, v0),
+            scan_inputs,
+            unroll=8,
+        )
+        final_positions, final_velocities = outputs
+    else:
+        assert n_steps is not None
+        state, outputs = jax.lax.scan(
+            advance_state,
+            (u0, v0),
+            None,
+            length=n_steps - 1,
+            unroll=8,
+        )
+        final_positions, final_velocities = outputs
+
+    # Always concatenate initial state and slice to exactly n_steps
+    full_positions = jnp.concatenate([u0[None], final_positions], axis=0)
+    positions = full_positions[:n_steps]
+
+    # For velocities, we need the initial velocity v0
+    full_velocities = jnp.concatenate([v0[None], final_velocities], axis=0)
+    velocities = full_velocities[:n_steps]
+
+    return state, positions, velocities
+
+
+@partial(
+    jax.jit,
+    static_argnames=(
+        "n_steps",
+        "nl_fn",
+    ),
+)
+def solve_sv_leapfrog_2(
+    gamma2_mu: Float[Array, " N"],
+    omega_mu_squared: Float[Array, " N"],
+    dt: float,
+    n_steps: int | None = None,
+    nl_fn: Callable[[Float[Array, " N"]], Float[Array, " N"]] | None = None,
+    u0: Float[Array, " N"] | None = None,
+    v0: Float[Array, " N"] | None = None,
+    xs: Float[Array, "T N"] | None = None,
+) -> tuple[
+    tuple[Float[Array, " N"], Float[Array, " N"]],
+    Float[Array, "T N"],
+    Float[Array, "T N"],
+]:
+    r"""
+    Solve using one-step "leapfrog" Verlet scheme with initial conditions
+    and external forces.
 
     Implements the one-step Verlet scheme using staggered time grid
     where positions are at integer steps and velocities at half-steps.
@@ -466,18 +598,20 @@ def solve_sv_leapfrog(
             advance_state,
             (u0, v_half_prev),
             None,
-            length=n_steps - 1,
+            length=n_steps,
             unroll=8,
         )
         final_positions, final_velocities = outputs
 
     # Always concatenate initial state and slice to exactly n_steps
-    full_positions = jnp.concatenate([u0[None], final_positions], axis=0)
+    full_positions = jnp.concatenate(
+        [u0[None], final_positions[:-1]],
+        axis=0,
+    )
     positions = full_positions[:n_steps]
 
-    # For velocities, we need the initial velocity v0
-    full_velocities = jnp.concatenate([v0[None], final_velocities], axis=0)
-    velocities = full_velocities[:n_steps]
+    # The initial velocity is calculated in the loop
+    velocities = final_velocities[:n_steps]
 
     return state, positions, velocities
 
@@ -661,25 +795,30 @@ def solve_sv_two_step(
         # Extract positions and velocities from outputs
         final_positions, final_velocities = outputs
         # Concatenate initial state + all computed states (including q1 and final)
-        full_positions = jnp.concatenate([q0[None], q1[None], final_positions], axis=0)
-        full_velocities = jnp.concatenate(
-            [v0[None], v1[None], final_velocities], axis=0
+        full_positions = jnp.concatenate(
+            [q0[None], q1[None], final_positions],
+            axis=0,
         )
+        full_velocities = jnp.concatenate([v0[None], final_velocities], axis=0)
     else:
         # No external excitation - use None as input
         state, outputs = jax.lax.scan(
             advance_state,
             (q0, q1, v1),
             None,
-            length=n_steps - 2,
+            length=n_steps - 1,
             unroll=8,
         )
         # Extract positions and velocities from outputs
         final_positions, final_velocities = outputs
         # Concatenate initial states with computed trajectory
-        full_positions = jnp.concatenate([q0[None], q1[None], final_positions], axis=0)
+        full_positions = jnp.concatenate(
+            [q0[None], q1[None], final_positions[:-1]],
+            axis=0,
+        )
         full_velocities = jnp.concatenate(
-            [v0[None], v1[None], final_velocities], axis=0
+            [v0[None], final_velocities],
+            axis=0,
         )
 
     # Ensure output matches requested n_steps, but don't truncate if we have excitation
