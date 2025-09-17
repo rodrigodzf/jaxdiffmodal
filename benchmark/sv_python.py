@@ -8,7 +8,11 @@ import jax.numpy as jnp
 import numpy as np
 import scipy.io as sio
 
-from vkplatejax.sv import make_vk_nl_fn, solve_sv_vk_jax_scan, make_tm_nl_fn
+from jaxdiffmodal.time_integrators import (
+    make_tm_nl_fn,
+    make_vk_nl_fn,
+    solve_sv_vk_jax_scan,
+)
 
 
 def run_benchmark(input_file, num_iterations=50, use_tm=False):

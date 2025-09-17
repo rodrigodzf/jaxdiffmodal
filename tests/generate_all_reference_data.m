@@ -38,6 +38,7 @@ run('test_evaluate_circular_modes_matlab_reference.m');
 run('test_imat_matlab_reference.m');
 % run('circular_membrane_reference_simple.m');
 run('mainRectangularCustom_reference.m');
+run('mainCircularCustom_reference.m');
 
 fprintf('\n=================================================\n');
 fprintf('Reference Data Generation Complete\n');

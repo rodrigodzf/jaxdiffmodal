@@ -86,10 +86,10 @@ def create_raised_cosine(Nx, Ny, h, ctr, epsilon, wid):
 
 
 def create_pluck_modal(
-    lambdas: np.ndarray,  # eigenvalues of the Laplacian operator
-    pluck_position: float = 0.28,  # position of pluck on the string in meters
-    initial_deflection: float = 0.03,  # initial deflection of the string in meters
-    string_length: float = 1.0,  # total length of the string in meters
+    lambdas: np.ndarray,
+    pluck_position: float = 0.28,
+    initial_deflection: float = 0.03,
+    string_length: float = 1.0,
 ) -> np.ndarray:
     """
     Create a pluck excitation for a string with a given length and pluck position.
@@ -98,7 +98,7 @@ def create_pluck_modal(
     Parameters
     ----------
     lambdas : np.ndarray
-        The eigenvalues of the Laplacian operator.
+        The eigenvalues.
     pluck_position : float
         The position of the pluck in meters.
     initial_deflection : float

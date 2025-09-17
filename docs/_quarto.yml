@@ -5,21 +5,6 @@ project:
 metadata-files:
   - api/_sidebar.yml
 
-# filters:
-#   - interlinks
-# filters:
-#     - marimo-team/marimo
-
-# interlinks:
-#   sources:
-#     numpy:
-#       url: https://numpy.org/doc/stable/
-#     python:
-#       url: https://docs.python.org/3/
-#     quartodoc-test:
-#       url: https://machow.github.io/quartodoc
-#       inv: objects-test.txt
-
 format:
   html:
     respect-user-color-scheme: true
@@ -64,17 +49,17 @@ website:
       contents:
         - file: examples/index.qmd
           text: Overview
-        - file: examples/linear.qmd
+        - file: examples/linear.ipynb
           text: Linear Example
-        - file: examples/nonlinear.qmd
+        - file: examples/nonlinear.ipynb
           text: Nonlinear Example
-        - file: examples/optimize_string.qmd
+        - file: examples/optimise_string.ipynb
           text: String Optimization
-        - file: examples/optimize_plate.qmd
+        - file: examples/optimise_plate.ipynb
           text: Plate Optimization
-        - file: examples/optimize_vkplate.qmd
+        - file: examples/optimise_vkplate.ipynb
           text: VK Plate Optimization
-        - file: examples/optimize_vkplate_H.qmd
+        - file: examples/optimise_vkplate_H.ipynb
           text: VK Plate H Optimization
 
 
@@ -105,9 +90,6 @@ quartodoc:
         - ftm.plate_wavenumbers
         - ftm.plate_eigenvalues
         - ftm.plate_eigenfunctions
-        - ftm.drumhead_wavenumbers
-        - ftm.drumhead_eigenvalues
-        - ftm.drumhead_eigenfunctions
         - ftm.forward_STL
         - ftm.inverse_STL
         - ftm.forward_STL_2d
@@ -156,12 +138,11 @@ quartodoc:
         - time_integrators.second_order_step
         - time_integrators.solve_sv_vk_jax_scan
         - time_integrators.solve_sv_excitation
-        - time_integrators.solve_sv_initial_conditions
+        - time_integrators.solve_sv_ic
         - time_integrators.solve_tf_excitation
-        - time_integrators.solve_tf_initial_conditions
+        - time_integrators.solve_tf_ic
         - time_integrators.solve_sinusoidal
         - time_integrators.solve_sinusoidal_excitation
-        - time_integrators.solve_tf_ic
 
     - title: Signal Processing Utilities
       desc: Utility functions for signal processing and analysis.

@@ -1,30 +1,22 @@
 import argparse
-import time
 
-import jax
-import jax.numpy as jnp
 import numpy as np
-import soundfile as sf
-from IPython.display import Audio
-from matplotlib import pyplot as plt
-from scipy.io import loadmat, savemat
+from scipy.io import savemat
 
-from vkplatejax.excitations import create_1d_raised_cosine
-from vkplatejax.ftm import (
+from jaxdiffmodal.excitations import create_1d_raised_cosine
+from jaxdiffmodal.ftm import (
     PlateParameters,
     damping_term_simple,
     stiffness_term,
 )
-from vkplatejax.num_utils import (
+from jaxdiffmodal.num_utils import (
     compute_coupling_matrix_numerical,
     multiresolution_eigendecomposition,
 )
-from vkplatejax.sv import (
+from jaxdiffmodal.time_integrators import (
     A_inv_vector,
     B_vector,
     C_vector,
-    make_vk_nl_fn,
-    solve_sv_vk_jax_scan,
 )
 
 
@@ -159,7 +151,7 @@ def generate_parameters(
 
     phi_reshaped = np.reshape(
         phi,
-        shape=(ny_final + 1, nx_final + 1, n_modes),
+        (ny_final + 1, nx_final + 1, n_modes),
         order="F",
     )
 

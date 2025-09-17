@@ -191,4 +191,5 @@ third_party/
 benchmark/cpp/benchmark_sequence
 docs/api
 docs/_extensions
-*.html
+*.html.
+.ruff_cache/

@@ -447,12 +447,7 @@ class TestRectangularHMatlabComparison:
             # Following the pattern from nonlinear.py example
             import jax.numpy as jnp
 
-            # H1 now has the correct 3D shape (Npsi, Nphi, Nphi) from compute_coupling_matrix
-            # Use the full H1 tensor (not a subset)
-
             # Scale H1 tensor (matching MATLAB exactly)
-            # MATLAB: e = (Lx*Ly/4)/rho*E; H1_scaled = H1(1, :, :) * sqrt(e/2);
-            # e = (Lx * Ly / 4) / plate_params.rho * plate_params.E  # MATLAB formula
             plate_norm = 0.25 * plate_params.l1 * plate_params.l2
             scale = (plate_params.E * plate_norm) / (2 * plate_params.rho)
             H1_scaled = H1 * jnp.sqrt(scale)  # Scale H1 tensor

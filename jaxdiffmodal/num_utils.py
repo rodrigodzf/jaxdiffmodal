@@ -629,7 +629,14 @@ def biharmonic_eigendecomposition(
     Tuple[np.ndarray, np.ndarray, np.ndarray]
         The eigenvalues, eigenvectors and norms of the eigenvectors.
     """
-    biharm = bhmat(bcs, [nx + 1, ny + 1], h, params.h, params.E, params.nu)
+    biharm, _ = bhmat(
+        bcs,
+        [nx + 1, ny + 1],  # type: ignore (should be fixed in bhmat)
+        h,
+        params.h,
+        params.E,
+        params.nu,
+    )
 
     [eigenvalues, eigenvectors] = eigs(biharm, k=n_modes, sigma=0, which="LR")
 
