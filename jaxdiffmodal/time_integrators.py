@@ -5,7 +5,7 @@ import einops
 import jax
 import jax.numpy as jnp
 from jaxtyping import Array, Float
-import numpy as np
+
 from jaxdiffmodal.ftm import PlateParameters, StringParameters
 
 
@@ -283,7 +283,9 @@ def solve_sv_one_step(
         n_steps = n_steps if n_steps is not None else xs.shape[0]
         # Create scan inputs for the external force
         # we need the (f_n, f_{n+1}) pairs for the scheme
-        scan_inputs = (xs[:-1], xs[1:])
+        # Pad xs with final value to ensure we process n_steps
+        xs_padded = jnp.concatenate([xs, xs[-1:]], axis=0)
+        scan_inputs = (xs_padded[:-1], xs_padded[1:])
     elif n_steps is None:
         raise ValueError("Either xs or n_steps must be provided")
 
