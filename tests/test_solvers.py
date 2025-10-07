@@ -560,7 +560,6 @@ plt.xlabel("Time")
 plt.ylabel("Displacement")
 plt.grid()
 plt.xlim(-0.001, 0.05)
-
 plt.subplot(2, 1, 2)
 plt.plot(
     time,

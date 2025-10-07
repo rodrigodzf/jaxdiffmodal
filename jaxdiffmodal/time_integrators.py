@@ -192,17 +192,23 @@ def rk4_step(
     dt: float,
     gamma2_mu: Float[Array, " N"],
     omega_mu_squared: Float[Array, " N"],
+    nl_fn: Callable[[Float[Array, " N"]], Float[Array, " N"]] | None = None,
+    excitation: Float[Array, " N"] | None = None,
 ) -> tuple[Float[Array, " N"], Float[Array, " N"]]:
     """
     One step of RK4 for the second-order damped oscillator.
     Returns: (u1, v1)
     """
     n_modes = u0.shape[0]
+    apply_nl = nl_fn if nl_fn is not None else lambda q: 0.0
+    exc = excitation if excitation is not None else 0.0
 
     def f(x):
         u = x[:n_modes]
         v = x[n_modes:]
-        return jnp.concatenate([v, -gamma2_mu * v - omega_mu_squared * u])
+        return jnp.concatenate(
+            [v, -gamma2_mu * v - omega_mu_squared * u - apply_nl(u) + exc]
+        )
 
     x = jnp.concatenate([u0, v0])
     k1 = f(x)
@@ -416,16 +422,17 @@ def solve_sv_one_step_staggered(
     elif n_steps is None:
         raise ValueError("Either xs or n_steps must be provided")
 
+    apply_nl = nl_fn if nl_fn is not None else lambda q: 0.0
+
     # Initial conditions for leapfrog scheme
-    a0 = -gamma2_mu * v0 - omega_mu_squared * u0  # Initial acceleration
-    v_half_prev = v0 - 0.5 * dt * a0  # Half-step velocity at t_{-1/2}
+    f0 = (xs[0] if xs is not None else 0.0) - omega_mu_squared * u0 - apply_nl(u0)
+    a0 = -gamma2_mu * v0 + f0
+    v_half_prev = v0 - 0.5 * dt * a0
 
     # Leapfrog coefficients
     damping_factor = 1.0 + gamma2_mu * dt / 2.0
     alpha = (1.0 - gamma2_mu * dt / 2.0) / damping_factor
     beta = dt / damping_factor
-
-    apply_nl = nl_fn if nl_fn is not None else lambda q: 0.0
 
     def advance_state(
         state: tuple[Float[Array, " N"], Float[Array, " N"]],
@@ -556,16 +563,18 @@ def solve_sv_two_step(
 
     # Initialize first two states - note: q0 is at t=0, q1 should include first excitation
     q0 = u0
-    if xs is not None:
-        # For excitation case, compute q1 including the first excitation step
-        first_excitation = xs[0] * b1
-    else:
-        first_excitation = jnp.zeros(n_modes)
+    first_excitation = xs[0] if xs is not None else None
 
-    # Compute q1 using RK4 but include first excitation
-    q1_no_exc, v1 = rk4_step(u0, v0, dt, gamma2_mu, omega_mu_squared)
-    # Add first excitation contribution
-    q1 = q1_no_exc + first_excitation
+    # Compute q1 using RK4 with nonlinearity and excitation
+    q1, v1 = rk4_step(
+        u0,
+        v0,
+        dt,
+        gamma2_mu,
+        omega_mu_squared,
+        nl_fn=nl_fn,
+        excitation=first_excitation,
+    )
 
     def advance_state(
         state: tuple[Float[Array, " N"], Float[Array, " N"], Float[Array, " N"]],
@@ -681,13 +690,17 @@ def solve_tf(
 
     # Initialize first two states
     q0 = u0
-    if xs is not None:
-        first_excitation = xs[0] * b1
-    else:
-        first_excitation = jnp.zeros(n_modes)
+    first_excitation = xs[0] if xs is not None else None
 
-    q1_no_exc, v1 = rk4_step(u0, v0, dt, gamma2_mu, omega_mu_squared)
-    q1 = q1_no_exc + first_excitation
+    q1, v1 = rk4_step(
+        u0,
+        v0,
+        dt,
+        gamma2_mu,
+        omega_mu_squared,
+        nl_fn=nl_fn,
+        excitation=first_excitation,
+    )
 
     def advance_state(
         state: tuple[Float[Array, " N"], Float[Array, " N"], Float[Array, " N"]],
