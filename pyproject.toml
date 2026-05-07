@@ -4,37 +4,23 @@ version = "0.1.0"
 description = "A collection of vibration models (e.g. von Kármán plates, tension-modulated and stiff strings) implemented in JAX for fast, differentiable simulations"
 readme = "README.md"
 requires-python=">=3.11"
-authors = [
-    {name = "Rodrigo Diaz", email = "rodrigodzf@gmail.com"},
-]
-license = {text = "GPL-3.0"}
-keywords = ["JAX", "differentiable", "physics", "simulation", "vibration", "acoustics", "musical instruments"]
-classifiers = [
-    "Development Status :: 3 - Alpha",
-    "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Topic :: Scientific/Engineering :: Physics",
-]
-urls = {homepage = "https://github.com/rodrigodzf/jaxdiffmodal"}
 dependencies = [
     "jax>=0.7.0; sys_platform != 'linux'",
     "jax[cuda12]>=0.7.0; sys_platform == 'linux'",
     "einops>=0.8.0",
     "nemus-magpie",
-    "numpy==2.1.0",
+    "numpy>=2.2.0",
     "scipy>=1.15.1",
     "tabulate>=0.9.0",
     "equinox>=0.11.12",
     "jaxtyping>=0.3.2",
+    "ipykernel>=7.2.0",
 ]
 
 [project.optional-dependencies]
 cuda = [
     "cuquantum-python-cu12>=24.11.0; sys_platform == 'linux'",
-    "cupy-cuda12x>=13.3.0",
+    "cupy-cuda12x>=13.3.0; sys_platform == 'linux'",
 ]
 dev = [
     "soundfile>=0.13.1",
