@@ -24,4 +24,4 @@ jobs:
         run: sudo apt-get install libportaudio2
 
       - name: Run tests
-        run: uv run poe test
+        run: uv run pytest tests/ -v

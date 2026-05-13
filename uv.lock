@@ -1050,7 +1050,6 @@ dev = [
     { name = "matplotlib" },
     { name = "nbclient" },
     { name = "nbformat" },
-    { name = "poethepoet" },
     { name = "pytest" },
     { name = "quartodoc" },
     { name = "ruff" },
@@ -1078,11 +1077,10 @@ requires-dist = [
     { name = "matplotlib", marker = "extra == 'dev'", specifier = ">=3.10.0" },
     { name = "nbclient", marker = "extra == 'dev'", specifier = ">=0.10.2" },
     { name = "nbformat", marker = "extra == 'dev'", specifier = ">=5.10.4" },
-    { name = "nemus-magpie", git = "https://github.com/Nemus-Project/magpie-python" },
+    { name = "nemus-magpie", git = "https://github.com/Nemus-Project/magpie-python?rev=9779bbd9f461de55c196ca7080c12ea6a6056407" },
     { name = "numba", marker = "extra == 'benchmark'", specifier = ">=0.57" },
     { name = "numpy", specifier = ">=2.2.0" },
     { name = "pandas", marker = "extra == 'benchmark'", specifier = ">=2.2.3" },
-    { name = "poethepoet", marker = "extra == 'dev'", specifier = ">=0.32.1" },
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.4.1" },
     { name = "quartodoc", marker = "extra == 'dev'", specifier = ">=0.11.1" },
     { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.9.2" },
@@ -1800,7 +1798,7 @@ wheels = [
 [[package]]
 name = "nemus-magpie"
 version = "0.0.5"
-source = { git = "https://github.com/Nemus-Project/magpie-python#9779bbd9f461de55c196ca7080c12ea6a6056407" }
+source = { git = "https://github.com/Nemus-Project/magpie-python?rev=9779bbd9f461de55c196ca7080c12ea6a6056407#9779bbd9f461de55c196ca7080c12ea6a6056407" }
 dependencies = [
     { name = "matplotlib" },
     { name = "numpy" },
@@ -2384,15 +2382,6 @@ wheels = [
 ]
 
 [[package]]
-name = "pastel"
-version = "0.2.1"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/76/f1/4594f5e0fcddb6953e5b8fe00da8c317b8b41b547e2b3ae2da7512943c62/pastel-0.2.1.tar.gz", hash = "sha256:e6581ac04e973cac858828c6202c1e1e81fee1dc7de7683f3e1ffe0bfd8a573d", size = 7555, upload-time = "2020-09-16T19:21:12.43Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/aa/18/a8444036c6dd65ba3624c63b734d3ba95ba63ace513078e1580590075d21/pastel-0.2.1-py2.py3-none-any.whl", hash = "sha256:4349225fcdf6c2bb34d483e523475de5bb04a5c10ef711263452cb37d7dd4364", size = 5955, upload-time = "2020-09-16T19:21:11.409Z" },
-]
-
-[[package]]
 name = "pathspec"
 version = "1.1.1"
 source = { registry = "https://pypi.org/simple" }
@@ -2539,19 +2528,6 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/fc/29/7b3de57cd86430fd00d71bc5a8a078bf2c63d4ada7fdfb30853fe976a19f/plum_dispatch-2.9.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:36662d76ae6d87aaa041fade036d2242f0b88b68c9fb4c96b7ba0026320065d3", size = 204734, upload-time = "2026-04-28T08:38:30.398Z" },
     { url = "https://files.pythonhosted.org/packages/ba/98/23d19326af0da251bb98a39f517ab6da983e5aad5eb9cc398b60933df2cc/plum_dispatch-2.9.0-cp313-cp313-win_amd64.whl", hash = "sha256:a0d16daf09482a6588025e9f133a338d99474e8dd3c3dbbc4c5282a4fffe5a0e", size = 152624, upload-time = "2026-04-28T08:38:31.886Z" },
     { url = "https://files.pythonhosted.org/packages/64/a7/ee4d01d26032b060d379f44a29124180f756d907e3840d3bc450f8a0d2a7/plum_dispatch-2.9.0-py3-none-any.whl", hash = "sha256:5a516cdac5460343937a2b813562ac00b0eeac973ac023916e538610bdf34397", size = 45328, upload-time = "2026-04-28T08:38:33.022Z" },
-]
-
-[[package]]
-name = "poethepoet"
-version = "0.45.0"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "pastel" },
-    { name = "pyyaml" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/1d/28/d54e16913f591f01b2e1c4ab526ccbba47864d9bf10299904c823a760d25/poethepoet-0.45.0.tar.gz", hash = "sha256:cf2c2df4c185d33b619c2771de2b28c2b81c733f072226030c7fa4c273c040f8", size = 97150, upload-time = "2026-04-28T21:04:59.301Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/e9/99/4aefb693b0f52783fab496492f4444a75137312c386eb7c3320f1b0a1602/poethepoet-0.45.0-py3-none-any.whl", hash = "sha256:8e25f6e834ecf25fe2ddca676a4e0207eeb2e19def0a8709fc5c7f18e86cd68c", size = 123920, upload-time = "2026-04-28T21:04:57.66Z" },
 ]
 
 [[package]]

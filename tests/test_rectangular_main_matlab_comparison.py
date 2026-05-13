@@ -34,7 +34,7 @@ from jaxdiffmodal.time_integrators import (
     B_vector,
     C_vector,
     make_vk_nl_fn,
-    solve_sv_excitation,
+    solve_sv_two_step,
 )
 
 jax.config.update("jax_enable_x64", True)  # Enable 64-bit precision for stability
@@ -431,8 +431,8 @@ class TestRectangularHMatlabComparison:
         else:
             print("⚠️  Some time integrator coefficients differ from MATLAB")
 
-        # 6. Time integration using solve_sv_excitation
-        # Convert f_time to the format expected by solve_sv_excitation
+        # 6. Time integration using solve_sv_two_step
+        # Convert f_time to the format expected by solve_sv_two_step
         # f_time is (Nphi, time_steps), we need (time_steps, Nphi)
         excitation = f_time.T
 
@@ -482,10 +482,10 @@ class TestRectangularHMatlabComparison:
             nl_fn = make_vk_nl_fn(jnp.array(H1_scaled))
 
             # Run time integration
-            state, solution = solve_sv_excitation(
+            state, solution, _ = solve_sv_two_step(
                 gamma2_mu=gamma_mu_2,
                 omega_mu_squared=omega_mu_squared,
-                modal_excitation=excitation,
+                xs=excitation,
                 dt=dt,
                 nl_fn=nl_fn,
             )

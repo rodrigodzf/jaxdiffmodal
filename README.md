@@ -15,15 +15,21 @@ Fast, differentiable, and GPU-accelerated simulation framework for modelling the
 - Designed for real-time synthesis, inverse modelling, and dataset generation
 - Includes example notebooks to reproduce results from the paper
 
-## Installation for Development
+## Installation
 
 It is recommended to use the [`uv`](https://github.com/astral-sh/uv) package manager to install the environment and dependencies.
+
+```bash
+uv sync
+```
+
+Or if you want to install the development dependencies:
 
 ```bash
 uv sync --extra dev --extra benchmark
 ```
 
-Otherwise you can create a virtual environment and install the dependencies manually:
+Or using Python's native virtual environment:
 
 ```bash
 python3 -m venv .venv
@@ -58,11 +64,12 @@ python -m pytest tests/test_imat_matlab_comparison.py -v
 
 ### Generating MATLAB Reference Data
 
-To regenerate MATLAB reference data (requires MATLAB installation):
+To regenerate MATLAB reference data (requires MATLAB installation and the `VKGong` submodule):
 ```bash
+git submodule update --init
 cd tests
 matlab -batch test_K_M_matlab_reference
-matlab -batch test_intx_matlab_reference_fixed
+matlab -batch test_intx_matlab_reference
 matlab -batch test_imat_matlab_reference
 ```
 
@@ -75,7 +82,7 @@ matlab -batch test_imat_matlab_reference
 
 ## Examples
 
-The `nbs/examples` directory includes:
+The `docs/examples` directory includes:
 
 - Synthetic and real-world inverse modelling experiments for strings and plates
 - Optimisation of nonlinear parameters and coupling tensors

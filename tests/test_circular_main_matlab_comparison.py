@@ -27,7 +27,7 @@ from jaxdiffmodal.time_integrators import (
     B_vector,
     C_vector,
     make_vk_nl_fn,
-    solve_sv_excitation,
+    solve_sv_two_step,
 )
 
 jax.config.update("jax_enable_x64", True)  # Enable 64-bit precision for stability
@@ -270,10 +270,10 @@ class TestCircularPipelineWorkflow:
 
         # 4. RUN TIME INTEGRATION
         print("\nRunning time integration...")
-        _, solution = solve_sv_excitation(
+        _, solution, _ = solve_sv_two_step(
             gamma2_mu=jnp.array(gamma_mu*2),
             omega_mu_squared=jnp.array(omega_mu_squared),
-            modal_excitation=jnp.array(python_f_time),
+            xs=jnp.array(python_f_time),
             dt=dt,
             nl_fn=nl_fn,
         )
